@@ -10,7 +10,7 @@ import SpecularButton from "../ui/SpecularButton";
 const topLinks = [{ label: "Home", path: "/" }, ...navLinks];
 
 function linkClass(isActive) {
-  return `rounded-full px-3.5 py-2 text-[15px] font-semibold tracking-[-0.01em] transition xl:px-4 xl:text-[16px] ${
+  return `whitespace-nowrap rounded-full px-2.5 py-2 text-[14px] font-semibold tracking-[-0.01em] transition xl:px-3.5 xl:text-[15px] ${
     isActive
       ? "bg-mehr-deep text-white shadow-soft"
       : "text-mehr-ink/80 hover:bg-mehr-teal-soft hover:text-mehr-deep"
@@ -147,10 +147,10 @@ export default function Navbar() {
         }`}
       >
         <div className="page-gutter relative mx-auto flex h-[var(--header-height)] w-full max-w-[1680px] items-center justify-between gap-3 sm:px-3 md:px-4 lg:gap-4 lg:px-5">
-          <Logo size="nav" className="relative z-50 shrink-0" />
+          <Logo size="nav" className="relative z-50 shrink-0 overflow-visible" />
 
           <nav
-            className="absolute left-1/2 top-1/2 z-40 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 lg:flex xl:gap-1.5"
+            className="absolute left-1/2 top-1/2 z-40 hidden max-w-[min(100%,calc(100%-18rem))] -translate-x-1/2 -translate-y-1/2 flex-nowrap items-center gap-0.5 lg:flex xl:gap-1"
             aria-label="Primary"
           >
             {topLinks.map((link) => {
