@@ -1,0 +1,311 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+ --mehr-ink: #111111;
+ --mehr-deep: #0b5f58;
+ --mehr-charcoal: #0a3d38;
+ --mehr-panel: #eef8f5;
+ --mehr-mist: #5a6e6a;
+ --mehr-muted: #879994;
+ --mehr-fog: #ffffff;
+ --mehr-accent: #14c4ad;
+ --mehr-teal: #14c4ad;
+ --mehr-teal-soft: #e4f6f2;
+ --header-height: 4.25rem;
+ --page-gutter: 1rem;
+}
+
+@media (min-width: 640px) {
+ :root {
+ --header-height: 4.75rem;
+ --page-gutter: 0.75rem;
+ }
+}
+
+@media (min-width: 768px) {
+ :root {
+ --header-height: 5rem;
+ --page-gutter: 1rem;
+ }
+}
+
+@media (min-width: 1024px) {
+ :root {
+ --page-gutter: 1.25rem;
+ }
+}
+
+html {
+ overflow-x: hidden;
+ background-color: var(--mehr-fog);
+ scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+ height: auto;
+}
+
+.lenis.lenis-smooth {
+ scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+ overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+ overflow: hidden;
+}
+
+body {
+ margin: 0;
+ font-family: "Figtree", system-ui, sans-serif;
+ color: var(--mehr-ink);
+ background-color: var(--mehr-fog);
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ -webkit-tap-highlight-color: transparent;
+ overflow-x: hidden;
+ padding-left: env(safe-area-inset-left);
+ padding-right: env(safe-area-inset-right);
+}
+
+img,
+video {
+ max-width: 100%;
+}
+
+::selection {
+ background: rgba(20, 196, 173, 0.18);
+ color: var(--mehr-ink);
+}
+
+.font-display {
+ font-family: "Figtree", system-ui, sans-serif;
+ font-weight: 600;
+}
+
+.section-pad {
+ @apply px-4 py-8 sm:px-3 sm:py-12 md:px-4 lg:px-5 lg:py-16;
+}
+
+/* Section hierarchy without borders: alternating tone + soft atmosphere */
+.surface-white {
+ @apply relative overflow-hidden bg-white;
+}
+
+.surface-panel {
+ @apply relative overflow-hidden bg-mehr-panel;
+}
+
+.surface-soft {
+ @apply relative overflow-hidden bg-mehr-teal-soft;
+}
+
+.surface-ink {
+ @apply relative overflow-hidden bg-mehr-ink text-white;
+}
+
+.surface-wash::before {
+ content: "";
+ pointer-events: none;
+ position: absolute;
+ inset: 0;
+ z-index: 0;
+ background:
+  radial-gradient(ellipse 70% 55% at 12% 18%, rgba(20, 196, 173, 0.12), transparent 55%),
+  radial-gradient(ellipse 55% 45% at 92% 78%, rgba(11, 95, 88, 0.08), transparent 50%);
+}
+
+.container-mehr {
+ @apply mx-auto w-full min-w-0 max-w-[1680px];
+}
+
+.page-gutter {
+ padding-left: max(var(--page-gutter), env(safe-area-inset-left));
+ padding-right: max(var(--page-gutter), env(safe-area-inset-right));
+}
+
+.chip-scroll {
+ @apply -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0;
+ -ms-overflow-style: none;
+ scrollbar-width: none;
+}
+
+.chip-scroll::-webkit-scrollbar {
+ display: none;
+}
+
+/* Trusted-by ribbon, seamless left → right scroll */
+.trusted-ribbon {
+ overflow: hidden;
+}
+
+.trusted-marquee {
+ animation: trusted-marquee-ltr 70s linear infinite;
+ will-change: transform;
+}
+
+.trusted-ribbon:hover .trusted-marquee {
+ animation-play-state: paused;
+}
+
+@keyframes trusted-marquee-ltr {
+ from {
+ transform: translate3d(-50%, 0, 0);
+ }
+ to {
+ transform: translate3d(0, 0, 0);
+ }
+}
+
+@keyframes process-globe-float {
+ 0%,
+ 100% {
+ transform: translate3d(0, 0, 0);
+ }
+ 50% {
+ transform: translate3d(0, -7px, 0);
+ }
+}
+
+.process-globe-float {
+ animation: process-globe-float 5.5s ease-in-out infinite;
+ will-change: transform;
+}
+
+.process-globe-orbit {
+ animation: process-globe-orbit 40s linear infinite;
+}
+
+@keyframes process-globe-orbit {
+ to {
+ stroke-dashoffset: -220;
+ }
+}
+
+@keyframes service-feed-marquee {
+ from {
+ transform: translate3d(0, 0, 0);
+ }
+ to {
+ transform: translate3d(0, -50%, 0);
+ }
+}
+
+.service-feed-marquee {
+ animation: service-feed-marquee 14s linear infinite;
+ will-change: transform;
+}
+
+.service-feed-marquee.is-fast {
+ animation-duration: 8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+ .trusted-marquee {
+ animation: none;
+ transform: none;
+ }
+
+ .process-globe-float,
+ .process-globe-orbit,
+ .service-feed-marquee {
+ animation: none;
+ }
+}
+
+.eyebrow {
+ @apply font-sans text-[11px] font-semibold uppercase tracking-[0.14em] text-mehr-deep/70;
+}
+
+.title-hero {
+ @apply font-sans text-[clamp(1.65rem,5.5vw,3.35rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-mehr-ink;
+}
+
+.title-section {
+ @apply font-sans text-[clamp(1.45rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.025em] text-mehr-ink;
+}
+
+.body-text {
+ @apply text-[14px] font-normal leading-relaxed text-mehr-mist sm:text-[15px] md:text-base;
+}
+
+.btn-primary {
+ @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-mehr-deep px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-mehr-teal-dark;
+}
+
+.btn-primary:active {
+ @apply scale-[0.98];
+}
+
+.btn-secondary {
+ @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-mehr-ink shadow-soft transition-all duration-300 hover:shadow-card;
+}
+
+.btn-secondary:active {
+ @apply scale-[0.98];
+}
+
+.btn-coral {
+ @apply inline-flex items-center justify-center gap-2 rounded-full bg-mehr-deep px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-mehr-teal-dark;
+}
+
+.panel-surface {
+ @apply bg-mehr-panel;
+}
+
+.grain {
+ position: absolute;
+ inset: 0;
+ pointer-events: none;
+ opacity: 0.02;
+ background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.shape-ring {
+ border: 1.5px solid rgba(11, 95, 88, 0.18);
+ border-radius: 9999px;
+}
+
+.shape-blob {
+ border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%;
+}
+
+.input-field {
+ @apply w-full rounded-2xl border border-mehr-deep/15 bg-white px-4 py-3.5 text-sm text-mehr-ink outline-none transition-all duration-300 placeholder:text-mehr-muted focus:border-mehr-deep/40 focus:ring-2 focus:ring-mehr-deep/15;
+}
+
+.textarea-field {
+ @apply input-field min-h-[140px] resize-y;
+}
+
+::-webkit-scrollbar {
+ width: 6px;
+}
+
+::-webkit-scrollbar-track {
+ background: #eef8f5;
+}
+
+::-webkit-scrollbar-thumb {
+ background: rgba(11, 95, 88, 0.35);
+ border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+ background: rgba(11, 95, 88, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+ *,
+ *::before,
+ *::after {
+ animation-duration: 0.01ms !important;
+ animation-iteration-count: 1 !important;
+ transition-duration: 0.01ms !important;
+ }
+}

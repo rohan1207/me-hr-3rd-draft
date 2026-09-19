@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none" role="img" aria-label="Northline">
+  <circle cx="24" cy="24" r="12" stroke="#1f2937" stroke-width="2.5"/>
+  <path d="M24 14v20M14 24h20" stroke="#1f2937" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="46" y="31" fill="#1f2937" font-family="Figtree, system-ui, sans-serif" font-size="15" font-weight="650" letter-spacing="-0.02em">Northline</text>
+</svg>
