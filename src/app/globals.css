@@ -38,7 +38,8 @@
 }
 
 html {
- overflow-x: hidden;
+ /* clip, not hidden: hidden makes this a scroll container and kills position: sticky */
+ overflow-x: clip;
  background-color: var(--mehr-fog);
  scroll-behavior: auto;
 }
@@ -60,6 +61,17 @@ html.lenis body {
  overflow: hidden;
 }
 
+/* Phone / tablet lock — no scroll behind the MobileGate overlay */
+@media (max-width: 1023px) {
+ html,
+ body {
+  overflow: hidden !important;
+  height: 100%;
+  overscroll-behavior: none;
+  touch-action: none;
+ }
+}
+
 body {
  margin: 0;
  font-family: "Figtree", system-ui, sans-serif;
@@ -68,7 +80,7 @@ body {
  -webkit-font-smoothing: antialiased;
  -moz-osx-font-smoothing: grayscale;
  -webkit-tap-highlight-color: transparent;
- overflow-x: hidden;
+ overflow-x: clip;
  padding-left: env(safe-area-inset-left);
  padding-right: env(safe-area-inset-right);
 }

@@ -1,0 +1,46 @@
+.scroll-stack {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-stack__pin {
+  position: sticky;
+  top: var(--ss-pin-top, 0px);
+  height: var(--ss-stage-height, auto);
+}
+
+.scroll-stack__stage {
+  position: relative;
+  width: 100%;
+  height: var(--ss-stage-height, auto);
+}
+
+.scroll-stack-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+}
+
+/* Below the breakpoint (or with reduced motion) the cards read as a plain list. */
+.scroll-stack[data-static="true"] .scroll-stack__pin,
+.scroll-stack[data-static="true"] .scroll-stack__stage {
+  position: static;
+  height: auto;
+}
+
+.scroll-stack[data-static="true"] .scroll-stack__stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.scroll-stack[data-static="true"] .scroll-stack-card {
+  position: relative;
+  transform: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}

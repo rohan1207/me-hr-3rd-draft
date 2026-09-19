@@ -28,60 +28,62 @@ export default function HomeValueBand() {
 
   return (
     <>
-      {/* About â€” single composition */}
+      {/* About — copy left, single arc image bleeding off the top-right corner */}
       <section className="section-pad surface-white surface-wash">
         <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-          <Reveal className="relative overflow-hidden rounded-[1.75rem] bg-mehr-panel px-6 py-8 sm:rounded-[2rem] sm:px-8 sm:py-10 lg:px-12 lg:py-12">
-            <div
+          <Reveal className="relative overflow-hidden rounded-[1.75rem] bg-mehr-panel px-6 pb-8 pt-[10.5rem] sm:rounded-[2rem] sm:px-8 sm:pb-10 sm:pt-[12rem] md:pt-10 lg:px-12 lg:py-14">
+            {/* Single circle, cropped by the panel edges into a clean arc */}
+            <motion.div
               aria-hidden
-              className="pointer-events-none absolute right-4 top-4 sm:right-6 sm:top-6"
+              initial={reduce ? false : { opacity: 0, scale: 0.94 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease }}
+              className="pointer-events-none absolute -right-20 -top-24 h-[20rem] w-[20rem] sm:-right-16 sm:-top-28 sm:h-[24rem] sm:w-[24rem] md:-right-24 md:-top-28 md:h-[26rem] md:w-[26rem] lg:-right-20 lg:-top-32 lg:h-[32rem] lg:w-[32rem]"
             >
-              <img
-                src="/logo1.png"
-                alt=""
-                className="h-12 w-auto max-w-[11rem] object-contain object-right opacity-[0.5] sm:h-14 sm:max-w-[13rem] lg:h-16 lg:max-w-[15rem]"
-              />
-            </div>
-
-            <div className="relative z-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-12">
-              <div>
-                <p className="eyebrow">{about.eyebrow}</p>
-                <h2 className="mt-3 max-w-[16ch] font-sans text-[clamp(1.85rem,3.4vw,2.85rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-mehr-ink">
-                  {about.title}
-                </h2>
-                <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-mehr-mist sm:text-[15px]">
-                  {lead}
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <SpecularButton to="/about" variant="brand" size="md">
-                    {about.cta}
-                    <ArrowUpRight size={15} />
-                  </SpecularButton>
-                  <SpecularButton to="/services" variant="light" size="md">
-                    {ctas.exploreServices}
-                    <ArrowUpRight size={15} />
-                  </SpecularButton>
-                </div>
+              <div className="absolute inset-0 overflow-hidden rounded-full">
+                <img
+                  src="/about/about-preview-circle.png"
+                  alt=""
+                  className="h-full w-full object-cover object-[42%_58%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-bl from-mehr-deep/10 via-transparent to-mehr-panel/45" />
               </div>
+              <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/45" />
+            </motion.div>
 
-              <motion.div
-                initial={reduce ? false : { opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease }}
-                className="rounded-[1.35rem] border border-mehr-deep/8 bg-white/85 p-5 sm:rounded-[1.5rem] sm:p-6"
-              >
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-mehr-deep">
+            <div className="relative z-10 max-w-xl md:max-w-[58%] lg:max-w-[52%]">
+              <p className="eyebrow">{about.eyebrow}</p>
+              <h2 className="mt-3 max-w-[16ch] font-sans text-[clamp(1.85rem,3.4vw,2.85rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-mehr-ink">
+                {about.title}
+              </h2>
+              <p className="mt-4 text-[14px] leading-relaxed text-mehr-mist sm:text-[15px]">
+                {lead}
+              </p>
+
+              <div className="mt-7 border-l-2 border-mehr-deep/25 pl-4 sm:pl-5">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-mehr-deep">
                   {philosophy.eyebrow}
                 </p>
-                <p className="mt-2 font-sans text-lg font-semibold tracking-tight text-mehr-ink sm:text-xl">
+                <p className="mt-1.5 font-sans text-[17px] font-semibold tracking-tight text-mehr-ink sm:text-[19px]">
                   {philosophy.title}
                 </p>
-                <p className="mt-2 text-[13px] leading-relaxed text-mehr-mist sm:text-[14px]">
+                <p className="mt-1.5 text-[13px] leading-relaxed text-mehr-mist sm:text-[14px]">
                   We understand your organisation first, then recommend the right
                   service model for where you are today.
                 </p>
-              </motion.div>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <SpecularButton to="/about" variant="brand" size="md">
+                  {about.cta}
+                  <ArrowUpRight size={15} />
+                </SpecularButton>
+                <SpecularButton to="/services" variant="light" size="md">
+                  {ctas.exploreServices}
+                  <ArrowUpRight size={15} />
+                </SpecularButton>
+              </div>
             </div>
           </Reveal>
         </div>

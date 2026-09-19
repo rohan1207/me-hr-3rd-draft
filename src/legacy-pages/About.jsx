@@ -13,6 +13,7 @@ import AboutTeam from "../components/sections/about/AboutTeam";
 import AboutJourney from "../components/sections/about/AboutJourney";
 import AboutWhy from "../components/sections/about/AboutWhy";
 import AboutModels from "../components/sections/about/AboutModels";
+import AboutTestimonials from "../components/sections/about/AboutTestimonials";
 
 export default function About() {
  return (
@@ -28,6 +29,7 @@ export default function About() {
  <AboutTeam />
  <AboutWhy />
  <AboutModels />
+ <AboutTestimonials />
  <CTABanner
  eyebrow="Ready to partner"
  title="Let's build HR that grows with your business."

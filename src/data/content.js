@@ -1,4 +1,4 @@
-﻿export const siteName = "me-HR";
+export const siteName = "me-HR";
 
 export const contactInfo = {
  address:
@@ -256,6 +256,33 @@ export const homeContent = {
  eyebrow: "Business impact",
  title: "Real HR Challenges. Practical Solutions. Measurable Business Impact.",
  body: "Explore how me-HR identifies people and process gaps, implements practical HR interventions and strengthens business outcomes.",
+ },
+ impactStrip: {
+ title: "The numbers walk the talk",
+ items: [
+ { value: 8, suffix: "+", label: "Years of HR partnership", tone: "deep" },
+ { value: 10, suffix: "+", label: "Brands that trust us", tone: "teal" },
+ { value: 4, suffix: "", label: "Flexible engagement models", tone: "charcoal" },
+ { value: 8, suffix: "", label: "HR capability areas", tone: "slate" },
+ ],
+ },
+ marqueeStrip: {
+ ariaLabel: "me-HR ways of working",
+ separator: "✦",
+ items: [
+ "On-Demand HR when you need it",
+ "Resident HR that stays embedded",
+ "Strategic consulting with senior oversight",
+ "me-HR Pagar for payroll & compliance",
+ "Understand first. Recommend second",
+ "Structured processes that scale with you",
+ "People practices aligned to business goals",
+ "Flexible support for growing organisations",
+ "From hiring through engagement to exit",
+ "Practical HR. Clear accountability",
+ "Built in Pune. Working alongside leadership",
+ "Continuous review as you grow",
+ ],
  },
  whySection: {
  eyebrow: "Why me-HR",
@@ -604,6 +631,93 @@ export const aboutContent = {
  eyebrow: "How we engage",
  title: "Choose the support model that fits.",
  body: "We recommend the right HR service model after understanding your organisation, then deliver with clarity and continuity.",
+ },
+ testimonials: {
+ eyebrow: "Client voices",
+ title: "What leadership teams tell us.",
+ body: "Honest feedback from founders, CHROs and plant leaders we've partnered with across Pune and India.",
+ items: [
+ {
+ id: "t1",
+ tag: "Resident HR · Manufacturing",
+ headline: "Finally, HR that sits with the business.",
+ quote:
+ "me-HR embedded with our plant leadership and cleaned up policies, attendance and reviews without turning it into a paperwork factory. Practical, steady and commercially aware.",
+ name: "Ananya Deshmukh",
+ role: "Plant HR Head",
+ place: "Pune",
+ },
+ {
+ id: "t2",
+ tag: "On-Demand HR · SaaS",
+ headline: "Bandwidth when we needed it most.",
+ quote:
+ "During a hiring surge we booked On-Demand HR for interviews and joining formalities. No long retainership — just skilled support for the window we had. Exactly what a growing team needed.",
+ name: "Rohan Mehta",
+ role: "Co-founder",
+ place: "Bengaluru",
+ },
+ {
+ id: "t3",
+ tag: "Strategic Consulting · FMCG",
+ headline: "Performance reviews that managers actually use.",
+ quote:
+ "Their audit showed where our KRAs were vague. Within a quarter we had a review rhythm leadership trusts. Senior oversight without the consulting theatre.",
+ name: "Priya Nair",
+ role: "CHRO",
+ place: "Mumbai",
+ },
+ {
+ id: "t4",
+ tag: "me-HR Pagar · Mid-market",
+ headline: "Payroll stopped being a monthly fire drill.",
+ quote:
+ "PF, ESIC and payslips used to eat our weekends. me-HR Pagar brought structure, checks and clear ownership. Finance and HR finally speak the same language.",
+ name: "Vikram Shah",
+ role: "Finance Director",
+ place: "Ahmedabad",
+ },
+ {
+ id: "t5",
+ tag: "Resident HR · Multi-site OEM",
+ headline: "Seven plants. One operating rhythm.",
+ quote:
+ "We were running HR differently at every location. me-HR helped us standardise processes and communication without killing local ownership. Engagement and clarity both improved.",
+ name: "Sneha Kulkarni",
+ role: "Head of People",
+ place: "Pune",
+ },
+ {
+ id: "t6",
+ tag: "On-Demand HR · Family business",
+ headline: "Structure without losing our culture.",
+ quote:
+ "As a family-run firm we needed HR discipline, not a corporate transplant. They understood first, then recommended the right model. Policies stuck because people understood why.",
+ name: "Amit Patil",
+ role: "Managing Director",
+ place: "Nashik",
+ },
+ {
+ id: "t7",
+ tag: "Strategic Consulting · Design",
+ headline: "Remote teams, clearer connection.",
+ quote:
+ "Dispersed designers were drifting. me-HR mapped culture gaps, set communication rhythms and brought managers into the loop. Retention and collaboration both moved.",
+ name: "Ishita Banerjee",
+ role: "Founder",
+ place: "Hyderabad",
+ },
+ {
+ id: "t8",
+ tag: "Resident HR · Automation",
+ headline: "Punctuality and brand, together.",
+ quote:
+ "Attendance was hurting delivery and our employer brand. Their campaigns, manager coaching and monitoring changed the floor culture — and candidates notice the difference.",
+ name: "Karthik Iyer",
+ role: "Operations Director",
+ place: "Pune",
+ },
+ ],
  },
 };
 

@@ -1,0 +1,165 @@
+.bending-marquee {
+  position: relative;
+  isolation: isolate;
+  margin: -1.25rem 0;
+  padding: 1.75rem 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Soft fades so the strip blends into the sections above / below */
+.bending-marquee__blend {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2.5rem;
+  z-index: 2;
+}
+
+.bending-marquee__blend--top {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(238, 248, 245, 0.95), transparent);
+}
+
+.bending-marquee__blend--bottom {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
+}
+
+.bending-marquee__band {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: clamp(4.25rem, 9vw, 5.75rem);
+  background: #0b5f58;
+  color: #e4f6f2;
+  /* Concave bend — pinched in the middle, fuller at the edges */
+  clip-path: polygon(
+    0% 0%,
+    12% 6%,
+    28% 14%,
+    50% 20%,
+    72% 14%,
+    88% 6%,
+    100% 0%,
+    100% 100%,
+    88% 94%,
+    72% 86%,
+    50% 80%,
+    28% 86%,
+    12% 94%,
+    0% 100%
+  );
+  box-shadow: 0 18px 40px rgba(11, 95, 88, 0.18);
+}
+
+.bending-marquee__scroller {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  will-change: transform;
+  animation: bending-marquee-scroll 48s linear infinite;
+}
+
+.bending-marquee__scroller.is-static {
+  animation: none;
+  width: 100%;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bending-marquee__scroller.is-static .bending-marquee__track:last-child {
+  display: none;
+}
+
+.bending-marquee:hover .bending-marquee__scroller:not(.is-static) {
+  animation-play-state: paused;
+}
+
+.bending-marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0;
+  padding-inline: 0.25rem;
+}
+
+.bending-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding-inline: 1.15rem;
+  white-space: nowrap;
+}
+
+.bending-marquee__phrase {
+  font-family: "Figtree", system-ui, sans-serif;
+  font-size: clamp(0.95rem, 1.7vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #f4fffc;
+}
+
+.bending-marquee__sep {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: #14c4ad;
+  opacity: 0.9;
+  transform-origin: center;
+  animation: bending-marquee-sway 3.6s ease-in-out infinite;
+}
+
+.bending-marquee__item:nth-child(odd) .bending-marquee__sep {
+  animation-delay: -1.2s;
+}
+
+.bending-marquee__item:nth-child(3n) .bending-marquee__sep {
+  animation-delay: -2.4s;
+}
+
+@keyframes bending-marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes bending-marquee-sway {
+  0%,
+  100% {
+    transform: rotate(-10deg) scale(1);
+  }
+  50% {
+    transform: rotate(10deg) scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bending-marquee__scroller {
+    animation: none;
+  }
+
+  .bending-marquee__sep {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .bending-marquee {
+    margin: -0.75rem 0;
+    padding: 1.25rem 0;
+  }
+
+  .bending-marquee__item {
+    gap: 0.9rem;
+    padding-inline: 0.9rem;
+  }
+}
