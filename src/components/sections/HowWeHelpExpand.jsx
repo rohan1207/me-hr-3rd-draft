@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -219,7 +219,7 @@ function CardBackdrop({ item, meta, dim = false }) {
           alt=""
           aria-hidden
           className={`absolute inset-0 h-full w-full object-cover ${
-            dim ? "opacity-[0.12]" : "opacity-[0.22]"
+            dim ? "opacity-[0.18]" : "opacity-[0.32]"
           }`}
         />
       )}

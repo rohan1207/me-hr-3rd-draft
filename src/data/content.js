@@ -192,8 +192,7 @@ export const homeContent = {
  desc: "Get on-demand HR services exactly when you need them, for a specific requirement, temporary workload, project-based HR support or additional HR bandwidth.",
  cta: ctas.exploreOnDemand,
  path: "/services/on-demand-hr",
- image:
- "/me-hr_team.jpg",
+ image: "/how-we-help/how-we-help-on-demand.png",
  icon: "zap",
  },
  {
@@ -202,8 +201,7 @@ export const homeContent = {
       desc: "Ongoing, embedded HR support, often called fractional HR, for continuous day-to-day HR operations, execution and people process ownership.",
  cta: ctas.exploreRetainership,
  path: "/services/hr-retainership",
- image:
- "/me-hr_meeting.jpeg",
+ image: "/how-we-help/how-we-help-resident.png",
  icon: "users",
  },
  {
@@ -212,8 +210,7 @@ export const homeContent = {
  desc: "Senior HR advisory for defined organisational, people, leadership, framework or transformation requirements, not day-to-day HR execution.",
  cta: ctas.exploreStrategic,
  path: "/services/strategic-consulting",
- image:
- "/team_meet.jpeg",
+ image: "/how-we-help/how-we-help-strategic.png",
  icon: "compass",
  },
  {
@@ -222,8 +219,7 @@ export const homeContent = {
  desc: "Payroll outsourcing and statutory compliance services for growing businesses, combining accurate payroll processing, HR expertise, structured processes and technology.",
  cta: ctas.explorePagar,
  path: "/pagar",
- image:
- "/img.jpg",
+ image: "/how-we-help/how-we-help-payroll.png",
  icon: "wallet",
  },
  ],
