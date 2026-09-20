@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Link } from "@/components/compat/router";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Facebook, Instagram, Phone } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Instagram, Linkedin, Phone } from "lucide-react";
 import { contactInfo, footerLinks, footerContent, ctas } from "../../data/content";
 import Logo from "../ui/Logo";
 import SpecularButton from "../ui/SpecularButton";
@@ -141,7 +141,7 @@ export default function Footer() {
 
  <div className="mt-5 flex flex-wrap gap-2">
  {[
- { href: "https://www.facebook.com/meHR.pune/", icon: <Facebook size={15} />, label: "Facebook" },
+ { href: "https://www.linkedin.com/company/me-hr", icon: <Linkedin size={15} />, label: "LinkedIn" },
  { href: "https://www.instagram.com/_me_hr/", icon: <Instagram size={15} />, label: "Instagram" },
  { href: contactInfo.whatsapp, icon: <WhatsAppIcon size={15} />, label: "WhatsApp" },
  { href: contactInfo.phoneHref, icon: <Phone size={15} />, label: "Call" },
