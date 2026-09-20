@@ -67,7 +67,7 @@ export default function Footer() {
  </p>
  </div>
 
- <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-12">
+ <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
  <div>
  <Logo size="lg" light />
  <h2 className="mt-6 max-w-[16ch] font-sans text-[clamp(1.65rem,3.2vw,2.55rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-white drop-shadow-sm">
@@ -95,7 +95,7 @@ export default function Footer() {
  </div>
  </div>
 
- <div className="grid gap-8 sm:grid-cols-2 sm:items-end lg:gap-10">
+ <div className="grid gap-8 sm:grid-cols-2 lg:gap-10">
  <div>
  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
  {footerContent.usefulLinksLabel}
@@ -115,7 +115,7 @@ export default function Footer() {
  </div>
 
  {/* Nudge newsletter + socials down so the lower-right doesn't read empty */}
- <div className="flex flex-col justify-end pt-2 sm:pt-8 lg:pt-12">
+ <div className="mt-6 sm:mt-14 lg:mt-20">
  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
  {footerContent.subscribeLabel}
  </p>
