@@ -101,11 +101,6 @@ export default function Media() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const featured = useMemo(
-    () => posts.filter((p) => p.featured).slice(0, 3),
-    [posts]
-  );
-
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return posts.filter((p) => {
@@ -183,31 +178,6 @@ export default function Media() {
               Search
             </button>
           </motion.form>
-        </div>
-      </section>
-
-      {/* Featured insight cards */}
-      <section className="bg-mehr-panel/50 py-10 sm:py-12 lg:py-14">
-        <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-          <Reveal>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-mehr-deep">
-              {sections.featured}
-            </p>
-            <h2 className="mt-2 font-sans text-[clamp(1.55rem,3vw,2.2rem)] font-semibold tracking-[-0.03em] text-mehr-ink">
-              Start with these reads
-            </h2>
-          </Reveal>
-
-          <RevealStagger
-            className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5"
-            stagger={0.06}
-          >
-            {featured.map((post) => (
-              <RevealItem key={post.id}>
-                <InsightCard post={post} reduce={reduce} />
-              </RevealItem>
-            ))}
-          </RevealStagger>
         </div>
       </section>
 
