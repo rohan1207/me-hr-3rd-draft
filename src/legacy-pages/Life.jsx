@@ -32,14 +32,19 @@ export default function Life() {
 
  const { hero, why, openingsTitle, openingsNote, experienceEyebrow, experienceTitle } =
  careersContent;
- const { categories } = mediaContent;
+ const { categories, posts } = mediaContent;
 
  const gallery = galleryImages.map((img, i) => {
- const cat = categories[i % categories.length];
+ const post = posts[i % posts.length];
+ const cat =
+ categories.find((c) => c.title === post.category) ||
+ categories[i % categories.length];
  return {
  label: cat.title,
  desc: cat.desc,
  img,
+ to: `/media/${post.id}`,
+ title: post.title,
  };
  });
 
@@ -83,14 +88,15 @@ export default function Life() {
  <div className="relative overflow-hidden rounded-t-[2rem] sm:rounded-t-[2.5rem] lg:rounded-t-[3rem]">
  <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
  {galleryImages.slice(0, 4).map((src, i) => (
- <div
+ <Link
  key={src}
- className={`overflow-hidden ${
+ to={gallery[i]?.to || "/media"}
+ className={`block overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mehr-deep ${
  i % 2 === 0 ? "aspect-[4/5]" : "aspect-[4/5] translate-y-4 sm:translate-y-6"
  }`}
  >
- <img src={src} alt="" className="h-full w-full object-cover" />
- </div>
+ <img src={src} alt="" className="h-full w-full object-cover transition duration-500 hover:scale-105" />
+ </Link>
  ))}
  </div>
  </div>
@@ -172,17 +178,20 @@ export default function Life() {
 
  <Reveal>
  <AnimatePresence mode="wait">
- <motion.figure
+ <motion.div
  key={shot.img}
  initial={{ opacity: 0 }}
  animate={{ opacity: 1 }}
  exit={{ opacity: 0 }}
  transition={{ duration: 0.3 }}
- className="relative aspect-[16/10] overflow-hidden rounded-[1.25rem] sm:aspect-[21/9] sm:rounded-[1.5rem] lg:rounded-[1.75rem]"
  >
- <img src={shot.img} alt={shot.label} className="h-full w-full object-cover" />
+ <Link
+ to={shot.to}
+ className="group relative block aspect-[16/10] overflow-hidden rounded-[1.25rem] sm:aspect-[21/9] sm:rounded-[1.5rem] lg:rounded-[1.75rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mehr-deep focus-visible:ring-offset-2"
+ >
+ <img src={shot.img} alt={shot.title || shot.label} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]" />
  <div className="absolute inset-0 bg-gradient-to-t from-mehr-ink/70 via-transparent to-transparent" />
- <figcaption className="absolute inset-x-4 bottom-4 sm:inset-x-6 sm:bottom-6">
+ <div className="absolute inset-x-4 bottom-4 sm:inset-x-6 sm:bottom-6">
  <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-white/55">
  {String(activeShot + 1).padStart(2, "0")} /{" "}
  {String(gallery.length).padStart(2, "0")}
@@ -193,8 +202,13 @@ export default function Life() {
  <p className="mt-1 max-w-xl text-[13px] leading-relaxed text-white/70">
  {shot.desc}
  </p>
- </figcaption>
- </motion.figure>
+ <span className="mt-3 inline-flex items-center gap-1 text-[13px] font-semibold text-white/90 opacity-0 transition group-hover:opacity-100">
+ Read insight
+ <ArrowUpRight size={14} />
+ </span>
+ </div>
+ </Link>
+ </motion.div>
  </AnimatePresence>
  </Reveal>
 
@@ -206,11 +220,12 @@ export default function Life() {
  const isOn = activeShot === i;
  return (
  <RevealItem key={`${item.label}-${i}`}>
- <button
- type="button"
- onClick={() => setActiveShot(i)}
+ <Link
+ to={item.to}
  onMouseEnter={() => setActiveShot(i)}
- className={`group relative aspect-[4/3] w-full overflow-hidden rounded-[1rem] text-left transition sm:rounded-[1.25rem] ${
+ onFocus={() => setActiveShot(i)}
+ aria-label={`${item.label}: ${item.title}`}
+ className={`group relative block aspect-[4/3] w-full overflow-hidden rounded-[1rem] text-left transition sm:rounded-[1.25rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mehr-deep ${
  isOn
  ? "ring-2 ring-mehr-deep ring-offset-2 ring-offset-mehr-panel"
  : "hover:opacity-95"
@@ -218,7 +233,7 @@ export default function Life() {
  >
  <img
  src={item.img}
- alt={item.label}
+ alt={item.title || item.label}
  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
  />
  <div
@@ -229,7 +244,7 @@ export default function Life() {
  <span className="absolute inset-x-2.5 bottom-2.5 font-sans text-[11px] font-semibold text-white drop-shadow sm:text-xs">
  {item.label}
  </span>
- </button>
+ </Link>
  </RevealItem>
  );
  })}
