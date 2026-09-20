@@ -95,7 +95,7 @@ export default function Footer() {
  </div>
  </div>
 
- <div className="grid gap-8 sm:grid-cols-2">
+ <div className="grid gap-8 sm:grid-cols-2 sm:items-end lg:gap-10">
  <div>
  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
  {footerContent.usefulLinksLabel}
@@ -114,7 +114,8 @@ export default function Footer() {
  </ul>
  </div>
 
- <div>
+ {/* Nudge newsletter + socials down so the lower-right doesn't read empty */}
+ <div className="flex flex-col justify-end pt-2 sm:pt-8 lg:pt-12">
  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
  {footerContent.subscribeLabel}
  </p>
