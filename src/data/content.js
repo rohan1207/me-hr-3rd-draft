@@ -21,16 +21,10 @@ export const navLinks = [
  { label: "Contact", path: "/contact" },
 ];
 
+/** Same destinations as the navbar (Home + navLinks). */
 export const footerLinks = [
- { label: "About us", path: "/about" },
- { label: "Services", path: "/services" },
- { label: "Pricing", path: "/pricing" },
- { label: "Careers", path: "/careers" },
- { label: "Contact", path: "/contact" },
- { label: "Case Studies", path: "/case-studies" },
- { label: "Life at me-HR", path: "/life" },
- { label: "Media Centre", path: "/media" },
- { label: "FAQs", path: "/faqs" },
+ { label: "Home", path: "/" },
+ ...navLinks,
 ];
 
 export const ctas = {
