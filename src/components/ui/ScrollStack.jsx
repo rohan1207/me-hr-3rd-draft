@@ -4,7 +4,8 @@ import { useCallback, useEffect, useRef } from "react";
 import "./ScrollStack.css";
 
 const clamp = (v, min, max) => (v < min ? min : v > max ? max : v);
-const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+// Ease in-out so cards glide in instead of snapping at the end of each step.
+const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 export function ScrollStackItem({ children, itemClassName = "" }) {
   return <div className={`scroll-stack-card ${itemClassName}`.trim()}>{children}</div>;
@@ -24,8 +25,8 @@ export default function ScrollStack({
   itemScale = 0.035,
   baseScale = 0.86,
   blurAmount = 0,
-  /** Fraction of viewport height scrolled per card. Keep low to avoid tall blank gaps. */
-  scrollPerCard = 0.28,
+  /** Fraction of viewport height scrolled per card. Higher = slower, less skippy. */
+  scrollPerCard = 0.7,
   /** Distance from viewport top when the stack pins (under the sticky header). */
   pinOffset = 112,
   minWidth = 1024,
@@ -76,7 +77,8 @@ export default function ScrollStack({
 
     const tallest = cards.reduce((h, card) => Math.max(h, card.offsetHeight), 0);
     const pinHeight = tallest + (cards.length - 1) * itemStackDistance;
-    const step = Math.round(window.innerHeight * scrollPerCard);
+    // Floor the step so a normal wheel flick can't jump a whole card.
+    const step = Math.max(520, Math.round(window.innerHeight * scrollPerCard));
     const scrollRange = (cards.length - 1) * step;
     const pinTop = Math.max(16, pinOffset);
 
@@ -101,25 +103,26 @@ export default function ScrollStack({
     const progress = scrollRange > 0 ? clamp((pinTop - rect.top) / scrollRange, 0, 1) : 0;
     const segment = 1 / (cards.length - 1);
 
-    const arrived = cards.map((_, i) =>
-      i === 0 ? 1 : clamp((progress - (i - 1) * segment) / segment, 0, 1)
-    );
+    const arrived = cards.map((_, i) => {
+      if (i === 0) return 1;
+      // Spend the first ~18% of each segment settling, then ease the card in.
+      const raw = clamp((progress - (i - 1) * segment) / segment, 0, 1);
+      const t = clamp((raw - 0.05) / 0.9, 0, 1);
+      return easeInOut(t);
+    });
 
     cards.forEach((card, i) => {
       const restY = i * itemStackDistance;
-      const enterY = pinHeight + 24;
-      const y = enterY + (restY - enterY) * easeOut(arrived[i]);
+      const enterY = pinHeight + 28;
+      const y = enterY + (restY - enterY) * arrived[i];
 
       let depth = 0;
       for (let j = i + 1; j < cards.length; j += 1) depth += arrived[j];
 
       const scale = Math.max(baseScale, 1 - depth * itemScale);
       const blur = blurAmount ? Math.min(depth * blurAmount, 12) : 0;
-      // Cards waiting their turn stay hidden, otherwise they pile up in the
-      // empty track below the stack and read as stray duplicates. The fade has
-      // to finish within the first few pixels of travel, while the card is still
-      // clear of the stack — a translucent card lets the one beneath show through.
-      const opacity = clamp((enterY - y) / 40, 0, 1);
+      // Fade in over the first stretch of travel so rising cards don't flash.
+      const opacity = clamp((enterY - y) / 72, 0, 1);
 
       card.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
       card.style.filter = blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : "";

@@ -123,7 +123,7 @@ export default function HowItWorks() {
             </div>
           </Reveal>
 
-          <ScrollStack itemStackDistance={16} itemScale={0.03} scrollPerCard={0.26} pinOffset={112}>
+          <ScrollStack itemStackDistance={16} itemScale={0.03} scrollPerCard={0.7} pinOffset={112}>
             {howItWorks.map((item, i) => {
               const Icon = STEP_ICONS[i] || Search;
               const dark = i % 2 === 0;
