@@ -61,7 +61,7 @@
   width: max-content;
   align-items: center;
   will-change: transform;
-  animation: bending-marquee-scroll 48s linear infinite;
+  animation: bending-marquee-scroll 90s linear infinite;
 }
 
 .bending-marquee__scroller.is-static {
