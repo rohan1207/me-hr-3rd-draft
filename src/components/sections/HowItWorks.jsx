@@ -7,10 +7,17 @@ import {
   ArrowUpRight,
   ChevronRight,
   ClipboardList,
+  Compass,
+  Handshake,
+  Layers3,
   Lightbulb,
   RefreshCw,
+  Route,
   Search,
   Settings2,
+  Sparkles,
+  Target,
+  Users,
 } from "lucide-react";
 import { howItWorks, homeContent } from "../../data/content";
 import SpecularButton from "../ui/SpecularButton";
@@ -22,6 +29,30 @@ const ease = [0.22, 1, 0.36, 1];
 
 const section = homeContent.howItWorksSection;
 const STEP_ICONS = [Search, Settings2, ClipboardList, Lightbulb, RefreshCw];
+
+/** Soft watermark icons — positions vary per card so the stack doesn't feel empty. */
+const CARD_DECOR = [
+  [
+    { Icon: Compass, className: "right-5 top-16 h-16 w-16 rotate-12 opacity-[0.14]" },
+    { Icon: Sparkles, className: "bottom-6 right-8 h-8 w-8 -rotate-6 opacity-[0.18]" },
+  ],
+  [
+    { Icon: Layers3, className: "right-4 top-14 h-14 w-14 -rotate-12 opacity-[0.14]" },
+    { Icon: Target, className: "bottom-7 right-10 h-9 w-9 rotate-6 opacity-[0.16]" },
+  ],
+  [
+    { Icon: Users, className: "right-6 top-12 h-16 w-16 rotate-[8deg] opacity-[0.14]" },
+    { Icon: Handshake, className: "bottom-5 right-7 h-8 w-8 -rotate-12 opacity-[0.18]" },
+  ],
+  [
+    { Icon: Route, className: "right-5 top-14 h-14 w-14 rotate-[-10deg] opacity-[0.14]" },
+    { Icon: Sparkles, className: "bottom-6 right-9 h-9 w-9 rotate-12 opacity-[0.16]" },
+  ],
+  [
+    { Icon: Target, className: "right-4 top-12 h-16 w-16 rotate-6 opacity-[0.14]" },
+    { Icon: Compass, className: "bottom-5 right-8 h-8 w-8 -rotate-6 opacity-[0.18]" },
+  ],
+];
 
 function WordReveal({ text, className = "" }) {
   const reduce = useReducedMotion();
@@ -127,16 +158,40 @@ export default function HowItWorks() {
             {howItWorks.map((item, i) => {
               const Icon = STEP_ICONS[i] || Search;
               const dark = i % 2 === 0;
+              const decor = CARD_DECOR[i % CARD_DECOR.length];
               return (
                 <ScrollStackItem key={item.step}>
                   <article
-                    className={`flex min-h-[14rem] flex-col rounded-[1.5rem] border p-6 shadow-card sm:min-h-[15rem] sm:rounded-[1.75rem] sm:p-7 ${
+                    className={`relative flex min-h-[14rem] flex-col overflow-hidden rounded-[1.5rem] border p-6 shadow-card sm:min-h-[15rem] sm:rounded-[1.75rem] sm:p-7 ${
                       dark
                         ? "border-mehr-deep bg-mehr-deep text-white"
                         : "border-mehr-deep/10 bg-white text-mehr-ink"
                     }`}
                   >
-                    <div className="flex items-center justify-between gap-3">
+                    {/* Decorative icons — soft watermarks, varied per card */}
+                    <div className="pointer-events-none absolute inset-0" aria-hidden>
+                      {decor.map(({ Icon: DecorIcon, className }, di) => (
+                        <DecorIcon
+                          key={`${item.step}-decor-${di}`}
+                          strokeWidth={1.25}
+                          className={`absolute ${className} ${
+                            dark ? "text-white" : "text-mehr-deep"
+                          }`}
+                        />
+                      ))}
+                      <span
+                        className={`absolute -right-6 -top-6 h-28 w-28 rounded-full ${
+                          dark ? "bg-white/10" : "bg-mehr-teal-soft/80"
+                        }`}
+                      />
+                      <span
+                        className={`absolute -bottom-8 -left-4 h-24 w-24 rounded-full ${
+                          dark ? "bg-white/[0.06]" : "bg-mehr-deep/[0.05]"
+                        }`}
+                      />
+                    </div>
+
+                    <div className="relative z-10 flex items-center justify-between gap-3">
                       <span
                         className={`flex h-11 w-11 items-center justify-center rounded-2xl ${
                           dark
@@ -155,7 +210,7 @@ export default function HowItWorks() {
                       </span>
                     </div>
 
-                    <div className="mt-auto pt-7">
+                    <div className="relative z-10 mt-auto pt-7">
                       <h4
                         className={`font-sans text-xl font-semibold tracking-tight sm:text-[1.35rem] ${
                           dark ? "text-white" : "text-mehr-ink"
