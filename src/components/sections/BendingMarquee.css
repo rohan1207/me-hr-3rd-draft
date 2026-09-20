@@ -34,6 +34,7 @@
   align-items: center;
   width: 100%;
   min-height: clamp(4.25rem, 9vw, 5.75rem);
+  overflow: hidden;
   background: #0b5f58;
   color: #e4f6f2;
   /* Concave bend — pinched in the middle, fuller at the edges */
@@ -54,14 +55,22 @@
     0% 100%
   );
   box-shadow: 0 18px 40px rgba(11, 95, 88, 0.18);
+  /* Keep the clip layer on its own compositor tile so the scroll doesn't shimmer */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .bending-marquee__scroller {
   display: flex;
   width: max-content;
   align-items: center;
+  gap: 0;
+  /* Promote to GPU layer; animate in whole pixels via --marquee-shift */
+  transform: translate3d(0, 0, 0);
   will-change: transform;
-  animation: bending-marquee-scroll 90s linear infinite;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  animation: bending-marquee-scroll var(--marquee-duration, 72s) linear infinite;
 }
 
 .bending-marquee__scroller.is-static {
@@ -69,6 +78,7 @@
   width: 100%;
   justify-content: center;
   overflow: hidden;
+  will-change: auto;
 }
 
 .bending-marquee__scroller.is-static .bending-marquee__track:last-child {
@@ -84,14 +94,15 @@
   flex-shrink: 0;
   align-items: center;
   gap: 0;
-  padding-inline: 0.25rem;
+  /* No padding asymmetry between duplicated tracks — that causes a seam jump */
+  padding: 0;
 }
 
 .bending-marquee__item {
   display: inline-flex;
   align-items: center;
   gap: 1.15rem;
-  padding-inline: 1.15rem;
+  padding-inline: 1.25rem;
   white-space: nowrap;
 }
 
@@ -101,26 +112,21 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   color: #f4fffc;
+  /* Avoid subpixel text shimmer while the strip moves */
+  transform: translateZ(0);
 }
 
 .bending-marquee__sep {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  width: 1em;
   font-size: 0.85rem;
   line-height: 1;
   color: #14c4ad;
   opacity: 0.9;
-  transform-origin: center;
-  animation: bending-marquee-sway 3.6s ease-in-out infinite;
-}
-
-.bending-marquee__item:nth-child(odd) .bending-marquee__sep {
-  animation-delay: -1.2s;
-}
-
-.bending-marquee__item:nth-child(3n) .bending-marquee__sep {
-  animation-delay: -2.4s;
+  /* No sway animation — competing transforms cause jitter */
 }
 
 @keyframes bending-marquee-scroll {
@@ -128,26 +134,12 @@
     transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-@keyframes bending-marquee-sway {
-  0%,
-  100% {
-    transform: rotate(-10deg) scale(1);
-  }
-  50% {
-    transform: rotate(10deg) scale(1.08);
+    transform: translate3d(calc(-1 * var(--marquee-shift, 50%)), 0, 0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .bending-marquee__scroller {
-    animation: none;
-  }
-
-  .bending-marquee__sep {
     animation: none;
   }
 }
@@ -160,6 +152,6 @@
 
   .bending-marquee__item {
     gap: 0.9rem;
-    padding-inline: 0.9rem;
+    padding-inline: 1rem;
   }
 }
