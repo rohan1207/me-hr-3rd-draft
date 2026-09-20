@@ -41,21 +41,22 @@ export default function MobileGate() {
           id="mobile-gate-title"
           className="mt-3 font-sans text-[1.55rem] font-semibold leading-[1.2] tracking-[-0.03em] text-mehr-ink"
         >
-          Phone screen experience is in progress
+          Our phone experience is almost ready
         </h1>
 
         <p
           id="mobile-gate-desc"
           className="mt-4 text-[15px] leading-relaxed text-mehr-mist"
         >
-          It will be available soon. Please visit us on desktop for the full
-          experience.
+          We&apos;re polishing the mobile view so it feels as calm and clear as
+          desktop. Please visit us on a larger screen for now — thank you for
+          your patience.
         </p>
 
         <div className="mt-8 h-px w-16 bg-mehr-deep/20" aria-hidden />
 
         <p className="mt-6 text-[13px] font-medium text-mehr-deep">
-          Best viewed on a larger screen
+          Best viewed on desktop
         </p>
       </div>
     </div>
