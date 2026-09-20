@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { seo, homeContent } from "../data/content";
 import PageSEO from "../components/ui/PageSEO";
