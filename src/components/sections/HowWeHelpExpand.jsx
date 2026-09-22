@@ -139,7 +139,7 @@ function useIsMobile(breakpoint = 768) {
   return mobile;
 }
 
-/** Shared expanded content â€” readable type, real substance instead of filler space. */
+/** Shared expanded content — readable type, real substance instead of filler space. */
 function CardBody({ item, meta, num, compact }) {
   const Icon = meta.Icon;
 
@@ -311,7 +311,7 @@ function MobileCard({ item, index, active, onActivate, reduce }) {
           </span>
           <span className="min-w-0 flex-1">
             <span className="block text-[13px] font-semibold uppercase tracking-[0.12em] text-white/65">
-              {num} Â· {meta.label}
+              {num} · {meta.label}
             </span>
             <span className="mt-0.5 block font-sans text-[19px] font-semibold leading-snug text-white">
               {item.title}

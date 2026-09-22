@@ -153,7 +153,7 @@ export const seo = {
 
 export const homeContent = {
  hero: {
- eyebrow: "me-HR Â· Pune",
+ eyebrow: "me-HR · Pune",
  tagline: "Flexible HR support for growing businesses.",
  headline: "HR That Works the Way Your Business Needs It.",
     subheadline:
@@ -454,7 +454,7 @@ export const footerContent = {
  subscribeLabel: "Get Latest Update",
  subscribePlaceholder: "Enter Your Email",
  subscribeCta: "Subscribe",
- copyright: "Copyright Â© 2024 me-HR.",
+ copyright: "Copyright © 2024 me-HR.",
 };
 
 export const aboutContent = {
@@ -733,7 +733,7 @@ export const caseStudies = [
  id: "oem-automation",
  title: "Unifying Operations Across Seven Plants for an OEM Automation Machinery Manufacturer",
  industry: "Automation Machinery (OEM)",
- workforce: "500â€“1,000 employees",
+ workforce: "500–1,000 employees",
  scope: "Multi-location operations across seven plants",
  challenge:
  "Independent plant operations were creating duplication, communication gaps, resource inefficiencies and difficulty scaling consistently.",
@@ -761,7 +761,7 @@ export const caseStudies = [
  id: "automation-pune",
  title: "Enhancing Employee Punctuality and Employer Branding for a Leading Automation Company, Pune",
  industry: "Automation & Control Systems",
- workforce: "80â€“100 employees",
+ workforce: "80–100 employees",
  scope: "Pune",
  challenge:
  "Poor punctuality was affecting workflow, while the organisation also wanted to strengthen its employer brand.",
@@ -817,7 +817,7 @@ export const careersContent = {
 
 export const mediaContent = {
  hero: {
- eyebrow: "Insights Â· Thought leadership",
+ eyebrow: "Insights · Thought leadership",
  title: "Perspectives for Leaders Building Structured Workplaces.",
  body: "Practical HR thinking, workplace perspectives and updates from me-HR, written to help growing organisations make clearer people decisions.",
  searchPlaceholder: "Search insights, events and updates",
@@ -1028,11 +1028,11 @@ export const consultationTopics = [
 ];
 
 export const employeeStrengthOptions = [
- "1â€“25",
- "26â€“50",
- "51â€“100",
- "101â€“250",
- "251â€“500",
+ "1–25",
+ "26–50",
+ "51–100",
+ "101–250",
+ "251–500",
  "500+",
 ];
 

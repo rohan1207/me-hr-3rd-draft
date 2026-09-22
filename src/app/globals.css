@@ -61,7 +61,7 @@ html.lenis body {
  overflow: hidden;
 }
 
-/* Phone / tablet lock — no scroll behind the MobileGate overlay */
+/* Phone / tablet lock â€” no scroll behind the MobileGate overlay */
 @media (max-width: 1023px) {
  html,
  body {

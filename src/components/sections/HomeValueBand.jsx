@@ -89,7 +89,7 @@ export default function HomeValueBand() {
         </div>
       </section>
 
-      {/* Why â€” full-width horizontal reasons */}
+      {/* Why — full-width horizontal reasons */}
       <section className="relative overflow-hidden bg-mehr-deep py-12 text-white sm:py-14 lg:py-16">
         <div
           aria-hidden

@@ -26,7 +26,7 @@ const HERO_IMG = "/about/hero-team.png";
 const HIGHLIGHT_META = [
   { Icon: CalendarDays, hint: "Building structured workplaces since day one" },
   { Icon: Building2, hint: "Serving growing businesses from Maharashtra" },
-  { Icon: Route, hint: "From hire to exit â€” one connected HR system" },
+  { Icon: Route, hint: "From hire to exit — one connected HR system" },
   { Icon: Layers3, hint: "On-Demand, Resident, Consulting & Payroll" },
 ];
 
@@ -66,7 +66,7 @@ export default function AboutHero() {
               Home <span className="mx-1 text-mehr-muted">/</span>
               <span className="font-semibold text-mehr-deep">About</span>
             </p>
-            <p className="mt-3 text-[12px] text-mehr-muted">Pune Â· since 2018</p>
+            <p className="mt-3 text-[12px] text-mehr-muted">Pune · since 2018</p>
             <h1 className="mt-2 font-sans text-[clamp(2.6rem,6vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.045em]">
               <span className="text-mehr-ink">About </span>
               <span className="text-mehr-deep">me-HR</span>
@@ -151,7 +151,7 @@ export default function AboutHero() {
                 </p>
               </motion.div>
 
-              {/* End-to-end â€” filled with lifecycle graphic, not empty avatars */}
+              {/* End-to-end — filled with lifecycle graphic, not empty avatars */}
               <motion.div
                 whileHover={reduce ? undefined : { y: -3 }}
                 className="col-span-2 flex flex-col justify-between rounded-[1.25rem] border border-mehr-deep/10 bg-white p-4 shadow-soft sm:rounded-[1.4rem] sm:p-5"
@@ -191,13 +191,13 @@ export default function AboutHero() {
                   ))}
                 </div>
                 <p className="mt-3 text-[13px] leading-relaxed text-mehr-mist">
-                  Hiring, policies, performance, engagement and exits â€” connected as one system.
+                  Hiring, policies, performance, engagement and exits — connected as one system.
                 </p>
               </motion.div>
             </div>
           </div>
 
-          {/* Highlight strip â€” larger, clearer supporting lines */}
+          {/* Highlight strip — larger, clearer supporting lines */}
           <div className="mt-2.5 grid grid-cols-2 gap-2.5 sm:mt-3 sm:grid-cols-4 sm:gap-3">
             {story.highlights.map((item, i) => {
               const meta = HIGHLIGHT_META[i];

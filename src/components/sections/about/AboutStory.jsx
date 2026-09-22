@@ -15,7 +15,7 @@ export default function AboutStory() {
     <section id="story" className="scroll-mt-28 surface-white section-pad">
       <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
         <div className="grid items-stretch gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 xl:gap-16">
-          {/* Visual â€” real workplace context */}
+          {/* Visual — real workplace context */}
           <Reveal className="relative min-h-[280px] overflow-hidden rounded-[1.5rem] sm:min-h-[340px] sm:rounded-[1.75rem] lg:min-h-full">
             <motion.img
               src={PHOTO}
@@ -66,7 +66,7 @@ export default function AboutStory() {
           </div>
         </div>
 
-        {/* Facts rail â€” one strip, no card clutter */}
+        {/* Facts rail — one strip, no card clutter */}
         <RevealStagger
           className="mt-10 overflow-hidden rounded-[1.35rem] bg-mehr-panel sm:mt-12 sm:rounded-[1.6rem] lg:mt-14"
           stagger={0.06}

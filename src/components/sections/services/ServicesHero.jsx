@@ -93,7 +93,7 @@ export default function ServicesHero() {
               </Link>
             </motion.div>
 
-            {/* Service model chips â€” textual with icons */}
+            {/* Service model chips — textual with icons */}
             <motion.ul
               initial={reduce ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -127,7 +127,7 @@ export default function ServicesHero() {
             </motion.ul>
           </div>
 
-          {/* Visual â€” related Indian consultation scene */}
+          {/* Visual — related Indian consultation scene */}
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 20, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
