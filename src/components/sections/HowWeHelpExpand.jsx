@@ -37,7 +37,7 @@ const META = {
     covers: [
       {
         Icon: Timer,
-        title: "1 day, 1 week or 1 month",
+        title: "1 week, 3–7 days or 1–3 months",
         desc: "Book HR bandwidth for exactly as long as the requirement lasts.",
       },
       {
@@ -99,7 +99,7 @@ const META = {
     ],
   },
   pagar: {
-    short: "Payroll Consultancy",
+    short: "Payroll Outsourcing",
     label: "Payroll & compliance",
     Icon: Wallet,
     accent: "from-[#0b5f58] via-[#0a534d] to-[#042f2e]",

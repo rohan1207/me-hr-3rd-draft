@@ -7,11 +7,9 @@ import {
  BadgeCheck,
  Building2,
  CalendarDays,
- Check,
  CheckCircle2,
  ClipboardList,
  FileText,
- HelpCircle,
  Layers,
  Quote,
  RefreshCw,
@@ -37,11 +35,11 @@ const HERO_IMAGES = {
  "/services/on-demand-hr":
  "/me-hr_team.jpg",
  "/services/hr-retainership":
- "/me-hr_meeting.jpeg",
+ "/resident-hr-hero.png",
  "/services/strategic-consulting":
  "/team_meet.jpeg",
  "/pagar":
- "/img.jpg",
+ "/payroll-outsourcing-hero.png",
 };
 
 const GRID_ICONS = [
@@ -260,7 +258,7 @@ function ProcessStrip({ items }) {
 
  return (
  <RevealStagger
- className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-none xl:grid-flow-col xl:auto-cols-fr"
+ className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6"
  stagger={0.05}
  >
  {items.map((item, i) => {
@@ -507,7 +505,10 @@ export default function ServiceDetailPage({
  {page.steps && (
  <section className={`section-pad ${nextTone()}`}>
  <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
- <SectionHeading title={page.steps.title} />
+ <SectionHeading
+ eyebrow={page.steps.eyebrow}
+ title={page.steps.title}
+ />
  <ProcessStrip items={page.steps.items} />
  </div>
  </section>
@@ -554,59 +555,6 @@ export default function ServiceDetailPage({
  <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
  <SectionHeading title={page.deliverables.title} />
  <GridCards items={page.deliverables.items} columns="sm:grid-cols-2" />
- </div>
- </section>
- )}
-
- {page.why && (
- <section className={`section-pad ${nextTone()}`}>
- <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
- <SectionHeading title="Why me-HR?" />
- <RevealStagger
- className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
- stagger={0.04}
- >
- {page.why.map((item) => (
- <RevealItem key={item}>
- <div className="flex items-start gap-3 rounded-[1.25rem] border border-mehr-deep/8 bg-white px-4 py-3.5 transition duration-300 hover:-translate-y-0.5 hover:border-mehr-deep/18 hover:shadow-soft sm:rounded-[1.35rem]">
- <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-mehr-panel text-mehr-deep">
- <Check size={14} strokeWidth={2.4} />
- </span>
- <p className="text-sm font-semibold leading-snug text-mehr-ink">{item}</p>
- </div>
- </RevealItem>
- ))}
- </RevealStagger>
- </div>
- </section>
- )}
-
- {page.rightQuestions && (
- <section className={`section-pad ${nextTone()}`}>
- <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
- <SectionHeading
- eyebrow={page.rightQuestions.title}
- title={page.rightQuestions.subtitle || "Is this the right model?"}
- />
- <RevealStagger className="mt-8 grid gap-3 sm:grid-cols-2" stagger={0.05}>
- {page.rightQuestions.items.map((item, i) => (
- <RevealItem key={item}>
- <div className="flex h-full gap-3.5 rounded-[1.35rem] border border-mehr-deep/8 bg-white px-4 py-4 transition duration-300 hover:-translate-y-0.5 hover:border-mehr-deep/18 hover:shadow-soft sm:rounded-[1.5rem] sm:px-5 sm:py-5">
- <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-mehr-panel text-mehr-deep">
- <HelpCircle size={15} strokeWidth={2} />
- </span>
- <div className="min-w-0">
- <span className="text-[10px] font-semibold tabular-nums tracking-[0.14em] text-mehr-muted">
- {String(i + 1).padStart(2, "0")}
- </span>
- <p className="mt-1 text-sm font-medium leading-relaxed text-mehr-ink">
- {item}
- </p>
- </div>
- </div>
- </RevealItem>
- ))}
- </RevealStagger>
  </div>
  </section>
  )}

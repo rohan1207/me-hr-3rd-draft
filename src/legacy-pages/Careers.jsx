@@ -14,7 +14,6 @@ import {
 import { careersContent, seo, ctas } from "../data/content";
 import PageSEO from "../components/ui/PageSEO";
 import CTABanner from "../components/ui/CTABanner";
-import SpecularButton from "../components/ui/SpecularButton";
 import Reveal, { RevealItem, RevealStagger } from "../components/ui/Reveal";
 
 const ease = [0.22, 1, 0.36, 1];
@@ -76,13 +75,13 @@ function CareersHero() {
               transition={{ delay: 0.18, duration: 0.55, ease }}
               className="mt-8 flex flex-wrap items-center gap-3"
             >
-              <a
-                href="#openings"
+              <Link
+                to="/contact"
                 className="inline-flex items-center gap-2 rounded-full bg-mehr-deep px-6 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal hover:gap-3 active:scale-[0.98]"
               >
                 {ctas.viewOpenings}
                 <ArrowRight size={16} />
-              </a>
+              </Link>
               <Link
                 to="/life"
                 className="inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-3 text-sm font-semibold text-mehr-deep shadow-soft transition hover:bg-mehr-teal-soft"
@@ -194,8 +193,7 @@ function WhyCard({ item, Icon, index }) {
 }
 
 export default function Careers() {
-  const reduce = useReducedMotion();
-  const { hero, why, openingsNote, openingsTitle, experienceTitle, experienceEyebrow } =
+  const { hero, why, experienceTitle, experienceEyebrow } =
     careersContent;
 
   return (
@@ -203,28 +201,10 @@ export default function Careers() {
       <PageSEO {...seo.careers} path="/careers" />
       <CareersHero />
 
-      <section id="openings" className="scroll-mt-28 bg-white py-12 sm:py-14 lg:py-16">
-        <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-          <Reveal className="mx-auto max-w-3xl">
-            <div className="rounded-[1.75rem] border border-mehr-deep/10 bg-mehr-panel/60 p-6 text-center sm:rounded-[2rem] sm:p-10 lg:p-12">
-              <p className="eyebrow">{openingsTitle}</p>
-              <h2 className="mt-3 font-sans text-[clamp(1.55rem,3vw,2.35rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-mehr-ink">
-                {openingsNote}
-              </h2>
-              <div className="mt-8 flex justify-center">
-                <SpecularButton to="/contact" variant="brand">
-                  {ctas.viewOpenings}
-                </SpecularButton>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       <section className="bg-mehr-panel/45 py-12 sm:py-14">
         <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-          <div className="grid items-center gap-8 overflow-hidden rounded-[1.75rem] border border-mehr-deep/8 bg-white lg:grid-cols-2 lg:gap-0 sm:rounded-[2.25rem]">
-            <Reveal className="px-6 py-8 sm:px-10 sm:py-10 lg:px-12">
+          <div className="grid items-stretch gap-3 overflow-hidden rounded-[1.75rem] border border-mehr-deep/8 bg-white p-3 sm:rounded-[2.25rem] sm:p-3.5 lg:grid-cols-[1.05fr_0.95fr] lg:gap-3.5">
+            <Reveal className="flex flex-col justify-center px-3 py-5 sm:px-6 sm:py-8 lg:px-8">
               <p className="eyebrow">Life at me-HR</p>
               <h2 className="mt-3 max-w-[16ch] font-sans text-[clamp(1.55rem,3vw,2.35rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-mehr-ink">
                 Work that builds real HR capability.
@@ -232,6 +212,14 @@ export default function Careers() {
               <p className="mt-4 max-w-md text-sm leading-relaxed text-mehr-mist">
                 {hero.body}
               </p>
+              <div className="mt-6 rounded-2xl border border-mehr-deep/10 bg-mehr-panel/80 p-4 sm:p-5">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
+                  {why[2].title}
+                </p>
+                <p className="mt-1.5 text-sm font-semibold leading-snug text-mehr-ink">
+                  {why[2].desc}
+                </p>
+              </div>
               <div className="mt-7">
                 <Link
                   to="/life"
@@ -242,22 +230,12 @@ export default function Careers() {
                 </Link>
               </div>
             </Reveal>
-            <Reveal delay={0.1} className="relative min-h-[240px] lg:min-h-[360px]">
+            <Reveal delay={0.1} className="relative min-h-[240px] overflow-hidden rounded-[1.35rem] sm:min-h-[300px] sm:rounded-[1.6rem] lg:min-h-[360px]">
               <img
                 src={CULTURE_IMG}
-                alt=""
+                alt="me-HR team collaborating in the office"
                 className="absolute inset-0 h-full w-full object-cover"
               />
-              <motion.div
-                className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/30 bg-white/95 p-4 shadow-float backdrop-blur-sm sm:left-7 sm:right-auto sm:max-w-xs"
-                animate={reduce ? undefined : { y: [0, -6, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
-                  {why[2].title}
-                </p>
-                <p className="mt-1.5 text-sm font-semibold text-mehr-ink">{why[2].desc}</p>
-              </motion.div>
             </Reveal>
           </div>
         </div>

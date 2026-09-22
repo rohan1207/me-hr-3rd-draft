@@ -52,11 +52,7 @@ function cardFeatures(model) {
 
 const COMPARISON_ROWS = [
  {
- label: "Short-term / flexible duration support",
- values: { "on-demand": true, retainership: false, strategic: false, pagar: false },
- },
- {
- label: "Day, week or month engagement options",
+ label: "Flexible short-term support (1 week, 3–7 days or 1–3 months)",
  values: { "on-demand": true, retainership: false, strategic: false, pagar: false },
  },
  {
@@ -68,19 +64,11 @@ const COMPARISON_ROWS = [
  values: { "on-demand": false, retainership: true, strategic: true, pagar: true },
  },
  {
- label: "Project-based strategic interventions",
+ label: "Project-based strategic advisory (audits, design & performance)",
  values: { "on-demand": false, retainership: false, strategic: true, pagar: false },
  },
  {
- label: "Audits, organisation design & performance systems",
- values: { "on-demand": false, retainership: false, strategic: true, pagar: false },
- },
- {
- label: "Payroll processing",
- values: { "on-demand": false, retainership: false, strategic: false, pagar: true },
- },
- {
- label: "Statutory compliance support",
+ label: "Payroll processing & statutory compliance",
  values: { "on-demand": false, retainership: false, strategic: false, pagar: true },
  },
  {

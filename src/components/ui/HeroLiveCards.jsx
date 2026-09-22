@@ -12,7 +12,7 @@ const models = homeContent.howWeHelp?.items?.length
  ? homeContent.howWeHelp.items
  : serviceModels;
 
-const ON_DEMAND_VALUES = ["1D", "1W", "1M"];
+const ON_DEMAND_VALUES = ["1W", "3-7D", "1-3M"];
 const APPROACH_STEPS = homeContent.philosophy.principles.map((_, i) =>
  String(i + 1).padStart(2, "0")
 );
@@ -393,7 +393,7 @@ export default function HeroLiveCards() {
  const retainership = models[1];
  const strategic = models[2];
  const pagar = models[3] ?? {
- title: "me-HR Pagar",
+ title: "Payroll Outsourcing",
  desc: "Payroll outsourcing and statutory compliance for growing businesses.",
  path: "/pagar",
  };

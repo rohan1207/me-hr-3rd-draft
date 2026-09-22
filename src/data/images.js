@@ -4,7 +4,7 @@ export const images = {
  founder: "/sonia_patra.jpeg",
  founderAlt: "/patra.jpg",
  team: "/me-hr_team.jpg",
- teamAlt: "/img3.jpg",
+ teamAlt: "/about-component.jpg",
  meeting: "/me-hr_meeting.jpeg",
  meetingAlt: "/img.jpg",
  boardroom: "/team_meet.jpeg",

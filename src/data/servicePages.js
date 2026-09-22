@@ -5,7 +5,7 @@ export const onDemandHrPage = {
  title: "The Right HR Support, When You Need It.",
  body: [
  "Get skilled HR support for a specific task, temporary workload or short-term requirement, without hiring another full-time HR resource.",
- "Whether you need HR support for a day, a week or a month, me-HR provides temporary HR support, project-based HR assistance and additional HR bandwidth when you need it.",
+ "Whether you need HR support for 1 week, 3–7 days or 1–3 months, me-HR provides temporary HR support, project-based HR assistance and additional HR bandwidth when you need it.",
  ],
  cta: ctas.getHrSupport,
  },
@@ -47,16 +47,16 @@ export const onDemandHrPage = {
  ],
  },
  duration: {
-    title: "A Day, a Week or a Month. You Decide.",
+    title: "1 Week, 3–7 Days or 1–3 Months. You Decide.",
  items: [
- { label: "1 DAY", desc: "Focused HR support for a defined requirement during the working day." },
  { label: "1 WEEK", desc: "Short-term HR support for temporary workload, project requirements or resource gaps." },
- { label: "1 MONTH", desc: "Extended HR bandwidth for ongoing short-term requirements, project support or temporary resource gaps." },
+ { label: "3-7 DAYS", desc: "Focused HR support for a defined requirement across a short three-to-seven-day window." },
+ { label: "1-3 MONTHS", desc: "Extended HR bandwidth for ongoing short-term requirements, project support or temporary resource gaps over one to three months." },
  ],
  note: "Resource allocation is subject to availability and confirmation of payment.",
  },
  scenarios: {
- title: "Built for the HR Gaps That Can't Wait.",
+ title: "Your ad-hoc HR needs taken care of.",
  items: [
  "We have interviews lined up and need someone to coordinate them.",
  "Our HR Executive is on leave and we need support for two days.",
@@ -66,15 +66,6 @@ export const onDemandHrPage = {
  "Our HR team has a temporary workload backlog and needs an additional hand.",
  ],
  },
- steps: {
- title: "From Requirement to HR Support in Four Steps.",
- items: [
- { step: "01", title: "WHAT?", desc: "Tell us what you need." },
- { step: "02", title: "WHEN?", desc: "Tell us when you need it." },
- { step: "03", title: "HOW LONG?", desc: "Choose the required duration." },
- { step: "04", title: "HR SUPPORT", desc: "We assign the right resource." },
- ],
- },
  audiences: {
  title: "Built for Businesses That Need HR Flexibility.",
  items: [
@@ -82,6 +73,18 @@ export const onDemandHrPage = {
  { title: "Existing HR Teams", desc: "Add bandwidth when your internal team is stretched." },
  { title: "Businesses Without HR Teams", desc: "Get professional HR assistance for specific requirements." },
  { title: "Temporary Resource Gaps", desc: "Maintain HR continuity during leave, transitions or workload peaks." },
+ ],
+ },
+ steps: {
+ title: "From Requirement to Delivery. One Clear Path.",
+ eyebrow: "Flexible support. Clear ownership.",
+ items: [
+ { step: "01", title: "DEFINE", desc: "Clarify the HR requirement, expected outputs and who owns decisions on your side." },
+ { step: "02", title: "PLAN", desc: "Agree the duration window, timing and scope so support matches the real workload." },
+ { step: "03", title: "ASSIGN", desc: "Place the right HR professional for the work, with context on your processes and priorities." },
+ { step: "04", title: "EXECUTE", desc: "Deliver the agreed activities with visible progress and practical day-to-day coordination." },
+ { step: "05", title: "HANDOVER", desc: "Share completed work, records and status so your team can continue without gaps." },
+ { step: "06", title: "CLOSE", desc: "Confirm completion and advise next options if the requirement evolves." },
  ],
  },
  finalCta: {
@@ -142,12 +145,14 @@ export const retainershipPage = {
  },
  steps: {
  title: "A Structured HR Model That Keeps Moving With You.",
+ eyebrow: "Ongoing ownership. Continuous rhythm.",
  items: [
  { step: "01", title: "UNDERSTAND", desc: "We understand your organisation, workforce, existing HR environment, priorities and immediate challenges." },
  { step: "02", title: "STRUCTURE", desc: "We define the HR priorities, processes, responsibilities and engagement structure required." },
  { step: "03", title: "IMPLEMENT", desc: "Our HR professionals work with your organisation to execute agreed HR activities and strengthen existing practices." },
  { step: "04", title: "REVIEW", desc: "Progress, priorities and people matters are reviewed periodically with the relevant stakeholders." },
  { step: "05", title: "STRENGTHEN", desc: "As your organisation evolves, HR processes and priorities are continuously strengthened to support the business." },
+ { step: "06", title: "SCALE", desc: "Adjust support intensity and coverage as headcount, sites and people complexity grow." },
  ],
  },
  audiences: {
@@ -168,24 +173,6 @@ export const retainershipPage = {
  "We need an ongoing HR model, not support for only one specific challenge.",
  ],
  },
- rightQuestions: {
- title: "Right Questions",
- subtitle: "Is Resident HR the right model?",
- items: [
- "Do you need ongoing HR support without building a complete in-house HR team?",
- "Does your business need consistent day-to-day HR ownership and execution?",
- "Do you need a dedicated HR resource supported by senior HR expertise?",
- "Are you looking for an ongoing HR model rather than support for only one specific challenge?",
- ],
- },
- why: [
- "Ongoing embedded / fractional HR ownership",
- "Hands-on day-to-day execution",
- "Dedicated resource with senior oversight",
- "Continuous review and operating rhythm",
- "Scalable support as the organisation grows",
- "Business-aligned people operations",
- ],
  finalCta: {
  title: "Ready for Ongoing HR Ownership?",
  desc: "If your organisation needs continuous HR execution rather than a one-off advisory intervention, Resident HR gives you embedded support with senior oversight.",
@@ -234,6 +221,7 @@ export const strategicPage = {
  },
  steps: {
  title: "Diagnose First. Design What Works.",
+ eyebrow: "Senior advisory. Defined interventions.",
  items: [
  { step: "01", title: "DISCOVER", desc: "Understand the business context, leadership priorities, workforce and stated challenge." },
  { step: "02", title: "DIAGNOSE", desc: "Examine the underlying people, process and organisational factors contributing to the issue." },
@@ -254,16 +242,6 @@ export const strategicPage = {
  "We need an independent assessment of our HR function before the next stage of growth.",
  ],
  },
- rightQuestions: {
- title: "Right Questions",
- subtitle: "Is Strategic HR Consulting the right model?",
- items: [
- "Are you facing a specific people, organisation or leadership challenge?",
- "Do you need senior HR expertise to design, review or strengthen a particular HR framework?",
- "Are you looking for strategic direction rather than ongoing day-to-day HR execution?",
- "Does your organisation need an experienced HR perspective for a defined transformation, decision or business requirement?",
- ],
- },
  deliverables: {
  title: "From Diagnosis to Practical Action.",
  items: [
@@ -274,13 +252,6 @@ export const strategicPage = {
  { title: "Implementation Support", desc: "Hands-on assistance where the organisation requires help translating recommendations into action." },
  ],
  },
- why: [
- "Senior HR advisory, not day-to-day staffing",
- "Focused on defined organisational challenges",
- "Framework, structure and transformation clarity",
- "Independent perspective for leadership decisions",
- "Practical recommendations designed to work in your context",
- ],
  finalCta: {
  title: "Have a Defined People Challenge That Needs Clearer Direction?",
  desc: "If you need senior HR advisory for a specific organisational requirement, rather than ongoing operational ownership, Strategic HR Consulting is built for that brief.",
@@ -293,7 +264,7 @@ export const pagarPage = {
  title: "Payroll & Compliance. Simplified.",
  body: [
  "Payroll processing, statutory compliance and workforce compliance support, managed through one structured service.",
- "From monthly payroll processing and PF/ESIC compliance to statutory filings, workforce records and contractor compliance, me-HR Pagar keeps payroll and labour compliance processes organised and on track.",
+ "From monthly payroll processing and PF/ESIC compliance to statutory filings, workforce records and contractor compliance, Payroll Outsourcing keeps payroll and labour compliance processes organised and on track.",
  ],
  cta: ctas.talkToPayroll,
  },
@@ -303,7 +274,7 @@ export const pagarPage = {
  body: [
  "Managing payroll involves much more than calculating salaries.",
  "Attendance, overtime, employee movements, statutory deductions, filings, records, contractor documentation and compliance timelines all need to work together.",
- "me-HR Pagar brings these requirements into one structured payroll outsourcing process, helping businesses manage salary processing, statutory compliance and workforce compliance with greater consistency and visibility.",
+ "Our Payroll Outsourcing service brings these requirements into one structured process, helping businesses manage salary processing, statutory compliance and workforce compliance with greater consistency and visibility.",
  ],
  },
  services: {
@@ -343,7 +314,7 @@ export const pagarPage = {
  },
  cycle: {
  title: "One Structured Cycle. Every Month.",
- subtitle: "A Structured Monthly Cycle",
+ subtitle: "A Structured Monthly Cycle.",
  items: [
  { step: "01", title: "COLLECT", desc: "Gather attendance, leave, employee changes, payroll inputs and applicable workforce data." },
  { step: "02", title: "VERIFY", desc: "Validate employee information, payroll inputs, statutory applicability and supporting records." },
@@ -377,7 +348,7 @@ export const pagarPage = {
  disclaimer: "Services and statutory coverage are based on applicability, agreed scope and the organisation's requirements.",
  finalCta: {
  title: "Ready to Simplify Payroll & Compliance?",
- desc: "Tell us about your employee strength, locations, workforce structure and current payroll process. We'll understand the requirement and recommend the right me-HR Pagar solution.",
+ desc: "Tell us about your employee strength, locations, workforce structure and current payroll process. We'll understand the requirement and recommend the right Payroll Outsourcing solution.",
  cta: ctas.payrollQuote,
  },
 };

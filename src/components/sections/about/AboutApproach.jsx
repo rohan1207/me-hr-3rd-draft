@@ -30,7 +30,7 @@ const MODELS = [
   { label: "On-Demand", hint: "As needed", Icon: Handshake },
   { label: "Resident HR", hint: "Embedded", Icon: UserRoundCheck },
   { label: "Strategic", hint: "Advisory", Icon: Compass },
-  { label: "Pagar", hint: "Payroll", Icon: Wallet },
+  { label: "Payroll Outsourcing", hint: "Payroll", Icon: Wallet },
 ];
 
 const GROWTH = [

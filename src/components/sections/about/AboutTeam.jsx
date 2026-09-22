@@ -16,7 +16,7 @@ const GROUP_ICONS = {
   "Talent Acquisition": UserPlus,
   "HR Operations": ClipboardList,
   "Payroll & Compliance": Wallet,
-  "Payroll Consultancy": Wallet,
+  "Payroll Outsourcing": Wallet,
   "Engagement & Culture": HeartHandshake,
   "Performance & Growth": TrendingUp,
   "Strategic Advisory": Compass,

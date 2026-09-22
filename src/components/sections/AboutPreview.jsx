@@ -13,8 +13,7 @@ const CYCLE_MS = 3200;
 
 const icons = [Ear, PenLine, Handshake];
 
-const IMAGE =
- "/me-hr_team.jpg";
+const IMAGE = "/about-component.jpg";
 
 export default function AboutPreview() {
  const reduce = useReducedMotion();

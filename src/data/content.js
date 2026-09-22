@@ -35,7 +35,7 @@ export const ctas = {
  exploreRetainership: "Explore Resident HR",
  exploreStrategic: "Explore Strategic HR Consulting",
  exploreStrategicFull: "Explore Strategic HR Consulting",
- explorePagar: "Explore me-HR Pagar",
+ explorePagar: "Explore Payroll Outsourcing",
  getHrSupport: "Get HR Support",
  getOnDemandSupport: "Get On-Demand HR Support",
  discussChallenge: "Discuss Your HR Challenge",
@@ -57,9 +57,9 @@ export const seo = {
   home: {
     title: "HR Outsourcing Services in Pune | On-Demand HR, Resident HR & more | me-HR",
     description:
-      "Flexible HR outsourcing for growing businesses. Explore On-Demand HR, Resident HR, Strategic HR Consulting and me-HR Pagar from me-HR.",
+      "Flexible HR outsourcing for growing businesses. Explore On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing from me-HR.",
     keywords:
-      "HR outsourcing services, HR outsourcing Pune, on-demand HR, Resident HR, fractional HR, strategic HR consulting, me-HR Pagar",
+      "HR outsourcing services, HR outsourcing Pune, on-demand HR, Resident HR, fractional HR, strategic HR consulting, Payroll Outsourcing",
   },
   about: {
     title: "About me-HR | HR Outsourcing & Resident HR Company in Pune",
@@ -71,14 +71,14 @@ export const seo = {
   services: {
     title: "HR Services | On-Demand HR, Resident HR, Strategic HR Consulting | me-HR",
     description:
-      "Explore me-HR services including On-Demand HR, Resident HR, Strategic HR Consulting, recruitment, HR operations and me-HR Pagar payroll compliance.",
+      "Explore me-HR services including On-Demand HR, Resident HR, Strategic HR Consulting, recruitment, HR operations and Payroll Outsourcing.",
     keywords:
       "HR services Pune, on-demand HR services, Resident HR, fractional HR services, strategic HR consulting, HR outsourcing",
   },
   onDemand: {
     title: "On-Demand HR Services | Flexible & Temporary HR Support | me-HR",
     description:
-      "Get on-demand HR support for recruitment, documentation, payroll inputs, HR coordination and temporary workload. Flexible HR support for a day, a week or a month.",
+      "Get on-demand HR support for recruitment, documentation, payroll inputs, HR coordination and temporary workload. Flexible HR support for 1 week, 3–7 days or 1–3 months.",
     keywords:
       "on-demand HR services, HR on demand, temporary HR support, project-based HR, flexible HR services, HR support for SMEs",
   },
@@ -97,16 +97,16 @@ export const seo = {
       "strategic HR consulting, HR advisory services, HR audit services, organization development consulting, performance management consulting",
   },
   pagar: {
-    title: "Payroll Outsourcing & Statutory Compliance Services | me-HR Pagar",
+    title: "Payroll Outsourcing & Statutory Compliance Services | me-HR",
     description:
-      "Outsource payroll processing and statutory compliance including PF, ESIC, PT, LWF, labour compliance, contractor compliance and payroll MIS with me-HR Pagar.",
+      "Outsource payroll processing and statutory compliance including PF, ESIC, PT, LWF, labour compliance, contractor compliance and payroll MIS.",
     keywords:
       "payroll outsourcing services, payroll processing services, statutory compliance services, PF ESIC compliance, labour compliance, payroll services Pune",
   },
   pricing: {
     title: "HR Services Pricing | On-Demand HR, Resident HR & Payroll | me-HR",
     description:
-      "Explore flexible me-HR engagement models for On-Demand HR, Resident HR, Strategic HR Consulting and me-HR Pagar. Get pricing based on the support your business needs.",
+      "Explore flexible me-HR engagement models for On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing. Get pricing based on the support your business needs.",
     keywords:
       "HR outsourcing pricing, on-demand HR pricing, Resident HR pricing, fractional HR pricing, payroll outsourcing pricing",
   },
@@ -139,7 +139,7 @@ export const seo = {
   contact: {
     title: "Contact me-HR | HR Outsourcing & Consulting in Pune",
     description:
-      "Book a consultation with me-HR for On-Demand HR, Resident HR, Strategic HR Consulting, me-HR Pagar and compliance support in Pune.",
+      "Book a consultation with me-HR for On-Demand HR, Resident HR, Strategic HR Consulting, Payroll Outsourcing and compliance support in Pune.",
     keywords:
       "HR consultant Pune, HR outsourcing Pune, HR services Pune, payroll outsourcing Pune, Resident HR, fractional HR",
   },
@@ -157,7 +157,7 @@ export const homeContent = {
  tagline: "Flexible HR support for growing businesses.",
  headline: "HR That Works the Way Your Business Needs It.",
     subheadline:
-      "On-Demand HR, Resident HR, Strategic HR Consulting and me-HR Pagar, built around your people, priorities and growth.",
+      "On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing, built around your people, priorities and growth.",
  primaryCta: ctas.primary,
  secondaryCta: ctas.exploreServices,
  },
@@ -209,7 +209,7 @@ export const homeContent = {
  },
  {
  id: "pagar",
- title: "Payroll Consultancy",
+ title: "Payroll Outsourcing",
  desc: "Payroll outsourcing and statutory compliance services for growing businesses, combining accurate payroll processing, HR expertise, structured processes and technology.",
  cta: ctas.explorePagar,
  path: "/pagar",
@@ -232,7 +232,7 @@ export const homeContent = {
  title: "Our HR solutions support the complete employee lifecycle and the HR systems surrounding it.",
  },
  pagar: {
- eyebrow: "me-HR Pagar",
+ eyebrow: "Payroll Outsourcing",
  title: "Payroll & Compliance. Simplified.",
  desc: "Payroll outsourcing and statutory compliance services for growing businesses, combining accurate payroll processing, HR expertise, structured processes and technology.",
  cta: ctas.explorePagar,
@@ -267,7 +267,7 @@ export const homeContent = {
  "On-Demand HR when you need it",
  "Resident HR that stays embedded",
  "Strategic consulting with senior oversight",
- "me-HR Pagar for payroll & compliance",
+ "Payroll and compliance support",
  "Understand first. Recommend second",
  "Structured processes that scale with you",
  "People practices aligned to business goals",
@@ -300,7 +300,7 @@ export const homeContent = {
  philosophy: {
  eyebrow: "Our Approach",
  title: "Understand First. Recommend Second.",
-    body: "Every engagement begins with understanding your organisation, workforce, current HR environment and business priorities. We identify gaps, assess the requirement and recommend the right HR service model, from On-Demand HR and project-based support to Resident HR, Strategic HR Consulting and me-HR Pagar.",
+    body: "Every engagement begins with understanding your organisation, workforce, current HR environment and business priorities. We identify gaps, assess the requirement and recommend the right HR service model, from On-Demand HR and project-based support to Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
  principles: [
  {
  title: "Understand",
@@ -401,7 +401,7 @@ export const servicesContent = {
  modelsEyebrow: "Choose How You Want to Work With Us.",
  capabilitiesEyebrow: "Everything We Can Support Across HR.",
  pagar: {
- title: "me-HR Pagar",
+ title: "Payroll Outsourcing",
  subtitle: "Payroll & Compliance Services",
  desc: "Payroll processing and statutory compliance support backed by HR expertise, structured processes and technology.",
  cta: ctas.explorePagar,
@@ -411,7 +411,7 @@ export const servicesContent = {
 export const pricingContent = {
  hero: {
  title: "Flexible HR Support. Clear Engagement Models.",
-    body: "Choose the level of HR support your business needs, from short-term On-Demand HR to ongoing Resident HR, Strategic HR Consulting and me-HR Pagar.",
+    body: "Choose the level of HR support your business needs, from short-term On-Demand HR to ongoing Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
  },
  subtitle: "Pay for the Level of Support You Need.",
  finalCta: {
@@ -424,7 +424,7 @@ export const pricingContent = {
 export const faqsContent = {
  hero: {
  title: "Questions Businesses Ask Us About HR Support.",
- body: "Answers to common questions about me-HR, HR outsourcing, On-Demand HR and me-HR Pagar.",
+ body: "Answers to common questions about me-HR, HR outsourcing, On-Demand HR and Payroll Outsourcing.",
  },
  finalCta: {
  title: "Still Have a Question?",
@@ -437,7 +437,7 @@ export const contactContent = {
  hero: {
  title: "Book a Consultation",
  subtitle: "Tell Us What You Need. We'll Help You Find the Right HR Solution.",
-    body: "Share your current HR requirement and we'll help you identify the right support, On-Demand HR, Resident HR, Strategic HR Consulting or me-HR Pagar.",
+    body: "Share your current HR requirement and we'll help you identify the right support, On-Demand HR, Resident HR, Strategic HR Consulting or Payroll Outsourcing.",
  topicsLabel: "What Do You Need Help With?",
  },
  success: {
@@ -454,7 +454,7 @@ export const footerContent = {
  subscribeLabel: "Get Latest Update",
  subscribePlaceholder: "Enter Your Email",
  subscribeCta: "Subscribe",
- copyright: "Copyright © 2024 me-HR.",
+ copyright: "Copyright \u00A9 2024 me-HR.",
 };
 
 export const aboutContent = {
@@ -487,7 +487,7 @@ export const aboutContent = {
  approach: {
  eyebrow: "Our Approach",
  title: "Understand First. Recommend Second.",
-    body: "Every engagement begins with understanding your organisation, workforce, current HR environment and business priorities. We identify gaps, assess the requirement and recommend the right HR service model, from On-Demand HR and project-based support to Resident HR, Strategic HR Consulting and me-HR Pagar.",
+    body: "Every engagement begins with understanding your organisation, workforce, current HR environment and business priorities. We identify gaps, assess the requirement and recommend the right HR service model, from On-Demand HR and project-based support to Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
  steps: [
  {
  title: "Understand",
@@ -547,7 +547,7 @@ export const aboutContent = {
  focus: ["Onboarding", "Records", "Policies"],
  },
  {
- title: "Payroll Consultancy",
+ title: "Payroll Outsourcing",
  desc: "Payroll support, statutory alignment and process discipline so people payments and compliance stay reliable as you scale.",
  focus: ["Payroll", "Compliance", "HRMS"],
  },
@@ -610,7 +610,7 @@ export const aboutContent = {
  },
  {
  title: "Flexible Engagement Models",
-      desc: "On-Demand HR, Resident HR, Strategic HR Consulting and me-HR Pagar, matched to what you actually need.",
+      desc: "On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing, matched to what you actually need.",
  },
  {
  title: "Everything Your HR Function Needs.",
@@ -663,10 +663,10 @@ export const aboutContent = {
  },
  {
  id: "t4",
- tag: "me-HR Pagar · Mid-market",
+ tag: "Payroll Outsourcing · Mid-market",
  headline: "Payroll stopped being a monthly fire drill.",
  quote:
- "PF, ESIC and payslips used to eat our weekends. me-HR Pagar brought structure, checks and clear ownership. Finance and HR finally speak the same language.",
+ "PF, ESIC and payslips used to eat our weekends. Payroll Outsourcing brought structure, checks and clear ownership. Finance and HR finally speak the same language.",
  name: "Vikram Shah",
  role: "Finance Director",
  place: "Ahmedabad",
@@ -903,13 +903,13 @@ export const mediaContent = {
  category: "Updates",
  title: "Payroll and compliance working as one process",
  excerpt:
- "How me-HR Pagar brings salary processing, statutory coordination and workforce compliance into one structured cycle.",
+ "How Payroll Outsourcing brings salary processing, statutory coordination and workforce compliance into one structured cycle.",
  popular: true,
  readTime: "5 min read",
  body: [
  "Payroll and statutory compliance are often handled as separate tracks. Salaries are processed in one place, while PF, ESIC and related filings live in another. Gaps appear when inputs, timelines and ownership are not shared.",
  "Treating payroll and compliance as one monthly cycle creates better visibility. Inputs, checks, processing, filings and reporting move in a defined sequence with clear accountability.",
- "me-HR Pagar is built around that idea: structured payroll processing supported by workforce compliance coordination, so organisations reduce last-minute scramble and missed handoffs.",
+ "Payroll Outsourcing is built around that idea: structured payroll processing supported by workforce compliance coordination, so organisations reduce last-minute scramble and missed handoffs.",
  "For growing teams, especially those with multi-site or contractor complexity, a unified cycle is often more reliable than stitching together disconnected vendors and spreadsheets.",
  ],
  },
@@ -978,14 +978,14 @@ export const pricingModels = [
  title: "On-Demand HR",
  desc: "Pay for the support you need, based on the requirement and duration.",
  tiers: [
- { label: "1 Day", desc: "Focused HR support for a defined requirement during the working day." },
+ { label: "1 Week", desc: "Short-term HR support for temporary workload, project requirements or resource gaps." },
  {
- label: "1 Week",
- desc: "Short-term HR support for temporary workload, project requirements or resource gaps.",
+ label: "3-7 Days",
+ desc: "Focused HR support for a defined requirement across a short three-to-seven-day window.",
  },
  {
- label: "1 Month",
- desc: "Extended HR bandwidth for ongoing short-term requirements, project support or temporary resource gaps.",
+ label: "1-3 Months",
+ desc: "Extended HR bandwidth for ongoing short-term requirements, project support or temporary resource gaps over one to three months.",
  },
  ],
  cta: ctas.viewOnDemandPricing,
@@ -1009,7 +1009,7 @@ export const pricingModels = [
  },
  {
  id: "pagar",
- title: "me-HR Pagar",
+ title: "Payroll Outsourcing",
  desc: "Payroll outsourcing and statutory compliance pricing that scales with your workforce and operating complexity.",
  note: "Pricing is based on employee strength, number of locations, payroll complexity, applicable statutory compliance and contractor workforce, where applicable.",
  cta: ctas.payrollQuote,
@@ -1021,7 +1021,7 @@ export const consultationTopics = [
  "On-Demand HR",
  "Resident HR",
  "Strategic HR Consulting",
-  "me-HR Pagar: Payroll & Compliance",
+  "Payroll Outsourcing",
  "Recruitment",
  "HR Audit",
  "Other HR Requirement",
@@ -1101,7 +1101,7 @@ export const faqSections = [
  },
  {
  q: "How long can I use On-Demand HR support?",
- a: "Support can be engaged for 1 day, 1 week or 1 month, depending on the nature of the work, required effort and resource availability.",
+ a: "Support can be engaged for 1 week, 3–7 days or 1–3 months, depending on the nature of the work, required effort and resource availability.",
  },
  {
  q: "Can On-Demand HR work with our existing HR team?",
@@ -1115,27 +1115,27 @@ export const faqSections = [
  },
  {
  id: "pagar",
-    title: "me-HR Pagar: Payroll & Compliance",
+    title: "Payroll Outsourcing",
  items: [
  {
- q: "What is me-HR Pagar?",
- a: "me-HR Pagar is me-HR's payroll and workforce compliance service for organisations that want structured payroll processing, statutory coordination, records and compliance reporting under one service.",
+ q: "What is Payroll Outsourcing?",
+ a: "Payroll Outsourcing is me-HR's payroll and workforce compliance service for organisations that want structured payroll processing, statutory coordination, records and compliance reporting under one service.",
  },
  {
- q: "What payroll activities can me-HR Pagar support?",
+ q: "What payroll activities can Payroll Outsourcing support?",
  a: "Depending on the agreed scope, support can include monthly payroll processing, attendance and leave reconciliation, overtime, joiner and exit processing, Full & Final settlements, arrears, variable pay, payslips, payroll MIS and employee payroll queries.",
  },
  {
- q: "Which statutory compliances can be covered under me-HR Pagar?",
+ q: "Which statutory compliances can be covered under Payroll Outsourcing?",
  a: "Coverage can include applicable requirements such as PF, ESIC, Professional Tax, Labour Welfare Fund, Bonus, Maternity Benefit requirements and other payroll-linked or workforce labour compliances based on the organisation's applicability and agreed scope.",
  },
  {
- q: "Can me-HR Pagar support contractor and multi-site workforces?",
+ q: "Can Payroll Outsourcing support contractor and multi-site workforces?",
  a: "Yes. The service can support attendance and payroll consolidation across locations, contractor compliance verification, statutory document tracking, wage compliance monitoring and related compliance MIS where included in the engagement scope.",
  },
  {
- q: "Does me-HR Pagar replace our finance team or statutory advisers?",
- a: "No. me-HR Pagar manages the agreed payroll and workforce compliance activities and coordinates required outputs with relevant internal or external stakeholders. Finance approvals, payments and specialist matters outside the agreed scope remain with the appropriate responsible party.",
+ q: "Does Payroll Outsourcing replace our finance team or statutory advisers?",
+ a: "No. Payroll Outsourcing manages the agreed payroll and workforce compliance activities and coordinates required outputs with relevant internal or external stakeholders. Finance approvals, payments and specialist matters outside the agreed scope remain with the appropriate responsible party.",
  },
  ],
  },
@@ -1166,7 +1166,7 @@ export const exploreOtherServices = [
  cta: ctas.explore,
  },
  {
- title: "me-HR Pagar",
+ title: "Payroll Outsourcing",
  desc: "Payroll and compliance support for growing businesses.",
  path: "/pagar",
  cta: ctas.explore,
@@ -1183,7 +1183,7 @@ export const serviceNavLinks = [
  path: "/services/strategic-consulting",
  short: "Strategic",
  },
- { label: "Payroll Consultancy", path: "/pagar", short: "Payroll" },
+ { label: "Payroll Outsourcing", path: "/pagar", short: "Payroll" },
 ];
 
 // Re-export for backward compatibility where needed
@@ -1198,7 +1198,7 @@ export const whyChoose = [
  { title: "Business-Aligned Solutions", desc: "Solutions designed around your people, processes and business needs." },
  { title: "Experienced HR Oversight", desc: "Senior HR professionals provide guidance, reviews and support for matters requiring deeper experience." },
  { title: "Practical Execution", desc: "Hands-on HR execution with structured processes as your organisation grows." },
- { title: "Flexible Engagement Models", desc: "On-Demand HR, Resident HR, Strategic HR Consulting and me-HR Pagar." },
+ { title: "Flexible Engagement Models", desc: "On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing." },
  { title: "Everything Your HR Function Needs.", desc: "Our HR solutions support the complete employee lifecycle and the HR systems surrounding it." },
  { title: "Continuous Review", desc: "Progress, priorities and people matters are reviewed periodically with the relevant stakeholders." },
 ];
