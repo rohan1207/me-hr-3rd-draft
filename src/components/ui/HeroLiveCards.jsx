@@ -61,17 +61,25 @@ function GlassCard({
   onHover,
   to,
   label,
+  theme = "dark",
 }) {
-  const sharedClass = `group relative overflow-hidden rounded-[1.35rem] border border-white/12 bg-white/[0.07] shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-md outline-none transition-[border-color,box-shadow,transform] duration-300 focus-visible:ring-2 focus-visible:ring-white/30 sm:rounded-[1.5rem] ${
-    hovered ? "border-white/25 shadow-[0_28px_60px_rgba(0,0,0,0.45)]" : ""
-  } ${to ? "cursor-pointer hover:border-white/30" : ""} ${className}`;
+  const light = theme === "light";
+  const sharedClass = light
+    ? `group relative overflow-hidden rounded-[1.35rem] border border-mehr-deep/10 bg-white shadow-soft outline-none transition-[border-color,box-shadow,transform] duration-300 focus-visible:ring-2 focus-visible:ring-mehr-deep/25 sm:rounded-[1.5rem] ${
+        hovered ? "border-mehr-deep/25 shadow-float" : ""
+      } ${to ? "cursor-pointer hover:border-mehr-deep/30 hover:-translate-y-0.5" : ""} ${className}`
+    : `group relative overflow-hidden rounded-[1.35rem] border border-white/12 bg-white/[0.07] shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-md outline-none transition-[border-color,box-shadow,transform] duration-300 focus-visible:ring-2 focus-visible:ring-white/30 sm:rounded-[1.5rem] ${
+        hovered ? "border-white/25 shadow-[0_28px_60px_rgba(0,0,0,0.45)]" : ""
+      } ${to ? "cursor-pointer hover:border-white/30" : ""} ${className}`;
 
   const inner = (
     <>
       <div
         className="pointer-events-none absolute inset-0 opacity-60"
         style={{
-          background: `radial-gradient(120% 80% at 20% 0%, ${TEAL}22, transparent 55%)`,
+          background: light
+            ? `radial-gradient(120% 80% at 20% 0%, ${TEAL}18, transparent 55%)`
+            : `radial-gradient(120% 80% at 20% 0%, ${TEAL}22, transparent 55%)`,
         }}
         aria-hidden
       />
@@ -119,74 +127,93 @@ function GlassCard({
   );
 }
 
-function CardLabel({ eyebrow, title, value, suffix = "" }) {
- return (
- <div className="mb-3 flex items-start justify-between gap-2">
- <div>
- <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/45 sm:text-[10px]">
- {eyebrow}
- </p>
- <p className="mt-1 font-sans text-[13px] font-semibold text-white sm:text-sm">{title}</p>
- </div>
- <p className="font-sans text-lg font-semibold tabular-nums tracking-tight text-white sm:text-xl">
- {value}
- <span className="text-sm text-white/55">{suffix}</span>
- </p>
- </div>
- );
+function CardLabel({ eyebrow, title, value, suffix = "", theme = "dark" }) {
+  const light = theme === "light";
+  return (
+    <div className="mb-3 flex items-start justify-between gap-2">
+      <div>
+        <p
+          className={`text-[9px] font-semibold uppercase tracking-[0.16em] sm:text-[10px] ${
+            light ? "text-mehr-deep/55" : "text-white/45"
+          }`}
+        >
+          {eyebrow}
+        </p>
+        <p
+          className={`mt-1 font-sans text-[13px] font-semibold sm:text-sm ${
+            light ? "text-mehr-ink" : "text-white"
+          }`}
+        >
+          {title}
+        </p>
+      </div>
+      <p
+        className={`font-sans text-lg font-semibold tabular-nums tracking-tight sm:text-xl ${
+          light ? "text-mehr-deep" : "text-white"
+        }`}
+      >
+        {value}
+        <span className={`text-sm ${light ? "text-mehr-mist" : "text-white/55"}`}>{suffix}</span>
+      </p>
+    </div>
+  );
 }
 
-function HiringBars({ active, reduce }) {
- return (
- <div className="mt-auto flex h-[4.75rem] items-end justify-between gap-1 px-0.5 sm:h-[5.25rem] sm:gap-1.5">
- {BARS.map((bar, i) => {
- const h = active ? bar.hover : bar.idle;
- return (
- <motion.div
- key={i}
- className="relative w-full overflow-hidden rounded-full"
- style={{ background: "rgba(255,255,255,0.08)" }}
- animate={
- reduce
- ? { height: `${h}%` }
- : {
- height: [`${bar.idle - 6}%`, `${h}%`, `${bar.idle - 4}%`, `${h}%`],
- }
- }
- transition={
- reduce
- ? { duration: 0.45, ease }
- : {
- duration: active ? 2.2 : 3.6 + i * 0.18,
- repeat: Infinity,
- ease: "easeInOut",
- delay: i * 0.12,
- }
- }
- >
- <div
- className="absolute inset-0 rounded-full"
- style={{
- background: `linear-gradient(180deg, ${TEAL} 0%, ${TEAL}88 55%, rgba(255,255,255,0.25) 100%)`,
- }}
- />
- </motion.div>
- );
- })}
- </div>
- );
+function HiringBars({ active, reduce, theme = "dark" }) {
+  const light = theme === "light";
+  return (
+    <div className="mt-auto flex h-[4.75rem] items-end justify-between gap-1 px-0.5 sm:h-[5.25rem] sm:gap-1.5">
+      {BARS.map((bar, i) => {
+        const h = active ? bar.hover : bar.idle;
+        return (
+          <motion.div
+            key={i}
+            className="relative w-full overflow-hidden rounded-full"
+            style={{ background: light ? "rgba(11,95,88,0.08)" : "rgba(255,255,255,0.08)" }}
+            animate={
+              reduce
+                ? { height: `${h}%` }
+                : {
+                    height: [`${bar.idle - 6}%`, `${h}%`, `${bar.idle - 4}%`, `${h}%`],
+                  }
+            }
+            transition={
+              reduce
+                ? { duration: 0.45, ease }
+                : {
+                    duration: active ? 2.2 : 3.6 + i * 0.18,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: i * 0.12,
+                  }
+            }
+          >
+            <div
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: light
+                  ? `linear-gradient(180deg, ${TEAL} 0%, #0b5f58 100%)`
+                  : `linear-gradient(180deg, ${TEAL} 0%, ${TEAL}88 55%, rgba(255,255,255,0.25) 100%)`,
+              }}
+            />
+          </motion.div>
+        );
+      })}
+    </div>
+  );
 }
 
-function RetentionRing({ active, reduce, centerValue, centerLabel }) {
+function RetentionRing({ active, reduce, centerValue, centerLabel, theme = "dark" }) {
  const r = 42;
  const c = 2 * Math.PI * r;
  const pct = active ? 0.94 : 0.86;
  const offset = c * (1 - pct);
+ const light = theme === "light";
 
  return (
  <div className="relative mx-auto mt-auto flex aspect-square w-[58%] max-w-[6.5rem] items-center justify-center sm:max-w-[7.25rem]">
  <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
- <circle cx="50" cy="50" r={r} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="7" />
+ <circle cx="50" cy="50" r={r} fill="none" stroke={light ? "rgba(11,95,88,0.12)" : "rgba(255,255,255,0.1)"} strokeWidth="7" />
  <motion.circle
  cx="50"
  cy="50"
@@ -212,13 +239,13 @@ function RetentionRing({ active, reduce, centerValue, centerLabel }) {
  </svg>
  <div className="absolute inset-0 flex flex-col items-center justify-center px-2 text-center">
  <motion.span
- className="font-sans text-xl font-semibold tabular-nums text-white sm:text-2xl"
+ className={`font-sans text-xl font-semibold tabular-nums sm:text-2xl ${light ? "text-mehr-ink" : "text-white"}`}
  animate={reduce ? undefined : { scale: active ? [1, 1.04, 1] : [1, 1.02, 1] }}
  transition={{ duration: active ? 1.6 : 3.2, repeat: Infinity, ease: "easeInOut" }}
  >
  {centerValue}
  </motion.span>
- <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-white/40">
+ <span className={`mt-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] ${light ? "text-mehr-mist" : "text-white/40"}`}>
  {centerLabel}
  </span>
  </div>
@@ -239,11 +266,12 @@ function RetentionRing({ active, reduce, centerValue, centerLabel }) {
  );
 }
 
-function EngagementLine({ active, reduce, stepLabels }) {
+function EngagementLine({ active, reduce, stepLabels, theme = "dark" }) {
  const boost = active ? 10 : 0;
  const d = linePath(boost);
  const area = `${d} L 100 100 L 0 100 Z`;
  const labels = stepLabels?.length ? stepLabels : APPROACH_STEPS;
+ const light = theme === "light";
 
  return (
  <div className="relative mt-auto h-[4.75rem] w-full sm:h-[5.25rem]">
@@ -279,7 +307,7 @@ function EngagementLine({ active, reduce, stepLabels }) {
  cx={x}
  cy={Math.max(8, y - boost * (0.4 + i * 0.08))}
  r={active && i === LINE_POINTS.length - 1 ? 2.8 : 1.8}
- fill="#fff"
+ fill={light ? "#0b5f58" : "#fff"}
  animate={{
  opacity: [0.4, 1, 0.4],
  cy: Math.max(8, y - boost * (0.4 + i * 0.08)),
@@ -292,7 +320,7 @@ function EngagementLine({ active, reduce, stepLabels }) {
  ))}
  </svg>
  <div
- className="absolute bottom-1 left-0 right-0 flex justify-between px-0.5 text-[8px] font-semibold uppercase tracking-wider text-white/35"
+ className={`absolute bottom-1 left-0 right-0 flex justify-between px-0.5 text-[8px] font-semibold uppercase tracking-wider ${light ? "text-mehr-mist" : "text-white/35"}`}
  aria-hidden
  >
  {labels.slice(0, 4).map((label) => (
@@ -307,26 +335,31 @@ const PAGAR_STATS = ["PF", "ESIC", "PT", "LWF"];
 const PAGAR_ROWS = ["Attendance", "Payroll", "Compliance"];
 const CARD_H = "h-full min-h-[13.5rem] sm:min-h-[14.5rem] lg:min-h-[15.5rem]";
 
-function PayrollPulse({ active, reduce, stepLabel }) {
+function PayrollPulse({ active, reduce, stepLabel, theme = "dark" }) {
+ const light = theme === "light";
  return (
  <div className="mt-auto flex flex-col gap-2">
  <div className="flex gap-1.5">
  {PAGAR_STATS.map((stat, i) => (
  <motion.span
  key={stat}
- className="flex-1 rounded-lg border border-white/10 bg-white/[0.06] py-1.5 text-center text-[9px] font-semibold uppercase tracking-wider text-white/70 sm:text-[10px]"
+ className={`flex-1 rounded-lg border py-1.5 text-center text-[9px] font-semibold uppercase tracking-wider sm:text-[10px] ${
+ light
+ ? "border-mehr-deep/10 bg-mehr-panel text-mehr-deep"
+ : "border-white/10 bg-white/[0.06] text-white/70"
+ }`}
  animate={
  reduce
  ? undefined
  : {
  borderColor:
  active && i === stepLabel
- ? ["rgba(255,255,255,0.1)", "rgba(20,196,173,0.55)", "rgba(255,255,255,0.1)"]
+ ? light
+ ? ["rgba(11,95,88,0.12)", "rgba(20,196,173,0.45)", "rgba(11,95,88,0.12)"]
+ : ["rgba(255,255,255,0.1)", "rgba(20,196,173,0.55)", "rgba(255,255,255,0.1)"]
+ : light
+ ? "rgba(11,95,88,0.12)"
  : "rgba(255,255,255,0.1)",
- backgroundColor:
- active && i === stepLabel
- ? ["rgba(255,255,255,0.06)", "rgba(20,196,173,0.2)", "rgba(255,255,255,0.06)"]
- : "rgba(255,255,255,0.06)",
  }
  }
  transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut", delay: i * 0.15 }}
@@ -339,7 +372,7 @@ function PayrollPulse({ active, reduce, stepLabel }) {
  {PAGAR_ROWS.map((row, i) => (
  <div key={row} className="flex items-center gap-2">
  <motion.span
- className="h-1.5 flex-1 origin-left rounded-full bg-white/15"
+ className={`h-1.5 flex-1 origin-left rounded-full ${light ? "bg-mehr-deep/10" : "bg-white/15"}`}
  animate={
  reduce
  ? undefined
@@ -351,9 +384,9 @@ function PayrollPulse({ active, reduce, stepLabel }) {
  ease: "easeInOut",
  delay: i * 0.2,
  }}
- style={{ background: `linear-gradient(90deg, ${TEAL}, rgba(255,255,255,0.25))` }}
+ style={{ background: `linear-gradient(90deg, ${TEAL}, ${light ? "rgba(11,95,88,0.25)" : "rgba(255,255,255,0.25)"})` }}
  />
- <span className="w-[4.5rem] shrink-0 text-right text-[9px] font-medium text-white/40">
+ <span className={`w-[4.5rem] shrink-0 text-right text-[9px] font-medium ${light ? "text-mehr-mist" : "text-white/40"}`}>
  {row}
  </span>
  </div>
@@ -385,9 +418,10 @@ function floatAnim(reduce, delay = 0) {
  };
 }
 
-export default function HeroLiveCards() {
+export default function HeroLiveCards({ theme = "dark" }) {
  const reduce = useReducedMotion();
  const [hover, setHover] = useState(null);
+ const light = theme === "light";
 
  const onDemand = models[0];
  const retainership = models[1];
@@ -420,7 +454,7 @@ export default function HeroLiveCards() {
  path: onDemand.path || "/services/on-demand-hr",
  value: reduce ? ON_DEMAND_VALUES[0] : durationValue,
  body: `${ON_DEMAND_VALUES.join(" · ")}. ${shortSubtitle(onDemand.desc, 42)}`,
- visual: <HiringBars active={hover === 0} reduce={reduce} />,
+ visual: <HiringBars active={hover === 0} reduce={reduce} theme={theme} />,
  },
  {
  key: "retainership",
@@ -436,6 +470,7 @@ export default function HeroLiveCards() {
  reduce={reduce}
  centerValue="HR"
  centerLabel={homeContent.philosophy.principles[0]?.title ?? "Partner"}
+ theme={theme}
  />
  ),
  },
@@ -452,6 +487,7 @@ export default function HeroLiveCards() {
  active={hover === 2}
  reduce={reduce}
  stepLabels={approachLabels}
+ theme={theme}
  />
  ),
  },
@@ -463,17 +499,19 @@ export default function HeroLiveCards() {
  path: pagar.path || "/pagar",
  value: reduce ? PAGAR_STATS[0] : PAGAR_STATS[pagarStat],
  body: shortSubtitle(pagar.desc, 52),
- visual: <PayrollPulse active={hover === 3} reduce={reduce} stepLabel={pagarStat} />,
+ visual: <PayrollPulse active={hover === 3} reduce={reduce} stepLabel={pagarStat} theme={theme} />,
  },
  ];
 
  return (
  <div className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
+ {!light && (
  <div
  className="pointer-events-none absolute -inset-6 rounded-[2.5rem] opacity-70 blur-3xl sm:-inset-8"
  style={{ background: `radial-gradient(circle at 60% 40%, ${TEAL}33, transparent 65%)` }}
  aria-hidden
  />
+ )}
 
  <div className="relative grid grid-cols-2 grid-rows-2 gap-2.5 sm:gap-3 lg:gap-3.5 [grid-auto-rows:1fr]">
  {cards.map((card, i) => (
@@ -489,14 +527,20 @@ export default function HeroLiveCards() {
  onHover={(v) => setHover(v ? i : null)}
  to={card.path}
  label={`Explore ${card.model.title}`}
+ theme={theme}
  className={`w-full ${CARD_H}`}
  >
  <CardLabel
  eyebrow={homeContent.howWeHelp.eyebrow}
  title={card.model.title}
  value={card.value}
+ theme={theme}
  />
- <p className="mb-2 line-clamp-2 text-[10px] leading-snug text-white/45">
+ <p
+ className={`mb-2 line-clamp-2 text-[10px] leading-snug ${
+ light ? "text-mehr-mist" : "text-white/45"
+ }`}
+ >
  {card.body}
  </p>
  {card.visual}

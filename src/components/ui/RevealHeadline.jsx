@@ -20,7 +20,7 @@ export default function RevealHeadline({
  const words = cleaned.split(/\s+/);
  const accentFrom = Math.max(words.length - accentFromEnd, Math.floor(words.length * 0.55));
  const leadCls = tone === "dark" ? "text-white" : "text-mehr-ink";
- const accentCls = tone === "dark" ? "text-white/50" : "text-mehr-deep/55";
+ const accentCls = tone === "dark" ? "text-mehr-teal" : "text-mehr-deep/55";
 
  if (reduce) {
  const lead = words.slice(0, accentFrom).join(" ");
