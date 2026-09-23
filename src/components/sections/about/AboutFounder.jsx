@@ -21,7 +21,7 @@ const FOCUS_IMG = "/sonia_patra.jpeg";
 
 function InfoCard({ item, Icon }) {
  return (
- <article className="flex h-full flex-col rounded-[1.25rem] border border-mehr-deep/10 bg-white p-5 shadow-soft sm:rounded-[1.4rem] sm:p-6">
+ <article className="flex h-full flex-col rounded-[1.25rem] border border-mehr-deep/10 bg-white p-4 shadow-soft sm:rounded-[1.4rem] sm:p-6">
  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-mehr-panel text-mehr-deep">
  <Icon size={18} strokeWidth={1.85} />
  </span>
@@ -71,7 +71,7 @@ function InfoCard({ item, Icon }) {
 function FounderPortrait({ founder }) {
  return (
  <div className="relative mx-auto flex h-full w-full max-w-md flex-col overflow-hidden rounded-[1.5rem] border border-mehr-deep/10 bg-white shadow-soft sm:rounded-[1.75rem]">
- <div className="relative min-h-[320px] flex-1 sm:min-h-[380px]">
+ <div className="relative min-h-[260px] flex-1 sm:min-h-[380px]">
  <img
  src={FOCUS_IMG}
  alt={founder.name}
@@ -198,7 +198,7 @@ export default function AboutFounder() {
  const header = (
  <div className="mx-auto max-w-2xl text-center">
  <p className="eyebrow">Meet the founder</p>
- <h2 className="mt-3 font-sans text-[clamp(1.8rem,3.6vw,2.75rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-mehr-ink">
+ <h2 className="mt-3 font-sans text-[clamp(1.45rem,6.2vw,2.75rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-mehr-ink">
  Leadership that keeps HR practical and business-aligned
  </h2>
  <p className="mt-3 text-sm leading-relaxed text-mehr-mist sm:text-[15px]">
@@ -209,13 +209,13 @@ export default function AboutFounder() {
 
  if (reduce || !isDesktop) {
  return (
- <section id="founder" className="scroll-mt-28 bg-mehr-panel/50 py-12 text-mehr-ink sm:py-14">
+ <section id="founder" className="scroll-mt-28 bg-mehr-panel/50 py-9 text-mehr-ink sm:py-14">
  <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
  {header}
- <div className="mx-auto mt-8 aspect-[3/4] max-w-sm">
+ <div className="mx-auto mt-8 w-full max-w-sm max-h-[420px]">
  <FounderPortrait founder={founder} />
  </div>
- <div className="mx-auto mt-6 grid max-w-lg gap-3 sm:max-w-none sm:grid-cols-2">
+ <div className="mx-auto mt-6 grid max-w-lg gap-2.5 sm:max-w-none sm:grid-cols-2 sm:gap-3">
  {founderCards.map((item) => (
  <InfoCard key={item.title} item={item} Icon={item.Icon} />
  ))}

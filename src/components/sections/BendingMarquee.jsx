@@ -38,7 +38,7 @@ export default function BendingMarquee() {
       const w = Math.ceil(track.getBoundingClientRect().width);
       scroller.style.setProperty("--marquee-shift", `${w}px`);
       // Duration scales with content width so speed stays even.
-      const seconds = Math.max(48, Math.round(w / 28));
+      const seconds = Math.max(36, Math.round(w / (window.innerWidth < 640 ? 22 : 28)));
       scroller.style.setProperty("--marquee-duration", `${seconds}s`);
     };
 

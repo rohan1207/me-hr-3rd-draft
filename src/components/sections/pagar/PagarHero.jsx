@@ -29,9 +29,9 @@ function LivePayrollPanel({ reduce }) {
   }, [reduce]);
 
   return (
-    <div className="grid h-full min-h-[420px] grid-cols-2 gap-2.5 sm:min-h-[480px] sm:gap-3 lg:grid-cols-5 lg:grid-rows-[minmax(0,1.2fr)_minmax(0,1fr)_auto]">
+    <div className="grid h-full min-h-[320px] grid-cols-2 gap-2.5 sm:min-h-[480px] sm:gap-3 lg:grid-cols-5 lg:grid-rows-[minmax(0,1.2fr)_minmax(0,1fr)_auto]">
       {/* Image tile — never covered by cards */}
-      <div className="relative col-span-2 min-h-[220px] overflow-hidden rounded-[1.35rem] sm:min-h-[260px] sm:rounded-[1.6rem] lg:col-span-3 lg:row-span-2 lg:min-h-0">
+      <div className="relative col-span-2 min-h-[180px] overflow-hidden rounded-[1.35rem] sm:min-h-[260px] sm:rounded-[1.6rem] lg:col-span-3 lg:row-span-2 lg:min-h-0">
         <motion.img
           src={SCENE}
           alt="Payroll and compliance discussion between Indian HR professionals"
@@ -168,7 +168,7 @@ export default function PagarHero() {
             initial={reduce ? false : { opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-center text-center lg:text-left"
           >
             <p className="text-[12px] font-medium text-mehr-mist">
               Home <span className="mx-1 text-mehr-muted">/</span>
@@ -176,32 +176,32 @@ export default function PagarHero() {
               <span className="font-semibold text-mehr-deep">Payroll Outsourcing</span>
             </p>
 
-            <div className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-mehr-deep/12 bg-mehr-panel px-3 py-1.5">
+            <div className="mx-auto mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-mehr-deep/12 bg-mehr-panel px-3 py-1.5 lg:mx-0">
               <Wallet size={14} className="text-mehr-deep" />
               <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
                 Payroll Outsourcing
               </span>
             </div>
 
-            <h1 className="mt-4 max-w-[14ch] font-sans text-[clamp(2.1rem,4.8vw,3.6rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-mehr-ink">
+            <h1 className="mx-auto mt-4 max-w-[14ch] font-sans text-[clamp(1.45rem,6.5vw,3.6rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-mehr-ink lg:mx-0">
               Payroll &amp; Compliance.{" "}
               <span className="text-mehr-deep">Simplified.</span>
             </h1>
 
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-mehr-mist sm:text-[15px]">
+            <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-mehr-mist sm:text-[15px] lg:mx-0">
               {hero.body[0]}
             </p>
-            <p className="mt-3 max-w-lg text-[13px] leading-relaxed text-mehr-muted sm:text-sm">
+            <p className="mx-auto mt-3 max-w-lg text-[13px] leading-relaxed text-mehr-muted sm:text-sm lg:mx-0">
               {hero.body[1]}
             </p>
 
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <SpecularButton to="/contact" variant="brand">
+            <div className="mt-7 flex w-full flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:justify-start">
+              <SpecularButton to="/contact" variant="brand" className="w-full justify-center sm:w-auto">
                 {hero.cta || ctas.talkToPayroll}
               </SpecularButton>
               <Link
                 to="/pricing"
-                className="inline-flex items-center gap-1.5 rounded-full border border-mehr-deep/15 bg-white px-4 py-2.5 text-sm font-semibold text-mehr-ink transition hover:border-mehr-deep/30 hover:bg-mehr-panel active:scale-[0.98]"
+                className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-mehr-deep/15 bg-white px-4 py-2.5 text-sm font-semibold text-mehr-ink transition hover:border-mehr-deep/30 hover:bg-mehr-panel active:scale-[0.98] sm:w-auto"
               >
                 {ctas.payrollQuote}
                 <ArrowUpRight size={14} className="text-mehr-deep" />

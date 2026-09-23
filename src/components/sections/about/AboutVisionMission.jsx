@@ -33,11 +33,11 @@ export default function AboutVisionMission() {
   const content = aboutContent;
 
   return (
-    <section className="bg-mehr-panel/50 py-10 sm:py-12 lg:py-14">
+    <section className="bg-mehr-panel/50 py-9 sm:py-12 lg:py-14">
       <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-        <Reveal>
+        <Reveal className="text-center lg:text-left">
           <p className="eyebrow">Direction</p>
-          <h2 className="mt-3 max-w-[18ch] font-sans text-[clamp(1.65rem,3.2vw,2.45rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-mehr-ink">
+          <h2 className="mx-auto mt-3 max-w-[18ch] font-sans text-[clamp(1.45rem,6.2vw,2.45rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-mehr-ink lg:mx-0">
             What we stand for as an HR partner.
           </h2>
         </Reveal>
@@ -45,7 +45,7 @@ export default function AboutVisionMission() {
         <RevealStagger className="mt-8 grid gap-4 lg:mt-10 lg:grid-cols-3 lg:gap-5" stagger={0.08}>
           {BLOCKS.map((block) => (
             <RevealItem key={block.eyebrow}>
-              <article className="flex h-full flex-col rounded-[1.5rem] border border-mehr-deep/10 bg-white p-5 shadow-soft sm:rounded-[1.65rem] sm:p-6">
+              <article className="flex h-full flex-col rounded-[1.5rem] border border-mehr-deep/10 bg-white p-4 shadow-soft sm:rounded-[1.65rem] sm:p-6">
                 <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-mehr-teal-soft text-mehr-deep">
                   <block.Icon size={19} strokeWidth={1.85} />
                 </span>
@@ -61,7 +61,7 @@ export default function AboutVisionMission() {
                 {block.cta && (
                   <Link
                     to={block.cta.to}
-                    className="mt-5 inline-flex w-fit items-center gap-2 rounded-2xl bg-mehr-deep px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-mehr-charcoal active:scale-95"
+                    className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-mehr-deep px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-mehr-charcoal active:scale-95 sm:w-fit"
                   >
                     {block.cta.label}
                     <ArrowUpRight size={16} />

@@ -40,44 +40,44 @@ export default function InsightArticle() {
       />
 
       <article className="bg-white">
-        <div className="container-mehr page-gutter pt-8 sm:pt-10 md:px-4 lg:px-5 lg:pt-12">
+        <div className="container-mehr page-gutter pt-6 sm:pt-10 md:px-4 lg:px-5 lg:pt-12">
           <Link
             to="/media"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-mehr-deep transition hover:text-mehr-ink"
+            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-mehr-deep transition hover:text-mehr-ink sm:text-sm"
           >
             <ArrowLeft size={15} />
             Back to Insights
           </Link>
 
           <Reveal>
-            <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.16em] text-mehr-deep">
+            <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-mehr-deep sm:mt-6 sm:text-[11px]">
               {post.category}
               {post.readTime ? ` · ${post.readTime}` : ""}
             </p>
-            <h1 className="mt-3 max-w-[20ch] font-sans text-[clamp(1.9rem,4.5vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-mehr-ink">
+            <h1 className="mt-2.5 max-w-[20ch] font-sans text-[clamp(1.55rem,6.5vw,3.25rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-mehr-ink sm:mt-3 sm:leading-[1.08]">
               {post.title}
             </h1>
-            <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-mehr-mist sm:text-base">
+            <p className="mt-3.5 max-w-2xl text-[13px] leading-relaxed text-mehr-mist sm:mt-4 sm:text-[15px] md:text-base">
               {post.excerpt}
             </p>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="mt-8 overflow-hidden rounded-[1.5rem] sm:mt-10 sm:rounded-[1.75rem]">
+            <div className="mt-6 overflow-hidden rounded-[1.25rem] sm:mt-10 sm:rounded-[1.75rem]">
               <img
                 src={image}
                 alt=""
-                className="aspect-[21/9] min-h-[200px] w-full object-cover sm:min-h-[260px]"
+                className="aspect-[16/10] min-h-[160px] w-full object-cover sm:aspect-[21/9] sm:min-h-[260px]"
               />
             </div>
           </Reveal>
 
           <Reveal delay={0.12}>
-            <div className="mx-auto mt-10 max-w-3xl space-y-5 pb-6 sm:mt-12 sm:pb-8">
+            <div className="mx-auto mt-7 max-w-3xl space-y-4 pb-5 sm:mt-12 sm:space-y-5 sm:pb-8">
               {(post.body || []).map((para) => (
                 <p
                   key={para.slice(0, 48)}
-                  className="text-[15px] leading-[1.75] text-mehr-mist sm:text-[16px]"
+                  className="text-[14px] leading-[1.7] text-mehr-mist sm:text-[16px] sm:leading-[1.75]"
                 >
                   {para}
                 </p>
@@ -87,10 +87,10 @@ export default function InsightArticle() {
         </div>
       </article>
 
-      <section className="border-t border-mehr-deep/8 bg-mehr-panel/40 py-12 sm:py-14">
+      <section className="border-t border-mehr-deep/8 bg-mehr-panel/40 py-9 sm:py-14">
         <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="font-sans text-[clamp(1.4rem,2.5vw,1.85rem)] font-semibold tracking-[-0.03em] text-mehr-ink">
+          <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:items-end sm:justify-between sm:gap-4 sm:text-left">
+            <h2 className="font-sans text-[clamp(1.3rem,5.5vw,1.85rem)] font-semibold tracking-[-0.03em] text-mehr-ink">
               More insights
             </h2>
             <Link
@@ -102,12 +102,13 @@ export default function InsightArticle() {
             </Link>
           </div>
 
-          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+          {/* Phone: snap carousel · sm+: grid */}
+          <div className="-mx-4 mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:mt-7 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3 lg:gap-5 [&::-webkit-scrollbar]:hidden">
             {related.map((item) => (
               <Link
                 key={item.id}
                 to={`/media/${item.id}`}
-                className="group overflow-hidden rounded-[1.35rem] border border-mehr-deep/8 bg-white shadow-soft transition hover:-translate-y-1 hover:border-mehr-deep/18 hover:shadow-float sm:rounded-[1.5rem]"
+                className="group w-[min(78vw,18.5rem)] shrink-0 snap-center overflow-hidden rounded-[1.25rem] border border-mehr-deep/8 bg-white shadow-soft transition hover:-translate-y-1 hover:border-mehr-deep/18 hover:shadow-float sm:w-auto sm:rounded-[1.5rem]"
               >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
@@ -116,14 +117,14 @@ export default function InsightArticle() {
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-4 sm:p-5">
+                <div className="p-3.5 sm:p-5">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-mehr-deep">
                     {item.category}
                   </p>
-                  <h3 className="mt-2 font-sans text-[15px] font-semibold leading-snug text-mehr-ink sm:text-base">
+                  <h3 className="mt-2 font-sans text-[14px] font-semibold leading-snug text-mehr-ink sm:text-base">
                     {item.title}
                   </h3>
-                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-mehr-deep">
+                  <span className="mt-2.5 inline-flex items-center gap-1 text-sm font-semibold text-mehr-deep sm:mt-3">
                     Read
                     <ArrowUpRight size={14} />
                   </span>

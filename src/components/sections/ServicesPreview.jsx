@@ -40,7 +40,7 @@ function OnDemandLive({ hovered, reduce }) {
   }, [hovered, reduce, slots.length]);
 
   return (
-    <div className="relative flex h-[10.5rem] flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-b from-mehr-teal-soft to-white px-3.5 py-3.5 sm:h-[11rem]">
+    <div className="relative flex h-[9.5rem] flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-b from-mehr-teal-soft to-white px-3.5 py-3 sm:h-[11rem] sm:py-3.5">
       <div className="flex items-center gap-2">
         <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-mehr-deep text-white shadow-soft">
           <CalendarRange size={15} strokeWidth={2} />
@@ -325,33 +325,44 @@ export default function ServicesPreview() {
   const preview = homeContent.servicesPreview;
 
   return (
-    <section className="section-pad relative overflow-hidden bg-white">
+    <section className="section-pad relative overflow-hidden bg-white !py-8 sm:!py-12 lg:!py-16">
       <div className="pointer-events-none absolute inset-0 bg-mesh-teal opacity-45" aria-hidden />
 
       <div className="container-mehr page-gutter relative z-10 sm:px-3 md:px-4 lg:px-5">
-        <div className="overflow-hidden rounded-[1.75rem] bg-mehr-panel px-5 py-8 sm:rounded-[2.25rem] sm:px-8 sm:py-10 lg:rounded-[2.5rem] lg:px-10 lg:py-12">
-          <div className="mb-8 flex flex-col gap-5 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
-            <Reveal className="max-w-xl">
-              <p className="eyebrow mb-3">{preview.eyebrow}</p>
-              <h2 className="font-sans text-[clamp(1.55rem,3.4vw,2.65rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-mehr-ink">
+        <div className="overflow-hidden rounded-[1.35rem] bg-mehr-panel px-4 py-6 sm:rounded-[2.25rem] sm:px-8 sm:py-10 lg:rounded-[2.5rem] lg:px-10 lg:py-12">
+          <div className="mb-6 flex flex-col gap-4 text-center sm:mb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-5 sm:text-left">
+            <Reveal className="mx-auto max-w-xl sm:mx-0">
+              <p className="eyebrow mb-2.5 sm:mb-3">{preview.eyebrow}</p>
+              <h2 className="font-sans text-[clamp(1.45rem,6.2vw,2.65rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-mehr-ink">
                 {preview.title}
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-mehr-mist sm:text-[15px]">
+              <p className="mt-2.5 text-[13px] leading-relaxed text-mehr-mist sm:mt-3 sm:text-sm md:text-[15px]">
                 {preview.body}
               </p>
             </Reveal>
 
-            <Reveal delay={0.12}>
-              <SpecularButton to="/contact" variant="brand" size="md">
+            <Reveal delay={0.12} className="w-full sm:w-auto">
+              <SpecularButton
+                to="/contact"
+                variant="brand"
+                size="md"
+                className="w-full justify-center sm:w-auto"
+              >
                 {preview.cta || ctas.primary}
                 <ArrowUpRight size={15} />
               </SpecularButton>
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-1 items-stretch gap-3.5 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-4">
+          {/* Phone: snap carousel · sm+: 2-col · lg: 4-col */}
+          <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
             {cards.map((card, i) => (
-              <LiveServiceCard key={card.id} card={card} index={i} />
+              <div
+                key={card.id}
+                className="w-[min(78vw,19rem)] shrink-0 snap-center sm:w-auto"
+              >
+                <LiveServiceCard card={card} index={i} />
+              </div>
             ))}
           </div>
         </div>

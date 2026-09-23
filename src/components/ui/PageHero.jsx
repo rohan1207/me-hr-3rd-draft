@@ -52,7 +52,7 @@ function HeroPhoto({ image, alt }) {
  className="absolute -bottom-3 -right-3 h-[88%] w-[92%] rounded-[1.5rem] bg-mehr-deep/15 sm:-bottom-4 sm:-right-4 sm:rounded-[1.75rem]"
  />
  <div className="relative overflow-hidden rounded-[1.5rem] border border-mehr-deep/10 bg-mehr-panel shadow-soft sm:rounded-[1.75rem]">
- <div className="aspect-[5/4] w-full max-h-[280px] sm:max-h-[320px] lg:max-h-[340px]">
+ <div className="aspect-[16/10] w-full max-h-[240px] sm:aspect-[5/4] sm:max-h-[320px] lg:max-h-[340px]">
  <Motion.img
  src={image}
  alt={alt || ""}
@@ -160,7 +160,7 @@ export default function PageHero({
  const reduce = useReducedMotion();
 
  return (
- <section className="relative overflow-hidden border-b border-mehr-deep/8 bg-white pt-16 pb-12 sm:pb-16 lg:pt-10 lg:pb-20">
+ <section className="relative overflow-hidden border-b border-mehr-deep/8 bg-white pt-6 pb-8 sm:pt-10 sm:pb-16 lg:pt-10 lg:pb-20">
  <div className="absolute inset-0 bg-mesh-teal" />
  <div
  aria-hidden
@@ -171,7 +171,7 @@ export default function PageHero({
  <div className="container-mehr page-gutter relative z-10 sm:px-3 md:px-4 lg:px-5">
  {crumbs.length > 0 && (
  <Reveal>
- <nav className="mb-6 flex flex-wrap items-center gap-2 text-xs font-medium text-mehr-muted sm:mb-8">
+ <nav className="mb-6 flex flex-wrap items-center justify-center gap-2 text-xs font-medium text-mehr-muted sm:mb-8 lg:justify-start">
  <Link to="/" className="transition hover:text-mehr-ink">
  Home
  </Link>
@@ -185,30 +185,38 @@ export default function PageHero({
  </Reveal>
  )}
 
- <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:gap-16">
- <div className="min-w-0">
+ <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:gap-16">
+ <div className="min-w-0 text-center lg:text-left">
  {eyebrow && (
  <Reveal>
  <p className="eyebrow mb-4">{eyebrow}</p>
  </Reveal>
  )}
  <Reveal delay={0.06}>
- <h1 className="max-w-[16ch] font-sans text-[clamp(1.95rem,4.6vw,3.4rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-mehr-ink">
+ <h1 className="mx-auto max-w-[16ch] font-sans text-[clamp(1.45rem,6.5vw,3.4rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-mehr-ink lg:mx-0">
  {title}
  </h1>
  </Reveal>
  {body && (
  <Reveal delay={0.12}>
- <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-mehr-mist sm:text-base">
+ <p className="mx-auto mt-5 max-w-xl text-[13px] leading-relaxed text-mehr-mist sm:text-[15px] lg:mx-0">
  {body}
  </p>
  </Reveal>
  )}
 
  {(cta || secondaryCta) && (
- <Reveal delay={0.18} className="mt-8 flex flex-wrap items-center gap-3">
+ <Reveal
+ delay={0.18}
+ className="mt-8 flex w-full flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:justify-start"
+ >
  {cta && (
- <SpecularButton to={ctaPath} variant="brand" size="md">
+ <SpecularButton
+ to={ctaPath}
+ variant="brand"
+ size="md"
+ className="w-full justify-center sm:w-auto"
+ >
  {cta}
  <ArrowUpRight size={15} />
  </SpecularButton>
@@ -216,7 +224,7 @@ export default function PageHero({
  {secondaryCta && (
  <Link
  to={secondaryPath}
- className="inline-flex items-center gap-1.5 rounded-full border border-mehr-deep/20 bg-white px-5 py-3 text-sm font-semibold text-mehr-deep transition hover:border-mehr-deep hover:bg-mehr-panel"
+ className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-mehr-deep/20 bg-white px-5 py-3 text-sm font-semibold text-mehr-deep transition hover:border-mehr-deep hover:bg-mehr-panel sm:w-auto"
  >
  {secondaryCta}
  </Link>
@@ -225,7 +233,7 @@ export default function PageHero({
  )}
  </div>
 
- <Reveal delay={0.1} className="relative">
+ <Reveal delay={0.1} className="relative order-last lg:order-none">
  {image ? (
  <HeroPhoto image={image} alt={title} />
  ) : (

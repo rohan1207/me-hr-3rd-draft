@@ -58,7 +58,7 @@ const GRID_ICONS = [
 ];
 
 const cardBase =
- "group h-full rounded-[1.35rem] border border-mehr-deep/8 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-mehr-deep/18 hover:shadow-soft sm:rounded-[1.5rem] sm:p-5";
+ "group h-full rounded-[1.35rem] border border-mehr-deep/8 bg-white p-4 transition duration-300 hover:-translate-y-1 hover:border-mehr-deep/18 hover:shadow-soft sm:rounded-[1.5rem] sm:p-5";
 
 function sectionTone(index) {
  return index % 2 === 0 ? "bg-white" : "bg-mehr-panel/40";
@@ -169,7 +169,7 @@ function IntroVisual({ page }) {
  }, [reduce, cycleItems.length]);
 
  return (
- <div className="relative overflow-hidden rounded-[1.5rem] border border-mehr-deep/10 bg-mehr-panel p-5 sm:rounded-[1.75rem] sm:p-6">
+ <div className="relative overflow-hidden rounded-[1.5rem] border border-mehr-deep/10 bg-mehr-panel p-4 sm:rounded-[1.75rem] sm:p-6">
  <div
  aria-hidden
  className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-mehr-deep/10 blur-2xl"
@@ -258,19 +258,19 @@ function ProcessStrip({ items }) {
 
  return (
  <RevealStagger
- className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6"
+ className="mt-8 -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 md:grid-cols-3 xl:grid-cols-6"
  stagger={0.05}
  >
  {items.map((item, i) => {
  const on = active === i;
  return (
- <RevealItem key={`${item.step}-${item.title}`}>
+ <RevealItem key={`${item.step}-${item.title}`} className="w-[min(78vw,17rem)] shrink-0 snap-center sm:w-auto sm:shrink sm:snap-align-none">
  <button
  type="button"
  onMouseEnter={() => setActive(i)}
  onFocus={() => setActive(i)}
  onClick={() => setActive(i)}
- className={`group relative flex h-full w-full flex-col rounded-[1.35rem] border p-5 text-left transition duration-300 outline-none focus-visible:ring-2 focus-visible:ring-mehr-deep/30 sm:rounded-[1.5rem] sm:p-5 ${
+ className={`group relative flex h-full w-full flex-col rounded-[1.35rem] border p-4 text-left transition duration-300 outline-none focus-visible:ring-2 focus-visible:ring-mehr-deep/30 sm:rounded-[1.5rem] sm:p-5 ${
  on
  ? "border-mehr-deep/25 bg-mehr-deep text-white shadow-float"
  : "border-mehr-deep/8 bg-white text-mehr-ink hover:-translate-y-0.5 hover:border-mehr-deep/18 hover:shadow-soft"
@@ -354,8 +354,8 @@ export default function ServiceDetailPage({
  <section className={`section-pad ${nextTone()}`}>
  <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
  <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
- <Reveal>
- <h2 className="max-w-[18ch] font-sans text-[clamp(1.55rem,3.2vw,2.35rem)] font-semibold leading-[1.12] tracking-tight text-mehr-ink">
+ <Reveal className="text-center lg:text-left">
+ <h2 className="mx-auto max-w-[18ch] font-sans text-[clamp(1.45rem,6.2vw,2.35rem)] font-semibold leading-[1.12] tracking-tight text-mehr-ink lg:mx-0">
  {page.intro.title}
  </h2>
  {page.intro.subtitle && (
@@ -366,14 +366,19 @@ export default function ServiceDetailPage({
  {page.intro.body.map((p) => (
  <p
  key={p.slice(0, 40)}
- className="mt-4 max-w-xl text-sm leading-relaxed text-mehr-mist sm:text-[15px]"
+ className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-mehr-mist sm:text-[15px] lg:mx-0"
  >
  {p}
  </p>
  ))}
  {page.hero.cta && (
- <div className="mt-7">
- <SpecularButton to={contactPath} variant="brand" size="md">
+ <div className="mt-7 flex justify-center lg:justify-start">
+ <SpecularButton
+ to={contactPath}
+ variant="brand"
+ size="md"
+ className="w-full justify-center sm:w-auto"
+ >
  {page.hero.cta}
  <ArrowUpRight size={15} />
  </SpecularButton>
@@ -435,14 +440,14 @@ export default function ServiceDetailPage({
  {page.duration.items.map((item, i) => (
  <RevealItem key={item.label}>
  <div
- className={`relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border p-6 text-center transition duration-300 hover:-translate-y-1 sm:rounded-[1.75rem] sm:p-7 ${
+ className={`relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border p-4 text-center transition duration-300 hover:-translate-y-1 sm:rounded-[1.75rem] sm:p-7 ${
  i === 1
  ? "border-mehr-deep/25 bg-mehr-deep text-white shadow-float"
  : "border-mehr-deep/10 bg-white text-mehr-ink hover:border-mehr-deep/20 hover:shadow-soft"
  }`}
  >
  <p
- className={`font-sans text-[clamp(1.6rem,3vw,2.1rem)] font-semibold tracking-tight ${
+ className={`font-sans text-[clamp(1.45rem,6.2vw,2.1rem)] font-semibold tracking-tight ${
  i === 1 ? "text-white" : "text-mehr-ink"
  }`}
  >

@@ -4,37 +4,53 @@ import { useCallback, useEffect, useRef } from "react";
 import "./ScrollStack.css";
 
 const clamp = (v, min, max) => (v < min ? min : v > max ? max : v);
-// Ease in-out so cards glide in instead of snapping at the end of each step.
 const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+function readHeaderPx() {
+  if (typeof window === "undefined") return 64;
+  const raw = getComputedStyle(document.documentElement)
+    .getPropertyValue("--header-height")
+    .trim();
+  if (!raw) return 64;
+  if (raw.endsWith("rem")) return parseFloat(raw) * 16;
+  if (raw.endsWith("px")) return parseFloat(raw);
+  const n = parseFloat(raw);
+  return Number.isFinite(n) ? n : 64;
+}
 
 export function ScrollStackItem({ children, itemClassName = "" }) {
   return <div className={`scroll-stack-card ${itemClassName}`.trim()}>{children}</div>;
 }
 
 /**
- * Scroll-pinned card stack. The section locks in the middle of the viewport
- * while cards rise and stack, then releases — and reverses cleanly on the way up.
- *
- * Driven by window scroll instead of its own Lenis instance, because the app
- * already runs one globally (see SmoothScroll) and nesting them fights the page.
+ * Scroll-pinned card stack. Optional `pinHeader` (heading/image) locks together
+ * with the cards under the navbar — no blank gap on phone.
  */
 export default function ScrollStack({
   children,
+  pinHeader = null,
   className = "",
   itemStackDistance = 16,
   itemScale = 0.035,
   baseScale = 0.86,
   blurAmount = 0,
-  /** Fraction of viewport height scrolled per card. Higher = slower, less skippy. */
   scrollPerCard = 0.7,
-  /** Distance from viewport top when the stack pins (under the sticky header). */
   pinOffset = 112,
-  minWidth = 1024,
+  minWidth = 0,
   onStackComplete,
 }) {
   const trackRef = useRef(null);
+  const pinRef = useRef(null);
+  const headerRef = useRef(null);
   const stageRef = useRef(null);
-  const metricsRef = useRef({ enabled: false, pinTop: 0, pinHeight: 0, scrollRange: 0, cards: [] });
+  const metricsRef = useRef({
+    enabled: false,
+    pinTop: 0,
+    pinHeight: 0,
+    scrollRange: 0,
+    cards: [],
+    stackGap: itemStackDistance,
+  });
   const rafRef = useRef(null);
   const doneRef = useRef(false);
 
@@ -57,9 +73,11 @@ export default function ScrollStack({
       el.classList.contains("scroll-stack-card")
     );
 
+    const widthOk =
+      minWidth <= 0 || window.matchMedia(`(min-width: ${minWidth}px)`).matches;
     const allowed =
       cards.length > 1 &&
-      window.matchMedia(`(min-width: ${minWidth}px)`).matches &&
+      widthOk &&
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (!allowed) {
@@ -67,53 +85,102 @@ export default function ScrollStack({
       track.style.height = "";
       track.style.removeProperty("--ss-pin-top");
       track.style.removeProperty("--ss-stage-height");
+      track.style.removeProperty("--ss-pin-height");
       reset(cards);
-      metricsRef.current = { enabled: false, pinTop: 0, pinHeight: 0, scrollRange: 0, cards };
+      metricsRef.current = {
+        enabled: false,
+        pinTop: 0,
+        pinHeight: 0,
+        scrollRange: 0,
+        cards,
+        stackGap: itemStackDistance,
+      };
       return;
     }
 
     delete track.dataset.static;
     reset(cards);
 
+    const w = window.innerWidth;
+    const phone = w < 640;
+    const narrow = w < 1024;
+    const navPx = readHeaderPx();
+    const vh = window.innerHeight;
+
+    const stackGap = phone
+      ? Math.min(itemStackDistance, 10)
+      : narrow
+        ? Math.min(itemStackDistance, 14)
+        : itemStackDistance;
+
+    // Heading/image only lock with cards below lg (stacked layout).
+    const headerEl = headerRef.current;
+    const headerH = narrow && headerEl ? headerEl.offsetHeight : 0;
+
     const tallest = cards.reduce((h, card) => Math.max(h, card.offsetHeight), 0);
-    const pinHeight = tallest + (cards.length - 1) * itemStackDistance;
-    // Floor the step so a normal wheel flick can't jump a whole card.
-    const step = Math.max(520, Math.round(window.innerHeight * scrollPerCard));
+    const stageHeight =
+      Math.max(tallest, phone ? 180 : 240) + (cards.length - 1) * stackGap;
+    // Full sticky box = header + card stage (no blank gap between them).
+    const pinBoxHeight = headerH + stageHeight;
+
+    // Always pin just under the navbar when header is included — fills the screen.
+    let pinTop;
+    if (headerH > 0) {
+      pinTop = Math.round(navPx + (phone ? 8 : 12));
+    } else if (narrow) {
+      pinTop = Math.round(navPx + 24);
+    } else {
+      pinTop = Math.max(16, pinOffset);
+    }
+
+    const scrollFrac = phone
+      ? Math.max(scrollPerCard, 0.62)
+      : narrow
+        ? Math.min(scrollPerCard, 0.65)
+        : scrollPerCard;
+    const stepFloor = phone ? 400 : narrow ? 400 : 520;
+    const step = Math.max(stepFloor, Math.round(vh * scrollFrac));
     const scrollRange = (cards.length - 1) * step;
-    const pinTop = Math.max(16, pinOffset);
 
-    const previous = metricsRef.current;
-    if (previous.pinHeight !== pinHeight || previous.scrollRange !== scrollRange) {
-      track.style.setProperty("--ss-stage-height", `${pinHeight}px`);
-      track.style.height = `${pinHeight + scrollRange}px`;
-    }
-    if (previous.pinTop !== pinTop) {
-      track.style.setProperty("--ss-pin-top", `${pinTop}px`);
-    }
+    track.style.setProperty("--ss-stage-height", `${stageHeight}px`);
+    track.style.setProperty("--ss-pin-height", `${pinBoxHeight}px`);
+    track.style.setProperty("--ss-pin-top", `${pinTop}px`);
+    track.style.height = `${pinBoxHeight + scrollRange}px`;
 
-    metricsRef.current = { enabled: true, pinTop, pinHeight, scrollRange, cards };
+    metricsRef.current = {
+      enabled: true,
+      pinTop,
+      // Card travel uses stage height only (header sits above, fixed in the pin).
+      pinHeight: stageHeight,
+      scrollRange,
+      cards,
+      stackGap,
+    };
   }, [itemStackDistance, minWidth, pinOffset, reset, scrollPerCard]);
 
   const render = useCallback(() => {
     const track = trackRef.current;
-    const { enabled, pinTop, pinHeight, scrollRange, cards } = metricsRef.current;
+    const { enabled, pinTop, pinHeight, scrollRange, cards, stackGap } =
+      metricsRef.current;
     if (!track || !enabled || !cards.length) return;
 
+    const gap = stackGap ?? itemStackDistance;
+    const phone = window.innerWidth < 640;
     const rect = track.getBoundingClientRect();
-    const progress = scrollRange > 0 ? clamp((pinTop - rect.top) / scrollRange, 0, 1) : 0;
+    const progress =
+      scrollRange > 0 ? clamp((pinTop - rect.top) / scrollRange, 0, 1) : 0;
     const segment = 1 / (cards.length - 1);
 
     const arrived = cards.map((_, i) => {
       if (i === 0) return 1;
-      // Spend the first ~18% of each segment settling, then ease the card in.
       const raw = clamp((progress - (i - 1) * segment) / segment, 0, 1);
       const t = clamp((raw - 0.05) / 0.9, 0, 1);
       return easeInOut(t);
     });
 
     cards.forEach((card, i) => {
-      const restY = i * itemStackDistance;
-      const enterY = pinHeight + 28;
+      const restY = i * gap;
+      const enterY = pinHeight + (phone ? 20 : 28);
       const y = enterY + (restY - enterY) * arrived[i];
 
       let depth = 0;
@@ -121,8 +188,8 @@ export default function ScrollStack({
 
       const scale = Math.max(baseScale, 1 - depth * itemScale);
       const blur = blurAmount ? Math.min(depth * blurAmount, 12) : 0;
-      // Fade in over the first stretch of travel so rising cards don't flash.
-      const opacity = clamp((enterY - y) / 72, 0, 1);
+      const fadeSpan = phone ? 56 : 72;
+      const opacity = clamp((enterY - y) / fadeSpan, 0, 1);
 
       card.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) scale(${scale.toFixed(3)})`;
       card.style.filter = blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : "";
@@ -161,10 +228,16 @@ export default function ScrollStack({
       rafRef.current = requestAnimationFrame(tick);
     };
 
-    measure();
-    render();
+    let cancelled = false;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (cancelled) return;
+        measure();
+        render();
+        start();
+      });
+    });
 
-    // Only animate while the section is anywhere near the viewport.
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) start();
@@ -173,7 +246,7 @@ export default function ScrollStack({
           render();
         }
       },
-      { rootMargin: "100% 0px" }
+      { rootMargin: "120% 0px" }
     );
     io.observe(track);
 
@@ -184,25 +257,37 @@ export default function ScrollStack({
 
     const ro = new ResizeObserver(remeasure);
     ro.observe(stage);
+    if (headerRef.current) ro.observe(headerRef.current);
+    Array.from(stage.children).forEach((el) => ro.observe(el));
 
-    const mq = window.matchMedia(`(min-width: ${minWidth}px)`);
-    mq.addEventListener("change", remeasure);
+    const mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    mqReduce.addEventListener("change", remeasure);
     window.addEventListener("resize", remeasure);
     window.addEventListener("orientationchange", remeasure);
+    window.addEventListener("scroll", render, { passive: true });
 
     return () => {
+      cancelled = true;
       stop();
       io.disconnect();
       ro.disconnect();
-      mq.removeEventListener("change", remeasure);
+      mqReduce.removeEventListener("change", remeasure);
       window.removeEventListener("resize", remeasure);
       window.removeEventListener("orientationchange", remeasure);
+      window.removeEventListener("scroll", render);
     };
-  }, [measure, minWidth, render]);
+  }, [measure, render]);
 
   return (
     <div ref={trackRef} className={`scroll-stack ${className}`.trim()}>
-      <div className="scroll-stack__pin">
+      <div ref={pinRef} className="scroll-stack__pin">
+        {pinHeader ? (
+          <div ref={headerRef} className="scroll-stack__header">
+            {pinHeader}
+          </div>
+        ) : (
+          <div ref={headerRef} className="scroll-stack__header scroll-stack__header--empty" />
+        )}
         <div ref={stageRef} className="scroll-stack__stage">
           {children}
         </div>

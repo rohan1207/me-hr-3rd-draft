@@ -181,37 +181,42 @@ function PagarVisual() {
 }
 
 export default function PagarPreview() {
- const { pagar } = homeContent;
+  const { pagar } = homeContent;
 
- return (
- <section className="section-pad relative overflow-hidden bg-mehr-panel">
- <div className="pointer-events-none absolute inset-0 bg-mesh-teal opacity-40" aria-hidden />
+  return (
+    <section className="section-pad relative overflow-hidden bg-mehr-panel !py-8 sm:!py-12 lg:!py-16">
+      <div className="pointer-events-none absolute inset-0 bg-mesh-teal opacity-40" aria-hidden />
 
- <div className="container-mehr page-gutter relative z-10 sm:px-3 md:px-4 lg:px-5">
- <Reveal>
- <div className="overflow-hidden rounded-[1.75rem] border border-mehr-deep/10 bg-white sm:rounded-[2.25rem]">
- <div className="grid items-center gap-8 px-6 py-8 sm:gap-10 sm:px-10 sm:py-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-12 lg:py-12">
- <div>
- <p className="eyebrow mb-3">{pagar.eyebrow}</p>
- <h2 className="max-w-[14ch] font-sans text-[clamp(1.55rem,3.4vw,2.65rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-mehr-ink">
- {pagar.title}
- </h2>
- <p className="mt-4 max-w-md text-sm leading-relaxed text-mehr-mist sm:text-[15px]">
- {pagar.desc}
- </p>
- <div className="mt-7">
- <SpecularButton to="/pagar" variant="brand" size="md">
- {pagar.cta}
- <ArrowUpRight size={15} />
- </SpecularButton>
- </div>
- </div>
+      <div className="container-mehr page-gutter relative z-10 sm:px-3 md:px-4 lg:px-5">
+        <Reveal>
+          <div className="overflow-hidden rounded-[1.35rem] border border-mehr-deep/10 bg-white sm:rounded-[2.25rem]">
+            <div className="grid items-center gap-6 px-4 py-6 sm:gap-10 sm:px-10 sm:py-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:px-12 lg:py-12">
+              <div className="text-center lg:text-left">
+                <p className="eyebrow mb-2.5 sm:mb-3">{pagar.eyebrow}</p>
+                <h2 className="mx-auto max-w-[14ch] font-sans text-[clamp(1.45rem,6.2vw,2.65rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-mehr-ink lg:mx-0">
+                  {pagar.title}
+                </h2>
+                <p className="mx-auto mt-3 max-w-md text-[13px] leading-relaxed text-mehr-mist sm:mt-4 sm:text-sm md:text-[15px] lg:mx-0">
+                  {pagar.desc}
+                </p>
+                <div className="mt-5 flex justify-center sm:mt-7 lg:justify-start">
+                  <SpecularButton
+                    to="/pagar"
+                    variant="brand"
+                    size="md"
+                    className="w-full justify-center sm:w-auto"
+                  >
+                    {pagar.cta}
+                    <ArrowUpRight size={15} />
+                  </SpecularButton>
+                </div>
+              </div>
 
- <PagarVisual />
- </div>
- </div>
- </Reveal>
- </div>
- </section>
- );
+              <PagarVisual />
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
 }

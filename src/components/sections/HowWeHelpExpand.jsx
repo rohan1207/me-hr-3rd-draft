@@ -26,7 +26,7 @@ import SpecularButton from "../ui/SpecularButton";
 import Reveal from "../ui/Reveal";
 
 const ease = [0.22, 1, 0.36, 1];
-const expandTransition = { duration: 0.5, ease };
+const expandTransition = { duration: 0.45, ease };
 
 const META = {
   "on-demand-hr": {
@@ -123,69 +123,88 @@ const META = {
   },
 };
 
-function useIsMobile(breakpoint = 768) {
-  const [mobile, setMobile] = useState(() =>
-    typeof window !== "undefined" ? window.innerWidth < breakpoint : false
+/** Desktop accordion from lg (1024+) — tablets get the stacked list. */
+function useIsDesktop(breakpoint = 1024) {
+  const [desktop, setDesktop] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth >= breakpoint : false
   );
 
   useEffect(() => {
-    const mq = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
-    const onChange = () => setMobile(mq.matches);
+    const mq = window.matchMedia(`(min-width: ${breakpoint}px)`);
+    const onChange = () => setDesktop(mq.matches);
     onChange();
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
   }, [breakpoint]);
 
-  return mobile;
+  return desktop;
 }
 
-/** Shared expanded content — readable type, real substance instead of filler space. */
 function CardBody({ item, meta, num, compact }) {
   const Icon = meta.Icon;
 
   return (
-    <div className={compact ? "px-4 pb-5 pt-1" : "flex h-full flex-col px-6 py-6 lg:px-8 lg:py-7"}>
+    <div
+      className={
+        compact
+          ? "px-4 pb-5 pt-0.5 sm:px-5 sm:pb-6"
+          : "flex h-full flex-col px-5 py-5 xl:px-8 xl:py-7"
+      }
+    >
       {!compact && (
         <div className="flex items-center justify-between gap-3">
-          <span className="rounded-full bg-white/15 px-3 py-1 text-[12px] font-semibold tabular-nums text-white">
+          <span className="rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold tabular-nums text-white xl:text-[12px]">
             {num}
           </span>
-          <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[12px] font-semibold uppercase tracking-[0.1em] text-white/80">
+          <span className="rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-white/80 xl:px-3 xl:text-[12px]">
             {meta.label}
           </span>
         </div>
       )}
 
-      <div
-        className={
-          compact ? "" : "flex min-h-0 flex-1 flex-col justify-center pt-5"
-        }
-      >
+      <div className={compact ? "" : "flex min-h-0 flex-1 flex-col justify-center pt-4 xl:pt-5"}>
         {!compact && (
-          <span className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 text-white ring-1 ring-white/20">
-            <Icon size={26} strokeWidth={1.75} />
+          <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 text-white ring-1 ring-white/20 xl:mb-5 xl:h-14 xl:w-14">
+            <Icon size={24} strokeWidth={1.75} className="xl:hidden" />
+            <Icon size={26} strokeWidth={1.75} className="hidden xl:block" />
           </span>
         )}
 
-        <h3 className="font-sans text-[21px] font-semibold leading-[1.15] tracking-[-0.02em] text-white sm:text-[24px] lg:text-[28px]">
+        <h3
+          className={`font-sans font-semibold leading-[1.15] tracking-[-0.02em] text-white ${
+            compact
+              ? "text-[18px] sm:text-[20px]"
+              : "text-[20px] lg:text-[24px] xl:text-[28px]"
+          }`}
+        >
           {item.title}
         </h3>
 
-        <p className="mt-3 max-w-[54ch] text-[14px] leading-relaxed text-white/80 sm:text-[15px]">
+        <p
+          className={`mt-2.5 max-w-[54ch] leading-relaxed text-white/80 ${
+            compact ? "text-[13px] sm:text-[14px]" : "text-[13px] lg:text-[14px] xl:text-[15px]"
+          }`}
+        >
           {item.desc}
         </p>
 
-        <ul className="mt-6 grid gap-4 border-t border-white/15 pt-6 sm:gap-4 lg:grid-cols-3 lg:gap-7">
+        <ul
+          className={`mt-5 grid gap-3.5 border-t border-white/15 pt-5 sm:gap-4 ${
+            compact
+              ? "grid-cols-1"
+              : "lg:grid-cols-1 xl:grid-cols-3 xl:gap-6"
+          }`}
+        >
           {meta.covers.map((cover) => (
-            <li key={cover.title} className="flex gap-3 lg:flex-col lg:gap-2.5">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-mehr-deep">
-                <cover.Icon size={17} strokeWidth={2} />
+            <li key={cover.title} className="flex gap-3 xl:flex-col xl:gap-2.5">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white text-mehr-deep sm:h-9 sm:w-9">
+                <cover.Icon size={16} strokeWidth={2} />
               </span>
               <div className="min-w-0">
-                <p className="text-[14px] font-semibold leading-snug text-white">
+                <p className="text-[13px] font-semibold leading-snug text-white sm:text-[14px]">
                   {cover.title}
                 </p>
-                <p className="mt-1 text-[13px] leading-relaxed text-white/70">
+                <p className="mt-1 text-[12px] leading-relaxed text-white/70 sm:text-[13px]">
                   {cover.desc}
                 </p>
               </div>
@@ -193,12 +212,13 @@ function CardBody({ item, meta, num, compact }) {
           ))}
         </ul>
 
-        <div className="mt-6 sm:mt-7">
+        <div className="mt-5 sm:mt-6">
           <SpecularButton
             to={item.path}
             variant="light"
-            size="md"
+            size={compact ? "md" : "md"}
             fullWidth={compact}
+            className={compact ? "" : "lg:w-auto"}
             onClick={(e) => e.stopPropagation()}
           >
             {`Explore ${item.title}`}
@@ -231,7 +251,6 @@ function CardBackdrop({ item, meta, dim = false }) {
   );
 }
 
-/** Desktop: horizontal accordion that grows the active panel. */
 function DesktopCard({ item, index, active, onActivate, reduce }) {
   const isOn = active === index;
   const meta = META[item.id] || META["on-demand-hr"];
@@ -249,20 +268,21 @@ function DesktopCard({ item, index, active, onActivate, reduce }) {
       initial={false}
       animate={{ flexGrow: isOn ? 6 : 1, flexShrink: 1, flexBasis: "0%" }}
       transition={reduce ? { duration: 0.2 } : expandTransition}
-      className="group relative h-full min-h-0 min-w-[6.5rem] overflow-hidden rounded-[1.5rem] text-left outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+      className="group relative h-full min-h-0 min-w-[5.5rem] overflow-hidden rounded-[1.35rem] text-left outline-none focus-visible:ring-2 focus-visible:ring-white/50 xl:min-w-[6.5rem] xl:rounded-[1.5rem]"
     >
       <CardBackdrop item={item} meta={meta} dim={!isOn} />
 
       {!isOn && (
-        <div className="absolute inset-0 z-10 flex flex-col items-center px-3 py-5">
-          <span className="rounded-full bg-white/15 px-3 py-1 text-[14px] font-semibold tabular-nums text-white">
+        <div className="absolute inset-0 z-10 flex flex-col items-center px-2.5 py-4 xl:px-3 xl:py-5">
+          <span className="rounded-full bg-white/15 px-2.5 py-1 text-[12px] font-semibold tabular-nums text-white xl:px-3 xl:text-[14px]">
             {num}
           </span>
-          <span className="mt-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 text-white ring-1 ring-white/20">
-            <Icon size={26} strokeWidth={1.85} />
+          <span className="mt-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15 text-white ring-1 ring-white/20 xl:mt-5 xl:h-14 xl:w-14">
+            <Icon size={22} strokeWidth={1.85} className="xl:hidden" />
+            <Icon size={26} strokeWidth={1.85} className="hidden xl:block" />
           </span>
           <span
-            className="mt-5 max-h-[72%] overflow-hidden text-[15px] font-semibold uppercase leading-tight tracking-[0.08em] text-white sm:text-[16px]"
+            className="mt-4 max-h-[70%] overflow-hidden text-[13px] font-semibold uppercase leading-tight tracking-[0.08em] text-white xl:mt-5 xl:text-[16px]"
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
             {meta.short}
@@ -288,7 +308,6 @@ function DesktopCard({ item, index, active, onActivate, reduce }) {
   );
 }
 
-/** Mobile: stacked list that grows to fit its content, so nothing is clipped. */
 function MobileCard({ item, index, active, onActivate, reduce }) {
   const isOn = active === index;
   const meta = META[item.id] || META["on-demand-hr"];
@@ -296,7 +315,7 @@ function MobileCard({ item, index, active, onActivate, reduce }) {
   const num = String(index + 1).padStart(2, "0");
 
   return (
-    <div className="relative overflow-hidden rounded-[1.35rem]">
+    <div className="relative overflow-hidden rounded-[1.2rem] sm:rounded-[1.35rem]">
       <CardBackdrop item={item} meta={meta} dim={!isOn} />
 
       <div className="relative z-10">
@@ -304,21 +323,21 @@ function MobileCard({ item, index, active, onActivate, reduce }) {
           type="button"
           onClick={() => onActivate(isOn ? -1 : index)}
           aria-expanded={isOn}
-          className="flex w-full items-center gap-3 px-4 py-4 text-left outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+          className="flex w-full items-center gap-3 px-3.5 py-3.5 text-left outline-none touch-manipulation focus-visible:ring-2 focus-visible:ring-white/50 sm:gap-3.5 sm:px-4 sm:py-4"
         >
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/15 text-white ring-1 ring-white/20">
-            <Icon size={23} strokeWidth={1.85} />
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/15 text-white ring-1 ring-white/20 sm:h-12 sm:w-12">
+            <Icon size={22} strokeWidth={1.85} />
           </span>
           <span className="min-w-0 flex-1">
-            <span className="block text-[13px] font-semibold uppercase tracking-[0.12em] text-white/65">
+            <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-white/65 sm:text-[12px]">
               {num} · {meta.label}
             </span>
-            <span className="mt-0.5 block font-sans text-[19px] font-semibold leading-snug text-white">
+            <span className="mt-0.5 block font-sans text-[16px] font-semibold leading-snug text-white sm:text-[18px] md:text-[19px]">
               {item.title}
             </span>
           </span>
           <ChevronDown
-            size={22}
+            size={20}
             className={`shrink-0 text-white/70 transition-transform ${isOn ? "rotate-180" : ""}`}
           />
         </button>
@@ -346,7 +365,7 @@ export default function HowWeHelpExpand() {
   const { howWeHelp } = homeContent;
   const items = howWeHelp.items;
   const [active, setActive] = useState(0);
-  const mobile = useIsMobile();
+  const desktop = useIsDesktop();
   const reduce = useReducedMotion();
 
   return (
@@ -356,11 +375,11 @@ export default function HowWeHelpExpand() {
           <SectionHeading eyebrow={howWeHelp.eyebrow} title={howWeHelp.title} />
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-8 sm:mt-10">
-          {mobile ? (
-            <div className="flex flex-col gap-3">
+        <Reveal delay={0.1} className="mt-6 sm:mt-8 md:mt-10">
+          {desktop ? (
+            <div className="flex h-[min(68vh,560px)] min-h-[420px] flex-row gap-2.5 xl:h-[min(72vh,600px)] xl:min-h-[520px] xl:gap-3">
               {items.map((item, i) => (
-                <MobileCard
+                <DesktopCard
                   key={item.id}
                   item={item}
                   index={i}
@@ -371,9 +390,9 @@ export default function HowWeHelpExpand() {
               ))}
             </div>
           ) : (
-            <div className="flex h-[min(72vh,600px)] min-h-[540px] flex-row gap-3">
+            <div className="flex flex-col gap-2.5 sm:gap-3">
               {items.map((item, i) => (
-                <DesktopCard
+                <MobileCard
                   key={item.id}
                   item={item}
                   index={i}
@@ -386,8 +405,8 @@ export default function HowWeHelpExpand() {
           )}
         </Reveal>
 
-        {!mobile && (
-          <p className="mt-6 text-center text-[13px] text-mehr-mist">
+        {desktop && (
+          <p className="mt-5 text-center text-[12px] text-mehr-mist xl:mt-6 xl:text-[13px]">
             Hover a card to see what each model covers
           </p>
         )}

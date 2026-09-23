@@ -42,13 +42,13 @@ function CareersHero() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_0%_0%,rgba(20,196,173,0.16),transparent_55%),radial-gradient(ellipse_45%_40%_at_100%_100%,rgba(11,95,88,0.1),transparent_50%)]"
       />
 
-      <div className="container-mehr page-gutter relative z-10 py-10 sm:py-12 md:px-4 lg:px-5 lg:py-16">
-        <div className="grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 xl:gap-14">
-          <div>
+      <div className="container-mehr page-gutter relative z-10 py-7 sm:py-12 md:px-4 lg:px-5 lg:py-16">
+        <div className="grid items-center gap-7 sm:gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 xl:gap-14">
+          <div className="text-center lg:text-left">
             <motion.p
               initial={reduce ? false : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-[11px] font-semibold uppercase tracking-[0.18em] text-mehr-deep"
+              className="text-[10px] font-semibold uppercase tracking-[0.18em] text-mehr-deep sm:text-[11px]"
             >
               Careers at me-HR
             </motion.p>
@@ -56,7 +56,7 @@ function CareersHero() {
               initial={reduce ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.06, duration: 0.7, ease }}
-              className="mt-4 max-w-[14ch] font-sans text-[clamp(2.1rem,4.8vw,3.6rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-mehr-ink"
+              className="mx-auto mt-3 max-w-[16ch] font-sans text-[clamp(1.75rem,7vw,3.6rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-mehr-ink sm:mt-4 sm:leading-[1.05] lg:mx-0"
             >
               {hero.title}
             </motion.h1>
@@ -64,7 +64,7 @@ function CareersHero() {
               initial={reduce ? false : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.12, duration: 0.55, ease }}
-              className="mt-5 max-w-md text-[15px] leading-relaxed text-mehr-mist sm:text-base"
+              className="mx-auto mt-3.5 max-w-md text-[13px] leading-relaxed text-mehr-mist sm:mt-5 sm:text-[15px] sm:text-base lg:mx-0"
             >
               {hero.body}
             </motion.p>
@@ -73,18 +73,18 @@ function CareersHero() {
               initial={reduce ? false : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.18, duration: 0.55, ease }}
-              className="mt-8 flex flex-wrap items-center gap-3"
+              className="mt-5 flex w-full flex-col items-stretch gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3 lg:justify-start"
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-mehr-deep px-6 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal hover:gap-3 active:scale-[0.98]"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-6 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal hover:gap-3 active:scale-[0.98] sm:w-auto"
               >
                 {ctas.viewOpenings}
                 <ArrowRight size={16} />
               </Link>
               <Link
                 to="/life"
-                className="inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-3 text-sm font-semibold text-mehr-deep shadow-soft transition hover:bg-mehr-teal-soft"
+                className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-white px-5 py-3 text-sm font-semibold text-mehr-deep shadow-soft transition hover:bg-mehr-teal-soft sm:w-auto"
               >
                 Life at me-HR
                 <ArrowUpRight size={15} />
@@ -95,12 +95,12 @@ function CareersHero() {
               initial={reduce ? false : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.24, duration: 0.5, ease }}
-              className="mt-8 flex flex-wrap gap-2"
+              className="-mx-4 mt-6 flex justify-start gap-2 overflow-x-auto px-4 pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:mt-8 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0 lg:justify-start [&::-webkit-scrollbar]:hidden"
             >
               {why.slice(0, 3).map((item) => (
                 <span
                   key={item.title}
-                  className="rounded-full border border-mehr-deep/10 bg-white/80 px-3.5 py-1.5 text-[12px] font-semibold text-mehr-ink shadow-soft"
+                  className="shrink-0 rounded-full border border-mehr-deep/10 bg-white/80 px-3.5 py-1.5 text-[11px] font-semibold text-mehr-ink shadow-soft sm:text-[12px]"
                 >
                   {item.title}
                 </span>
@@ -112,13 +112,13 @@ function CareersHero() {
             initial={reduce ? false : { opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.14, duration: 0.7, ease }}
-            className="relative"
+            className="relative pb-16 sm:pb-14 lg:pb-0"
           >
-            <div className="grid h-[340px] grid-cols-4 grid-rows-3 gap-2.5 sm:h-[420px] sm:gap-3 lg:h-[460px]">
+            <div className="grid h-[260px] grid-cols-4 grid-rows-3 gap-1.5 sm:h-[420px] sm:gap-3 lg:h-[460px]">
               {COLLAGE.map((item, i) => (
                 <motion.div
                   key={`${item.src}-${i}`}
-                  className={`relative overflow-hidden rounded-[1.15rem] bg-white shadow-soft sm:rounded-[1.35rem] ${item.className}`}
+                  className={`relative overflow-hidden rounded-[0.95rem] bg-white shadow-soft sm:rounded-[1.35rem] ${item.className}`}
                   animate={
                     reduce ? undefined : { y: [0, i % 2 === 0 ? -5 : 5, 0] }
                   }
@@ -139,14 +139,14 @@ function CareersHero() {
             </div>
 
             <motion.div
-              className="absolute -bottom-3 left-4 right-4 rounded-2xl border border-white/40 bg-white/95 p-4 shadow-float backdrop-blur-sm sm:-bottom-4 sm:left-6 sm:right-auto sm:max-w-xs sm:p-5"
+              className="absolute bottom-0 left-0 right-0 rounded-2xl border border-white/40 bg-white/95 p-3.5 shadow-float backdrop-blur-sm sm:-bottom-4 sm:left-6 sm:right-auto sm:max-w-xs sm:p-5"
               animate={reduce ? undefined : { y: [0, -6, 0] }}
               transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
             >
-              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
+              <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-mehr-deep sm:text-[10px]">
                 Join the team
               </p>
-              <p className="mt-1.5 text-sm font-semibold leading-snug text-mehr-ink">
+              <p className="mt-1 text-[13px] font-semibold leading-snug text-mehr-ink sm:mt-1.5 sm:text-sm">
                 Practical HR work. Real client exposure. Room to grow.
               </p>
             </motion.div>
@@ -170,11 +170,11 @@ function WhyCard({ item, Icon, index }) {
   return (
     <motion.article
       whileHover={reduce ? undefined : { y: -4 }}
-      className="group flex h-full flex-col rounded-[1.5rem] border border-mehr-deep/8 bg-white p-5 shadow-soft transition hover:border-mehr-deep/18 hover:shadow-float sm:rounded-[1.65rem] sm:p-6"
+      className="group flex h-full flex-col rounded-[1.35rem] border border-mehr-deep/8 bg-white p-4 shadow-soft transition hover:border-mehr-deep/18 hover:shadow-float sm:rounded-[1.65rem] sm:p-6"
     >
       <div className="flex items-start justify-between">
         <motion.span
-          className="flex h-11 w-11 items-center justify-center rounded-2xl bg-mehr-panel text-mehr-deep transition group-hover:bg-mehr-deep group-hover:text-white"
+          className="flex h-10 w-10 items-center justify-center rounded-2xl bg-mehr-panel text-mehr-deep transition group-hover:bg-mehr-deep group-hover:text-white sm:h-11 sm:w-11"
           animate={reduce ? undefined : { scale: pulse % 2 === 0 ? [1, 1.06, 1] : 1 }}
           transition={{ duration: 0.5 }}
         >
@@ -184,53 +184,57 @@ function WhyCard({ item, Icon, index }) {
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
-      <h3 className="mt-5 font-sans text-lg font-semibold tracking-[-0.02em] text-mehr-ink">
+      <h3 className="mt-4 font-sans text-[15px] font-semibold tracking-[-0.02em] text-mehr-ink sm:mt-5 sm:text-lg">
         {item.title}
       </h3>
-      <p className="mt-2 text-sm leading-relaxed text-mehr-mist">{item.desc}</p>
+      <p className="mt-1.5 text-[13px] leading-relaxed text-mehr-mist sm:mt-2 sm:text-sm">
+        {item.desc}
+      </p>
     </motion.article>
   );
 }
 
 export default function Careers() {
-  const { hero, why, experienceTitle, experienceEyebrow } =
-    careersContent;
+  const { hero, why, experienceTitle, experienceEyebrow } = careersContent;
 
   return (
     <>
       <PageSEO {...seo.careers} path="/careers" />
       <CareersHero />
 
-      <section className="bg-mehr-panel/45 py-12 sm:py-14">
+      <section className="bg-mehr-panel/45 py-8 sm:py-14">
         <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-          <div className="grid items-stretch gap-3 overflow-hidden rounded-[1.75rem] border border-mehr-deep/8 bg-white p-3 sm:rounded-[2.25rem] sm:p-3.5 lg:grid-cols-[1.05fr_0.95fr] lg:gap-3.5">
-            <Reveal className="flex flex-col justify-center px-3 py-5 sm:px-6 sm:py-8 lg:px-8">
+          <div className="grid items-stretch gap-2.5 overflow-hidden rounded-[1.35rem] border border-mehr-deep/8 bg-white p-2.5 sm:rounded-[2.25rem] sm:gap-3 sm:p-3.5 lg:grid-cols-[1.05fr_0.95fr] lg:gap-3.5">
+            <Reveal className="flex flex-col justify-center px-3 py-4 text-center sm:px-6 sm:py-8 sm:text-left lg:px-8">
               <p className="eyebrow">Life at me-HR</p>
-              <h2 className="mt-3 max-w-[16ch] font-sans text-[clamp(1.55rem,3vw,2.35rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-mehr-ink">
+              <h2 className="mx-auto mt-2.5 max-w-[16ch] font-sans text-[clamp(1.4rem,6vw,2.35rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-mehr-ink sm:mx-0 sm:mt-3">
                 Work that builds real HR capability.
               </h2>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-mehr-mist">
+              <p className="mx-auto mt-3 max-w-md text-[13px] leading-relaxed text-mehr-mist sm:mx-0 sm:mt-4 sm:text-sm">
                 {hero.body}
               </p>
-              <div className="mt-6 rounded-2xl border border-mehr-deep/10 bg-mehr-panel/80 p-4 sm:p-5">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
+              <div className="mt-5 rounded-2xl border border-mehr-deep/10 bg-mehr-panel/80 p-3.5 text-left sm:mt-6 sm:p-5">
+                <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-mehr-deep sm:text-[10px]">
                   {why[2].title}
                 </p>
-                <p className="mt-1.5 text-sm font-semibold leading-snug text-mehr-ink">
+                <p className="mt-1.5 text-[13px] font-semibold leading-snug text-mehr-ink sm:text-sm">
                   {why[2].desc}
                 </p>
               </div>
-              <div className="mt-7">
+              <div className="mt-5 sm:mt-7">
                 <Link
                   to="/life"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-mehr-deep transition hover:gap-3"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-5 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal hover:gap-3 active:scale-[0.98] sm:w-auto sm:bg-transparent sm:px-0 sm:py-0 sm:text-mehr-deep sm:shadow-none sm:hover:bg-transparent"
                 >
                   Explore life at me-HR
                   <ArrowUpRight size={15} />
                 </Link>
               </div>
             </Reveal>
-            <Reveal delay={0.1} className="relative min-h-[240px] overflow-hidden rounded-[1.35rem] sm:min-h-[300px] sm:rounded-[1.6rem] lg:min-h-[360px]">
+            <Reveal
+              delay={0.1}
+              className="relative min-h-[200px] overflow-hidden rounded-[1.15rem] sm:min-h-[300px] sm:rounded-[1.6rem] lg:min-h-[360px]"
+            >
               <img
                 src={CULTURE_IMG}
                 alt="me-HR team collaborating in the office"
@@ -241,25 +245,25 @@ export default function Careers() {
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-14 lg:py-16">
+      <section className="bg-white py-8 sm:py-14 lg:py-16">
         <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">{experienceEyebrow}</p>
-            <h2 className="mt-3 font-sans text-[clamp(1.7rem,3.5vw,2.6rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-mehr-ink">
+            <h2 className="mt-2.5 font-sans text-[clamp(1.5rem,6.5vw,2.6rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-mehr-ink sm:mt-3">
               {experienceTitle}
             </h2>
           </Reveal>
 
-          <RevealStagger
-            className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5"
-            stagger={0.07}
-          >
+          <div className="-mx-4 mt-7 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:mt-10 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 lg:gap-5 [&::-webkit-scrollbar]:hidden">
             {why.map((item, i) => (
-              <RevealItem key={item.title}>
+              <div
+                key={item.title}
+                className="w-[78vw] max-w-[280px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink"
+              >
                 <WhyCard item={item} Icon={whyIcons[i]} index={i} />
-              </RevealItem>
+              </div>
             ))}
-          </RevealStagger>
+          </div>
         </div>
       </section>
 

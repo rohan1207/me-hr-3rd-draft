@@ -51,30 +51,33 @@ export default function Footer() {
       </div>
 
       <div
-        className="pointer-events-none absolute inset-3 z-[3] rounded-[1.25rem] border border-white/[0.08] sm:inset-4 sm:rounded-[1.5rem] lg:inset-5"
+        className="pointer-events-none absolute inset-2.5 z-[3] rounded-[1.1rem] border border-white/[0.08] sm:inset-4 sm:rounded-[1.5rem] lg:inset-5"
         aria-hidden
       />
 
-      <div className="relative z-10 px-6 pb-8 pt-10 sm:px-9 sm:pb-10 sm:pt-12 lg:px-12 lg:pb-12 lg:pt-14 xl:px-16">
-        <div className="mb-8 flex items-start justify-between gap-4 sm:mb-10">
+      <div className="relative z-10 px-4 pb-7 pt-8 sm:px-9 sm:pb-10 sm:pt-12 lg:px-12 lg:pb-12 lg:pt-14 xl:px-16">
+        {/* Top meta */}
+        <div className="mb-6 flex flex-col gap-1.5 sm:mb-10 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
           <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55 sm:text-[11px]">
             me-HR · Pune
           </p>
-          <p className="max-w-[14rem] text-right text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-white/55 sm:max-w-none sm:text-[11px]">
+          <p className="text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-white/55 sm:max-w-none sm:text-right sm:text-[11px]">
             {footerContent.tagline}
           </p>
         </div>
 
-        <div className="grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 xl:gap-12">
-          <div>
-            <Logo size="lg" light />
-            <h2 className="mt-6 max-w-[16ch] font-sans text-[clamp(1.65rem,3.2vw,2.55rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-white drop-shadow-sm">
+        <div className="grid items-start gap-7 sm:gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 xl:gap-12">
+          <div className="text-center sm:text-left">
+            <div className="flex justify-center sm:justify-start">
+              <Logo size="lg" light />
+            </div>
+            <h2 className="mx-auto mt-5 max-w-[16ch] font-sans text-[clamp(1.45rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-white drop-shadow-sm sm:mx-0 sm:mt-6">
               {footerContent.ctaLine.replace("| Book Consultation!", "").trim()}
             </h2>
 
-            <div className="mt-4 max-w-md space-y-1.5 text-sm leading-relaxed text-white/75">
+            <div className="mx-auto mt-3.5 max-w-md space-y-1.5 text-[13px] leading-relaxed text-white/75 sm:mx-0 sm:mt-4 sm:text-sm">
               <p>{contactInfo.addressShort}</p>
-              <p className="flex flex-wrap items-center gap-x-3 gap-y-1 tabular-nums">
+              <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 tabular-nums sm:justify-start">
                 <a href={contactInfo.emailHref} className="transition hover:text-white">
                   {contactInfo.email}
                 </a>
@@ -87,8 +90,14 @@ export default function Footer() {
               </p>
             </div>
 
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <SpecularButton to="/contact" variant="light" size="md">
+            {/* Phone: full-width centered stack · sm+: inline */}
+            <div className="mt-6 flex w-full flex-col items-stretch gap-2.5 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:justify-start sm:gap-3">
+              <SpecularButton
+                to="/contact"
+                variant="light"
+                size="md"
+                className="w-full justify-center sm:w-auto"
+              >
                 {ctas.primary}
                 <ArrowUpRight size={15} />
               </SpecularButton>
@@ -99,24 +108,26 @@ export default function Footer() {
                 tint="#ffffff"
                 tintOpacity={0.12}
                 blur={8}
+                className="w-full justify-center sm:w-auto"
               >
                 {ctas.exploreServices}
               </SpecularButton>
             </div>
           </div>
 
-          {/* Right bento — fills the open space without overlapping content */}
+          {/* Right bento */}
           <div className="grid gap-3 sm:grid-cols-2 sm:grid-rows-[1fr_auto]">
-            <div className="rounded-[1.35rem] border border-white/10 bg-white/[0.06] p-5 backdrop-blur-sm sm:row-span-2 sm:rounded-[1.5rem] sm:p-6">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
+            <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur-sm sm:row-span-2 sm:rounded-[1.5rem] sm:p-6">
+              <p className="text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45 sm:text-left">
                 {footerContent.usefulLinksLabel}
               </p>
-              <ul className="mt-4 grid grid-cols-1 gap-y-2.5">
+              {/* Phone: 2-column useful links */}
+              <ul className="mt-3.5 grid grid-cols-2 gap-x-3 gap-y-2.5 sm:mt-4 sm:grid-cols-1 sm:gap-y-2.5">
                 {footerLinks.map((l) => (
                   <li key={l.path + l.label}>
                     <Link
                       to={l.path}
-                      className="text-sm text-white/75 transition hover:text-white"
+                      className="text-[13px] text-white/75 transition hover:text-white sm:text-sm"
                     >
                       {l.label}
                     </Link>
@@ -125,37 +136,39 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="rounded-[1.35rem] border border-white/10 bg-white/[0.06] p-5 backdrop-blur-sm sm:rounded-[1.5rem] sm:p-5">
+            <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur-sm sm:rounded-[1.5rem] sm:p-5">
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
                 {footerContent.subscribeLabel}
               </p>
-              <form onSubmit={onSubmit} className="mt-4 flex min-w-0 gap-2">
+              <form onSubmit={onSubmit} className="mt-3.5 flex min-w-0 gap-2 sm:mt-4">
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={footerContent.subscribePlaceholder}
-                  className="min-w-0 flex-1 rounded-full border border-white/15 bg-white/10 px-4 py-3 text-sm text-white outline-none placeholder:text-white/40 backdrop-blur-sm transition focus:border-white/35"
+                  className="min-w-0 flex-1 rounded-full border border-white/15 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/40 backdrop-blur-sm transition focus:border-white/35 sm:px-4 sm:py-3"
                 />
                 <button
                   type="submit"
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-mehr-ink transition hover:bg-white/90"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-mehr-ink transition hover:bg-white/90 sm:h-12 sm:w-12"
                   aria-label={footerContent.subscribeCta}
                 >
                   <ArrowRight size={16} />
                 </button>
               </form>
               {done && (
-                <p className="mt-2 text-xs font-medium text-white/70">Thanks for subscribing!</p>
+                <p className="mt-2 text-xs font-medium text-white/70">
+                  Thanks for subscribing!
+                </p>
               )}
             </div>
 
-            <div className="rounded-[1.35rem] border border-white/10 bg-white/[0.06] p-5 backdrop-blur-sm sm:rounded-[1.5rem] sm:p-5">
+            <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur-sm sm:rounded-[1.5rem] sm:p-5">
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
                 Connect
               </p>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-3.5 flex flex-wrap justify-center gap-2 sm:mt-4 sm:justify-start">
                 {[
                   {
                     href: "https://www.linkedin.com/company/me-hr",
@@ -199,7 +212,7 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease }}
-          className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/45 sm:mt-12 sm:flex-row sm:items-center sm:justify-between"
+          className="mt-8 flex flex-col items-center gap-2 border-t border-white/10 pt-5 text-center text-[11px] text-white/45 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:pt-6 sm:text-left sm:text-xs"
         >
           <p>{COPYRIGHT}</p>
           <p>

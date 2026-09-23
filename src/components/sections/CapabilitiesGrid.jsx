@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
  BarChart3,
@@ -417,7 +417,7 @@ function AuditLive({ hovered, reduce }) {
  );
 }
 
-function CapabilityCard({ item, index }) {
+function CapabilityCard({ item, index, className = "" }) {
  const reduce = useReducedMotion();
  const [hovered, setHovered] = useState(false);
  const cfg = meta[item.id] || meta.policies;
@@ -432,7 +432,7 @@ function CapabilityCard({ item, index }) {
  transition={{ duration: 0.45, delay: 0.04 * index, ease }}
  onMouseEnter={() => setHovered(true)}
  onMouseLeave={() => setHovered(false)}
- className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-mehr-deep/8 bg-white p-4 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-mehr-deep/18 hover:shadow-float sm:rounded-[1.6rem] sm:p-5"
+ className={`group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-mehr-deep/8 bg-white p-4 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-mehr-deep/18 hover:shadow-float sm:rounded-[1.6rem] sm:p-5 ${className}`}
  >
  <Visual hovered={hovered} reduce={reduce} />
 
@@ -456,6 +456,108 @@ function CapabilityCard({ item, index }) {
  );
 }
 
+/** Phone: snap carousel so rich cards stay full-size without a tall stack. */
+function MobileCapabilityRail({ items }) {
+ const reduce = useReducedMotion();
+ const scrollerRef = useRef(null);
+ const [active, setActive] = useState(0);
+
+ useEffect(() => {
+ const el = scrollerRef.current;
+ if (!el) return undefined;
+
+ const sync = () => {
+ const cards = el.querySelectorAll("[data-cap-card]");
+ if (!cards.length) return;
+ const mid = el.getBoundingClientRect().left + el.clientWidth / 2;
+ let best = 0;
+ let bestDist = Infinity;
+ cards.forEach((card, i) => {
+ const r = card.getBoundingClientRect();
+ const center = r.left + r.width / 2;
+ const dist = Math.abs(center - mid);
+ if (dist < bestDist) {
+ bestDist = dist;
+ best = i;
+ }
+ });
+ setActive(best);
+ };
+
+ sync();
+ el.addEventListener("scroll", sync, { passive: true });
+ window.addEventListener("resize", sync);
+ return () => {
+ el.removeEventListener("scroll", sync);
+ window.removeEventListener("resize", sync);
+ };
+ }, [items.length]);
+
+ const goTo = (i) => {
+ const el = scrollerRef.current;
+ const card = el?.querySelectorAll("[data-cap-card]")[i];
+ card?.scrollIntoView({
+ behavior: reduce ? "auto" : "smooth",
+ inline: "center",
+ block: "nearest",
+ });
+ };
+
+ const progress = ((active + 1) / items.length) * 100;
+
+ return (
+ <div className="sm:hidden">
+ <div
+ ref={scrollerRef}
+ className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain px-[max(1rem,calc((100%-min(78vw,19.5rem))/2))] pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+ aria-label="HR capability areas"
+ >
+ {items.map((item, i) => (
+ <div
+ key={item.id}
+ data-cap-card
+ className="w-[min(78vw,19.5rem)] shrink-0 snap-center"
+ >
+ <CapabilityCard item={item} index={i} />
+ </div>
+ ))}
+ </div>
+
+ <div className="mt-4 flex flex-col items-center gap-2.5">
+ <div className="h-1 w-28 overflow-hidden rounded-full bg-mehr-deep/10">
+ <motion.div
+ className="h-full rounded-full bg-mehr-deep"
+ initial={false}
+ animate={{ width: `${progress}%` }}
+ transition={{ duration: 0.25, ease }}
+ />
+ </div>
+ <p className="font-sans text-[11px] font-semibold tabular-nums tracking-wide text-mehr-muted">
+ {String(active + 1).padStart(2, "0")}
+ <span className="mx-1 text-mehr-deep/35">/</span>
+ {String(items.length).padStart(2, "0")}
+ </p>
+ <div className="flex items-center gap-1.5">
+ {items.map((item, i) => (
+ <button
+ key={item.id}
+ type="button"
+ aria-label={`Go to ${item.title}`}
+ aria-current={i === active ? "true" : undefined}
+ onClick={() => goTo(i)}
+ className={`h-1.5 rounded-full transition-all ${
+ i === active
+ ? "w-4 bg-mehr-deep"
+ : "w-1.5 bg-mehr-deep/20"
+ }`}
+ />
+ ))}
+ </div>
+ </div>
+ </div>
+ );
+}
+
 export default function CapabilitiesGrid({ eyebrow, title, includeAudit = true, limit }) {
  const items = includeAudit
  ? hrCapabilities
@@ -471,11 +573,20 @@ export default function CapabilitiesGrid({ eyebrow, title, includeAudit = true, 
  return (
  <section className="section-pad surface-panel surface-wash">
  <div className="container-mehr page-gutter relative z-10 sm:px-3 md:px-4 lg:px-5">
- <SectionHeading eyebrow={eyebrow} title={title} />
+ <SectionHeading
+ eyebrow={eyebrow}
+ title={title}
+ className="[&_.title-section]:text-[clamp(1.35rem,5.8vw,2.45rem)] [&_.title-section]:leading-[1.15]"
+ />
 
- <div className="mt-8">
+ <div className="mt-6 sm:mt-8">
+ {/* Phone: horizontal snap rail */}
+ <MobileCapabilityRail items={display} />
+
+ {/* Tablet + desktop: responsive grid */}
+ <div className="hidden sm:block">
  <RevealStagger
- className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4 lg:gap-5"
+ className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5"
  stagger={0.04}
  >
  {main.map((item, i) => (
@@ -486,17 +597,18 @@ export default function CapabilitiesGrid({ eyebrow, title, includeAudit = true, 
  </RevealStagger>
 
  {tail.length > 0 && (
- <div className="mt-5 flex flex-wrap justify-center gap-5">
+ <div className="mt-5 flex flex-wrap justify-center gap-4 lg:gap-5">
  {tail.map((item, i) => (
  <div
  key={item.id}
- className="w-full min-w-0 sm:w-[calc(50%-0.625rem)] lg:w-[calc((100%-3*1.25rem)/4)]"
+ className="w-full min-w-0 sm:w-[calc(50%-0.5rem)] lg:w-[calc((100%-3*1.25rem)/4)]"
  >
  <CapabilityCard item={item} index={mainCount + i} />
  </div>
  ))}
  </div>
  )}
+ </div>
  </div>
  </div>
  </section>

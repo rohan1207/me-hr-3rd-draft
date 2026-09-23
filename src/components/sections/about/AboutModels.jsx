@@ -11,27 +11,27 @@ export default function AboutModels() {
  const { models } = aboutContent;
 
  return (
- <section className="bg-white py-10 sm:py-12 lg:py-14">
+ <section className="bg-white py-9 sm:py-12 lg:py-14">
  <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
- <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+ <div className="flex flex-col gap-3 text-center lg:flex-row lg:items-end lg:justify-between lg:text-left">
  <Reveal className="max-w-xl">
  <p className="eyebrow">{models.eyebrow}</p>
- <h2 className="mt-3 font-sans text-[clamp(1.75rem,3.8vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-mehr-ink">
+ <h2 className="mx-auto mt-3 font-sans text-[clamp(1.45rem,6.2vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-mehr-ink lg:mx-0">
  {models.title}
  </h2>
  </Reveal>
- <Reveal delay={0.08} className="max-w-md">
+ <Reveal delay={0.08} className="mx-auto max-w-md lg:mx-0">
  <p className="text-sm leading-relaxed text-mehr-mist">{models.body}</p>
  </Reveal>
  </div>
 
- <RevealStagger className="mt-8 grid gap-3 lg:mt-10 lg:grid-cols-3 lg:gap-4" stagger={0.08}>
+ <RevealStagger className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-4" stagger={0.08}>
  {serviceModels.map((model, i) => (
  <RevealItem key={model.id}>
  <motion.div whileHover={reduce ? undefined : { y: -5 }} className="h-full">
  <Link
  to={model.path}
- className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-mehr-deep/10 bg-mehr-panel p-5 transition hover:border-mehr-deep/25 hover:bg-white hover:shadow-float sm:rounded-[1.65rem] sm:p-6"
+ className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-mehr-deep/10 bg-mehr-panel p-4 transition hover:border-mehr-deep/25 hover:bg-white hover:shadow-float sm:rounded-[1.65rem] sm:p-6"
  >
  <div className="flex items-center justify-between">
  <span className="font-sans text-[11px] font-semibold tabular-nums text-mehr-deep">

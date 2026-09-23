@@ -1,18 +1,40 @@
 .scroll-stack {
   position: relative;
   width: 100%;
+  align-self: start;
+  isolation: isolate;
 }
 
 .scroll-stack__pin {
+  position: -webkit-sticky;
   position: sticky;
   top: var(--ss-pin-top, 0px);
-  height: var(--ss-stage-height, auto);
+  display: flex;
+  flex-direction: column;
+  height: var(--ss-pin-height, var(--ss-stage-height, auto));
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.scroll-stack__header {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.scroll-stack__header--empty {
+  display: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .scroll-stack__stage {
   position: relative;
   width: 100%;
+  flex: 1 1 auto;
   height: var(--ss-stage-height, auto);
+  min-height: 0;
 }
 
 .scroll-stack-card {
@@ -21,21 +43,32 @@
   left: 0;
   right: 0;
   transform-origin: top center;
-  will-change: transform, filter;
+  will-change: transform, filter, opacity;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-/* Below the breakpoint (or with reduced motion) the cards read as a plain list. */
+/* Reduced-motion / disabled: plain stacked list */
 .scroll-stack[data-static="true"] .scroll-stack__pin,
 .scroll-stack[data-static="true"] .scroll-stack__stage {
   position: static;
   height: auto;
 }
 
+.scroll-stack[data-static="true"] .scroll-stack__pin {
+  display: block;
+}
+
 .scroll-stack[data-static="true"] .scroll-stack__stage {
   display: flex;
   flex-direction: column;
-  gap: 0.875rem;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .scroll-stack[data-static="true"] .scroll-stack__stage {
+    gap: 0.875rem;
+  }
 }
 
 .scroll-stack[data-static="true"] .scroll-stack-card {
@@ -43,4 +76,12 @@
   transform: none !important;
   filter: none !important;
   opacity: 1 !important;
+  will-change: auto;
+}
+
+/* On large screens the intro sits in the left column — hide pinHeader copy */
+@media (min-width: 1024px) {
+  .scroll-stack__header:not(.scroll-stack__header--empty) {
+    display: none;
+  }
 }

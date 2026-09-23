@@ -32,35 +32,46 @@ function Hero() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_50%_at_0%_0%,rgba(20,196,173,0.12),transparent_55%),radial-gradient(ellipse_45%_40%_at_100%_80%,rgba(11,95,88,0.08),transparent_50%)]"
       />
 
-      <div className="container-mehr page-gutter relative z-10 py-10 sm:px-3 sm:py-12 md:px-4 lg:px-5 lg:py-14">
-        <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+      <div className="container-mehr page-gutter relative z-10 py-7 sm:px-3 sm:py-12 md:px-4 lg:px-5 lg:py-14">
+        <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease }}
+            className="text-center lg:text-left"
           >
-            <p className="text-[12px] font-medium text-mehr-mist">
+            <p className="text-[11px] font-medium text-mehr-mist sm:text-[12px]">
               Home <span className="mx-1.5 text-mehr-muted">/</span>
               <span className="font-semibold text-mehr-deep">Case Studies</span>
             </p>
-            <p className="eyebrow mt-4">Impact stories</p>
-            <h1 className="mt-3 max-w-[16ch] font-sans text-[clamp(2rem,4.4vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.04em] text-mehr-ink">
+            <p className="eyebrow mt-3 sm:mt-4">Impact stories</p>
+            <h1 className="mx-auto mt-2.5 max-w-[16ch] font-sans text-[clamp(1.75rem,7vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-mehr-ink sm:mt-3 sm:leading-[1.05] lg:mx-0">
               {caseStudiesContent.hero.title}
             </h1>
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-mehr-mist sm:text-[15px]">
+            <p className="mx-auto mt-3.5 max-w-lg text-[13px] leading-relaxed text-mehr-mist sm:mt-4 sm:text-sm md:text-[15px] lg:mx-0">
               {caseStudiesContent.hero.body}
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <SpecularButton to="/contact" variant="brand" size="md">
+            <div className="mt-5 flex w-full flex-col items-stretch gap-2.5 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3 lg:justify-start">
+              <SpecularButton
+                to="/contact"
+                variant="brand"
+                size="md"
+                className="w-full justify-center sm:w-auto"
+              >
                 {ctas.discussChallenge}
                 <ArrowUpRight size={14} />
               </SpecularButton>
-              <SpecularButton to="/case-studies#stories" variant="light" size="md">
+              <SpecularButton
+                to="/case-studies#stories"
+                variant="light"
+                size="md"
+                className="w-full justify-center sm:w-auto"
+              >
                 Browse stories
               </SpecularButton>
             </div>
 
-            <div className="mt-9 flex flex-wrap gap-6 border-t border-mehr-deep/10 pt-6 sm:gap-10">
+            <div className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-3 border-t border-mehr-deep/10 pt-5 sm:mt-9 sm:gap-10 sm:pt-6 lg:justify-start">
               {[
                 { v: String(caseStudies.length), l: "Case studies" },
                 {
@@ -69,11 +80,11 @@ function Hero() {
                 },
                 { v: "C→I→O", l: "Impact frame" },
               ].map((s) => (
-                <div key={s.l}>
-                  <p className="font-sans text-2xl font-semibold tracking-[-0.03em] text-mehr-deep">
+                <div key={s.l} className="text-center lg:text-left">
+                  <p className="font-sans text-xl font-semibold tracking-[-0.03em] text-mehr-deep sm:text-2xl">
                     {s.v}
                   </p>
-                  <p className="mt-0.5 text-[12px] text-mehr-mist">{s.l}</p>
+                  <p className="mt-0.5 text-[11px] text-mehr-mist sm:text-[12px]">{s.l}</p>
                 </div>
               ))}
             </div>
@@ -83,28 +94,28 @@ function Hero() {
             initial={reduce ? false : { opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.1, ease }}
-            className="grid grid-cols-2 gap-3"
+            className="grid grid-cols-2 gap-2.5 sm:gap-3"
           >
-            <div className="overflow-hidden rounded-[1.35rem] shadow-soft sm:rounded-[1.5rem]">
+            <div className="overflow-hidden rounded-[1.15rem] shadow-soft sm:rounded-[1.5rem]">
               <img
                 src={photoAt(1)}
                 alt=""
                 className="aspect-[4/5] h-full w-full object-cover"
               />
             </div>
-            <div className="flex flex-col gap-3">
-              <div className="overflow-hidden rounded-[1.35rem] shadow-soft sm:rounded-[1.5rem]">
+            <div className="flex flex-col gap-2.5 sm:gap-3">
+              <div className="overflow-hidden rounded-[1.15rem] shadow-soft sm:rounded-[1.5rem]">
                 <img
                   src={photoAt(0)}
                   alt=""
                   className="aspect-[5/4] w-full object-cover"
                 />
               </div>
-              <div className="flex flex-1 flex-col justify-end rounded-[1.35rem] bg-mehr-deep p-4 text-white shadow-soft sm:rounded-[1.5rem] sm:p-5">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/70">
+              <div className="flex flex-1 flex-col justify-end rounded-[1.15rem] bg-mehr-deep p-3.5 text-white shadow-soft sm:rounded-[1.5rem] sm:p-5">
+                <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/70 sm:text-[10px]">
                   What changed
                 </p>
-                <p className="mt-2 font-sans text-sm font-semibold leading-snug">
+                <p className="mt-1.5 font-sans text-[13px] font-semibold leading-snug sm:mt-2 sm:text-sm">
                   Clearer people processes. Stronger business outcomes.
                 </p>
               </div>
@@ -122,28 +133,28 @@ function FeaturedCase({ cs, image }) {
   return (
     <motion.article
       whileHover={reduce ? undefined : { y: -2 }}
-      className="overflow-hidden rounded-[1.6rem] bg-white shadow-float sm:rounded-[1.85rem]"
+      className="overflow-hidden rounded-[1.35rem] bg-white shadow-float sm:rounded-[1.85rem]"
     >
       <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="relative min-h-[220px] lg:min-h-full">
+        <div className="relative min-h-[180px] sm:min-h-[220px] lg:min-h-full">
           <img
             src={image}
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-mehr-ink/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-mehr-ink/10" />
-          <div className="absolute left-4 top-4 sm:left-5 sm:top-5">
+          <div className="absolute left-3 top-3 sm:left-5 sm:top-5">
             <span className="rounded-full bg-mehr-deep px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white">
               Featured
             </span>
           </div>
         </div>
 
-        <div className="flex flex-col p-5 sm:p-7 lg:p-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-mehr-deep">
+        <div className="flex flex-col p-4 sm:p-7 lg:p-8">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-mehr-deep sm:text-[11px]">
             {cs.industry}
           </p>
-          <h2 className="mt-2 max-w-[22ch] font-sans text-[clamp(1.25rem,2.4vw,1.75rem)] font-semibold leading-snug tracking-[-0.03em] text-mehr-ink">
+          <h2 className="mt-2 max-w-[22ch] font-sans text-[clamp(1.15rem,4.8vw,1.75rem)] font-semibold leading-snug tracking-[-0.03em] text-mehr-ink">
             {cs.title}
           </h2>
           {(cs.workforce || cs.scope) && (
@@ -163,7 +174,7 @@ function FeaturedCase({ cs, image }) {
             </p>
           )}
 
-          <div className="mt-5 grid gap-2.5 sm:grid-cols-3">
+          <div className="mt-4 grid grid-cols-1 gap-2 sm:mt-5 sm:grid-cols-3 sm:gap-2.5">
             {[
               { label: "Challenge", text: cs.challenge },
               { label: "Intervention", text: cs.intervention },
@@ -173,7 +184,7 @@ function FeaturedCase({ cs, image }) {
               .map((b) => (
                 <div
                   key={b.label}
-                  className={`rounded-[1.1rem] p-3.5 ${
+                  className={`rounded-[1rem] p-3 sm:rounded-[1.1rem] sm:p-3.5 ${
                     b.hot ? "bg-mehr-deep text-white" : "bg-mehr-panel"
                   }`}
                 >
@@ -195,8 +206,8 @@ function FeaturedCase({ cs, image }) {
               ))}
           </div>
 
-          <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-6">
-            <div className="flex flex-wrap gap-1.5">
+          <div className="mt-auto flex flex-col gap-3 pt-5 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:pt-6">
+            <div className="flex flex-wrap justify-center gap-1.5 sm:justify-start">
               {cs.tags?.slice(0, 3).map((tag) => (
                 <span
                   key={tag}
@@ -206,7 +217,12 @@ function FeaturedCase({ cs, image }) {
                 </span>
               ))}
             </div>
-            <SpecularButton to="/contact" variant="brand" size="sm">
+            <SpecularButton
+              to="/contact"
+              variant="brand"
+              size="sm"
+              className="w-full justify-center sm:w-auto"
+            >
               {caseStudiesContent.readCta}
               <ArrowUpRight size={13} />
             </SpecularButton>
@@ -225,9 +241,9 @@ function StoryCard({ cs, image, index }) {
     <motion.article
       whileHover={reduce ? undefined : { y: -4 }}
       transition={{ type: "spring", stiffness: 380, damping: 28 }}
-      className="group flex h-full flex-col overflow-hidden rounded-[1.45rem] bg-white shadow-soft ring-1 ring-mehr-deep/8 sm:rounded-[1.6rem]"
+      className="group flex h-full flex-col overflow-hidden rounded-[1.25rem] bg-white shadow-soft ring-1 ring-mehr-deep/8 sm:rounded-[1.6rem]"
     >
-      <div className="relative h-40 overflow-hidden sm:h-44">
+      <div className="relative h-36 overflow-hidden sm:h-44">
         <img
           src={image}
           alt=""
@@ -242,13 +258,13 @@ function StoryCard({ cs, image, index }) {
         </span>
       </div>
 
-      <div className="flex flex-1 flex-col p-4 sm:p-5">
-        <h3 className="font-sans text-[15px] font-semibold leading-snug tracking-[-0.02em] text-mehr-ink sm:text-base">
+      <div className="flex flex-1 flex-col p-3.5 sm:p-5">
+        <h3 className="font-sans text-[14px] font-semibold leading-snug tracking-[-0.02em] text-mehr-ink sm:text-base">
           {cs.title}
         </h3>
 
         {hasOutcome ? (
-          <div className="mt-3 rounded-[1rem] bg-mehr-panel/80 p-3">
+          <div className="mt-2.5 rounded-[1rem] bg-mehr-panel/80 p-2.5 sm:mt-3 sm:p-3">
             <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-mehr-deep">
               Outcome
             </p>
@@ -257,12 +273,12 @@ function StoryCard({ cs, image, index }) {
             </p>
           </div>
         ) : (
-          <p className="mt-3 text-[13px] leading-relaxed text-mehr-mist">
+          <p className="mt-2.5 text-[12px] leading-relaxed text-mehr-mist sm:mt-3 sm:text-[13px]">
             {truncate(cs.challenge, 110)}
           </p>
         )}
 
-        <div className="mt-auto flex items-center justify-between gap-2 pt-4">
+        <div className="mt-auto flex flex-col gap-2.5 pt-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-2 sm:pt-4">
           <div className="flex flex-wrap gap-1">
             {cs.tags?.slice(0, 2).map((tag) => (
               <span
@@ -273,7 +289,12 @@ function StoryCard({ cs, image, index }) {
               </span>
             ))}
           </div>
-          <SpecularButton to="/contact" variant="brand" size="sm">
+          <SpecularButton
+            to="/contact"
+            variant="brand"
+            size="sm"
+            className="w-full justify-center sm:w-auto"
+          >
             Details
             <ArrowUpRight size={12} />
           </SpecularButton>
@@ -301,17 +322,18 @@ function Stories() {
   const featuredIdx = caseStudies.findIndex((c) => c.id === featured?.id);
 
   return (
-    <section id="stories" className="scroll-mt-28 bg-mehr-panel section-pad">
+    <section id="stories" className="scroll-mt-28 bg-mehr-panel section-pad !py-8 sm:!py-12 lg:!py-16">
       <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-        <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <Reveal className="max-w-xl">
+        <div className="flex flex-col gap-4 sm:gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <Reveal className="mx-auto max-w-xl text-center lg:mx-0 lg:text-left">
             <p className="eyebrow">Case library</p>
-            <h2 className="mt-2 font-sans text-[clamp(1.7rem,3.4vw,2.55rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-mehr-ink">
+            <h2 className="mt-2 font-sans text-[clamp(1.45rem,6.2vw,2.55rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-mehr-ink sm:leading-[1.08]">
               {caseStudiesContent.listTitle}
             </h2>
           </Reveal>
           <Reveal delay={0.06}>
-            <div className="flex flex-wrap gap-2">
+            {/* Phone: horizontal chip scroll */}
+            <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0 sm:justify-center lg:justify-end [&::-webkit-scrollbar]:hidden">
               {["All", ...industries].map((label) => {
                 const on = active === label;
                 return (
@@ -319,7 +341,7 @@ function Stories() {
                     key={label}
                     type="button"
                     onClick={() => setActive(label)}
-                    className={`rounded-full px-3.5 py-1.5 text-[12px] font-semibold transition ${
+                    className={`shrink-0 rounded-full px-3.5 py-1.5 text-[12px] font-semibold transition ${
                       on
                         ? "bg-mehr-deep text-white shadow-soft"
                         : "bg-white/80 text-mehr-mist ring-1 ring-mehr-deep/10 hover:text-mehr-ink"
@@ -334,14 +356,14 @@ function Stories() {
         </div>
 
         {featured && (
-          <Reveal className="mt-8 lg:mt-10">
+          <Reveal className="mt-6 sm:mt-8 lg:mt-10">
             <FeaturedCase cs={featured} image={photoAt(Math.max(0, featuredIdx))} />
           </Reveal>
         )}
 
         {rest.length > 0 && (
           <RevealStagger
-            className="mt-5 grid gap-4 sm:grid-cols-2 lg:mt-6 lg:grid-cols-3 lg:gap-5"
+            className="mt-4 grid grid-cols-1 gap-3.5 sm:mt-5 sm:grid-cols-2 sm:gap-4 lg:mt-6 lg:grid-cols-3 lg:gap-5"
             stagger={0.07}
           >
             {rest.map((cs, i) => {
@@ -380,34 +402,33 @@ function MethodStrip() {
   ];
 
   return (
-    <section className="surface-white surface-wash relative section-pad text-mehr-ink">
+    <section className="surface-white surface-wash relative section-pad !py-8 text-mehr-ink sm:!py-12 lg:!py-16">
       <div className="container-mehr page-gutter relative z-10 sm:px-3 md:px-4 lg:px-5">
-        <Reveal>
+        <Reveal className="text-center lg:text-left">
           <p className="eyebrow">How we frame impact</p>
-          <h2 className="mt-2 max-w-[18ch] font-sans text-[clamp(1.55rem,3vw,2.25rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-mehr-ink">
+          <h2 className="mx-auto mt-2 max-w-[18ch] font-sans text-[clamp(1.4rem,5.8vw,2.25rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-mehr-ink sm:leading-[1.1] lg:mx-0">
             Every story follows the same clarity.
           </h2>
         </Reveal>
-        <RevealStagger
-          className="mt-8 grid gap-3 sm:grid-cols-3 sm:gap-4"
-          stagger={0.08}
-        >
+
+        {/* Phone: snap rail · sm+: 3-col */}
+        <div className="-mx-4 mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:mt-8 sm:grid sm:snap-none sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden">
           {steps.map((step, i) => (
-            <RevealItem key={step.title}>
-              <div className="h-full rounded-[1.35rem] border border-mehr-deep/10 bg-mehr-panel/70 p-5 shadow-soft sm:rounded-[1.5rem] sm:p-6">
+            <Reveal key={step.title} delay={0.06 * i} className="w-[min(78vw,18rem)] shrink-0 snap-center sm:w-auto">
+              <div className="h-full rounded-[1.2rem] border border-mehr-deep/10 bg-mehr-panel/70 p-4 shadow-soft sm:rounded-[1.5rem] sm:p-6">
                 <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-mehr-deep font-sans text-[11px] font-semibold tabular-nums text-white">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-4 font-sans text-lg font-semibold tracking-[-0.02em] text-mehr-ink">
+                <h3 className="mt-3.5 font-sans text-[16px] font-semibold tracking-[-0.02em] text-mehr-ink sm:mt-4 sm:text-lg">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-mehr-mist">
+                <p className="mt-1.5 text-[13px] leading-relaxed text-mehr-mist sm:mt-2 sm:text-sm">
                   {step.desc}
                 </p>
               </div>
-            </RevealItem>
+            </Reveal>
           ))}
-        </RevealStagger>
+        </div>
       </div>
     </section>
   );

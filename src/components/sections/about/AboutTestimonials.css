@@ -180,6 +180,22 @@
   }
 }
 
+@media (max-width: 639px) {
+  .about-testimonials__ribbon {
+    margin-top: 1.5rem;
+  }
+
+  .about-testimonials__scroller {
+    animation-duration: 48s;
+  }
+
+  .about-tcard {
+    width: min(85vw, 19rem);
+    min-height: 15.5rem;
+    padding: 1.1rem 1.15rem 1rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .about-testimonials__scroller {
     animation: none;

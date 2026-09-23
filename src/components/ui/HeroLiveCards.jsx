@@ -333,7 +333,8 @@ function EngagementLine({ active, reduce, stepLabels, theme = "dark" }) {
 
 const PAGAR_STATS = ["PF", "ESIC", "PT", "LWF"];
 const PAGAR_ROWS = ["Attendance", "Payroll", "Compliance"];
-const CARD_H = "h-full min-h-[13.5rem] sm:min-h-[14.5rem] lg:min-h-[15.5rem]";
+const CARD_H =
+  "h-full min-h-[9.75rem] sm:min-h-[12rem] md:min-h-[13.5rem] lg:min-h-[15.5rem]";
 
 function PayrollPulse({ active, reduce, stepLabel, theme = "dark" }) {
  const light = theme === "light";
@@ -513,7 +514,7 @@ export default function HeroLiveCards({ theme = "dark" }) {
  />
  )}
 
- <div className="relative grid grid-cols-2 grid-rows-2 gap-2.5 sm:gap-3 lg:gap-3.5 [grid-auto-rows:1fr]">
+ <div className="relative grid grid-cols-2 grid-rows-2 gap-2 sm:gap-3 lg:gap-3.5 [grid-auto-rows:1fr]">
  {cards.map((card, i) => (
  <motion.div
  key={card.key}

@@ -27,16 +27,19 @@ export default function AboutTeam() {
   const { team } = aboutContent;
 
   return (
-    <section id="team" className="scroll-mt-28 bg-white py-10 sm:py-12 lg:py-14">
+    <section id="team" className="scroll-mt-28 bg-white py-9 sm:py-12 lg:py-14">
       <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-3 text-center sm:items-end sm:justify-between lg:flex-row lg:text-left">
           <Reveal className="max-w-xl">
             <p className="eyebrow">Practice areas</p>
-            <h2 className="mt-3 font-sans text-[clamp(1.75rem,3.8vw,2.85rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-mehr-ink">
+            <h2 className="mx-auto mt-3 font-sans text-[clamp(1.45rem,6.2vw,2.85rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-mehr-ink lg:mx-0">
               {team.title}
             </h2>
+            <p className="mx-auto mt-3 max-w-md text-[13px] leading-relaxed text-mehr-mist sm:hidden lg:mx-0">
+              {team.body}
+            </p>
           </Reveal>
-          <Reveal delay={0.08} className="max-w-md sm:pb-1">
+          <Reveal delay={0.08} className="mx-auto hidden max-w-md sm:mx-0 sm:block sm:pb-1">
             <p className="text-sm leading-relaxed text-mehr-mist">{team.body}</p>
           </Reveal>
         </div>
@@ -51,7 +54,7 @@ export default function AboutTeam() {
               <RevealItem key={group.title}>
                 <motion.article
                   whileHover={reduce ? undefined : { y: -3 }}
-                  className="group flex h-full flex-col rounded-[1.35rem] border border-mehr-deep/10 bg-white p-5 shadow-soft transition hover:border-mehr-deep/18 hover:shadow-float sm:rounded-[1.5rem] sm:p-5"
+                  className="group flex h-full flex-col rounded-[1.35rem] border border-mehr-deep/10 bg-white p-4 shadow-soft transition hover:border-mehr-deep/18 hover:shadow-float sm:rounded-[1.5rem] sm:p-5"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-mehr-teal-soft text-mehr-deep transition group-hover:bg-mehr-deep group-hover:text-white">
@@ -62,7 +65,7 @@ export default function AboutTeam() {
                     </span>
                   </div>
 
-                  <h3 className="mt-4 font-sans text-lg font-semibold tracking-[-0.02em] text-mehr-ink">
+                  <h3 className="mt-4 font-sans text-[clamp(1rem,4vw,1.125rem)] font-semibold tracking-[-0.02em] text-mehr-ink sm:text-lg">
                     {group.title}
                   </h3>
                   <p className="mt-2 flex-1 text-[13px] leading-relaxed text-mehr-mist sm:text-sm">

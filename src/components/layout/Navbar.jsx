@@ -140,13 +140,13 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors ${
+        className={`fixed inset-x-0 top-0 z-50 border-b pt-[env(safe-area-inset-top)] transition-colors ${
           scrolled || open
             ? "border-mehr-deep/10 bg-white/95 backdrop-blur-md shadow-[0_8px_24px_rgba(17,17,17,0.04)]"
-            : "border-transparent bg-white/80 backdrop-blur-sm"
+            : "border-transparent bg-white/90 backdrop-blur-sm"
         }`}
       >
-        <div className="page-gutter relative mx-auto flex h-[var(--header-height)] w-full max-w-[1680px] items-center justify-between gap-3 sm:px-3 md:px-4 lg:gap-4 lg:px-5">
+        <div className="page-gutter relative mx-auto flex h-[var(--header-height)] w-full max-w-[1680px] items-center justify-between gap-2 sm:gap-3 sm:px-3 md:px-4 lg:gap-4 lg:px-5">
           <Logo size="nav" className="relative z-50 shrink-0 overflow-visible" />
 
           <nav
@@ -178,7 +178,7 @@ export default function Navbar() {
               to="/contact"
               variant="brand"
               size="sm"
-              className="hidden sm:inline-flex"
+              className="hidden lg:inline-flex"
             >
               {ctas.primary}
             </SpecularButton>
@@ -188,7 +188,7 @@ export default function Navbar() {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className="relative z-50 flex h-10 w-10 items-center justify-center rounded-full border border-mehr-deep/10 bg-white text-mehr-ink lg:hidden"
+              className="relative z-50 flex h-10 w-10 items-center justify-center rounded-full border border-mehr-deep/10 bg-white text-mehr-ink touch-manipulation lg:hidden"
             >
               {open ? <X size={18} /> : <Menu size={18} />}
             </button>
@@ -197,18 +197,23 @@ export default function Navbar() {
       </header>
 
       {open && (
-        <div className="fixed inset-0 z-40 lg:hidden">
-          <button
-            type="button"
-            aria-label="Close menu"
-            className="absolute inset-0 bg-mehr-ink/25"
-            onClick={() => setOpen(false)}
+        <div
+          className="fixed inset-0 z-40 flex flex-col bg-white lg:hidden"
+          style={{ paddingTop: "calc(var(--header-height) + env(safe-area-inset-top, 0px))" }}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+        >
+          <div
+            className="pointer-events-none absolute inset-0 bg-mesh-teal opacity-40"
+            aria-hidden
           />
+
           <nav
             aria-label="Mobile"
-            className="absolute inset-x-0 top-[var(--header-height)] max-h-[calc(100dvh-var(--header-height))] overflow-y-auto border-b border-mehr-deep/10 bg-white px-4 py-4 shadow-float sm:px-6"
+            className="relative z-10 flex min-h-0 flex-1 flex-col px-5 pt-4 sm:px-8"
           >
-            <ul className="flex flex-col gap-0.5">
+            <ul className="flex flex-1 flex-col gap-1 overflow-y-auto overscroll-contain pb-4">
               {topLinks.map((link) => {
                 if (link.path === "/services") {
                   return (
@@ -217,30 +222,30 @@ export default function Navbar() {
                         type="button"
                         aria-expanded={servicesOpen}
                         onClick={() => setServicesOpen((v) => !v)}
-                        className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-[15px] font-semibold transition ${
+                        className={`flex w-full items-center justify-between rounded-2xl px-4 py-4 text-left text-[17px] font-semibold tracking-[-0.01em] transition touch-manipulation ${
                           servicesActive
                             ? "bg-mehr-deep text-white"
-                            : "text-mehr-ink hover:bg-mehr-teal-soft hover:text-mehr-deep"
+                            : "text-mehr-ink active:bg-mehr-teal-soft"
                         }`}
                       >
                         Services
                         <ChevronDown
-                          size={16}
+                          size={18}
                           className={`transition ${servicesOpen ? "rotate-180" : ""}`}
                         />
                       </button>
                       {servicesOpen && (
-                        <ul className="mb-1 mt-0.5 space-y-0.5 border-l border-mehr-deep/15 pl-3 ml-4">
+                        <ul className="mt-1 space-y-0.5 rounded-2xl bg-mehr-panel/80 p-2">
                           {serviceNavLinks.map((item) => (
                             <li key={item.path}>
                               <NavLink
                                 to={item.path}
                                 end={item.path === "/services"}
                                 className={({ isActive }) =>
-                                  `block rounded-lg px-3 py-2.5 text-[14px] font-semibold transition ${
+                                  `block rounded-xl px-4 py-3 text-[15px] font-semibold transition ${
                                     isActive
                                       ? "bg-mehr-deep text-white"
-                                      : "text-mehr-mist hover:bg-mehr-teal-soft hover:text-mehr-deep"
+                                      : "text-mehr-ink/80 active:bg-white"
                                   }`
                                 }
                               >
@@ -260,10 +265,10 @@ export default function Navbar() {
                       to={link.path}
                       end={link.path === "/"}
                       className={({ isActive }) =>
-                        `block rounded-xl px-4 py-3 text-[15px] font-semibold transition ${
+                        `block rounded-2xl px-4 py-4 text-[17px] font-semibold tracking-[-0.01em] transition touch-manipulation ${
                           isActive
                             ? "bg-mehr-deep text-white"
-                            : "text-mehr-ink hover:bg-mehr-teal-soft hover:text-mehr-deep"
+                            : "text-mehr-ink active:bg-mehr-teal-soft"
                         }`
                       }
                     >
@@ -273,10 +278,14 @@ export default function Navbar() {
                 );
               })}
             </ul>
-            <div className="mt-4 border-t border-mehr-deep/8 pt-4 sm:hidden">
-              <SpecularButton to="/contact" variant="brand" size="md" fullWidth>
+
+            <div className="shrink-0 border-t border-mehr-deep/10 bg-white/90 px-0 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-4 backdrop-blur-sm">
+              <SpecularButton to="/contact" variant="brand" size="lg" fullWidth>
                 {ctas.primary}
               </SpecularButton>
+              <p className="mt-3 text-center text-[12px] text-mehr-mist">
+                HR that works with your business
+              </p>
             </div>
           </nav>
         </div>

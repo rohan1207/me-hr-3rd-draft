@@ -55,7 +55,6 @@
     0% 100%
   );
   box-shadow: 0 18px 40px rgba(11, 95, 88, 0.18);
-  /* Keep the clip layer on its own compositor tile so the scroll doesn't shimmer */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -65,7 +64,6 @@
   width: max-content;
   align-items: center;
   gap: 0;
-  /* Promote to GPU layer; animate in whole pixels via --marquee-shift */
   transform: translate3d(0, 0, 0);
   will-change: transform;
   backface-visibility: hidden;
@@ -94,7 +92,6 @@
   flex-shrink: 0;
   align-items: center;
   gap: 0;
-  /* No padding asymmetry between duplicated tracks — that causes a seam jump */
   padding: 0;
 }
 
@@ -112,7 +109,6 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   color: #f4fffc;
-  /* Avoid subpixel text shimmer while the strip moves */
   transform: translateZ(0);
 }
 
@@ -126,7 +122,6 @@
   line-height: 1;
   color: #14c4ad;
   opacity: 0.9;
-  /* No sway animation — competing transforms cause jitter */
 }
 
 @keyframes bending-marquee-scroll {
@@ -144,14 +139,80 @@
   }
 }
 
-@media (max-width: 640px) {
+/* Phone: shallower bend so text stays readable; tighter rhythm */
+@media (max-width: 639px) {
   .bending-marquee {
-    margin: -0.75rem 0;
-    padding: 1.25rem 0;
+    margin: -0.5rem 0;
+    padding: 0.85rem 0;
+  }
+
+  .bending-marquee__blend {
+    height: 1.5rem;
+  }
+
+  .bending-marquee__band {
+    min-height: 3.65rem;
+    box-shadow: 0 10px 24px rgba(11, 95, 88, 0.14);
+    /* Gentler pinch — deep desktop curve clips phrases on short bands */
+    clip-path: polygon(
+      0% 0%,
+      14% 3%,
+      32% 7%,
+      50% 10%,
+      68% 7%,
+      86% 3%,
+      100% 0%,
+      100% 100%,
+      86% 97%,
+      68% 93%,
+      50% 90%,
+      32% 93%,
+      14% 97%,
+      0% 100%
+    );
   }
 
   .bending-marquee__item {
-    gap: 0.9rem;
-    padding-inline: 1rem;
+    gap: 0.7rem;
+    padding-inline: 0.85rem;
+  }
+
+  .bending-marquee__phrase {
+    font-size: clamp(0.84rem, 3.5vw, 0.95rem);
+  }
+
+  .bending-marquee__sep {
+    font-size: 0.72rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .bending-marquee {
+    margin: -1rem 0;
+    padding: 1.35rem 0;
+  }
+
+  .bending-marquee__band {
+    min-height: clamp(3.9rem, 7.5vw, 5rem);
+    clip-path: polygon(
+      0% 0%,
+      12% 4%,
+      28% 10%,
+      50% 14%,
+      72% 10%,
+      88% 4%,
+      100% 0%,
+      100% 100%,
+      88% 96%,
+      72% 90%,
+      50% 86%,
+      28% 90%,
+      12% 96%,
+      0% 100%
+    );
+  }
+
+  .bending-marquee__phrase {
+    font-size: clamp(0.92rem, 1.9vw, 1.08rem);
   }
 }

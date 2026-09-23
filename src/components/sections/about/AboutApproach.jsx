@@ -171,7 +171,7 @@ export default function AboutApproach() {
   return (
     <section
       id="approach"
-      className="scroll-mt-28 surface-panel relative overflow-hidden py-10 sm:py-12 lg:py-14"
+      className="scroll-mt-28 surface-panel relative overflow-hidden py-9 sm:py-12 lg:py-14"
     >
       <div
         aria-hidden
@@ -179,15 +179,15 @@ export default function AboutApproach() {
       />
 
       <div className="container-mehr page-gutter relative z-10 sm:px-3 md:px-4 lg:px-5">
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+        <div className="flex flex-col gap-3 text-center lg:flex-row lg:items-end lg:justify-between lg:gap-8 lg:text-left">
           <Reveal>
             <p className="eyebrow">{approach.eyebrow}</p>
-            <h2 className="mt-2 max-w-[16ch] font-sans text-[clamp(1.85rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-mehr-ink">
+            <h2 className="mx-auto mt-2 max-w-[16ch] font-sans text-[clamp(1.45rem,6.2vw,3rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-mehr-ink lg:mx-0">
               {approach.title}
             </h2>
           </Reveal>
           <Reveal delay={0.08}>
-            <p className="max-w-md text-sm leading-relaxed text-mehr-mist sm:text-[15px] lg:text-right">
+            <p className="mx-auto max-w-md text-sm leading-relaxed text-mehr-mist sm:text-[15px] lg:mx-0 lg:text-right">
               A concise operating framework: diagnose first, match the right model,
               then keep strengthening as the business grows.
             </p>
@@ -230,13 +230,14 @@ export default function AboutApproach() {
                   )}
                 </div>
                 <span
-                  className={`text-left text-[11px] font-semibold uppercase tracking-[0.12em] transition ${
+                  className={`text-center text-[11px] font-semibold uppercase tracking-[0.12em] transition sm:text-left ${
                     i === active
                       ? "text-mehr-deep"
                       : "text-mehr-muted group-hover:text-mehr-ink"
                   }`}
                 >
-                  {String(i + 1).padStart(2, "0")} · {step.title}
+                  {String(i + 1).padStart(2, "0")}
+                  <span className="hidden sm:inline"> · {step.title}</span>
                 </span>
               </button>
             ))}
@@ -244,7 +245,7 @@ export default function AboutApproach() {
 
           {/* Stage cards */}
           <Reveal>
-            <div className="grid gap-3 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               {approach.steps.map((step, i) => {
                 const on = active === i;
                 const Visual = VISUALS[i];
@@ -272,7 +273,7 @@ export default function AboutApproach() {
                         </span>
                       </div>
                       <div className="min-h-0 flex-1 overflow-hidden">
-                        <div className="h-[132px] sm:h-[148px]">
+                        <div className="h-[112px] sm:h-[148px]">
                           <Visual active={on} reduce={reduce} />
                         </div>
                       </div>
@@ -305,17 +306,17 @@ export default function AboutApproach() {
                 </motion.div>
               </AnimatePresence>
 
-              <div className="flex shrink-0 flex-wrap items-center gap-2.5">
+              <div className="flex w-full shrink-0 flex-col items-stretch gap-2.5 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-mehr-deep px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-mehr-teal-dark"
+                  className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-mehr-deep px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-mehr-teal-dark sm:w-auto"
                 >
                   {ctas.primary}
                   <ArrowUpRight size={15} />
                 </Link>
                 <Link
                   to="/services"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-mehr-panel px-5 py-2.5 text-sm font-semibold text-mehr-deep transition hover:bg-mehr-teal-soft"
+                  className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-mehr-panel px-5 py-2.5 text-sm font-semibold text-mehr-deep transition hover:bg-mehr-teal-soft sm:w-auto"
                 >
                   Explore models
                   <ArrowUpRight size={15} />

@@ -17,13 +17,20 @@ export default function ExploreOtherServices({ excludePath }) {
  <SectionHeading
  eyebrow={exploreOtherServicesSection.eyebrow}
  title={exploreOtherServicesSection.title}
+ className="mx-auto items-center text-center lg:mx-0 lg:items-start lg:text-left [&_.title-section]:text-[clamp(1.45rem,6.2vw,2.75rem)]"
  />
- <RevealStagger className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
+ <RevealStagger
+ className="mt-8 -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:gap-4 sm:px-0 lg:grid-cols-3"
+ stagger={0.06}
+ >
  {items.map((item) => (
- <RevealItem key={item.path}>
+ <RevealItem
+ key={item.path}
+ className="w-[min(78vw,17rem)] shrink-0 snap-center sm:w-auto sm:shrink sm:snap-align-none"
+ >
  <Link
  to={item.path}
- className="group flex h-full flex-col rounded-[1.5rem] border border-mehr-deep/8 bg-mehr-panel/50 p-6 transition hover:-translate-y-1 hover:border-mehr-deep/20 hover:bg-white hover:shadow-soft"
+ className="group flex h-full flex-col rounded-[1.5rem] border border-mehr-deep/8 bg-mehr-panel/50 p-4 transition hover:-translate-y-1 hover:border-mehr-deep/20 hover:bg-white hover:shadow-soft sm:p-6"
  >
  <h3 className="font-sans text-lg font-semibold text-mehr-ink">{item.title}</h3>
  <p className="mt-2 flex-1 text-sm leading-relaxed text-mehr-mist">{item.desc}</p>

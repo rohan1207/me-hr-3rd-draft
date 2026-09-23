@@ -53,7 +53,6 @@ function GalleryLightbox({ items, index, onClose, onPrev, onNext }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.22 }}
     >
-      {/* Locked dim backdrop */}
       <button
         type="button"
         aria-label="Close gallery"
@@ -61,24 +60,22 @@ function GalleryLightbox({ items, index, onClose, onPrev, onNext }) {
         onClick={onClose}
       />
 
-      {/* Close */}
       <button
         type="button"
         onClick={onClose}
         aria-label="Close"
-        className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 sm:right-6 sm:top-6"
+        className="absolute right-3 top-3 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 sm:right-6 sm:top-6"
       >
         <X size={22} strokeWidth={1.75} />
       </button>
 
-      {/* Prev / Next */}
       {items.length > 1 && (
         <>
           <button
             type="button"
             onClick={onPrev}
             aria-label="Previous image"
-            className="absolute left-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 sm:left-6"
+            className="absolute left-2 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 sm:left-6 sm:h-11 sm:w-11"
           >
             <ChevronLeft size={22} strokeWidth={1.75} />
           </button>
@@ -86,39 +83,41 @@ function GalleryLightbox({ items, index, onClose, onPrev, onNext }) {
             type="button"
             onClick={onNext}
             aria-label="Next image"
-            className="absolute right-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 sm:right-6"
+            className="absolute right-2 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 sm:right-6 sm:h-11 sm:w-11"
           >
             <ChevronRight size={22} strokeWidth={1.75} />
           </button>
         </>
       )}
 
-      {/* Stage */}
       <motion.div
         key={item.img}
         initial={{ opacity: 0, scale: 0.97 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.98 }}
         transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 mx-4 flex max-h-[min(88vh,920px)] w-full max-w-5xl flex-col"
+        className="relative z-10 mx-3 flex max-h-[min(88vh,920px)] w-full max-w-5xl flex-col sm:mx-4"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="overflow-hidden rounded-[1.25rem] bg-mehr-ink shadow-float sm:rounded-[1.5rem]">
+        <div className="overflow-hidden rounded-[1.1rem] bg-mehr-ink shadow-float sm:rounded-[1.5rem]">
           <img
             src={item.img}
             alt={item.label}
-            className="mx-auto max-h-[min(78vh,820px)] w-full object-contain"
+            className="mx-auto max-h-[min(72vh,820px)] w-full object-contain sm:max-h-[min(78vh,820px)]"
           />
         </div>
-        <div className="mt-4 flex items-end justify-between gap-4 px-1 text-white">
+        <div className="mt-3 flex items-end justify-between gap-3 px-1 text-white sm:mt-4 sm:gap-4">
           <div className="min-w-0">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/55">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/55 sm:text-[11px]">
               {item.label}
             </p>
-            <p className="mt-1 truncate text-sm text-white/75">{item.desc}</p>
+            <p className="mt-1 line-clamp-2 text-[12px] text-white/75 sm:truncate sm:text-sm">
+              {item.desc}
+            </p>
           </div>
-          <p className="shrink-0 font-sans text-[13px] font-semibold tabular-nums text-white/70">
-            {String(index + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
+          <p className="shrink-0 font-sans text-[12px] font-semibold tabular-nums text-white/70 sm:text-[13px]">
+            {String(index + 1).padStart(2, "0")} /{" "}
+            {String(items.length).padStart(2, "0")}
           </p>
         </div>
       </motion.div>
@@ -171,7 +170,6 @@ export default function Life() {
     });
   }, [gallery.length]);
 
-  // Lock page scroll + keyboard while lightbox is open
   useEffect(() => {
     if (!lightboxOpen) return undefined;
 
@@ -197,12 +195,12 @@ export default function Life() {
     <>
       <PageSEO {...seo.life} path="/life" />
 
-      {/* Image hero composition with curve */}
-      <section className="relative overflow-hidden bg-white pt-16 pb-0 sm:pb-0 lg:pt-10">
+      {/* Image hero */}
+      <section className="relative overflow-hidden bg-white pt-7 pb-0 sm:pt-16 lg:pt-10">
         <div className="page-gutter relative z-10 mx-auto w-full max-w-[1680px] sm:px-3 md:px-4 lg:px-5">
-          <div className="grid items-end gap-8 lg:grid-cols-[1fr_1.05fr] lg:gap-10">
-            <Reveal className="pb-10 sm:pb-14 lg:pb-20">
-              <nav className="mb-6 flex flex-wrap items-center gap-2 text-xs font-medium text-mehr-muted">
+          <div className="grid items-end gap-6 sm:gap-8 lg:grid-cols-[1fr_1.05fr] lg:gap-10">
+            <Reveal className="pb-6 text-center sm:pb-14 lg:pb-20 lg:text-left">
+              <nav className="mb-4 flex flex-wrap items-center justify-center gap-2 text-xs font-medium text-mehr-muted sm:mb-6 lg:justify-start">
                 <Link to="/" className="transition hover:text-mehr-ink">
                   Home
                 </Link>
@@ -210,26 +208,36 @@ export default function Life() {
                 <span className="text-mehr-mist">Life at me-HR</span>
               </nav>
               <p className="eyebrow">{experienceEyebrow}</p>
-              <h1 className="mt-3 max-w-lg font-sans text-[clamp(1.85rem,4.2vw,3.35rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-mehr-ink">
+              <h1 className="mx-auto mt-2.5 max-w-lg font-sans text-[clamp(1.7rem,7vw,3.35rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-mehr-ink sm:mt-3 sm:leading-[1.1] lg:mx-0">
                 {hero.title}
               </h1>
-              <p className="mt-4 max-w-md text-[14px] leading-relaxed text-mehr-mist sm:mt-5 sm:text-[15px]">
+              <p className="mx-auto mt-3.5 max-w-md text-[13px] leading-relaxed text-mehr-mist sm:mt-5 sm:text-[15px] lg:mx-0">
                 {hero.body}
               </p>
-              <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
-                <SpecularButton to="/careers" variant="brand" size="md">
+              <div className="mt-5 flex w-full flex-col items-stretch gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3 lg:justify-start">
+                <SpecularButton
+                  to="/careers"
+                  variant="brand"
+                  size="md"
+                  className="w-full justify-center sm:w-auto"
+                >
                   {ctas.viewOpenings}
                   <ArrowUpRight size={15} />
                 </SpecularButton>
-                <SpecularButton to="/media" variant="light" size="md">
+                <SpecularButton
+                  to="/media"
+                  variant="light"
+                  size="md"
+                  className="w-full justify-center sm:w-auto"
+                >
                   {ctas.exploreMedia}
                 </SpecularButton>
               </div>
             </Reveal>
 
             <Reveal delay={0.1} className="relative">
-              <div className="relative overflow-hidden rounded-t-[2rem] sm:rounded-t-[2.5rem] lg:rounded-t-[3rem]">
-                <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
+              <div className="relative overflow-hidden rounded-t-[1.5rem] sm:rounded-t-[2.5rem] lg:rounded-t-[3rem]">
+                <div className="grid grid-cols-2 gap-1.5 sm:gap-2.5">
                   {galleryImages.slice(0, 4).map((src, i) => (
                     <button
                       key={src}
@@ -238,7 +246,7 @@ export default function Life() {
                       className={`block overflow-hidden text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mehr-deep ${
                         i % 2 === 0
                           ? "aspect-[4/5]"
-                          : "aspect-[4/5] translate-y-4 sm:translate-y-6"
+                          : "aspect-[4/5] translate-y-3 sm:translate-y-6"
                       }`}
                     >
                       <img
@@ -268,7 +276,7 @@ export default function Life() {
       </section>
 
       {/* Culture pillars */}
-      <section className="section-pad bg-white">
+      <section className="bg-white py-8 sm:py-12 lg:py-16">
         <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
           <SectionHeading
             align="center"
@@ -276,53 +284,53 @@ export default function Life() {
             title={experienceTitle}
           />
 
-          <RevealStagger
-            className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4"
-            stagger={0.06}
-          >
+          <div className="-mx-4 mt-7 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:mt-10 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 [&::-webkit-scrollbar]:hidden">
             {why.map((item, i) => {
               const Icon = whyIcons[i];
               return (
-                <RevealItem key={item.title}>
-                  <article className="group flex h-full flex-col rounded-[1.35rem] border border-mehr-deep/8 bg-mehr-panel/50 p-5 transition hover:-translate-y-1 hover:border-mehr-deep/18 hover:bg-white hover:shadow-float sm:rounded-[1.5rem] sm:p-6">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-mehr-deep text-white transition group-hover:scale-105">
-                      <Icon size={18} strokeWidth={1.75} />
-                    </span>
-                    <h3 className="mt-4 font-sans text-base font-semibold tracking-tight text-mehr-ink sm:text-lg">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 flex-1 text-[13px] leading-relaxed text-mehr-mist">
-                      {item.desc}
-                    </p>
-                  </article>
-                </RevealItem>
+                <article
+                  key={item.title}
+                  className="group flex h-full w-[78vw] max-w-[280px] shrink-0 snap-center flex-col rounded-[1.25rem] border border-mehr-deep/8 bg-mehr-panel/50 p-4 transition hover:-translate-y-1 hover:border-mehr-deep/18 hover:bg-white hover:shadow-float sm:w-auto sm:max-w-none sm:shrink sm:rounded-[1.5rem] sm:p-6"
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-mehr-deep text-white transition group-hover:scale-105 sm:h-11 sm:w-11">
+                    <Icon size={18} strokeWidth={1.75} />
+                  </span>
+                  <h3 className="mt-3.5 font-sans text-[15px] font-semibold tracking-tight text-mehr-ink sm:mt-4 sm:text-lg">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1.5 flex-1 text-[13px] leading-relaxed text-mehr-mist sm:mt-2">
+                    {item.desc}
+                  </p>
+                </article>
               );
             })}
-          </RevealStagger>
+          </div>
         </div>
       </section>
 
-      {/* Denser gallery grid */}
-      <section className="section-pad bg-mehr-panel/40">
+      {/* Gallery */}
+      <section className="bg-mehr-panel/40 py-8 sm:py-12 lg:py-16">
         <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-          <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
+          <div className="mb-5 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
               title={mediaContent.hero.title}
               body={mediaContent.hero.body}
             />
-            <Reveal delay={0.08} className="flex flex-wrap gap-2">
-              {categories.map((cat, i) => {
-                const Icon = categoryIcons[i];
-                return (
-                  <span
-                    key={cat.title}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[11px] font-semibold text-mehr-ink shadow-soft"
-                  >
-                    <Icon size={12} className="text-mehr-deep" />
-                    {cat.title}
-                  </span>
-                );
-              })}
+            <Reveal delay={0.08}>
+              <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden">
+                {categories.map((cat, i) => {
+                  const Icon = categoryIcons[i];
+                  return (
+                    <span
+                      key={cat.title}
+                      className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[11px] font-semibold text-mehr-ink shadow-soft"
+                    >
+                      <Icon size={12} className="text-mehr-deep" />
+                      {cat.title}
+                    </span>
+                  );
+                })}
+              </div>
             </Reveal>
           </div>
 
@@ -336,24 +344,24 @@ export default function Life() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="group relative block w-full overflow-hidden rounded-[1.25rem] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mehr-deep focus-visible:ring-offset-2 sm:rounded-[1.5rem] lg:rounded-[1.75rem]"
+                className="group relative block w-full overflow-hidden rounded-[1.15rem] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mehr-deep focus-visible:ring-offset-2 sm:rounded-[1.5rem] lg:rounded-[1.75rem]"
               >
-                <span className="relative block aspect-[16/10] sm:aspect-[21/9]">
+                <span className="relative block aspect-[16/11] sm:aspect-[21/9]">
                   <img
                     src={shot.img}
                     alt={shot.label}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
                   />
                   <span className="absolute inset-0 bg-gradient-to-t from-mehr-ink/70 via-transparent to-transparent" />
-                  <span className="absolute inset-x-4 bottom-4 sm:inset-x-6 sm:bottom-6">
+                  <span className="absolute inset-x-3 bottom-3 sm:inset-x-6 sm:bottom-6">
                     <span className="block font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-white/55">
                       {String(activeShot + 1).padStart(2, "0")} /{" "}
                       {String(gallery.length).padStart(2, "0")}
                     </span>
-                    <span className="mt-1 block font-sans text-xl font-semibold text-white sm:text-2xl">
+                    <span className="mt-1 block font-sans text-lg font-semibold text-white sm:text-2xl">
                       {shot.label}
                     </span>
-                    <span className="mt-1 block max-w-xl text-[13px] leading-relaxed text-white/70">
+                    <span className="mt-1 line-clamp-2 block max-w-xl text-[12px] leading-relaxed text-white/70 sm:text-[13px]">
                       {shot.desc}
                     </span>
                   </span>
@@ -363,7 +371,7 @@ export default function Life() {
           </Reveal>
 
           <RevealStagger
-            className="mt-3 grid grid-cols-2 gap-2 sm:mt-4 sm:grid-cols-4 sm:gap-3"
+            className="mt-2.5 grid grid-cols-2 gap-1.5 sm:mt-4 sm:grid-cols-4 sm:gap-3"
             stagger={0.04}
           >
             {gallery.map((item, i) => {
@@ -376,9 +384,9 @@ export default function Life() {
                     onMouseEnter={() => setActiveShot(i)}
                     onFocus={() => setActiveShot(i)}
                     aria-label={`Open ${item.label} image`}
-                    className={`group relative aspect-[4/3] w-full overflow-hidden rounded-[1rem] text-left transition sm:rounded-[1.25rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mehr-deep ${
+                    className={`group relative aspect-[4/3] w-full overflow-hidden rounded-[0.85rem] text-left transition sm:rounded-[1.25rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mehr-deep ${
                       isOn
-                        ? "ring-2 ring-mehr-deep ring-offset-2 ring-offset-mehr-panel"
+                        ? "ring-2 ring-mehr-deep ring-offset-1 ring-offset-mehr-panel sm:ring-offset-2"
                         : "hover:opacity-95"
                     }`}
                   >
@@ -392,7 +400,7 @@ export default function Life() {
                         isOn ? "bg-mehr-deep/35" : "bg-mehr-ink/20"
                       }`}
                     />
-                    <span className="absolute inset-x-2.5 bottom-2.5 font-sans text-[11px] font-semibold text-white drop-shadow sm:text-xs">
+                    <span className="absolute inset-x-2 bottom-2 font-sans text-[10px] font-semibold text-white drop-shadow sm:inset-x-2.5 sm:bottom-2.5 sm:text-xs">
                       {item.label}
                     </span>
                   </button>
@@ -404,31 +412,41 @@ export default function Life() {
       </section>
 
       {/* Openings CTA band */}
-      <section className="section-pad bg-white">
+      <section className="bg-white py-8 sm:py-12 lg:py-16">
         <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
           <Reveal>
-            <div className="grid overflow-hidden rounded-[1.75rem] border border-mehr-deep/10 bg-mehr-teal-soft sm:rounded-[2.25rem] lg:grid-cols-2 lg:rounded-[2.75rem]">
-              <div className="flex flex-col justify-center px-6 py-10 text-mehr-ink sm:px-10 sm:py-12 lg:px-12 lg:py-14">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-mehr-deep/70">
+            <div className="grid overflow-hidden rounded-[1.35rem] border border-mehr-deep/10 bg-mehr-teal-soft sm:rounded-[2.25rem] lg:grid-cols-2 lg:rounded-[2.75rem]">
+              <div className="flex flex-col justify-center px-4 py-8 text-center text-mehr-ink sm:px-10 sm:py-12 sm:text-left lg:px-12 lg:py-14">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-mehr-deep/70 sm:text-[11px]">
                   {openingsTitle}
                 </p>
-                <h2 className="mt-3 max-w-md font-sans text-[clamp(1.45rem,3vw,2.25rem)] font-semibold leading-tight tracking-[-0.02em]">
+                <h2 className="mx-auto mt-2.5 max-w-md font-sans text-[clamp(1.35rem,6vw,2.25rem)] font-semibold leading-tight tracking-[-0.02em] sm:mx-0 sm:mt-3">
                   {experienceTitle}
                 </h2>
-                <p className="mt-3 max-w-sm text-[14px] leading-relaxed text-mehr-mist">
+                <p className="mx-auto mt-3 max-w-sm text-[13px] leading-relaxed text-mehr-mist sm:mx-0 sm:text-[14px]">
                   {openingsNote}
                 </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <SpecularButton to="/careers" variant="brand" size="md">
+                <div className="mt-5 flex w-full flex-col items-stretch gap-2.5 sm:mt-6 sm:flex-row sm:flex-wrap sm:gap-3">
+                  <SpecularButton
+                    to="/careers"
+                    variant="brand"
+                    size="md"
+                    className="w-full justify-center sm:w-auto"
+                  >
                     {ctas.viewOpenings}
                     <ArrowUpRight size={15} />
                   </SpecularButton>
-                  <SpecularButton to="/contact" variant="light" size="md">
+                  <SpecularButton
+                    to="/contact"
+                    variant="light"
+                    size="md"
+                    className="w-full justify-center sm:w-auto"
+                  >
                     {ctas.primary}
                   </SpecularButton>
                 </div>
               </div>
-              <div className="relative min-h-[200px] sm:min-h-[240px] lg:min-h-0">
+              <div className="relative min-h-[180px] sm:min-h-[240px] lg:min-h-0">
                 <img
                   src={bandImage}
                   alt=""
