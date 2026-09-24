@@ -41,7 +41,7 @@ const GROWTH = [
 
 function UnderstandVisual({ active, reduce }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-2">
+    <div className="flex h-full flex-col justify-center gap-2 overflow-visible py-0.5">
       {LISTEN_POINTS.map((item, i) => (
         <motion.div
           key={item.label}
@@ -49,8 +49,8 @@ function UnderstandVisual({ active, reduce }) {
           initial={false}
           animate={
             reduce || !active
-              ? { opacity: 0.85, x: 0 }
-              : { opacity: [0.55, 1, 0.55], x: [0, 2, 0] }
+              ? { opacity: 0.85 }
+              : { opacity: [0.55, 1, 0.55] }
           }
           transition={{
             duration: 2.6,
@@ -59,13 +59,13 @@ function UnderstandVisual({ active, reduce }) {
             delay: i * 0.22,
           }}
         >
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-mehr-deep shadow-soft">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center overflow-visible rounded-lg bg-white text-mehr-deep shadow-soft">
             <item.Icon size={15} strokeWidth={2} />
           </span>
           <div className="min-w-0">
             <p className="text-[11px] font-semibold text-white">{item.label}</p>
             <p className="text-[9px] font-medium text-white/55">
-              {i === 0 ? "Who you employ" : i === 1 ? "What matters now" : "What’s missing"}
+              {i === 0 ? "Who you employ" : i === 1 ? "What matters now" : "What's missing"}
             </p>
           </div>
         </motion.div>
@@ -76,15 +76,15 @@ function UnderstandVisual({ active, reduce }) {
 
 function RecommendVisual({ active, reduce }) {
   return (
-    <div className="grid h-full grid-cols-2 gap-1.5 content-center">
+    <div className="grid h-full grid-cols-2 content-center gap-1.5 overflow-visible py-0.5">
       {MODELS.map((model, i) => (
         <motion.div
           key={model.label}
-          className="flex flex-col items-start gap-1 rounded-xl bg-white/12 p-2 ring-1 ring-white/10"
+          className="flex flex-col items-start gap-1 overflow-visible rounded-xl bg-white/12 p-2 ring-1 ring-white/10"
           animate={
             reduce || !active
               ? undefined
-              : { y: [0, i % 2 === 0 ? -2 : 2, 0], opacity: [0.7, 1, 0.7] }
+              : { opacity: [0.7, 1, 0.7] }
           }
           transition={{
             duration: 2.8,
@@ -93,7 +93,7 @@ function RecommendVisual({ active, reduce }) {
             delay: i * 0.14,
           }}
         >
-          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-white text-mehr-deep">
+          <span className="flex h-7 w-7 shrink-0 items-center justify-center overflow-visible rounded-md bg-white text-mehr-deep">
             <model.Icon size={13} strokeWidth={2} />
           </span>
           <p className="text-[10px] font-semibold leading-tight text-white">{model.label}</p>
@@ -108,10 +108,10 @@ function RecommendVisual({ active, reduce }) {
 
 function StrengthenVisual({ active, reduce }) {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-3">
-      <div className="relative flex items-center justify-center">
+    <div className="flex h-full flex-col items-center justify-center gap-3 overflow-visible py-1">
+      <div className="relative flex h-16 w-16 shrink-0 items-center justify-center sm:h-[4.5rem] sm:w-[4.5rem]">
         <motion.span
-          className="absolute h-16 w-16 rounded-full border border-dashed border-white/30 sm:h-[4.5rem] sm:w-[4.5rem]"
+          className="absolute inset-0 rounded-full border border-dashed border-white/30"
           animate={reduce || !active ? undefined : { rotate: 360 }}
           transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
         />
@@ -123,11 +123,11 @@ function StrengthenVisual({ active, reduce }) {
         {GROWTH.map((item, i) => (
           <motion.div
             key={item.label}
-            className="flex flex-1 flex-col items-center gap-1 rounded-lg bg-white/12 px-1.5 py-1.5 ring-1 ring-white/10"
+            className="flex flex-1 flex-col items-center gap-1 overflow-visible rounded-lg bg-white/12 px-1.5 py-1.5 ring-1 ring-white/10"
             animate={
               reduce || !active
                 ? undefined
-                : { opacity: [0.55, 1, 0.55], y: [0, -2, 0] }
+                : { opacity: [0.55, 1, 0.55] }
             }
             transition={{
               duration: 2.4,
@@ -272,8 +272,8 @@ export default function AboutApproach() {
                           {String(i + 1).padStart(2, "0")}
                         </span>
                       </div>
-                      <div className="min-h-0 flex-1 overflow-hidden">
-                        <div className="h-[112px] sm:h-[148px]">
+                      <div className="min-h-[148px] flex-1 overflow-visible sm:min-h-[160px]">
+                        <div className="h-full min-h-[148px] overflow-visible sm:min-h-[160px]">
                           <Visual active={on} reduce={reduce} />
                         </div>
                       </div>

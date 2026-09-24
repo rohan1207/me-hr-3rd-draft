@@ -61,9 +61,6 @@ export default function AboutTestimonials() {
         role="region"
         aria-label="Client testimonials"
       >
-        <div className="about-testimonials__fade about-testimonials__fade--left" aria-hidden />
-        <div className="about-testimonials__fade about-testimonials__fade--right" aria-hidden />
-
         <div className="about-testimonials__scroller">
           <Track items={reduce ? items : loop} />
           {!reduce && <Track items={loop} />}
