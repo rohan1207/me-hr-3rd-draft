@@ -75,8 +75,8 @@ function HeroDecor({ title, chips: chipsProp }) {
  const chips = chipsProp?.length ? chipsProp : chipLabelsFromTitle(title);
 
  return (
- <div className="relative mx-auto flex min-h-[240px] w-full max-w-md items-center justify-center sm:min-h-[280px] lg:ml-auto lg:max-w-none lg:min-h-[300px]">
- <div className="absolute inset-0 overflow-hidden rounded-[1.5rem] border border-mehr-deep/10 bg-mehr-panel sm:rounded-[1.75rem]">
+ <div className="relative mx-auto flex min-h-[200px] w-full max-w-md items-center justify-center overflow-hidden sm:min-h-[280px] lg:ml-auto lg:max-w-none lg:min-h-[300px]">
+ <div className="absolute inset-0 overflow-hidden rounded-[1.25rem] border border-mehr-deep/10 bg-mehr-panel sm:rounded-[1.75rem]">
  <div
  aria-hidden
  className="absolute inset-0 opacity-60"
@@ -98,37 +98,37 @@ function HeroDecor({ title, chips: chipsProp }) {
 
  <Motion.div
  aria-hidden
- className="absolute h-44 w-44 rounded-full border border-mehr-deep/15 sm:h-52 sm:w-52"
+ className="absolute h-36 w-36 rounded-full border border-mehr-deep/15 sm:h-52 sm:w-52"
  animate={reduce ? undefined : { rotate: 360 }}
  transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
  />
  <Motion.div
  aria-hidden
- className="absolute h-28 w-28 rounded-full border border-mehr-teal/25 sm:h-32 sm:w-32"
+ className="absolute h-24 w-24 rounded-full border border-mehr-teal/25 sm:h-32 sm:w-32"
  animate={reduce ? undefined : { rotate: -360 }}
  transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
  />
  <Motion.div
  aria-hidden
- className="absolute h-16 w-16 rounded-full bg-mehr-deep/10 sm:h-20 sm:w-20"
+ className="absolute h-14 w-14 rounded-full bg-mehr-deep/10 sm:h-20 sm:w-20"
  animate={reduce ? undefined : { scale: [1, 1.08, 1], opacity: [0.55, 0.9, 0.55] }}
  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
  />
- <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-[1.35rem] bg-mehr-deep text-white shadow-float sm:h-24 sm:w-24">
- <MessageSquareText size={34} strokeWidth={1.6} className="sm:hidden" />
+ <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-[1.2rem] bg-mehr-deep text-white shadow-float sm:h-24 sm:w-24 sm:rounded-[1.35rem]">
+ <MessageSquareText size={28} strokeWidth={1.6} className="sm:hidden" />
  <MessageSquareText size={40} strokeWidth={1.6} className="hidden sm:block" />
  </div>
 
  {chips.map((label, i) => {
  const positions = [
- "left-[8%] top-[18%]",
- "right-[6%] top-[42%]",
- "left-[14%] bottom-[16%]",
+ "left-[6%] top-[16%]",
+ "right-[5%] top-[40%]",
+ "left-[10%] bottom-[14%]",
  ];
  return (
  <Motion.span
  key={label}
- className={`absolute z-10 rounded-full border border-mehr-deep/12 bg-white/90 px-3 py-1.5 text-[11px] font-semibold text-mehr-ink shadow-soft backdrop-blur-sm ${positions[i] || positions[0]}`}
+ className={`absolute z-10 max-w-[42%] truncate rounded-full border border-mehr-deep/12 bg-white/90 px-2.5 py-1 text-[10px] font-semibold text-mehr-ink shadow-soft backdrop-blur-sm sm:max-w-none sm:px-3 sm:py-1.5 sm:text-[11px] ${positions[i] || positions[0]}`}
  animate={reduce ? undefined : { y: [0, i % 2 === 0 ? -6 : 6, 0] }}
  transition={{
  duration: 4.5 + i * 0.6,
@@ -185,21 +185,21 @@ export default function PageHero({
  </Reveal>
  )}
 
- <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:gap-16">
+ <div className="grid min-w-0 items-center gap-6 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:gap-16">
  <div className="min-w-0 text-center lg:text-left">
  {eyebrow && (
  <Reveal>
- <p className="eyebrow mb-4">{eyebrow}</p>
+ <p className="eyebrow mb-3 sm:mb-4">{eyebrow}</p>
  </Reveal>
  )}
  <Reveal delay={0.06}>
- <h1 className="mx-auto max-w-[16ch] font-sans text-[clamp(1.45rem,6.5vw,3.4rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-mehr-ink lg:mx-0">
+ <h1 className="mx-auto max-w-[16ch] break-words font-sans text-[clamp(1.4rem,6.5vw,3.4rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-mehr-ink lg:mx-0">
  {title}
  </h1>
  </Reveal>
  {body && (
  <Reveal delay={0.12}>
- <p className="mx-auto mt-5 max-w-xl text-[13px] leading-relaxed text-mehr-mist sm:text-[15px] lg:mx-0">
+ <p className="mx-auto mt-3.5 max-w-xl text-[13px] leading-relaxed text-mehr-mist sm:mt-5 sm:text-[15px] lg:mx-0">
  {body}
  </p>
  </Reveal>
@@ -208,14 +208,14 @@ export default function PageHero({
  {(cta || secondaryCta) && (
  <Reveal
  delay={0.18}
- className="mt-8 flex w-full flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center lg:justify-start"
+ className="mt-6 flex w-full min-w-0 flex-col items-stretch gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3 lg:justify-start"
  >
  {cta && (
  <SpecularButton
  to={ctaPath}
  variant="brand"
  size="md"
- className="w-full justify-center sm:w-auto"
+ className="w-full max-w-full justify-center !text-[13px] sm:w-auto sm:!text-sm"
  >
  {cta}
  <ArrowUpRight size={15} />
@@ -224,7 +224,7 @@ export default function PageHero({
  {secondaryCta && (
  <Link
  to={secondaryPath}
- className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-mehr-deep/20 bg-white px-5 py-3 text-sm font-semibold text-mehr-deep transition hover:border-mehr-deep hover:bg-mehr-panel sm:w-auto"
+ className="inline-flex w-full max-w-full items-center justify-center gap-1.5 rounded-full border border-mehr-deep/20 bg-white px-5 py-3 text-sm font-semibold text-mehr-deep transition hover:border-mehr-deep hover:bg-mehr-panel sm:w-auto"
  >
  {secondaryCta}
  </Link>
@@ -233,7 +233,7 @@ export default function PageHero({
  )}
  </div>
 
- <Reveal delay={0.1} className="relative order-last lg:order-none">
+ <Reveal delay={0.1} className="relative order-last min-w-0 w-full max-w-full overflow-hidden lg:order-none">
  {image ? (
  <HeroPhoto image={image} alt={title} />
  ) : (

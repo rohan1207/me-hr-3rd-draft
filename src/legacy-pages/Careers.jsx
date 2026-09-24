@@ -112,7 +112,7 @@ function CareersHero() {
             initial={reduce ? false : { opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.14, duration: 0.7, ease }}
-            className="relative pb-16 sm:pb-14 lg:pb-0"
+            className="relative"
           >
             <div className="grid h-[260px] grid-cols-4 grid-rows-3 gap-1.5 sm:h-[420px] sm:gap-3 lg:h-[460px]">
               {COLLAGE.map((item, i) => (
@@ -138,10 +138,12 @@ function CareersHero() {
               ))}
             </div>
 
+            {/* Below collage — no overlap with images */}
             <motion.div
-              className="absolute bottom-0 left-0 right-0 rounded-2xl border border-white/40 bg-white/95 p-3.5 shadow-float backdrop-blur-sm sm:-bottom-4 sm:left-6 sm:right-auto sm:max-w-xs sm:p-5"
-              animate={reduce ? undefined : { y: [0, -6, 0] }}
-              transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-10 mt-3 rounded-2xl border border-white/40 bg-white/95 p-3.5 shadow-float backdrop-blur-sm sm:mt-4 sm:max-w-xs sm:p-5 lg:mt-5"
+              initial={reduce ? false : { opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.28, duration: 0.5, ease }}
             >
               <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-mehr-deep sm:text-[10px]">
                 Join the team

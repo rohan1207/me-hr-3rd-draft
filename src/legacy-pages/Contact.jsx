@@ -39,7 +39,7 @@ const MAP_EMBED =
 const MAP_LINK = "https://maps.app.goo.gl/oRmBa7ijcqATh3NV6";
 
 const fieldClass =
-  "input-field w-full !rounded-xl !px-3.5 !py-3 text-[15px] sm:!rounded-2xl sm:!px-4 sm:!py-3.5 sm:text-sm";
+  "box-border block w-full max-w-full min-w-0 rounded-xl border border-mehr-deep/15 bg-white px-3 py-3 text-[15px] text-mehr-ink outline-none transition placeholder:text-mehr-muted focus:border-mehr-deep/40 focus:ring-2 focus:ring-mehr-deep/15 sm:rounded-2xl sm:px-4 sm:py-3.5 sm:text-sm";
 
 export default function Contact() {
   const [form, setForm] = useState(initial);
@@ -72,35 +72,38 @@ export default function Contact() {
         chips={["On-Demand", "Resident HR", "Consulting"]}
       />
 
-      <section id="enquiry" className="bg-white py-7 sm:py-12 lg:py-16">
-        <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
+      <section
+        id="enquiry"
+        className="overflow-x-clip bg-white py-6 sm:py-12 lg:py-16"
+      >
+        <div className="container-mehr page-gutter min-w-0 sm:px-3 md:px-4 lg:px-5">
           {/* Quick reach — phone only */}
-          <div className="mb-5 grid grid-cols-2 gap-2 sm:hidden">
+          <div className="mb-4 grid grid-cols-2 gap-2 sm:hidden">
             <a
               href={contactInfo.phoneHref}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-mehr-deep px-3 py-3 text-[13px] font-semibold text-white shadow-float active:scale-[0.98]"
+              className="inline-flex min-w-0 items-center justify-center gap-1.5 rounded-full bg-mehr-deep px-3 py-3 text-[13px] font-semibold text-white shadow-float active:scale-[0.98]"
             >
-              <Phone size={15} />
+              <Phone size={15} className="shrink-0" />
               Call
             </a>
             <a
               href={contactInfo.emailHref}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-mehr-deep/15 bg-white px-3 py-3 text-[13px] font-semibold text-mehr-deep shadow-soft active:scale-[0.98]"
+              className="inline-flex min-w-0 items-center justify-center gap-1.5 rounded-full border border-mehr-deep/15 bg-white px-3 py-3 text-[13px] font-semibold text-mehr-deep shadow-soft active:scale-[0.98]"
             >
-              <Mail size={15} />
+              <Mail size={15} className="shrink-0" />
               Email
             </a>
           </div>
 
-          <div className="grid gap-5 sm:gap-8 lg:grid-cols-[0.95fr_1.15fr] lg:gap-10 xl:gap-14">
+          <div className="grid min-w-0 gap-4 sm:gap-8 lg:grid-cols-[0.95fr_1.15fr] lg:gap-10 xl:gap-14">
             {/* Map + details — after form on phone */}
-            <Reveal className="order-2 lg:order-1">
-              <div className="overflow-hidden rounded-[1.25rem] border border-mehr-deep/10 bg-mehr-panel/40 sm:rounded-[1.75rem]">
+            <Reveal className="order-2 min-w-0 w-full max-w-full lg:order-1">
+              <div className="overflow-hidden rounded-[1.15rem] border border-mehr-deep/10 bg-mehr-panel/40 sm:rounded-[1.75rem]">
                 <div className="relative aspect-[16/11] overflow-hidden sm:aspect-[5/3]">
                   <iframe
                     title="me-HR office, Thread Works, MG Road, Pune"
                     src={MAP_EMBED}
-                    className="absolute inset-0 h-full w-full border-0"
+                    className="absolute inset-0 h-full w-full max-w-full border-0"
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="strict-origin-when-cross-origin"
@@ -109,12 +112,12 @@ export default function Contact() {
                     href={MAP_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center gap-2 rounded-xl border border-white/40 bg-white/95 px-3 py-2.5 shadow-soft backdrop-blur-sm transition hover:bg-white sm:bottom-3 sm:left-4 sm:right-auto sm:max-w-xs"
+                    className="absolute bottom-2 left-2 right-2 flex min-w-0 items-center gap-2 rounded-xl border border-white/40 bg-white/95 px-2.5 py-2 shadow-soft backdrop-blur-sm transition hover:bg-white sm:bottom-3 sm:left-4 sm:right-auto sm:max-w-xs sm:px-3 sm:py-2.5"
                   >
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-mehr-deep text-white">
                       <MapPin size={15} />
                     </span>
-                    <span className="min-w-0 text-left">
+                    <span className="min-w-0 flex-1 text-left">
                       <span className="block text-[10px] font-semibold uppercase tracking-[0.12em] text-mehr-deep">
                         Open in Maps
                       </span>
@@ -125,18 +128,18 @@ export default function Contact() {
                   </a>
                 </div>
 
-                <div className="space-y-2.5 p-3.5 sm:space-y-3 sm:p-5">
+                <div className="space-y-2 p-3 sm:space-y-3 sm:p-5">
                   <h2 className="font-sans text-[15px] font-semibold text-mehr-ink sm:text-lg">
                     Contact Details
                   </h2>
-                  <RevealStagger className="space-y-2.5 sm:space-y-3" stagger={0.05}>
+                  <RevealStagger className="space-y-2 sm:space-y-3" stagger={0.05}>
                     {channels.map((ch) => (
                       <RevealItem key={ch.label}>
-                        <div className="flex gap-3 rounded-[1rem] border border-mehr-deep/8 bg-white p-3 sm:rounded-[1.15rem] sm:p-4">
+                        <div className="flex min-w-0 gap-2.5 rounded-[0.95rem] border border-mehr-deep/8 bg-white p-2.5 sm:gap-3 sm:rounded-[1.15rem] sm:p-4">
                           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-mehr-teal-soft text-mehr-deep">
                             <ch.icon size={16} />
                           </span>
-                          <div className="min-w-0">
+                          <div className="min-w-0 flex-1 overflow-hidden">
                             <p className="text-[10px] font-semibold uppercase tracking-wider text-mehr-muted">
                               {ch.label}
                             </p>
@@ -148,7 +151,7 @@ export default function Contact() {
                                 {ch.value}
                               </a>
                             ) : (
-                              <p className="mt-0.5 text-[13px] leading-relaxed text-mehr-mist sm:text-sm">
+                              <p className="mt-0.5 break-words text-[13px] leading-relaxed text-mehr-mist sm:text-sm">
                                 {ch.value}
                               </p>
                             )}
@@ -161,10 +164,10 @@ export default function Contact() {
               </div>
             </Reveal>
 
-            {/* Form / success — first on phone */}
-            <Reveal delay={0.08} className="order-1 lg:order-2">
+            {/* Form — first on phone */}
+            <Reveal delay={0.08} className="order-1 min-w-0 w-full max-w-full lg:order-2">
               {submitted ? (
-                <div className="flex h-full flex-col items-center justify-center rounded-[1.25rem] border border-mehr-deep/10 bg-gradient-to-br from-mehr-teal-soft via-white to-mehr-panel p-6 text-center shadow-soft sm:rounded-[1.75rem] sm:p-10 lg:p-12">
+                <div className="flex h-full flex-col items-center justify-center rounded-[1.15rem] border border-mehr-deep/10 bg-gradient-to-br from-mehr-teal-soft via-white to-mehr-panel p-5 text-center shadow-soft sm:rounded-[1.75rem] sm:p-10 lg:p-12">
                   <span className="flex h-14 w-14 items-center justify-center rounded-full bg-mehr-deep text-white shadow-float sm:h-16 sm:w-16">
                     <CheckCircle2 size={28} strokeWidth={1.75} className="sm:hidden" />
                     <CheckCircle2
@@ -173,18 +176,18 @@ export default function Contact() {
                       className="hidden sm:block"
                     />
                   </span>
-                  <h3 className="mt-5 font-sans text-[clamp(1.35rem,5.5vw,1.75rem)] font-semibold tracking-tight text-mehr-ink sm:mt-6">
+                  <h3 className="mt-5 max-w-full font-sans text-[clamp(1.25rem,5.5vw,1.75rem)] font-semibold tracking-tight text-mehr-ink sm:mt-6">
                     {success.title}
                   </h3>
                   <p className="mt-3 max-w-sm text-[13px] leading-relaxed text-mehr-mist sm:text-[15px]">
                     {success.body}
                   </p>
-                  <div className="mt-6 flex w-full flex-col items-stretch gap-2.5 sm:mt-8 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3">
+                  <div className="mt-6 flex w-full max-w-full flex-col items-stretch gap-2.5 sm:mt-8 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3">
                     <SpecularButton
                       to="/services"
                       variant="brand"
                       size="md"
-                      className="w-full justify-center sm:w-auto"
+                      className="w-full max-w-full justify-center sm:w-auto"
                     >
                       {success.cta}
                       <ArrowUpRight size={15} />
@@ -192,7 +195,7 @@ export default function Contact() {
                     <button
                       type="button"
                       onClick={() => setSubmitted(false)}
-                      className="inline-flex w-full items-center justify-center rounded-full border border-mehr-deep/20 bg-white px-5 py-3 text-sm font-semibold text-mehr-deep transition hover:border-mehr-deep hover:bg-mehr-panel sm:w-auto"
+                      className="inline-flex w-full max-w-full items-center justify-center rounded-full border border-mehr-deep/20 bg-white px-5 py-3 text-sm font-semibold text-mehr-deep transition hover:border-mehr-deep hover:bg-mehr-panel sm:w-auto"
                     >
                       {ctas.bookMyConsultation}
                     </button>
@@ -201,32 +204,34 @@ export default function Contact() {
               ) : (
                 <form
                   onSubmit={onSubmit}
-                  className="rounded-[1.25rem] border border-mehr-deep/10 bg-white p-4 shadow-float sm:rounded-[1.75rem] sm:p-7 lg:p-8"
+                  className="box-border w-full max-w-full min-w-0 overflow-hidden rounded-[1.15rem] border border-mehr-deep/10 bg-white p-3.5 shadow-float sm:rounded-[1.75rem] sm:p-7 lg:p-8"
                 >
                   <p className="mb-3 text-[13px] font-semibold text-mehr-ink sm:mb-4 sm:text-sm">
                     {hero.topicsLabel}
                   </p>
 
-                  {/* Topic chips — horizontal scroll on phone */}
-                  <div className="-mx-4 mb-5 flex gap-2 overflow-x-auto px-4 pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:mb-6 sm:flex-wrap sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden">
-                    {consultationTopics.map((topic) => (
-                      <button
-                        key={topic}
-                        type="button"
-                        onClick={() => setForm((f) => ({ ...f, topic }))}
-                        className={`shrink-0 rounded-full border px-3.5 py-2 text-[12px] font-medium transition active:scale-[0.98] sm:py-1.5 sm:text-xs ${
-                          form.topic === topic
-                            ? "border-mehr-deep bg-mehr-deep text-white shadow-soft"
-                            : "border-mehr-deep/15 bg-mehr-panel/50 text-mehr-mist hover:border-mehr-deep/30 hover:bg-white"
-                        }`}
-                      >
-                        {topic}
-                      </button>
-                    ))}
+                  {/* Topic chips — contained horizontal scroll */}
+                  <div className="mb-4 max-w-full overflow-x-auto overscroll-x-contain [-ms-overflow-style:none] [scrollbar-width:none] sm:mb-6 sm:overflow-visible [&::-webkit-scrollbar]:hidden">
+                    <div className="flex w-max gap-2 sm:w-auto sm:flex-wrap">
+                      {consultationTopics.map((topic) => (
+                        <button
+                          key={topic}
+                          type="button"
+                          onClick={() => setForm((f) => ({ ...f, topic }))}
+                          className={`shrink-0 rounded-full border px-3 py-2 text-[11px] font-medium transition active:scale-[0.98] sm:px-3.5 sm:py-1.5 sm:text-xs ${
+                            form.topic === topic
+                              ? "border-mehr-deep bg-mehr-deep text-white shadow-soft"
+                              : "border-mehr-deep/15 bg-mehr-panel/50 text-mehr-mist hover:border-mehr-deep/30 hover:bg-white"
+                          }`}
+                        >
+                          {topic}
+                        </button>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="grid gap-3.5 sm:grid-cols-2 sm:gap-4">
-                    <div>
+                  <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+                    <div className="min-w-0">
                       <label className="mb-1.5 block text-[11px] font-semibold text-mehr-ink sm:text-xs">
                         Name
                       </label>
@@ -239,7 +244,7 @@ export default function Contact() {
                         className={fieldClass}
                       />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <label className="mb-1.5 block text-[11px] font-semibold text-mehr-ink sm:text-xs">
                         Company Name
                       </label>
@@ -252,7 +257,7 @@ export default function Contact() {
                         className={fieldClass}
                       />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <label className="mb-1.5 block text-[11px] font-semibold text-mehr-ink sm:text-xs">
                         Work Email
                       </label>
@@ -267,7 +272,7 @@ export default function Contact() {
                         className={fieldClass}
                       />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <label className="mb-1.5 block text-[11px] font-semibold text-mehr-ink sm:text-xs">
                         Phone Number
                       </label>
@@ -282,7 +287,7 @@ export default function Contact() {
                         className={fieldClass}
                       />
                     </div>
-                    <div className="sm:col-span-2">
+                    <div className="min-w-0 sm:col-span-2">
                       <label className="mb-1.5 block text-[11px] font-semibold text-mehr-ink sm:text-xs">
                         Employee Strength
                       </label>
@@ -301,7 +306,7 @@ export default function Contact() {
                         ))}
                       </select>
                     </div>
-                    <div className="sm:col-span-2">
+                    <div className="min-w-0 sm:col-span-2">
                       <label className="mb-1.5 block text-[11px] font-semibold text-mehr-ink sm:text-xs">
                         What can we help you with?
                       </label>
@@ -310,11 +315,11 @@ export default function Contact() {
                         required
                         value={form.topic}
                         onChange={onChange}
-                        placeholder="Select a topic above or type here"
+                        placeholder="Select a topic or type here"
                         className={fieldClass}
                       />
                     </div>
-                    <div className="sm:col-span-2">
+                    <div className="min-w-0 sm:col-span-2">
                       <label className="mb-1.5 block text-[11px] font-semibold text-mehr-ink sm:text-xs">
                         Briefly tell us about your requirement
                       </label>
@@ -329,15 +334,15 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="mt-5 flex w-full flex-col items-stretch gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center">
+                  <div className="mt-5 flex w-full min-w-0 max-w-full flex-col items-stretch gap-2.5 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
                     <SpecularButton
                       type="submit"
                       variant="brand"
                       size="md"
                       fullWidth
-                      className="justify-center sm:!w-auto"
+                      className="max-w-full justify-center !text-[13px] sm:!w-auto sm:!text-sm"
                     >
-                      {ctas.bookMyConsultation}
+                      {ctas.primary}
                       <Send size={15} />
                     </SpecularButton>
                     <Link
