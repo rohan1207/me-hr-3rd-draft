@@ -1,4 +1,4 @@
-import { mediaContent } from "@/data/content";
+import { mediaContent, caseStudies } from "@/data/content";
 import { SITE_URL } from "@/lib/seo";
 
 const STATIC_PATHS = [
@@ -33,6 +33,12 @@ export default function sitemap() {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.5,
+    })),
+    ...caseStudies.map((study) => ({
+      url: `${SITE_URL}/case-studies/${study.id}`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.55,
     })),
   ];
 }

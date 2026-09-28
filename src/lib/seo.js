@@ -47,6 +47,18 @@ export function organizationJsonLd() {
         telephone: "+91-8459328399",
         description: seo.home.description,
         areaServed: "IN",
+        knowsAbout: [
+          "HR Outsourcing",
+          "On-Demand HR",
+          "Resident HR",
+          "Strategic HR Consulting",
+          "Payroll Outsourcing",
+          "KEKA HRMS",
+          "KEKA implementation",
+          "HROne",
+          "greytHR",
+          "HRMS implementation",
+        ],
         address: {
           "@type": "PostalAddress",
           streetAddress: "1 Floor, Thread Works, 1156 Saifee Lane, MG Road",

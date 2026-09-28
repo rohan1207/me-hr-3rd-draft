@@ -56,8 +56,8 @@ function InfoCard({ item, Icon, dense = false }) {
       <p
         className={`leading-relaxed text-mehr-mist ${
           dense
-            ? "mt-1 line-clamp-3 text-[11px]"
-            : "mt-2 line-clamp-4 text-[13px] sm:text-sm"
+            ? "mt-1 text-[11px]"
+            : "mt-2 text-[13px] sm:text-sm"
         }`}
       >
         {item.desc}

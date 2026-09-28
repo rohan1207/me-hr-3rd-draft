@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { Link } from "@/components/compat/router";
 import { motion, useReducedMotion } from "framer-motion";

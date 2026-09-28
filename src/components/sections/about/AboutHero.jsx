@@ -57,9 +57,6 @@ export default function AboutHero() {
           </div>
 
           <div className="flex flex-col gap-3.5 sm:gap-4 lg:items-end lg:pb-1">
-            <p className="mx-auto max-w-md text-[13px] leading-relaxed text-mehr-mist sm:text-[14px] md:text-[15px] lg:mx-0 lg:text-right">
-              {hero.body[0]}
-            </p>
             <div className="flex w-full flex-col items-stretch gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-2.5 lg:justify-end">
               <SpecularButton
                 to="/contact"

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal, { RevealItem, RevealStagger } from "../../ui/Reveal";
@@ -9,7 +9,7 @@ const PHOTO = "/about/story-meet.png";
 
 export default function AboutStory() {
   const reduce = useReducedMotion();
-  const { story, hero } = aboutContent;
+  const { story } = aboutContent;
 
   return (
     <section id="story" className="scroll-mt-28 surface-white py-9 sm:py-12 lg:py-14">
@@ -59,7 +59,7 @@ export default function AboutStory() {
             <Reveal delay={0.12}>
               <blockquote className="mx-auto mt-8 max-w-xl border-t-[3px] border-mehr-deep pt-5 sm:border-l-[3px] sm:border-t-0 sm:pl-6 sm:pt-0 lg:mx-0">
                 <p className="font-sans text-[15px] font-semibold leading-snug tracking-[-0.02em] text-mehr-ink sm:text-lg">
-                  {hero.body[1]}
+                  {story.quote}
                 </p>
               </blockquote>
             </Reveal>

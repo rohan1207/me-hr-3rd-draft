@@ -118,7 +118,7 @@ export const retainershipPage = {
  { title: "Employee Lifecycle Management", desc: "Manage continuous employee processes across joining, confirmation, transfers, relations and exits." },
  { title: "HR Policies & Processes", desc: "Build and maintain practical HR policies, SOPs, documentation and workplace processes as the organisation evolves." },
  { title: "Performance Management", desc: "Run structured KRAs, KPIs, reviews and performance practices that keep accountability active through the year." },
- { title: "HRMS & HR Operations", desc: "Strengthen attendance, leave, records, documentation, letters, trackers and HRMS-enabled day-to-day operations." },
+ { title: "HRMS & HR Operations", desc: "Strengthen attendance, leave, records, documentation, letters, trackers and HRMS-enabled day-to-day operations with platforms like KEKA, HROne and greytHR." },
  { title: "Employee Engagement", desc: "Coordinate engagement, communication, recognition and employee-connect initiatives on an ongoing basis." },
  { title: "Learning & Development", desc: "Identify capability gaps and coordinate training interventions as part of continuous people support." },
  { title: "HR Reporting & Management Insights", desc: "Provide recurring HR reports, dashboards and workforce insights for management decisions." },

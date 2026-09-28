@@ -15,7 +15,7 @@ function truncate(text, max = 96) {
  return `${cut.slice(0, lastSpace > 40 ? lastSpace : max).trim()}…`;
 }
 
-const studiesWithOutcomes = caseStudies.filter((cs) => cs.outcome);
+const studiesWithOutcomes = caseStudies.filter((cs) => cs.impact || cs.outcome);
 
 /** Chart 1, Case study outcomes from master */
 function OutcomeBars({ active }) {
@@ -42,7 +42,7 @@ function OutcomeBars({ active }) {
  {truncate(row.title, 52)}
  </span>
  <span className="shrink-0 text-[10px] font-semibold uppercase tracking-wide text-white/45 sm:text-[11px]">
- {row.tags?.[0] || row.industry}
+ {row.tags?.[0] || row.industry || "Case study"}
  </span>
  </div>
  <div className="mb-1.5 h-2 overflow-hidden rounded-full bg-white/10">
@@ -54,7 +54,7 @@ function OutcomeBars({ active }) {
  />
  </div>
  <p className="text-[10px] leading-snug text-white/55 sm:text-[11px]">
- {truncate(row.outcome, 100)}
+ {truncate(row.impact || row.outcome, 100)}
  </p>
  </div>
  );
@@ -74,13 +74,13 @@ function CaseStudyBars({ active }) {
  <div className="mb-3 flex items-start justify-between gap-2 sm:mb-4">
  <div>
  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/45">
- {featured?.industry}
+ {featured?.industry || "Case study"}
  </p>
  <h3 className="mt-1 font-sans text-base font-semibold text-white sm:text-lg">
  {truncate(featured?.title, 56)}
  </h3>
  <p className="mt-1 text-[11px] text-white/55 sm:text-xs">
- {truncate(featured?.outcome, 100)}
+ {truncate(featured?.impact || featured?.outcome, 100)}
  </p>
  </div>
  </div>
@@ -102,14 +102,14 @@ function CaseStudyBars({ active }) {
  <div className="flex w-full flex-1 items-end justify-center pb-8">
  <motion.div
  className="w-[70%] max-w-[36px] rounded-t-md bg-white sm:max-w-[44px]"
- title={m.outcome}
+ title={m.impact || m.outcome}
  initial={{ height: 0 }}
  animate={{ height: active ? `${height}%` : 0 }}
  transition={{ duration: 1.05, delay: 0.12 + i * 0.08, ease }}
  />
  </div>
  <span className="absolute bottom-0 line-clamp-2 max-w-full px-0.5 text-center text-[9px] font-semibold leading-tight text-white/55 sm:text-[10px]">
- {m.tags?.[0] || m.industry}
+ {m.tags?.[0] || m.industry || "Case study"}
  </span>
  </div>
  );

@@ -57,98 +57,99 @@ export const seo = {
   home: {
     title: "HR Outsourcing Services in Pune | On-Demand HR, Resident HR & more | me-HR",
     description:
-      "Flexible HR outsourcing for growing businesses. Explore On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing from me-HR.",
+      "Flexible HR outsourcing for growing businesses. Explore On-Demand HR, Resident HR, Strategic HR Consulting, Payroll Outsourcing and HRMS implementation (KEKA, HROne, greytHR) from me-HR.",
     keywords:
-      "HR outsourcing services, HR outsourcing Pune, on-demand HR, Resident HR, fractional HR, strategic HR consulting, Payroll Outsourcing",
+      "HR outsourcing services, HR outsourcing Pune, on-demand HR, Resident HR, fractional HR, strategic HR consulting, Payroll Outsourcing, KEKA HRMS, KEKA implementation, HROne, greytHR, HRMS implementation Pune",
   },
   about: {
     title: "About me-HR | HR Outsourcing & Resident HR Company in Pune",
     description:
-      "Learn how me-HR supports growing businesses with HR outsourcing, On-Demand HR, Resident HR, Strategic HR Consulting and practical people solutions.",
+      "Learn how me-HR supports growing businesses with HR outsourcing, On-Demand HR, Resident HR, Strategic HR Consulting, practical people solutions and KEKA HRMS implementation.",
     keywords:
-      "HR outsourcing company Pune, Resident HR, fractional HR services, HR consulting Pune, outsourced HR partner",
+      "HR outsourcing company Pune, Resident HR, fractional HR services, HR consulting Pune, outsourced HR partner, KEKA HRMS, KEKA implementation Pune, HROne, greytHR",
   },
   services: {
     title: "HR Services | On-Demand HR, Resident HR, Strategic HR Consulting | me-HR",
     description:
-      "Explore me-HR services including On-Demand HR, Resident HR, Strategic HR Consulting, recruitment, HR operations and Payroll Outsourcing.",
+      "Explore me-HR services including On-Demand HR, Resident HR, Strategic HR Consulting, recruitment, HR operations, Payroll Outsourcing and HRMS platforms like KEKA, HROne and greytHR.",
     keywords:
-      "HR services Pune, on-demand HR services, Resident HR, fractional HR services, strategic HR consulting, HR outsourcing",
+      "HR services Pune, on-demand HR services, Resident HR, fractional HR services, strategic HR consulting, HR outsourcing, KEKA HRMS, KEKA implementation, HROne HRMS, greytHR",
   },
   onDemand: {
     title: "On-Demand HR Services | Flexible & Temporary HR Support | me-HR",
     description:
       "Get on-demand HR support for recruitment, documentation, payroll inputs, HR coordination and temporary workload. Flexible HR support for 1 week, 3–7 days or 1–3 months.",
     keywords:
-      "on-demand HR services, HR on demand, temporary HR support, project-based HR, flexible HR services, HR support for SMEs",
+      "on-demand HR services, HR on demand, temporary HR support, project-based HR, flexible HR services, HR support for SMEs, KEKA HRMS support",
   },
   retainership: {
     title: "Resident HR Services | Fractional HR & Outsourced HR | me-HR",
     description:
-      "Get dedicated Resident HR support for recruitment, HR operations, performance management, policies, engagement and employee lifecycle management. Fractional HR for growing businesses.",
+      "Get dedicated Resident HR support for recruitment, HR operations, performance management, policies, engagement, employee lifecycle management and KEKA HRMS-enabled processes. Fractional HR for growing businesses.",
     keywords:
-      "Resident HR, fractional HR services, outsourced HR services, HR outsourcing services, dedicated HR support, virtual HR",
+      "Resident HR, fractional HR services, outsourced HR services, HR outsourcing services, dedicated HR support, virtual HR, KEKA HRMS, KEKA implementation, HROne, greytHR",
   },
   strategic: {
     title: "Strategic HR Consulting Services | HR Advisory & Audits | me-HR",
     description:
       "Strategic HR consulting for HR audits, organisation structure, performance management, HR strategy, policies, organisation development and change management.",
     keywords:
-      "strategic HR consulting, HR advisory services, HR audit services, organization development consulting, performance management consulting",
+      "strategic HR consulting, HR advisory services, HR audit services, organization development consulting, performance management consulting, KEKA HRMS consulting",
   },
   pagar: {
     title: "Payroll Outsourcing & Statutory Compliance Services | me-HR",
     description:
-      "Outsource payroll processing and statutory compliance including PF, ESIC, PT, LWF, labour compliance, contractor compliance and payroll MIS.",
+      "Outsource payroll processing and statutory compliance including PF, ESIC, PT, LWF, labour compliance, contractor compliance and payroll MIS. HRMS support for KEKA, HROne and greytHR.",
     keywords:
-      "payroll outsourcing services, payroll processing services, statutory compliance services, PF ESIC compliance, labour compliance, payroll services Pune",
+      "payroll outsourcing services, payroll processing services, statutory compliance services, PF ESIC compliance, labour compliance, payroll services Pune, KEKA payroll, KEKA HRMS, HROne, greytHR",
   },
   pricing: {
     title: "HR Services Pricing | On-Demand HR, Resident HR & Payroll | me-HR",
     description:
       "Explore flexible me-HR engagement models for On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing. Get pricing based on the support your business needs.",
     keywords:
-      "HR outsourcing pricing, on-demand HR pricing, Resident HR pricing, fractional HR pricing, payroll outsourcing pricing",
+      "HR outsourcing pricing, on-demand HR pricing, Resident HR pricing, fractional HR pricing, payroll outsourcing pricing, KEKA HRMS pricing",
   },
- caseStudies: {
- title: "HR Outsourcing & HR Consulting Case Studies | me-HR",
- description:
- "See how me-HR solves real HR challenges through HR outsourcing, strategic consulting, performance management, employee engagement and organisational interventions.",
- keywords:
- "HR case studies, HR outsourcing case studies, HR consulting case studies, employee engagement case study, performance management case study",
- },
- careers: {
- title: "HR Careers in Pune | Join me-HR",
- description:
- "Explore HR career opportunities at me-HR and gain practical experience across HR outsourcing, recruitment, HR operations, consulting and people management.",
- keywords: "HR jobs Pune, HR careers Pune, HR outsourcing jobs, HR recruitment jobs",
- },
- media: {
- title: "HR Insights & Thought Leadership | me-HR Media Centre",
- description:
- "Practical HR perspectives, workplace thinking and updates from me-HR for leaders building structured organisations.",
- keywords: "HR insights, HR thought leadership, workplace insights, HR trends India, HR events Pune",
- },
+  caseStudies: {
+    title: "HR Outsourcing & HR Consulting Case Studies | me-HR",
+    description:
+      "See how me-HR solves real HR challenges through HR outsourcing, strategic consulting, performance management, employee engagement and organisational interventions.",
+    keywords:
+      "HR case studies, HR outsourcing case studies, HR consulting case studies, employee engagement case study, performance management case study, KEKA HRMS case study",
+  },
+  careers: {
+    title: "HR Careers in Pune | Join me-HR",
+    description:
+      "Explore HR career opportunities at me-HR and gain practical experience across HR outsourcing, recruitment, HR operations, consulting and people management.",
+    keywords: "HR jobs Pune, HR careers Pune, HR outsourcing jobs, HR recruitment jobs, KEKA HRMS jobs",
+  },
+  media: {
+    title: "HR Insights & Thought Leadership | me-HR Media Centre",
+    description:
+      "Practical HR perspectives, workplace thinking and updates from me-HR for leaders building structured organisations.",
+    keywords:
+      "HR insights, HR thought leadership, workplace insights, HR trends India, HR events Pune, KEKA HRMS insights",
+  },
   faqs: {
     title: "HR Outsourcing FAQs | On-Demand HR, Resident HR & Payroll | me-HR",
     description:
-      "Answers to common questions about HR outsourcing, On-Demand HR, Resident HR, fractional HR, payroll outsourcing and statutory compliance.",
+      "Answers to common questions about HR outsourcing, On-Demand HR, Resident HR, fractional HR, payroll outsourcing, statutory compliance and HRMS platforms like KEKA.",
     keywords:
-      "HR outsourcing FAQs, on-demand HR FAQ, Resident HR FAQ, fractional HR FAQ, payroll outsourcing FAQ, statutory compliance FAQ",
+      "HR outsourcing FAQs, on-demand HR FAQ, Resident HR FAQ, fractional HR FAQ, payroll outsourcing FAQ, statutory compliance FAQ, KEKA HRMS FAQ, KEKA implementation",
   },
   contact: {
     title: "Contact me-HR | HR Outsourcing & Consulting in Pune",
     description:
-      "Book a consultation with me-HR for On-Demand HR, Resident HR, Strategic HR Consulting, Payroll Outsourcing and compliance support in Pune.",
+      "Book a consultation with me-HR for On-Demand HR, Resident HR, Strategic HR Consulting, Payroll Outsourcing, compliance support and KEKA HRMS implementation in Pune.",
     keywords:
-      "HR consultant Pune, HR outsourcing Pune, HR services Pune, payroll outsourcing Pune, Resident HR, fractional HR",
+      "HR consultant Pune, HR outsourcing Pune, HR services Pune, payroll outsourcing Pune, Resident HR, fractional HR, KEKA HRMS Pune, KEKA implementation, HROne, greytHR",
   },
- life: {
- title: "Life at me-HR | HR Careers Culture in Pune",
- description:
- "At me-HR, our people are at the heart of the work we do. Explore growth, collaboration and career opportunities with our HR outsourcing and consulting team in Pune.",
- keywords: "life at me-HR, HR culture Pune, HR team Pune, me-HR workplace",
- },
+  life: {
+    title: "Life at me-HR | HR Careers Culture in Pune",
+    description:
+      "At me-HR, our people are at the heart of the work we do. Explore growth, collaboration and career opportunities with our HR outsourcing and consulting team in Pune.",
+    keywords: "life at me-HR, HR culture Pune, HR team Pune, me-HR workplace",
+  },
 };
 
 export const homeContent = {
@@ -258,7 +259,7 @@ export const homeContent = {
  title: "The numbers walk the talk",
  items: [
  { value: 8, suffix: "+", label: "Years of HR partnership", tone: "deep" },
- { value: 10, suffix: "+", label: "Brands that trust us", tone: "teal" },
+ { value: 50, suffix: "+", label: "Brands that trust us", tone: "teal" },
  { value: 4, suffix: "", label: "Flexible engagement models", tone: "charcoal" },
  { value: 8, suffix: "", label: "HR capability areas", tone: "slate" },
  ],
@@ -382,7 +383,7 @@ export const hrCapabilities = [
  {
  id: "hrms",
  title: "HRMS & HR Operations",
- desc: "Strengthen attendance, leave, employee records, HR documentation and HRMS-enabled processes.",
+ desc: "Strengthen attendance, leave, employee records, HR documentation and HRMS-enabled processes with platforms like KEKA, HROne and greytHR.",
  },
  {
  id: "analytics",
@@ -399,7 +400,7 @@ export const hrCapabilities = [
 export const servicesContent = {
  hero: {
  title: "HR Capability Matched to How Leadership Needs to Operate.",
- body: "From embedded day-to-day HR ownership to senior advisory and payroll compliance, choose the engagement model that fits how your organisation needs to operate.",
+ body: "From embedded day-to-day HR ownership to senior advisory and payroll compliance, HRMS KEKA/ HROne/ greytHR implementation, choose the engagement model that fits how your organisation needs to operate.",
  },
  modelsEyebrow: "Choose How You Want to Work With Us.",
  capabilitiesEyebrow: "Everything We Can Support Across HR.",
@@ -480,6 +481,8 @@ export const aboutContent = {
  "me-HR is a human resources services firm founded to help businesses run people operations with structure, clarity and commercial sense, from hiring through consulting to growth.",
  "We sit beside business leaders and internal teams, not outside them. That means practical HR systems, experienced oversight and engagement models that flex as your organisation evolves.",
  ],
+ quote:
+ "me-HR becomes your company's extended HR arm without the hassle of hiring a full-time HR employee and the cost that comes with it.",
  highlights: [
  { value: "2018", label: "Founded" },
  { value: "Pune", label: "Headquarters" },
@@ -617,7 +620,7 @@ export const aboutContent = {
  },
  {
  title: "Everything Your HR Function Needs.",
- desc: "From hiring and onboarding to payroll, compliance, engagement and strategic design across the HR lifecycle.",
+ desc: "From hiring and onboarding to payroll, compliance, HRMS implementation like KEKA, and strategic design across the HR lifecycle.",
  },
  {
  title: "Continuous Review",
@@ -728,63 +731,120 @@ export const caseStudiesContent = {
  viewAllCta: "View All Case Studies",
  exploreMore: "Explore More Case Studies",
  exploreMoreBody:
- "Each case study can open into a dedicated page covering the client context, challenge, me-HR approach, solution and business outcome.",
+ "Each case study covers the client challenge, what me-HR did and the impact — with a clear path to discuss a similar people priority for your organisation.",
+ peopleAlsoRead: "People also read",
+ challengeLabel: "The Challenge",
+ didLabel: "What me-HR Did",
+ impactLabel: "The Impact",
 };
 
 export const caseStudies = [
  {
- id: "oem-automation",
- title: "Unifying Operations Across Seven Plants for an OEM Automation Machinery Manufacturer",
- industry: "Automation Machinery (OEM)",
- workforce: "500–1,000 employees",
- scope: "Multi-location operations across seven plants",
+ id: "digitising-hr-employee-experience",
+ title: "Digitising HR & Improving Employee Experience",
  challenge:
- "Independent plant operations were creating duplication, communication gaps, resource inefficiencies and difficulty scaling consistently.",
- intervention:
- "Organisational audit, unified leadership vision, process standardisation, cross-plant collaboration, technology-enabled communication and employee engagement initiatives.",
- outcome:
- "Better resource utilisation, stronger communication, improved employee engagement and a more scalable operating model.",
- tags: ["Multi-site HR", "Process Unification", "Manufacturing"],
+ "A growing organisation was managing leave applications and employee grievances through informal and manual processes. This resulted in delays, lack of visibility and inconsistent handling of employee concerns.",
+ actions: [
+ "Digitised the leave application process",
+ "Created a structured grievance redressal mechanism",
+ "Established clearer HR communication channels",
+ "Introduced defined processes for employee requests and concerns",
+ ],
+ impact:
+ "The organisation gained better visibility over employee requests, improved response time and created a more structured employee experience.",
  },
  {
- id: "remote-design",
- title: "Strengthening Unity for a Remote Design Company",
- industry: "Design",
- workforce: "Fully remote across multiple locations",
- scope: "Remote workforce",
+ id: "building-hr-systems-manufacturing",
+ title: "Building HR Systems for a Manufacturing Organisation",
  challenge:
- "The organisation was experiencing weak team cohesion, communication gaps and employee disengagement across its remote workforce.",
- intervention:
- "Culture assessment, employee feedback, engagement initiatives, structured communication channels, collaboration tools and stronger leadership involvement.",
- outcome:
- "Improved employee engagement and satisfaction, stronger cross-functional collaboration, lower turnover and higher productivity.",
- tags: ["Remote Culture", "Engagement", "Team Unity"],
+ "A manufacturing business had been operating with legacy HR practices. Communication gaps, inconsistent processes and employee morale issues were affecting the overall people environment.",
+ actions: [
+ "Conducted an assessment of existing HR practices",
+ "Identified gaps across employee communication and HR processes",
+ "Introduced structured HR systems and processes",
+ "Strengthened employee communication and engagement",
+ "Worked with management through a phased HR transformation approach",
+ ],
+ impact:
+ "The organisation moved towards a more structured HR function with clearer processes, better communication and greater management visibility.",
  },
  {
- id: "automation-pune",
- title: "Enhancing Employee Punctuality and Employer Branding for a Leading Automation Company, Pune",
- industry: "Automation & Control Systems",
- workforce: "80–100 employees",
- scope: "Pune",
+ id: "structure-rapidly-growing-business",
+ title: "Creating Structure for a Rapidly Growing Business",
  challenge:
- "Poor punctuality was affecting workflow, while the organisation also wanted to strengthen its employer brand.",
- intervention:
- "Attendance analysis, internal communication campaigns, manager training and real-time punctuality monitoring.",
- outcome:
- "Improved punctuality, higher employee engagement and stronger employer-brand visibility in the talent market.",
- tags: ["Attendance", "Employer Brand", "Ops"],
+ "A growing business had expanded significantly but its people practices had not evolved at the same pace. HR processes were largely reactive, with gaps in policies, employee lifecycle management and organisational structure.",
+ actions: [
+ "Assessed existing HR processes and practices",
+ "Developed and streamlined HR policies",
+ "Structured employee lifecycle processes",
+ "Introduced clearer roles, responsibilities and HR workflows",
+ "Supported management in establishing consistent people practices",
+ ],
+ impact:
+ "The business gained a more organised HR framework that could support its continued growth without relying on ad-hoc people management.",
  },
  {
- id: "fmcg-performance",
- title: "Streamlining Performance Reviews for a Leading FMCG Group",
- industry: "FMCG",
- workforce: "",
- scope: "",
+ id: "overtime-attendance-grievances",
+ title: "Resolving Overtime & Attendance Grievances",
  challenge:
- "A current me-HR case study focused on strengthening and streamlining performance review practices for an FMCG organisation.",
- intervention: "",
- outcome: "",
- tags: ["Performance", "FMCG"],
+ "A manufacturing organisation was facing recurring employee grievances around overtime, attendance and leave. The absence of a clearly defined framework was leading to confusion among employees and managers.",
+ actions: [
+ "Reviewed existing attendance and overtime practices",
+ "Identified process gaps",
+ "Developed a structured leave and attendance framework",
+ "Strengthened HR policies and communication",
+ "Introduced a multiskilling approach to improve workforce flexibility",
+ ],
+ impact:
+ "The organisation achieved greater clarity around attendance and overtime practices while reducing recurring employee grievances and improving workforce flexibility.",
+ },
+ {
+ id: "hrms-implementation-process-digitisation",
+ title: "HRMS Implementation & Process Digitisation",
+ challenge:
+ "An organisation with a predominantly shop-floor workforce was managing several HR processes manually. This created challenges around employee data, attendance, leave and recruitment visibility.",
+ actions: [
+ "Assessed existing HR processes and technology requirements",
+ "Implemented an HRMS suited to the organisation",
+ "Digitised key employee and HR processes",
+ "Streamlined attendance and leave management",
+ "Integrated recruitment activities into a more structured HR workflow",
+ ],
+ impact:
+ "The organisation gained centralised employee data, improved process visibility and reduced dependence on manual HR administration.",
+ },
+ {
+ id: "hr-audit-stronger-people-function",
+ title: "HR Audit & Building a Stronger People Function",
+ challenge:
+ "A growing organisation wanted an objective view of its HR practices and employee experience. Management needed to understand what was working, where gaps existed and what needed to change.",
+ actions: [
+ "Conducted a comprehensive HR audit",
+ "Reviewed policies, processes and employee practices",
+ "Gathered candid employee feedback",
+ "Conducted structured one-to-one interactions",
+ "Identified gaps and prioritised areas for improvement",
+ "Developed actionable recommendations for management",
+ ],
+ impact:
+ "Management gained an independent view of its people practices and a clear roadmap for strengthening HR systems, employee experience and organisational effectiveness.",
+ },
+ {
+ id: "on-demand-hr-retail-workforce",
+ title: "On-Demand HR Support & Building a Stronger Retail Workforce",
+ challenge:
+ "A growing watch company and retail business needed hands-on HR support to manage its expanding workforce and ensure consistency across hiring, employee development and workplace discipline. Management wanted an HR partner who could take ownership of day-to-day people matters while helping build a more stable and capable team.",
+ actions: [
+ "Managed end-to-end hiring and recruitment support",
+ "Strengthened employee retention through structured HR interventions",
+ "Identified training needs and coordinated staff training programs",
+ "Supported employee development and capability building",
+ "Established greater clarity around employee discipline and workplace expectations",
+ "Handled employee-related concerns and provided management support",
+ "Provided ongoing, on-demand HR advisory and operational support",
+ ],
+ impact:
+ "The organisation gained a dedicated HR partner to manage critical people matters, resulting in a more structured hiring process, stronger focus on employee retention, better-trained retail staff and improved discipline across the workforce. Management was able to focus on business operations while me-HR provided ongoing HR ownership and support.",
  },
 ];
 

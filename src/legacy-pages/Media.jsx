@@ -333,7 +333,7 @@ export default function Media() {
             {featuredCases.map((cs, i) => (
               <RevealItem key={cs.id}>
                 <Link
-                  to="/case-studies"
+                  to={`/case-studies/${cs.id}`}
                   className="group grid overflow-hidden rounded-[1.25rem] border border-mehr-deep/8 bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-float sm:grid-cols-2 sm:rounded-[1.5rem]"
                 >
                   <div className="relative min-h-[140px] sm:min-h-[160px]">
@@ -345,7 +345,7 @@ export default function Media() {
                   </div>
                   <div className="flex flex-col justify-center p-4 sm:p-6">
                     <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
-                      {cs.industry || "Case study"}
+                      Case study
                     </span>
                     <h3 className="mt-2 font-sans text-[15px] font-semibold leading-snug text-mehr-ink sm:text-lg">
                       {cs.title}
