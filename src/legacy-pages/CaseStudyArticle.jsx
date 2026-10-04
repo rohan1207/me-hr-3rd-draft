@@ -25,7 +25,7 @@ export default function CaseStudyArticle() {
   return (
     <>
       <PageSEO
-        title={`${study.title} | me-HR Case Studies`}
+        title={`${study.title} | me-HR Case studies`}
         description={study.challenge}
         path={`/case-studies/${study.id}`}
       />
@@ -37,7 +37,7 @@ export default function CaseStudyArticle() {
             className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-mehr-deep transition hover:text-mehr-ink sm:text-sm"
           >
             <ArrowLeft size={15} />
-            Back to Case Studies
+            Back to case studies
           </Link>
 
           <Reveal>

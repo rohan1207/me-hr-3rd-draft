@@ -19,7 +19,7 @@ const BLOCKS = [
     titleKey: "mission",
     getTitle: (c) => c.mission.body,
     getBody: (c) => c.story.body[1],
-    cta: { to: "/contact", label: "Book a Consultation" },
+    cta: { to: "/contact", label: "Book a consultation" },
   },
   {
     eyebrow: "How we partner",

@@ -7,9 +7,8 @@ import { ArrowRight, ArrowUpRight, Instagram, Linkedin, Phone } from "lucide-rea
 import { contactInfo, footerLinks, footerContent, ctas } from "../../data/content";
 import Logo from "../ui/Logo";
 import SpecularButton from "../ui/SpecularButton";
-import Silk from "../ui/Silk";
 
-const SILK_COLOR = "#0b5f58";
+const COLLAGE = "/hero-people-collage-bw.png";
 const ease = [0.22, 1, 0.36, 1];
 const COPYRIGHT = "Copyright \u00A9 2024 me-HR.";
 
@@ -35,19 +34,14 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-mehr-ink text-white">
-      <div className="pointer-events-none absolute inset-0">
-        {reduce ? (
-          <div className="absolute inset-0" style={{ backgroundColor: SILK_COLOR }} />
-        ) : (
-          <Silk
-            speed={4}
-            scale={1.05}
-            color={SILK_COLOR}
-            noiseIntensity={1.35}
-            rotation={0.15}
-          />
-        )}
-        <div className="absolute inset-0 bg-black/35" />
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        <img
+          src={COLLAGE}
+          alt=""
+          className="h-full w-full object-cover object-[center_20%] opacity-[0.28] grayscale contrast-[1.05]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-mehr-ink/80 via-mehr-ink/72 to-mehr-ink/88" />
+        <div className="absolute inset-0 bg-black/25" />
       </div>
 
       <div

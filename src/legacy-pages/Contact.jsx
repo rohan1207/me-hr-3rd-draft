@@ -119,7 +119,7 @@ export default function Contact() {
                     </span>
                     <span className="min-w-0 flex-1 text-left">
                       <span className="block text-[10px] font-semibold uppercase tracking-[0.12em] text-mehr-deep">
-                        Open in Maps
+                        Open in maps
                       </span>
                       <span className="mt-0.5 block truncate text-xs font-semibold text-mehr-ink">
                         {contactInfo.addressShort}
@@ -130,7 +130,7 @@ export default function Contact() {
 
                 <div className="space-y-2 p-3 sm:space-y-3 sm:p-5">
                   <h2 className="font-sans text-[15px] font-semibold text-mehr-ink sm:text-lg">
-                    Contact Details
+                    Contact details
                   </h2>
                   <RevealStagger className="space-y-2 sm:space-y-3" stagger={0.05}>
                     {channels.map((ch) => (
@@ -246,7 +246,7 @@ export default function Contact() {
                     </div>
                     <div className="min-w-0">
                       <label className="mb-1.5 block text-[11px] font-semibold text-mehr-ink sm:text-xs">
-                        Company Name
+                        Company name
                       </label>
                       <input
                         name="company"
@@ -259,7 +259,7 @@ export default function Contact() {
                     </div>
                     <div className="min-w-0">
                       <label className="mb-1.5 block text-[11px] font-semibold text-mehr-ink sm:text-xs">
-                        Work Email
+                        Work email
                       </label>
                       <input
                         type="email"
@@ -274,7 +274,7 @@ export default function Contact() {
                     </div>
                     <div className="min-w-0">
                       <label className="mb-1.5 block text-[11px] font-semibold text-mehr-ink sm:text-xs">
-                        Phone Number
+                        Phone number
                       </label>
                       <input
                         type="tel"
@@ -289,7 +289,7 @@ export default function Contact() {
                     </div>
                     <div className="min-w-0 sm:col-span-2">
                       <label className="mb-1.5 block text-[11px] font-semibold text-mehr-ink sm:text-xs">
-                        Employee Strength
+                        Employee strength
                       </label>
                       <select
                         name="strength"

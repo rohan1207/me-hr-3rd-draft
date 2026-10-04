@@ -46,7 +46,7 @@ export default function InsightArticle() {
             className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-mehr-deep transition hover:text-mehr-ink sm:text-sm"
           >
             <ArrowLeft size={15} />
-            Back to Insights
+            Back to insights
           </Link>
 
           <Reveal>

@@ -20,7 +20,7 @@ const orbitCards = [
  {
  id: "pagar",
  title: homeContent.pagar.eyebrow,
- desc: "Payroll & Compliance",
+ desc: "Payroll & compliance",
  className: "bottom-[4%] right-0 sm:bottom-[6%] lg:-right-1",
  delay: 0.9,
  },

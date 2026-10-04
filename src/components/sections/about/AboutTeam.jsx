@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -13,13 +13,12 @@ import Reveal, { RevealItem, RevealStagger } from "../../ui/Reveal";
 import { aboutContent } from "../../../data/content";
 
 const GROUP_ICONS = {
-  "Talent Acquisition": UserPlus,
-  "HR Operations": ClipboardList,
-  "Payroll & Compliance": Wallet,
+  "Talent acquisition": UserPlus,
+  "HR operations": ClipboardList,
   "Payroll Outsourcing": Wallet,
-  "Engagement & Culture": HeartHandshake,
-  "Performance & Growth": TrendingUp,
-  "Strategic Advisory": Compass,
+  "Engagement & culture": HeartHandshake,
+  "Performance & growth": TrendingUp,
+  "Strategic advisory": Compass,
 };
 
 export default function AboutTeam() {

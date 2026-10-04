@@ -30,14 +30,14 @@ const expandTransition = { duration: 0.45, ease };
 
 const META = {
   "on-demand-hr": {
-    short: "On-Demand",
+    short: "On-Demand HR",
     label: "Flexible duration",
     Icon: CalendarClock,
     accent: "from-[#0b5f58] via-[#0b5f58] to-[#07231f]",
     covers: [
       {
         Icon: Timer,
-        title: "1 week, 3–7 days or 1–3 months",
+        title: "3-7 days | 1-4 weeks | 1-3 months",
         desc: "Book HR bandwidth for exactly as long as the requirement lasts.",
       },
       {
@@ -76,7 +76,7 @@ const META = {
     ],
   },
   "strategic-consulting": {
-    short: "Strategic",
+    short: "Strategic HR",
     label: "Project expertise",
     Icon: Compass,
     accent: "from-[#0a3d38] via-[#0b4540] to-[#061a18]",

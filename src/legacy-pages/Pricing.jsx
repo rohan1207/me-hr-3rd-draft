@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Link } from "@/components/compat/router";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, Check, Minus, ChevronRight } from "lucide-react";
+import { ArrowUpRight, Check, ChevronRight } from "lucide-react";
 import {
   pricingModels,
   pricingContent,
@@ -49,33 +49,6 @@ function cardFeatures(model) {
   if (model.note) return [model.note];
   return [model.desc];
 }
-
-const COMPARISON_ROWS = [
-  {
-    label: "Flexible short-term support (1 week, 3–7 days or 1–3 months)",
-    values: { "on-demand": true, retainership: false, strategic: false, pagar: false },
-  },
-  {
-    label: "Ongoing Resident HR ownership",
-    values: { "on-demand": false, retainership: true, strategic: false, pagar: false },
-  },
-  {
-    label: "Scoped to organisation size & HR ownership",
-    values: { "on-demand": false, retainership: true, strategic: true, pagar: true },
-  },
-  {
-    label: "Project-based strategic advisory (audits, design & performance)",
-    values: { "on-demand": false, retainership: false, strategic: true, pagar: false },
-  },
-  {
-    label: "Payroll processing & statutory compliance",
-    values: { "on-demand": false, retainership: false, strategic: false, pagar: true },
-  },
-  {
-    label: "Quote based on scope & complexity",
-    values: { "on-demand": true, retainership: true, strategic: true, pagar: true },
-  },
-];
 
 const FAQ_PREVIEW = faqSections[0].items.slice(0, 5);
 
@@ -243,106 +216,6 @@ function PlanCard({ model, index, featured, selected, onSelect }) {
   );
 }
 
-function ComparisonPhone() {
-  return (
-    <div className="space-y-3 sm:hidden">
-      {pricingModels.map((m) => {
-        const included = COMPARISON_ROWS.filter((row) => row.values[m.id]);
-        return (
-          <article
-            key={m.id}
-            className="rounded-[1.25rem] border border-mehr-deep/10 bg-white p-4 shadow-soft"
-          >
-            <div className="flex items-center justify-between gap-3">
-              <h3 className="font-sans text-[15px] font-semibold tracking-[-0.02em] text-mehr-ink">
-                {m.title}
-              </h3>
-              <Link
-                to="/contact"
-                className="inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-mehr-deep px-3.5 py-1.5 text-[11px] font-semibold text-white"
-              >
-                {QUOTE}
-              </Link>
-            </div>
-            <ul className="mt-3 space-y-2">
-              {included.map((row) => (
-                <li
-                  key={row.label}
-                  className="flex gap-2 text-[12px] leading-relaxed text-mehr-mist"
-                >
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mehr-panel text-mehr-deep">
-                    <Check size={11} strokeWidth={2.5} />
-                  </span>
-                  <span>{row.label}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        );
-      })}
-    </div>
-  );
-}
-
-function ComparisonTable() {
-  return (
-    <div className="hidden overflow-x-auto rounded-[1.5rem] border border-mehr-deep/10 bg-white shadow-soft sm:block sm:rounded-[1.75rem]">
-      <table className="w-full min-w-[720px] border-collapse text-left">
-        <thead>
-          <tr className="border-b border-mehr-deep/10 bg-mehr-panel/60">
-            <th className="sticky left-0 z-10 bg-mehr-panel/95 px-4 py-4 text-[12px] font-semibold uppercase tracking-[0.12em] text-mehr-muted sm:px-6">
-              Feature list
-            </th>
-            {pricingModels.map((m) => (
-              <th
-                key={m.id}
-                className="px-3 py-4 text-center font-sans text-sm font-semibold text-mehr-ink sm:px-4"
-              >
-                {m.title}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {COMPARISON_ROWS.map((row) => (
-            <tr key={row.label} className="border-b border-mehr-deep/8 last:border-0">
-              <td className="sticky left-0 z-10 bg-white px-4 py-3.5 text-sm text-mehr-mist sm:px-6">
-                {row.label}
-              </td>
-              {pricingModels.map((m) => (
-                <td key={m.id} className="px-3 py-3.5 text-center sm:px-4">
-                  {row.values[m.id] ? (
-                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-mehr-panel text-mehr-deep">
-                      <Check size={14} strokeWidth={2.5} />
-                    </span>
-                  ) : (
-                    <span className="inline-flex h-7 w-7 items-center justify-center text-mehr-muted/50">
-                      <Minus size={14} />
-                    </span>
-                  )}
-                </td>
-              ))}
-            </tr>
-          ))}
-          <tr>
-            <td className="sticky left-0 z-10 bg-white px-4 py-5 sm:px-6" />
-            {pricingModels.map((m) => (
-              <td key={`${m.id}-cta`} className="px-3 py-5 text-center sm:px-4">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-mehr-deep px-4 py-2 text-[12px] font-semibold text-white transition hover:bg-mehr-charcoal"
-                >
-                  {QUOTE}
-                </Link>
-              </td>
-            ))}
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
 function OutcomeCard({ item, highlight, reduce }) {
   return (
     <motion.article
@@ -415,25 +288,6 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-mehr-panel/40 py-8 sm:py-14 lg:py-16">
-        <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Compare models</p>
-            <h2 className="mt-2.5 font-sans text-[clamp(1.5rem,6.5vw,2.6rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-mehr-ink sm:mt-3">
-              Plan comparison
-            </h2>
-            <p className="mt-3 text-[13px] leading-relaxed text-mehr-mist sm:mt-4 sm:text-sm sm:text-[15px]">
-              See how each engagement model supports different HR needs, then request a
-              quote tailored to your organisation.
-            </p>
-          </Reveal>
-          <Reveal delay={0.1} className="mt-7 sm:mt-10">
-            <ComparisonPhone />
-            <ComparisonTable />
-          </Reveal>
         </div>
       </section>
 

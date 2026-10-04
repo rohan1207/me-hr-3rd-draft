@@ -7,7 +7,7 @@ const DEFAULT_KEYWORDS = seo.home.keywords;
 /** Build a Next.js Metadata object from the shared SEO content map. */
 export function buildMetadata({ title, description, keywords, path = "/", noIndex = false }) {
   const canonical = path === "/" ? SITE_URL : `${SITE_URL}${path}`;
-  const resolvedTitle = title || `${siteName} | HR Outsourcing Services in Pune`;
+  const resolvedTitle = title || `${siteName} | HR outsourcing services in Pune`;
 
   return {
     title: resolvedTitle,

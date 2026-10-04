@@ -154,7 +154,7 @@ function FounderPortraitPhone({ founder }) {
 function buildFounderCards(founder) {
   return [
     {
-      title: "Founder & Director",
+      title: "Founder & director",
       desc: founder.intro,
       Icon: Sparkles,
     },

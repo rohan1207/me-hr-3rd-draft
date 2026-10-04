@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -21,11 +21,11 @@ import { homeContent, ctas } from "../../data/content";
 
 const ease = [0.22, 1, 0.36, 1];
 
-/** On-Demand: duration slots cycling 1 WEEK → 3-7 DAYS → 1-3 MONTHS */
+/** On-Demand: duration slots cycling 3-7 DAYS → 1-4 WEEKS → 1-3 MONTHS */
 function OnDemandLive({ hovered, reduce }) {
   const slots = [
-    { label: "1 Week", fill: 34 },
-    { label: "3-7 Days", fill: 62 },
+    { label: "3-7 Days", fill: 34 },
+    { label: "1-4 Weeks", fill: 62 },
     { label: "1-3 Months", fill: 92 },
   ];
   const [active, setActive] = useState(0);
@@ -54,7 +54,7 @@ function OnDemandLive({ hovered, reduce }) {
           return (
             <div key={slot.label} className="flex items-center gap-2">
               <span
-                className={`w-[4.25rem] shrink-0 text-[10px] font-bold tabular-nums ${
+                className={`w-[5rem] shrink-0 text-[10px] font-bold tabular-nums ${
                   on ? "text-mehr-deep" : "text-mehr-muted"
                 }`}
               >

@@ -12,7 +12,7 @@ const models = homeContent.howWeHelp?.items?.length
  ? homeContent.howWeHelp.items
  : serviceModels;
 
-const ON_DEMAND_VALUES = ["1W", "3-7D", "1-3M"];
+const ON_DEMAND_VALUES = ["3-7D", "1-4W", "1-3M"];
 const APPROACH_STEPS = homeContent.philosophy.principles.map((_, i) =>
  String(i + 1).padStart(2, "0")
 );
@@ -454,7 +454,7 @@ export default function HeroLiveCards({ theme = "dark" }) {
  model: onDemand,
  path: onDemand.path || "/services/on-demand-hr",
  value: reduce ? ON_DEMAND_VALUES[0] : durationValue,
- body: `${ON_DEMAND_VALUES.join(" · ")}. ${shortSubtitle(onDemand.desc, 42)}`,
+ body: `${ON_DEMAND_VALUES.join(" | ")}. ${shortSubtitle(onDemand.desc, 42)}`,
  visual: <HiringBars active={hover === 0} reduce={reduce} theme={theme} />,
  },
  {

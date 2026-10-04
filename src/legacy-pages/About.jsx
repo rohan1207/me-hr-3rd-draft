@@ -32,7 +32,7 @@ export default function About() {
  <AboutTestimonials />
  <CTABanner
  eyebrow="Ready to partner"
- title="Let's build HR that grows with your business."
+ title="Let's build HR that grows with your business"
  body={aboutContent.mission.body}
  />
  </>

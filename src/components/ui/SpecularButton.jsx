@@ -25,7 +25,7 @@ const VARIANTS = {
 };
 
 export default function SpecularButton({
-  children = "Get Started",
+  children = "Get started",
   size = "md",
   radius = 999,
   tint,

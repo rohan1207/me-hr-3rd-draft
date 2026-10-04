@@ -43,7 +43,7 @@ function Hero() {
           >
             <p className="text-[11px] font-medium text-mehr-mist sm:text-[12px]">
               Home <span className="mx-1.5 text-mehr-muted">/</span>
-              <span className="font-semibold text-mehr-deep">Case Studies</span>
+              <span className="font-semibold text-mehr-deep">Case studies</span>
             </p>
             <p className="eyebrow mt-3 sm:mt-4">Impact stories</p>
             <h1 className="mx-auto mt-2.5 max-w-[16ch] font-sans text-[clamp(1.75rem,7vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-mehr-ink sm:mt-3 sm:leading-[1.05] lg:mx-0">
@@ -114,7 +114,7 @@ function Hero() {
                   What changed
                 </p>
                 <p className="mt-1.5 font-sans text-[13px] font-semibold leading-snug sm:mt-2 sm:text-sm">
-                  Clearer people processes. Stronger business outcomes.
+                  Clearer people processes · Stronger business outcomes
                 </p>
               </div>
             </div>
@@ -425,7 +425,7 @@ function MethodStrip() {
         <Reveal className="text-center lg:text-left">
           <p className="eyebrow">How we frame impact</p>
           <h2 className="mx-auto mt-2 max-w-[18ch] font-sans text-[clamp(1.4rem,5.8vw,2.25rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-mehr-ink sm:leading-[1.1] lg:mx-0">
-            Every story follows the same clarity.
+            Every story follows the same clarity
           </h2>
         </Reveal>
 
