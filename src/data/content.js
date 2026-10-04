@@ -149,6 +149,18 @@ export const seo = {
       "At me-HR, our people are at the heart of the work we do. Explore growth, collaboration and career opportunities with our HR outsourcing and consulting team in Pune.",
     keywords: "life at me-HR, HR culture Pune, HR team Pune, me-HR workplace",
   },
+  privacy: {
+    title: "Privacy policy | me-HR",
+    description:
+      "Read how me-HR collects, uses and protects personal information when you use our website or engage our HR services.",
+    keywords: "me-HR privacy policy, HR outsourcing privacy, data protection Pune",
+  },
+  terms: {
+    title: "Terms and conditions | me-HR",
+    description:
+      "Terms and conditions for using the me-HR website and engaging with our HR outsourcing and consulting services.",
+    keywords: "me-HR terms and conditions, HR services terms, website terms",
+  },
 };
 
 export const homeContent = {
@@ -454,11 +466,24 @@ export const footerContent = {
  tagline: "Streamline your success",
  ctaLine: "Streamline your success with me-HR | Book consultation!",
  usefulLinksLabel: "Useful links",
+ exploreLabel: "Explore",
  subscribeLabel: "Get latest update",
  subscribePlaceholder: "Enter your email",
  subscribeCta: "Subscribe",
  copyright: "Copyright \u00A9 2024 me-HR.",
 };
+
+export const footerExploreLinks = [
+ { label: "On-Demand HR", path: "/services/on-demand-hr" },
+ { label: "Resident HR", path: "/services/hr-retainership" },
+ { label: "Strategic HR Consulting", path: "/services/strategic-consulting" },
+ { label: "Payroll Outsourcing", path: "/pagar" },
+];
+
+export const footerLegalLinks = [
+ { label: "Privacy policy", path: "/privacy-policy" },
+ { label: "Terms and conditions", path: "/terms-and-conditions" },
+];
 
 export const aboutContent = {
  hero: {

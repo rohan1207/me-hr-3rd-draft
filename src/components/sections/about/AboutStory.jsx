@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal, { RevealItem, RevealStagger } from "../../ui/Reveal";
 import { aboutContent } from "../../../data/content";
@@ -19,7 +17,7 @@ export default function AboutStory() {
           <Reveal className="relative min-h-[220px] overflow-hidden rounded-[1.5rem] sm:min-h-[340px] sm:rounded-[1.75rem] lg:min-h-full">
             <motion.img
               src={PHOTO}
-              alt="me-HR team in discussion"
+              alt="me-HR team"
               className="absolute inset-0 h-full w-full object-cover"
               initial={reduce ? false : { scale: 1.06 }}
               whileInView={{ scale: 1 }}

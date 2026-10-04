@@ -16,6 +16,8 @@ const STATIC_PATHS = [
   { path: "/media", priority: 0.6 },
   { path: "/faqs", priority: 0.6 },
   { path: "/contact", priority: 0.8 },
+  { path: "/privacy-policy", priority: 0.3 },
+  { path: "/terms-and-conditions", priority: 0.3 },
 ];
 
 export default function sitemap() {

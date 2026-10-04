@@ -1,6 +1,4 @@
-"use client";
-
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import {
   motion,
   useReducedMotion,
@@ -13,7 +11,7 @@ import SpecularButton from "../../ui/SpecularButton";
 import { aboutContent } from "../../../data/content";
 
 const ease = [0.22, 1, 0.36, 1];
-const HERO_IMG = "/about/hero-team.png";
+const HERO_IMG = "/about/hero-team.jpg";
 
 export default function AboutHero() {
   const reduce = useReducedMotion();
