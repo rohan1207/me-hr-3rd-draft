@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Clock3, Search } from "lucide-react";
 import {
@@ -338,7 +338,7 @@ export default function Media() {
                 >
                   <div className="relative min-h-[140px] sm:min-h-[160px]">
                     <img
-                      src={CASE_IMAGES[i % CASE_IMAGES.length]}
+                      src={cs.image || CASE_IMAGES[i % CASE_IMAGES.length]}
                       alt=""
                       className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
                     />

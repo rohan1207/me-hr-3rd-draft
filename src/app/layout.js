@@ -6,7 +6,13 @@ import { seo } from "@/data/content";
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   ...buildMetadata({ ...seo.home, path: "/" }),
-  icons: { icon: "/logo1.png" },
+  icons: {
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", sizes: "48x48", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export const viewport = {

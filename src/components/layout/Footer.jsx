@@ -93,7 +93,7 @@ export default function Footer() {
         <div className="grid items-start gap-7 sm:gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 xl:gap-12">
           <div className="text-center sm:text-left">
             <div className="flex justify-center sm:justify-start">
-              <Logo size="lg" light />
+              <Logo size="xl" light />
             </div>
             <h2 className="mx-auto mt-5 max-w-[16ch] font-sans text-[clamp(1.45rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-white drop-shadow-sm sm:mx-0 sm:mt-6">
               {footerContent.ctaLine.replace("| Book Consultation!", "").trim()}

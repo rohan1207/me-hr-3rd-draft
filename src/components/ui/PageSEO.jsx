@@ -85,7 +85,7 @@ export default function PageSEO({
  name: siteName,
  url: origin,
  email: "ask@me-hr.com",
- telephone: "+91-8459328399",
+ telephone: "+91-8600898604",
  address: {
  "@type": "PostalAddress",
  streetAddress: "1 Floor, Thread Works, 1156 Saifee Lane, MG Road",

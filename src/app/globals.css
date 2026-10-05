@@ -13,20 +13,20 @@
  --mehr-accent: #14c4ad;
  --mehr-teal: #14c4ad;
  --mehr-teal-soft: #e4f6f2;
- --header-height: 3.75rem;
+ --header-height: 4.25rem;
  --page-gutter: 1rem;
 }
 
 @media (min-width: 640px) {
  :root {
- --header-height: 4.5rem;
+ --header-height: 5rem;
  --page-gutter: 0.75rem;
  }
 }
 
 @media (min-width: 768px) {
  :root {
- --header-height: 5rem;
+ --header-height: 5.5rem;
  --page-gutter: 1rem;
  }
 }

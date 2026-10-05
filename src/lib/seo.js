@@ -44,7 +44,7 @@ export function organizationJsonLd() {
         name: siteName,
         url: SITE_URL,
         email: "ask@me-hr.com",
-        telephone: "+91-8459328399",
+        telephone: "+91-8600898604",
         description: seo.home.description,
         areaServed: "IN",
         knowsAbout: [

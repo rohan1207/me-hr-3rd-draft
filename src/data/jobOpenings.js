@@ -44,7 +44,7 @@ export const jobOpenings = [
   },
   {
     id: "bdm-sambhajinagar",
-    company: "XYZ Pvt. Ltd.",
+    company: "F&B",
     title: "Business Development Manager",
     subtitle: "Institutional & Industrial Sales – Sambhajinagar Region",
     location: "Sambhajinagar, Maharashtra",
@@ -106,7 +106,7 @@ export const jobOpenings = [
   },
   {
     id: "asm-agriculture",
-    company: "XYZ",
+    company: "Agriculture",
     title: "Area Sales Manager (ASM)",
     location: "Rajasthan, MP, Solapur",
     experience: "4–8 years",
@@ -206,7 +206,7 @@ export const jobOpenings = [
   },
   {
     id: "digital-marketing-manager",
-    company: "XYZ",
+    company: "Healthcare",
     title: "Digital Marketing Manager",
     location: "Head Office, Mundhwa",
     experience: "10–12 years",
@@ -240,7 +240,7 @@ export const jobOpenings = [
   },
   {
     id: "australian-taxation-accountant",
-    company: "XYZ",
+    company: "Accounting",
     title: "Australian Taxation, Accounting & Bookkeeping",
     location: "Vadodara",
     experience: "3+ years",
@@ -307,7 +307,7 @@ export const jobOpenings = [
   },
   {
     id: "sr-sales-manager-b2c",
-    company: "XYZ",
+    company: "Furniture",
     title: "Sr. Sales Manager / B2C (Retail / Showroom Sale)",
     location: "Pune, Maharashtra",
     experience: "3–7 years",
@@ -348,7 +348,7 @@ export const jobOpenings = [
   },
   {
     id: "masa-machine-operator",
-    company: "XYZ",
+    company: "Real Estate",
     title: "MASA Machine Operator",
     location: "Talegaon Dabhade, Pune",
     experience: "8+ years",
@@ -391,7 +391,7 @@ export const jobOpenings = [
   },
   {
     id: "sr-engineer-wagholi",
-    company: "XYZ",
+    company: "Real Estate",
     title: "Sr. Engineer",
     location: "Wagholi",
     experience: "5–8 Years",
@@ -438,7 +438,7 @@ export const jobOpenings = [
   },
   {
     id: "assistant-project-manager",
-    company: "XYZ Group",
+    company: "Real Estate",
     title: "Assistant Project Manager",
     location: "Pimpri, Pune",
     experience: "4–6 years",
@@ -475,7 +475,7 @@ export const jobOpenings = [
   },
   {
     id: "sr-sales-executive-tech",
-    company: "XYZ",
+    company: "FMCG",
     title: "Sr. Sales Executive (Tech - Sales)",
     location: "Swargate",
     experience: "5–6 years",

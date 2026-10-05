@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
@@ -24,15 +24,20 @@ const ease = [0.22, 1, 0.36, 1];
 
 const whyIcons = [Lightbulb, TrendingUp, Users, Heart];
 
-const CULTURE_IMG = "/me-hr_team.jpg";
+const CULTURE_IMG = "/careers/careers-culture.jpg";
 
 const COLLAGE = [
-  { src: "/me-hr_team.jpg", className: "col-span-2 row-span-2" },
-  { src: "/sonia_patra.jpeg", className: "col-span-1 row-span-1" },
-  { src: "/me-hr_meeting.jpeg", className: "col-span-1 row-span-1" },
-  { src: "/team_meet.jpeg", className: "col-span-1 row-span-1" },
-  { src: "/img3.jpg", className: "col-span-1 row-span-1" },
-  { src: "/patra.jpg", className: "col-span-2 row-span-1" },
+  { src: "/careers/careers-collage-1.jpg", className: "col-span-2 row-span-2" },
+  { src: "/careers/careers-collage-2.jpg", className: "col-span-1 row-span-1" },
+  { src: "/careers/careers-collage-3.jpg", className: "col-span-1 row-span-1" },
+  { src: "/careers/careers-collage-4.jpg", className: "col-span-1 row-span-1" },
+  { src: "/careers/careers-collage-5.jpg", className: "col-span-1 row-span-1" },
+  {
+    type: "cta",
+    className: "col-span-2 row-span-1",
+    eyebrow: "Join the team",
+    text: "Practical HR work. Real client exposure. Room to grow.",
+  },
 ];
 
 function isValidDriveLink(value) {
@@ -129,11 +134,15 @@ function CareersHero() {
             transition={{ delay: 0.14, duration: 0.7, ease }}
             className="relative"
           >
-            <div className="grid h-[260px] grid-cols-4 grid-rows-3 gap-1.5 sm:h-[420px] sm:gap-3 lg:h-[460px]">
+            <div className="grid h-[280px] grid-cols-4 grid-rows-3 gap-1.5 sm:h-[440px] sm:gap-3 lg:h-[480px]">
               {COLLAGE.map((item, i) => (
                 <motion.div
-                  key={`${item.src}-${i}`}
-                  className={`relative overflow-hidden rounded-[0.95rem] bg-white shadow-soft sm:rounded-[1.35rem] ${item.className}`}
+                  key={item.type === "cta" ? "join-cta" : `${item.src}-${i}`}
+                  className={`relative overflow-hidden rounded-[0.95rem] shadow-soft sm:rounded-[1.35rem] ${
+                    item.type === "cta"
+                      ? "flex flex-col justify-center bg-mehr-deep px-3.5 py-3 text-white sm:px-5 sm:py-4"
+                      : "bg-white"
+                  } ${item.className}`}
                   animate={
                     reduce ? undefined : { y: [0, i % 2 === 0 ? -5 : 5, 0] }
                   }
@@ -144,28 +153,25 @@ function CareersHero() {
                     delay: i * 0.15,
                   }}
                 >
-                  <img
-                    src={item.src}
-                    alt=""
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
+                  {item.type === "cta" ? (
+                    <>
+                      <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-white/70 sm:text-[10px]">
+                        {item.eyebrow}
+                      </p>
+                      <p className="mt-1 text-[12px] font-semibold leading-snug sm:mt-1.5 sm:text-sm">
+                        {item.text}
+                      </p>
+                    </>
+                  ) : (
+                    <img
+                      src={item.src}
+                      alt=""
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                  )}
                 </motion.div>
               ))}
             </div>
-
-            <motion.div
-              className="relative z-10 mt-3 rounded-2xl border border-white/40 bg-white/95 p-3.5 shadow-float backdrop-blur-sm sm:mt-4 sm:max-w-xs sm:p-5 lg:mt-5"
-              initial={reduce ? false : { opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.28, duration: 0.5, ease }}
-            >
-              <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-mehr-deep sm:text-[10px]">
-                Join the team
-              </p>
-              <p className="mt-1 text-[13px] font-semibold leading-snug text-mehr-ink sm:mt-1.5 sm:text-sm">
-                Practical HR work. Real client exposure. Room to grow.
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </div>

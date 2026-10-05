@@ -3,9 +3,8 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { caseStudies, caseStudiesContent, seo, ctas } from "../data/content";
-import { photoAt } from "../data/images";
 import PageSEO from "../components/ui/PageSEO";
 import CTABanner from "../components/ui/CTABanner";
 import SpecularButton from "../components/ui/SpecularButton";
@@ -96,17 +95,17 @@ function Hero() {
           >
             <div className="overflow-hidden rounded-[1.15rem] shadow-soft sm:rounded-[1.5rem]">
               <img
-                src={photoAt(1)}
-                alt=""
+                src="/case-studies/hero.jpg"
+                alt="HR consulting case study discussion"
                 className="aspect-[4/5] h-full w-full object-cover"
               />
             </div>
             <div className="flex flex-col gap-2.5 sm:gap-3">
               <div className="overflow-hidden rounded-[1.15rem] shadow-soft sm:rounded-[1.5rem]">
                 <img
-                  src={photoAt(0)}
-                  alt=""
-                  className="aspect-[5/4] w-full object-cover"
+                src="/case-studies/hero-secondary.jpg"
+                alt=""
+                className="aspect-[5/4] w-full object-cover"
                 />
               </div>
               <div className="flex flex-1 flex-col justify-end rounded-[1.15rem] bg-mehr-deep p-3.5 text-white shadow-soft sm:rounded-[1.5rem] sm:p-5">
@@ -324,7 +323,6 @@ function Stories() {
     caseStudies.find((c) => c.challenge && c.actions?.length && c.impact) ||
     caseStudies[0];
   const rest = caseStudies.filter((c) => c.id !== featured?.id);
-  const featuredIdx = caseStudies.findIndex((c) => c.id === featured?.id);
 
   const visibleRest = expanded ? rest : rest.slice(0, PHONE_PREVIEW);
   const hiddenCount = Math.max(0, rest.length - PHONE_PREVIEW);
@@ -341,7 +339,7 @@ function Stories() {
 
         {featured && (
           <Reveal className="mt-6 sm:mt-8 lg:mt-10">
-            <FeaturedCase cs={featured} image={photoAt(Math.max(0, featuredIdx))} />
+            <FeaturedCase cs={featured} image={featured.image} />
           </Reveal>
         )}
 
@@ -355,7 +353,7 @@ function Stories() {
                   <StoryCard
                     key={cs.id}
                     cs={cs}
-                    image={photoAt(idx >= 0 ? idx : 0)}
+                    image={cs.image}
                     index={idx >= 0 ? idx : 0}
                     compact
                   />
@@ -389,7 +387,7 @@ function Stories() {
                   <RevealItem key={cs.id}>
                     <StoryCard
                       cs={cs}
-                      image={photoAt(idx >= 0 ? idx : 0)}
+                      image={cs.image}
                       index={idx >= 0 ? idx : 0}
                     />
                   </RevealItem>

@@ -5,10 +5,10 @@ export const contactInfo = {
  "1 Floor, Thread Works, 1156 Saifee Lane, MG Road, near 1000 Oaks Restaurant, Pune, Maharashtra 411001",
  addressShort: "1 Floor, Thread Works, MG Road, Pune, 411001",
  email: "ask@me-hr.com",
- phone: "+91 8459328399",
- phoneHref: "tel:+918459328399",
+ phone: "+91 8600898604",
+ phoneHref: "tel:+918600898604",
  emailHref: "mailto:ask@me-hr.com",
- whatsapp: "https://wa.me/918459328399",
+ whatsapp: "https://wa.me/918600898604",
 };
 
 export const navLinks = [
@@ -184,8 +184,7 @@ export const homeContent = {
  { name: "Humpy A2", src: "/clients/humpy-a2.png" },
  { name: "Sage Automation", src: "/clients/sage-automation.png" },
  { name: "Ferrero", src: "/clients/ferrero.svg" },
- { name: "John Deere", src: "/clients/john-deere.svg" },
- { name: "Ab Corp", src: "/clients/ab-corp.png" },
+ { name: "John Deere", src: "/clients/john-deere.png" },
  { name: "Pundole", src: "/clients/pundole.svg" },
  { name: "Gits", src: "/clients/gits.png" },
  { name: "Samrat", src: "/clients/samrat.png" },
@@ -766,6 +765,7 @@ export const caseStudies = [
  {
  id: "digitising-hr-employee-experience",
  title: "Digitising HR & improving employee experience",
+ image: "/case-studies/digitising-hr.jpg",
  challenge:
  "A growing organisation was managing leave applications and employee grievances through informal and manual processes. This resulted in delays, lack of visibility and inconsistent handling of employee concerns.",
  actions: [
@@ -780,6 +780,7 @@ export const caseStudies = [
  {
  id: "building-hr-systems-manufacturing",
  title: "Building HR systems for a manufacturing organisation",
+ image: "/case-studies/manufacturing.jpg",
  challenge:
  "A manufacturing business had been operating with legacy HR practices. Communication gaps, inconsistent processes and employee morale issues were affecting the overall people environment.",
  actions: [
@@ -795,6 +796,7 @@ export const caseStudies = [
  {
  id: "structure-rapidly-growing-business",
  title: "Creating structure for a rapidly growing business",
+ image: "/case-studies/growing-business.jpg",
  challenge:
  "A growing business had expanded significantly but its people practices had not evolved at the same pace. HR processes were largely reactive, with gaps in policies, employee lifecycle management and organisational structure.",
  actions: [
@@ -810,6 +812,7 @@ export const caseStudies = [
  {
  id: "overtime-attendance-grievances",
  title: "Resolving overtime & attendance grievances",
+ image: "/case-studies/attendance.jpg",
  challenge:
  "A manufacturing organisation was facing recurring employee grievances around overtime, attendance and leave. The absence of a clearly defined framework was leading to confusion among employees and managers.",
  actions: [
@@ -825,6 +828,7 @@ export const caseStudies = [
  {
  id: "hrms-implementation-process-digitisation",
  title: "HRMS implementation & process digitisation",
+ image: "/case-studies/hrms.jpg",
  challenge:
  "An organisation with a predominantly shop-floor workforce was managing several HR processes manually. This created challenges around employee data, attendance, leave and recruitment visibility.",
  actions: [
@@ -840,6 +844,7 @@ export const caseStudies = [
  {
  id: "hr-audit-stronger-people-function",
  title: "HR audit & building a stronger people function",
+ image: "/case-studies/hr-audit.jpg",
  challenge:
  "A growing organisation wanted an objective view of its HR practices and employee experience. Management needed to understand what was working, where gaps existed and what needed to change.",
  actions: [
@@ -856,6 +861,7 @@ export const caseStudies = [
  {
  id: "on-demand-hr-retail-workforce",
  title: "On-Demand HR support & building a stronger retail workforce",
+ image: "/case-studies/retail.jpg",
  challenge:
  "A growing watch company and retail business needed hands-on HR support to manage its expanding workforce and ensure consistency across hiring, employee development and workplace discipline. Management wanted an HR partner who could take ownership of day-to-day people matters while helping build a more stable and capable team.",
  actions: [

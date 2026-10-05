@@ -1,16 +1,14 @@
 "use client";
 
-import { Link, Navigate, useParams } from "@/components/compat/router";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { caseStudies, caseStudiesContent, ctas } from "../data/content";
-import { photoAt } from "../data/images";
 import PageSEO from "../components/ui/PageSEO";
 import Reveal from "../components/ui/Reveal";
 import CTABanner from "../components/ui/CTABanner";
 
-function imageForStudy(id) {
-  const idx = caseStudies.findIndex((c) => c.id === id);
-  return photoAt(idx >= 0 ? idx : 0);
+function imageForStudy(study) {
+  return study?.image || "/case-studies/hero.jpg";
 }
 
 export default function CaseStudyArticle() {
@@ -20,7 +18,7 @@ export default function CaseStudyArticle() {
 
   if (!study) return <Navigate to="/case-studies" replace />;
 
-  const image = imageForStudy(study.id);
+  const image = imageForStudy(study);
 
   return (
     <>
@@ -131,7 +129,7 @@ export default function CaseStudyArticle() {
               >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
-                    src={imageForStudy(item.id)}
+                    src={imageForStudy(item)}
                     alt=""
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
