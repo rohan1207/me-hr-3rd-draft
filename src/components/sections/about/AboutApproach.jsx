@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -237,7 +237,7 @@ export default function AboutApproach() {
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}
-                  <span className="hidden sm:inline"> · {step.title}</span>
+                  <span className="hidden sm:inline"> — {step.title}</span>
                 </span>
               </button>
             ))}
@@ -297,7 +297,7 @@ export default function AboutApproach() {
                   className="min-w-0 flex-1"
                 >
                   <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-mehr-deep">
-                    Stage {String(active + 1).padStart(2, "0")} ·{" "}
+                    Stage {String(active + 1).padStart(2, "0")} —{" "}
                     {approach.steps[active].title}
                   </p>
                   <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-mehr-mist sm:text-[15px]">

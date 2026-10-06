@@ -54,7 +54,7 @@ export const ctas = {
 
 export const seo = {
   home: {
-    title: "HR outsourcing services in Pune | On-Demand HR, Resident HR & more | me-HR",
+    title: "HR outsourcing services in Pune | On-Demand HR, resident HR & more | me-HR",
     description:
       "Flexible HR outsourcing for growing businesses. Explore On-Demand HR, Resident HR, Strategic HR Consulting, Payroll Outsourcing and HRMS implementation (KEKA, HROne, greytHR) from me-HR.",
     keywords:
@@ -68,7 +68,7 @@ export const seo = {
       "HR outsourcing company Pune, Resident HR, fractional HR services, HR consulting Pune, outsourced HR partner, KEKA HRMS, KEKA implementation Pune, HROne, greytHR",
   },
   services: {
-    title: "HR services | On-Demand HR, Resident HR, Strategic HR Consulting | me-HR",
+    title: "HR services | On-Demand HR, resident HR, strategic HR Consulting | me-HR",
     description:
       "Explore me-HR services including On-Demand HR, Resident HR, Strategic HR Consulting, recruitment, HR operations, Payroll Outsourcing and HRMS platforms like KEKA, HROne and greytHR.",
     keywords:
@@ -103,7 +103,7 @@ export const seo = {
       "payroll outsourcing services, payroll processing services, statutory compliance services, PF ESIC compliance, labour compliance, payroll services Pune, KEKA payroll, KEKA HRMS, HROne, greytHR",
   },
   pricing: {
-    title: "HR services pricing | On-Demand HR, Resident HR & payroll | me-HR",
+    title: "HR services pricing | On-Demand HR, resident HR & payroll | me-HR",
     description:
       "Explore flexible me-HR engagement models for On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing. Get pricing based on the support your business needs.",
     keywords:
@@ -130,7 +130,7 @@ export const seo = {
       "HR insights, HR thought leadership, workplace insights, HR trends India, HR events Pune, KEKA HRMS insights",
   },
   faqs: {
-    title: "HR outsourcing FAQs | On-Demand HR, Resident HR & payroll | me-HR",
+    title: "HR outsourcing FAQs | On-Demand HR, resident HR & payroll | me-HR",
     description:
       "Answers to common questions about HR outsourcing, On-Demand HR, Resident HR, fractional HR, payroll outsourcing, statutory compliance and HRMS platforms like KEKA.",
     keywords:
@@ -165,7 +165,7 @@ export const seo = {
 
 export const homeContent = {
  hero: {
- eyebrow: "me-HR Â· Pune",
+ eyebrow: "me-HR, pune",
  tagline: "Flexible HR support for growing businesses",
  headline: "HR that works the way your business needs it",
     subheadline:
@@ -247,7 +247,7 @@ export const homeContent = {
  },
  pagar: {
  eyebrow: "Payroll Outsourcing",
- title: "Payroll & compliance · Simplified",
+ title: "Payroll & compliance, simplified",
  desc: "Payroll outsourcing and statutory compliance services for growing businesses, combining accurate payroll processing, HR expertise, structured processes and technology.",
  cta: ctas.explorePagar,
  },
@@ -262,7 +262,7 @@ export const homeContent = {
  },
  impact: {
  eyebrow: "Business impact",
- title: "Real HR challenges · Practical solutions · Measurable business impact",
+ title: "Real HR challenges, practical solutions, measurable business impact",
  body: "Explore how me-HR identifies people and process gaps, implements practical HR interventions and strengthens business outcomes.",
  },
  impactStrip: {
@@ -313,7 +313,7 @@ export const homeContent = {
  },
  philosophy: {
  eyebrow: "Our approach",
- title: "Understand first · Recommend second",
+ title: "Understand first, recommend second",
     body: "Every engagement begins with understanding your organisation, workforce, current HR environment and business priorities. We identify gaps, assess the requirement and recommend the right HR service model, from On-Demand HR and project-based support to Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
  principles: [
  {
@@ -424,7 +424,7 @@ export const servicesContent = {
 
 export const pricingContent = {
  hero: {
- title: "Flexible HR support · Clear engagement models",
+ title: "Flexible HR support, clear engagement models",
     body: "Choose the level of HR support your business needs, from short-term On-Demand HR to ongoing Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
  },
  subtitle: "Pay for the level of support you need",
@@ -450,12 +450,12 @@ export const faqsContent = {
 export const contactContent = {
  hero: {
  title: "Book a consultation",
- subtitle: "Tell us what you need · We'll help you find the right HR solution",
+ subtitle: "Tell us what you need, we'll help you find the right HR solution",
     body: "Share your current HR requirement and we'll help you identify the right support, On-Demand HR, Resident HR, Strategic HR Consulting or Payroll Outsourcing.",
  topicsLabel: "What do you need help with?",
  },
  success: {
- title: "Thanks · We've got your requirement",
+ title: "Thanks, we've got your requirement",
  body: "Our team will review the details you've shared and connect with you to understand the requirement further.",
  cta: ctas.exploreServices,
  },
@@ -515,7 +515,7 @@ export const aboutContent = {
  },
  approach: {
  eyebrow: "Our approach",
- title: "Understand first · Recommend second",
+ title: "Understand first, recommend second",
     body: "Every engagement begins with understanding your organisation, workforce, current HR environment and business priorities. We identify gaps, assess the requirement and recommend the right HR service model, from On-Demand HR and project-based support to Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
  steps: [
  {
@@ -662,7 +662,7 @@ export const aboutContent = {
  items: [
  {
  id: "t1",
- tag: "Resident HR Â· Manufacturing",
+ tag: "Resident HR, manufacturing",
  headline: "Finally, HR that sits with the business",
  quote:
  "me-HR embedded with our plant leadership and cleaned up policies, attendance and reviews without turning it into a paperwork factory. Practical, steady and commercially aware.",
@@ -672,7 +672,7 @@ export const aboutContent = {
  },
  {
  id: "t2",
- tag: "On-Demand HR Â· SaaS",
+ tag: "On-Demand HR, saaS",
  headline: "Bandwidth when we needed it most",
  quote:
  "During a hiring surge we booked On-Demand HR for interviews and joining formalities. No long retainership â€” just skilled support for the window we had. Exactly what a growing team needed.",
@@ -682,7 +682,7 @@ export const aboutContent = {
  },
  {
  id: "t3",
- tag: "Strategic Consulting Â· FMCG",
+ tag: "Strategic Consulting, FMCG",
  headline: "Performance reviews that managers actually use",
  quote:
  "Their audit showed where our KRAs were vague. Within a quarter we had a review rhythm leadership trusts. Senior oversight without the consulting theatre.",
@@ -692,7 +692,7 @@ export const aboutContent = {
  },
  {
  id: "t4",
- tag: "Payroll Outsourcing Â· Mid-market",
+ tag: "Payroll Outsourcing, mid-market",
  headline: "Payroll stopped being a monthly fire drill",
  quote:
  "PF, ESIC and payslips used to eat our weekends. Payroll Outsourcing brought structure, checks and clear ownership. Finance and HR finally speak the same language.",
@@ -702,8 +702,8 @@ export const aboutContent = {
  },
  {
  id: "t5",
- tag: "Resident HR Â· Multi-site OEM",
- headline: "Seven plants · One operating rhythm",
+ tag: "Resident HR, multi-site OEM",
+ headline: "Seven plants, one operating rhythm",
  quote:
  "We were running HR differently at every location. me-HR helped us standardise processes and communication without killing local ownership. Engagement and clarity both improved.",
  name: "Sneha Kulkarni",
@@ -712,7 +712,7 @@ export const aboutContent = {
  },
  {
  id: "t6",
- tag: "On-Demand HR Â· Family business",
+ tag: "On-Demand HR, family business",
  headline: "Structure without losing our culture",
  quote:
  "As a family-run firm we needed HR discipline, not a corporate transplant. They understood first, then recommended the right model. Policies stuck because people understood why.",
@@ -722,7 +722,7 @@ export const aboutContent = {
  },
  {
  id: "t7",
- tag: "Strategic Consulting Â· Design",
+ tag: "Strategic Consulting, design",
  headline: "Remote teams, clearer connection",
  quote:
  "Dispersed designers were drifting. me-HR mapped culture gaps, set communication rhythms and brought managers into the loop. Retention and collaboration both moved.",
@@ -732,7 +732,7 @@ export const aboutContent = {
  },
  {
  id: "t8",
- tag: "Resident HR Â· Automation",
+ tag: "Resident HR, automation",
  headline: "Punctuality and brand, together",
  quote:
  "Attendance was hurting delivery and our employer brand. Their campaigns, manager coaching and monitoring changed the floor culture â€” and candidates notice the difference.",
@@ -746,7 +746,7 @@ export const aboutContent = {
 
 export const caseStudiesContent = {
  hero: {
- title: "Real HR challenges · Practical solutions · Measurable business impact",
+ title: "Real HR challenges, practical solutions, measurable business impact",
  body: "Explore HR outsourcing, strategic HR consulting, employee engagement and performance management case studies showing how me-HR identifies people and process gaps, implements practical HR interventions and strengthens business outcomes.",
  },
  listTitle: "See how we solve real HR challenges",
@@ -880,7 +880,7 @@ export const caseStudies = [
 
 export const careersContent = {
  hero: {
- title: "Build better workplaces · Build your career with us",
+ title: "Build better workplaces, build your career with us",
  body: "At me-HR, our people are at the heart of the work we do. We are a team committed to learning, collaboration, practical problem-solving and creating meaningful impact for the organisations we work with.",
  },
  experienceEyebrow: "Careers",
@@ -910,7 +910,7 @@ export const careersContent = {
 
 export const mediaContent = {
  hero: {
- eyebrow: "Insights Â· Thought leadership",
+ eyebrow: "Insights, thought leadership",
  title: "Perspectives for leaders building structured workplaces",
  body: "Practical HR thinking, workplace perspectives and updates from me-HR, written to help growing organisations make clearer people decisions.",
  searchPlaceholder: "Search insights, events and updates",
@@ -1239,7 +1239,7 @@ export const faqSections = [
 
 export const exploreOtherServicesSection = {
  eyebrow: "Explore Other me-HR Solutions",
- title: "One HR partner · Multiple ways to engage",
+ title: "One HR partner, multiple ways to engage",
 };
 
 export const exploreOtherServices = [
@@ -1294,7 +1294,7 @@ export const whyChoose = [
  { title: "Business-aligned solutions", desc: "Solutions designed around your people, processes and business needs." },
  { title: "Experienced HR oversight", desc: "Senior HR professionals provide guidance, reviews and support for matters requiring deeper experience." },
  { title: "Practical execution", desc: "Hands-on HR execution with structured processes as your organisation grows." },
- { title: "Flexible engagement models", desc: "On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing." },
+ { title: "Flexible engagement models", desc: "On-Demand HR, resident HR, strategic HR Consulting and Payroll Outsourcing." },
  { title: "Everything your HR function needs", desc: "Our HR solutions support the complete employee lifecycle and the HR systems surrounding it." },
  { title: "Continuous review", desc: "Progress, priorities and people matters are reviewed periodically with the relevant stakeholders." },
 ];

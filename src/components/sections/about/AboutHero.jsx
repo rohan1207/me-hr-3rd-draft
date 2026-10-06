@@ -1,3 +1,5 @@
+"use client";
+
 import { Link } from "react-router-dom";
 import {
   motion,
@@ -43,7 +45,7 @@ export default function AboutHero() {
               <span className="font-semibold text-mehr-deep">About</span>
             </p>
             <p className="mt-2.5 text-[11px] text-mehr-muted sm:mt-3 sm:text-[12px]">
-              Pune · since 2018
+              Pune, since 2018
             </p>
             <h1 className="mt-2 font-sans text-[clamp(2.15rem,11vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.045em] sm:text-[clamp(2.6rem,6vw,4.5rem)]">
               <span className="text-mehr-ink">About </span>

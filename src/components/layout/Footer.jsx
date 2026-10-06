@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
@@ -81,7 +83,7 @@ export default function Footer() {
       <div className="relative z-10 px-4 pb-7 pt-8 sm:px-9 sm:pb-10 sm:pt-12 lg:px-12 lg:pb-12 lg:pt-14 xl:px-16">
         <div className="mb-6 flex flex-col gap-1.5 sm:mb-10 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
           <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55 sm:text-[11px]">
-            me-HR · Pune
+            me-HR, Pune
           </p>
           <p className="text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-white/55 sm:max-w-none sm:text-right sm:text-[11px]">
             {footerContent.tagline}
@@ -104,7 +106,7 @@ export default function Footer() {
                   {contactInfo.email}
                 </a>
                 <span className="text-white/35" aria-hidden>
-                  ·
+                  |
                 </span>
                 <a href={contactInfo.phoneHref} className="transition hover:text-white">
                   {contactInfo.phone}
@@ -225,7 +227,7 @@ export default function Footer() {
                 <span key={l.path} className="inline-flex items-center gap-3">
                   {i > 0 && (
                     <span className="text-white/25" aria-hidden>
-                      ·
+                      |
                     </span>
                   )}
                   <Link

@@ -330,7 +330,7 @@ function MobileCard({ item, index, active, onActivate, reduce }) {
           </span>
           <span className="min-w-0 flex-1">
             <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-white/65 sm:text-[12px]">
-              {num} · {meta.label}
+              {num} {meta.label}
             </span>
             <span className="mt-0.5 block font-sans text-[16px] font-semibold leading-snug text-white sm:text-[18px] md:text-[19px]">
               {item.title}

@@ -1,6 +1,6 @@
 "use client";
 
-import { Link, Navigate, useParams } from "@/components/compat/router";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { mediaContent, seo } from "../data/content";
 import PageSEO from "../components/ui/PageSEO";
@@ -52,7 +52,7 @@ export default function InsightArticle() {
           <Reveal>
             <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-mehr-deep sm:mt-6 sm:text-[11px]">
               {post.category}
-              {post.readTime ? ` · ${post.readTime}` : ""}
+              {post.readTime ? `, ${post.readTime}` : ""}
             </p>
             <h1 className="mt-2.5 max-w-[20ch] font-sans text-[clamp(1.55rem,6.5vw,3.25rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-mehr-ink sm:mt-3 sm:leading-[1.08]">
               {post.title}

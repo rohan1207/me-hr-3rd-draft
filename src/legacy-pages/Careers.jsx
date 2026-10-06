@@ -307,7 +307,7 @@ function ApplyModal({ job, onClose }) {
               {job.title}
             </h2>
             <p className="mt-0.5 text-[12px] text-mehr-mist">
-              {job.company} · {job.location}
+              {job.company}, {job.location}
             </p>
           </div>
           <button

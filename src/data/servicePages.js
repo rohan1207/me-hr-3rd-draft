@@ -47,7 +47,7 @@ export const onDemandHrPage = {
  ],
  },
  duration: {
-    title: "3-7 days | 1-4 weeks | 1-3 months · You decide",
+    title: "3-7 days | 1-4 weeks | 1-3 months, you decide",
  items: [
  { label: "3-7 DAYS", desc: "Focused HR support for a defined requirement across a short three-to-seven-day window." },
  { label: "1-4 WEEKS", desc: "Short-term HR support for temporary workload, project requirements or resource gaps over one to four weeks." },
@@ -76,7 +76,7 @@ export const onDemandHrPage = {
  ],
  },
  steps: {
- title: "From requirement to delivery · One clear path",
+ title: "From requirement to delivery, one clear path",
  eyebrow: "Flexible support. Clear ownership.",
  items: [
  { step: "01", title: "DEFINE", desc: "Clarify the HR requirement, expected outputs and who owns decisions on your side." },
@@ -96,7 +96,7 @@ export const onDemandHrPage = {
 
 export const retainershipPage = {
  hero: {
- title: "Ongoing HR ownership · Without building a full in-house team",
+ title: "Ongoing HR ownership, without building a full in-house team",
  body: [
  "Resident HR is me-HR's ongoing, embedded HR model for continuous day-to-day HR operations and execution.",
  "Often referred to as fractional HR, it gives you dedicated HR ownership supported by senior expertise, so people processes keep running as the business grows.",
@@ -125,8 +125,8 @@ export const retainershipPage = {
  ],
  },
  model: {
- title: "Embedded HR · Continuous ownership",
- subtitle: "Dedicated execution · Senior oversight · Ongoing rhythm",
+ title: "Embedded HR, continuous ownership",
+ subtitle: "Dedicated execution, senior oversight, ongoing rhythm",
  items: [
  { title: "Dedicated HR resource", desc: "A dedicated HR professional aligned to your organisation's continuous people operations and priorities." },
  { title: "Fractional / embedded model", desc: "me-HR works as an extension of your team, without the cost and complexity of building a complete in-house HR department overnight." },
@@ -220,7 +220,7 @@ export const strategicPage = {
  ],
  },
  steps: {
- title: "Diagnose first · Design what works",
+ title: "Diagnose first, design what works",
  eyebrow: "Senior advisory. Defined interventions.",
  items: [
  { step: "01", title: "DISCOVER", desc: "Understand the business context, leadership priorities, workforce and stated challenge." },
@@ -261,7 +261,7 @@ export const strategicPage = {
 
 export const pagarPage = {
  hero: {
- title: "Payroll & compliance · Simplified",
+ title: "Payroll & compliance, simplified",
  body: [
  "Payroll processing, statutory compliance and workforce compliance support, managed through one structured service.",
  "From monthly payroll processing and PF/ESIC compliance to statutory filings, workforce records and contractor compliance, Payroll Outsourcing keeps payroll and labour compliance processes organised and on track.",
@@ -278,7 +278,7 @@ export const pagarPage = {
  ],
  },
  services: {
- title: "One partnership · Across your HR function",
+ title: "One partnership, across your HR function",
  items: [
  {
  step: "01",
@@ -313,7 +313,7 @@ export const pagarPage = {
  ],
  },
  cycle: {
- title: "One structured cycle · Every month",
+ title: "One structured cycle, every month",
  subtitle: "A structured monthly cycle",
  items: [
  { step: "01", title: "COLLECT", desc: "Gather attendance, leave, employee changes, payroll inputs and applicable workforce data." },
@@ -335,7 +335,7 @@ export const pagarPage = {
  ],
  },
  benefits: {
- title: "Less payroll admin · More control",
+ title: "Less payroll admin, more control",
  items: [
  { title: "Payroll + compliance together", desc: "Bring payroll processing and applicable workforce compliance under one coordinated service." },
  { title: "Human + technology", desc: "Experienced execution supported by HRMS and payroll technology." },

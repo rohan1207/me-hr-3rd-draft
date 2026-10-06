@@ -70,21 +70,6 @@ function Hero() {
                 Browse stories
               </SpecularButton>
             </div>
-
-            <div className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-3 border-t border-mehr-deep/10 pt-5 sm:mt-9 sm:gap-10 sm:pt-6 lg:justify-start">
-              {[
-                { v: String(caseStudies.length), l: "Case studies" },
-                { v: "C→A→I", l: "Story frame" },
-                { v: "Full", l: "Detail pages" },
-              ].map((s) => (
-                <div key={s.l} className="text-center lg:text-left">
-                  <p className="font-sans text-xl font-semibold tracking-[-0.03em] text-mehr-deep sm:text-2xl">
-                    {s.v}
-                  </p>
-                  <p className="mt-0.5 text-[11px] text-mehr-mist sm:text-[12px]">{s.l}</p>
-                </div>
-              ))}
-            </div>
           </motion.div>
 
           <motion.div
@@ -113,7 +98,7 @@ function Hero() {
                   What changed
                 </p>
                 <p className="mt-1.5 font-sans text-[13px] font-semibold leading-snug sm:mt-2 sm:text-sm">
-                  Clearer people processes · Stronger business outcomes
+                  Clearer people processes, stronger business outcomes
                 </p>
               </div>
             </div>
@@ -126,7 +111,7 @@ function Hero() {
 
 function FeaturedCase({ cs, image }) {
   const reduce = useReducedMotion();
-  const actionsPreview = (cs.actions || []).join(" · ");
+  const actionsPreview = (cs.actions || []).join(", ");
 
   return (
     <Link to={`/case-studies/${cs.id}`} className="block">

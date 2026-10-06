@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { aboutContent } from "../../../data/content";
@@ -18,7 +18,7 @@ function TestimonialCard({ item }) {
         <p className="about-tcard__byline">
           <span className="about-tcard__name">{item.name}</span>
           <span className="about-tcard__meta">
-            {item.role} · {item.place}
+            {item.role}, {item.place}
           </span>
         </p>
       </div>
