@@ -276,7 +276,7 @@ export const homeContent = {
  },
  marqueeStrip: {
  ariaLabel: "me-HR ways of working",
- separator: "âœ¦",
+ separator: "|",
  items: [
  "On-Demand HR when you need it",
  "Resident HR that stays embedded",
