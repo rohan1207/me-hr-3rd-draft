@@ -2,6 +2,15 @@
 
 import { homeContent } from "../../data/content";
 
+/** Extra visual weight for logos that read small at default strip size */
+const LOGO_SCALE = {
+  "John Deere":
+    "scale-[1.34] sm:scale-[1.38] hover:scale-[1.4] sm:hover:scale-[1.44]",
+  "Goel Ganga Corporation":
+    "scale-[1.44] sm:scale-[1.5] hover:scale-[1.5] sm:hover:scale-[1.56]",
+  Suhana: "brightness-0 scale-[1.08] hover:scale-[1.12]",
+};
+
 export default function TrustedBy() {
   const { trustedBy } = homeContent;
   const logos = trustedBy.logos;
@@ -28,8 +37,9 @@ export default function TrustedBy() {
                 <img
                   src={logo.src}
                   alt={i >= logos.length ? "" : logo.name}
-                  className={`max-h-[72%] max-w-[90%] object-contain opacity-80 transition duration-500 ease-out sm:max-h-[68%] sm:max-w-[88%] sm:opacity-85 hover:scale-[1.04] hover:opacity-100 ${
-                    logo.name === "Suhana" ? "brightness-0" : ""
+                  className={`max-h-[82%] max-w-[96%] object-contain opacity-80 transition duration-500 ease-out sm:max-h-[78%] sm:max-w-[94%] sm:opacity-85 hover:opacity-100 ${
+                    LOGO_SCALE[logo.name] ||
+                    "scale-[1.08] hover:scale-[1.12]"
                   }`}
                   loading="eager"
                   decoding="async"

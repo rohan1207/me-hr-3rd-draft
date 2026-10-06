@@ -30,8 +30,6 @@ const COLLAGE = [
   { src: "/careers/careers-collage-1.jpg", className: "col-span-2 row-span-2" },
   { src: "/careers/careers-collage-2.jpg", className: "col-span-1 row-span-1" },
   { src: "/careers/careers-collage-3.jpg", className: "col-span-1 row-span-1" },
-  { src: "/careers/careers-collage-4.jpg", className: "col-span-1 row-span-1" },
-  { src: "/careers/careers-collage-5.jpg", className: "col-span-1 row-span-1" },
   {
     type: "cta",
     className: "col-span-2 row-span-1",
@@ -134,17 +132,17 @@ function CareersHero() {
             transition={{ delay: 0.14, duration: 0.7, ease }}
             className="relative"
           >
-            <div className="grid h-[280px] grid-cols-4 grid-rows-3 gap-1.5 sm:h-[440px] sm:gap-3 lg:h-[480px]">
+            <div className="grid h-[260px] grid-cols-4 grid-rows-2 gap-1.5 sm:h-[400px] sm:gap-3 lg:h-[440px]">
               {COLLAGE.map((item, i) => (
                 <motion.div
                   key={item.type === "cta" ? "join-cta" : `${item.src}-${i}`}
                   className={`relative overflow-hidden rounded-[0.95rem] shadow-soft sm:rounded-[1.35rem] ${
                     item.type === "cta"
                       ? "flex flex-col justify-center bg-mehr-deep px-3.5 py-3 text-white sm:px-5 sm:py-4"
-                      : "bg-white"
+                      : "bg-mehr-panel"
                   } ${item.className}`}
                   animate={
-                    reduce ? undefined : { y: [0, i % 2 === 0 ? -5 : 5, 0] }
+                    reduce ? undefined : { y: [0, i % 2 === 0 ? -4 : 4, 0] }
                   }
                   transition={{
                     duration: 4.5 + i * 0.35,
@@ -158,7 +156,7 @@ function CareersHero() {
                       <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-white/70 sm:text-[10px]">
                         {item.eyebrow}
                       </p>
-                      <p className="mt-1 text-[12px] font-semibold leading-snug sm:mt-1.5 sm:text-sm">
+                      <p className="mt-1 max-w-[28ch] text-[12px] font-semibold leading-snug sm:mt-1.5 sm:text-sm">
                         {item.text}
                       </p>
                     </>

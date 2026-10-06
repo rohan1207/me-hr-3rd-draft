@@ -87,8 +87,8 @@ export default function AboutHero() {
               <motion.img
                 style={{ y: parallax }}
                 src={HERO_IMG}
-                alt="me-HR team collaborating with business leaders"
-                className="absolute inset-0 h-full w-full scale-105 object-cover"
+                alt="me-HR team"
+                className="absolute inset-0 h-full w-full scale-105 object-cover object-[center_28%]"
               />
             </div>
 

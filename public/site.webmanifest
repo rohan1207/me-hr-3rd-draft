@@ -1,0 +1,15 @@
+{
+  "name": "me-HR",
+  "short_name": "me-HR",
+  "icons": [
+    {
+      "src": "/logo1.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#14c4ad",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

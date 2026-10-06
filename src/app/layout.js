@@ -7,12 +7,10 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   ...buildMetadata({ ...seo.home, path: "/" }),
   icons: {
-    icon: [
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.png", sizes: "48x48", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    icon: [{ url: "/logo1.png", type: "image/png" }],
+    apple: [{ url: "/logo1.png", type: "image/png" }],
   },
+  manifest: "/site.webmanifest",
 };
 
 export const viewport = {
