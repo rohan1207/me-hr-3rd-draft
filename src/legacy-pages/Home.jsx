@@ -14,23 +14,23 @@ import HomeFaq from "../components/sections/HomeFaq";
 import CTABanner from "../components/ui/CTABanner";
 
 export default function Home() {
-  return (
-    <>
-      <PageSEO {...seo.home} path="/" />
-      <Hero />
-      <HowWeHelpExpand />
-      <TrustedBy />
-      <HomeValueBand />
-      <ImpactRibbon />
-      <BendingMarquee />
-      <HowItWorks />
-      <CapabilitiesGrid
-        eyebrow={homeContent.capabilities.eyebrow}
-        title={homeContent.capabilities.title}
-        includeAudit={false}
-      />
-      <HomeFaq />
-      <CTABanner />
-    </>
-  );
+ return (
+ <>
+ <PageSEO {...seo.home} path="/" />
+ <Hero />
+ <HowWeHelpExpand />
+ <TrustedBy />
+ <HomeValueBand />
+ <ImpactRibbon />
+ <BendingMarquee />
+ <HowItWorks />
+ <CapabilitiesGrid
+ eyebrow={homeContent.capabilities.eyebrow}
+ title={homeContent.capabilities.title}
+ includeAudit={false}
+ />
+ <HomeFaq />
+ <CTABanner />
+ </>
+ );
 }

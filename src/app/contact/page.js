@@ -5,5 +5,5 @@ import { seo } from "@/data/content";
 export const metadata = buildMetadata({ ...seo.contact, path: "/contact" });
 
 export default function Page() {
-  return <Contact />;
+ return <Contact />;
 }

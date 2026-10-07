@@ -5,5 +5,5 @@ import { seo } from "@/data/content";
 export const metadata = buildMetadata({ ...seo.onDemand, path: "/services/on-demand-hr" });
 
 export default function Page() {
-  return <OnDemandHR />;
+ return <OnDemandHR />;
 }

@@ -49,158 +49,158 @@ function shortSubtitle(desc, max = 72) {
  if (desc.length <= max) return desc;
  const cut = desc.slice(0, max);
  const lastSpace = cut.lastIndexOf(" ");
- return `${cut.slice(0, lastSpace > 40 ? lastSpace : max).trim()}…`;
+ return `${cut.slice(0, lastSpace > 40 ? lastSpace : max).trim()}...`;
 }
 
 function GlassCard({
-  children,
-  className = "",
-  delay = 0,
-  reduce,
-  hovered,
-  onHover,
-  to,
-  label,
-  theme = "dark",
+ children,
+ className = "",
+ delay = 0,
+ reduce,
+ hovered,
+ onHover,
+ to,
+ label,
+ theme = "dark",
 }) {
-  const light = theme === "light";
-  const sharedClass = light
-    ? `group relative overflow-hidden rounded-[1.35rem] border border-mehr-deep/10 bg-white shadow-soft outline-none transition-[border-color,box-shadow,transform] duration-300 focus-visible:ring-2 focus-visible:ring-mehr-deep/25 sm:rounded-[1.5rem] ${
-        hovered ? "border-mehr-deep/25 shadow-float" : ""
-      } ${to ? "cursor-pointer hover:border-mehr-deep/30 hover:-translate-y-0.5" : ""} ${className}`
-    : `group relative overflow-hidden rounded-[1.35rem] border border-white/12 bg-white/[0.07] shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-md outline-none transition-[border-color,box-shadow,transform] duration-300 focus-visible:ring-2 focus-visible:ring-white/30 sm:rounded-[1.5rem] ${
-        hovered ? "border-white/25 shadow-[0_28px_60px_rgba(0,0,0,0.45)]" : ""
-      } ${to ? "cursor-pointer hover:border-white/30" : ""} ${className}`;
+ const light = theme === "light";
+ const sharedClass = light
+ ? `group relative overflow-hidden rounded-[1.35rem] border border-mehr-deep/10 bg-white shadow-soft outline-none transition-[border-color,box-shadow,transform] duration-300 focus-visible:ring-2 focus-visible:ring-mehr-deep/25 sm:rounded-[1.5rem] ${
+ hovered ? "border-mehr-deep/25 shadow-float" : ""
+ } ${to ? "cursor-pointer hover:border-mehr-deep/30 hover:-translate-y-0.5" : ""} ${className}`
+ : `group relative overflow-hidden rounded-[1.35rem] border border-white/12 bg-white/[0.07] shadow-[0_20px_50px_rgba(0,0,0,0.35)] backdrop-blur-md outline-none transition-[border-color,box-shadow,transform] duration-300 focus-visible:ring-2 focus-visible:ring-white/30 sm:rounded-[1.5rem] ${
+ hovered ? "border-white/25 shadow-[0_28px_60px_rgba(0,0,0,0.45)]" : ""
+ } ${to ? "cursor-pointer hover:border-white/30" : ""} ${className}`;
 
-  const inner = (
-    <>
-      <div
-        className="pointer-events-none absolute inset-0 opacity-60"
-        style={{
-          background: light
-            ? `radial-gradient(120% 80% at 20% 0%, ${TEAL}18, transparent 55%)`
-            : `radial-gradient(120% 80% at 20% 0%, ${TEAL}22, transparent 55%)`,
-        }}
-        aria-hidden
-      />
-      <div className="relative z-[1] flex h-full flex-col p-3.5 sm:p-4">{children}</div>
-    </>
-  );
+ const inner = (
+ <>
+ <div
+ className="pointer-events-none absolute inset-0 opacity-60"
+ style={{
+ background: light
+ ? `radial-gradient(120% 80% at 20% 0%, ${TEAL}18, transparent 55%)`
+ : `radial-gradient(120% 80% at 20% 0%, ${TEAL}22, transparent 55%)`,
+ }}
+ aria-hidden
+ />
+ <div className="relative z-[1] flex h-full flex-col p-3.5 sm:p-4">{children}</div>
+ </>
+ );
 
-  if (to) {
-    return (
-      <motion.div
-        initial={reduce ? false : { opacity: 0, y: 28, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.75, delay, ease }}
-        className="h-full w-full"
-      >
-        <Link
-          to={to}
-          aria-label={label || "View service"}
-          onMouseEnter={() => onHover(true)}
-          onMouseLeave={() => onHover(false)}
-          onFocus={() => onHover(true)}
-          onBlur={() => onHover(false)}
-          className={`block h-full ${sharedClass}`}
-        >
-          {inner}
-        </Link>
-      </motion.div>
-    );
-  }
+ if (to) {
+ return (
+ <motion.div
+ initial={reduce ? false : { opacity: 0, y: 28, scale: 0.96 }}
+ animate={{ opacity: 1, y: 0, scale: 1 }}
+ transition={{ duration: 0.75, delay, ease }}
+ className="h-full w-full"
+ >
+ <Link
+ to={to}
+ aria-label={label || "View service"}
+ onMouseEnter={() => onHover(true)}
+ onMouseLeave={() => onHover(false)}
+ onFocus={() => onHover(true)}
+ onBlur={() => onHover(false)}
+ className={`block h-full ${sharedClass}`}
+ >
+ {inner}
+ </Link>
+ </motion.div>
+ );
+ }
 
-  return (
-    <motion.div
-      initial={reduce ? false : { opacity: 0, y: 28, scale: 0.96 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.75, delay, ease }}
-      onMouseEnter={() => onHover(true)}
-      onMouseLeave={() => onHover(false)}
-      onFocus={() => onHover(true)}
-      onBlur={() => onHover(false)}
-      tabIndex={0}
-      className={sharedClass}
-    >
-      {inner}
-    </motion.div>
-  );
+ return (
+ <motion.div
+ initial={reduce ? false : { opacity: 0, y: 28, scale: 0.96 }}
+ animate={{ opacity: 1, y: 0, scale: 1 }}
+ transition={{ duration: 0.75, delay, ease }}
+ onMouseEnter={() => onHover(true)}
+ onMouseLeave={() => onHover(false)}
+ onFocus={() => onHover(true)}
+ onBlur={() => onHover(false)}
+ tabIndex={0}
+ className={sharedClass}
+ >
+ {inner}
+ </motion.div>
+ );
 }
 
 function CardLabel({ eyebrow, title, value, suffix = "", theme = "dark" }) {
-  const light = theme === "light";
-  return (
-    <div className="mb-3 flex items-start justify-between gap-2">
-      <div>
-        <p
-          className={`text-[9px] font-semibold uppercase tracking-[0.16em] sm:text-[10px] ${
-            light ? "text-mehr-deep/55" : "text-white/45"
-          }`}
-        >
-          {eyebrow}
-        </p>
-        <p
-          className={`mt-1 font-sans text-[13px] font-semibold sm:text-sm ${
-            light ? "text-mehr-ink" : "text-white"
-          }`}
-        >
-          {title}
-        </p>
-      </div>
-      <p
-        className={`font-sans text-lg font-semibold tabular-nums tracking-tight sm:text-xl ${
-          light ? "text-mehr-deep" : "text-white"
-        }`}
-      >
-        {value}
-        <span className={`text-sm ${light ? "text-mehr-mist" : "text-white/55"}`}>{suffix}</span>
-      </p>
-    </div>
-  );
+ const light = theme === "light";
+ return (
+ <div className="mb-3 flex items-start justify-between gap-2">
+ <div>
+ <p
+ className={`text-[9px] font-semibold uppercase tracking-[0.16em] sm:text-[10px] ${
+ light ? "text-mehr-deep/55" : "text-white/45"
+ }`}
+ >
+ {eyebrow}
+ </p>
+ <p
+ className={`mt-1 font-sans text-[13px] font-semibold sm:text-sm ${
+ light ? "text-mehr-ink" : "text-white"
+ }`}
+ >
+ {title}
+ </p>
+ </div>
+ <p
+ className={`font-sans text-lg font-semibold tabular-nums tracking-tight sm:text-xl ${
+ light ? "text-mehr-deep" : "text-white"
+ }`}
+ >
+ {value}
+ <span className={`text-sm ${light ? "text-mehr-mist" : "text-white/55"}`}>{suffix}</span>
+ </p>
+ </div>
+ );
 }
 
 function HiringBars({ active, reduce, theme = "dark" }) {
-  const light = theme === "light";
-  return (
-    <div className="mt-auto flex h-[4.75rem] items-end justify-between gap-1 px-0.5 sm:h-[5.25rem] sm:gap-1.5">
-      {BARS.map((bar, i) => {
-        const h = active ? bar.hover : bar.idle;
-        return (
-          <motion.div
-            key={i}
-            className="relative w-full overflow-hidden rounded-full"
-            style={{ background: light ? "rgba(11,95,88,0.08)" : "rgba(255,255,255,0.08)" }}
-            animate={
-              reduce
-                ? { height: `${h}%` }
-                : {
-                    height: [`${bar.idle - 6}%`, `${h}%`, `${bar.idle - 4}%`, `${h}%`],
-                  }
-            }
-            transition={
-              reduce
-                ? { duration: 0.45, ease }
-                : {
-                    duration: active ? 2.2 : 3.6 + i * 0.18,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 0.12,
-                  }
-            }
-          >
-            <div
-              className="absolute inset-0 rounded-full"
-              style={{
-                background: light
-                  ? `linear-gradient(180deg, ${TEAL} 0%, #0b5f58 100%)`
-                  : `linear-gradient(180deg, ${TEAL} 0%, ${TEAL}88 55%, rgba(255,255,255,0.25) 100%)`,
-              }}
-            />
-          </motion.div>
-        );
-      })}
-    </div>
-  );
+ const light = theme === "light";
+ return (
+ <div className="mt-auto flex h-[4.75rem] items-end justify-between gap-1 px-0.5 sm:h-[5.25rem] sm:gap-1.5">
+ {BARS.map((bar, i) => {
+ const h = active ? bar.hover : bar.idle;
+ return (
+ <motion.div
+ key={i}
+ className="relative w-full overflow-hidden rounded-full"
+ style={{ background: light ? "rgba(11,95,88,0.08)" : "rgba(255,255,255,0.08)" }}
+ animate={
+ reduce
+ ? { height: `${h}%` }
+ : {
+ height: [`${bar.idle - 6}%`, `${h}%`, `${bar.idle - 4}%`, `${h}%`],
+ }
+ }
+ transition={
+ reduce
+ ? { duration: 0.45, ease }
+ : {
+ duration: active ? 2.2 : 3.6 + i * 0.18,
+ repeat: Infinity,
+ ease: "easeInOut",
+ delay: i * 0.12,
+ }
+ }
+ >
+ <div
+ className="absolute inset-0 rounded-full"
+ style={{
+ background: light
+ ? `linear-gradient(180deg, ${TEAL} 0%, #0b5f58 100%)`
+ : `linear-gradient(180deg, ${TEAL} 0%, ${TEAL}88 55%, rgba(255,255,255,0.25) 100%)`,
+ }}
+ />
+ </motion.div>
+ );
+ })}
+ </div>
+ );
 }
 
 function RetentionRing({ active, reduce, centerValue, centerLabel, theme = "dark" }) {
@@ -334,7 +334,7 @@ function EngagementLine({ active, reduce, stepLabels, theme = "dark" }) {
 const PAGAR_STATS = ["PF", "ESIC", "PT", "LWF"];
 const PAGAR_ROWS = ["Attendance", "Payroll", "Compliance"];
 const CARD_H =
-  "h-full min-h-[9.75rem] sm:min-h-[12rem] md:min-h-[13.5rem] lg:min-h-[15.5rem]";
+ "h-full min-h-[9.75rem] sm:min-h-[12rem] md:min-h-[13.5rem] lg:min-h-[15.5rem]";
 
 function PayrollPulse({ active, reduce, stepLabel, theme = "dark" }) {
  const light = theme === "light";

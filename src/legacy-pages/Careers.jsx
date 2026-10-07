@@ -4,16 +4,16 @@ import { useEffect, useId, useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
-  ArrowRight,
-  ArrowUpRight,
-  Briefcase,
-  Check,
-  Heart,
-  Lightbulb,
-  MapPin,
-  TrendingUp,
-  Users,
-  X,
+ ArrowRight,
+ ArrowUpRight,
+ Briefcase,
+ Check,
+ Heart,
+ Lightbulb,
+ MapPin,
+ TrendingUp,
+ Users,
+ X,
 } from "lucide-react";
 import { careersContent, seo, ctas, openings } from "../data/content";
 import PageSEO from "../components/ui/PageSEO";
@@ -27,819 +27,819 @@ const whyIcons = [Lightbulb, TrendingUp, Users, Heart];
 const CULTURE_IMG = "/careers/careers-culture.jpg";
 
 const COLLAGE = [
-  { src: "/careers/careers-collage-1.jpg", className: "col-span-2 row-span-2" },
-  { src: "/careers/careers-collage-2.jpg", className: "col-span-1 row-span-1" },
-  { src: "/careers/careers-collage-3.jpg", className: "col-span-1 row-span-1" },
-  {
-    type: "cta",
-    className: "col-span-2 row-span-1",
-    eyebrow: "Join the team",
-    text: "Practical HR work. Real client exposure. Room to grow.",
-  },
+ { src: "/careers/careers-collage-1.jpg", className: "col-span-2 row-span-2" },
+ { src: "/careers/careers-collage-2.jpg", className: "col-span-1 row-span-1" },
+ { src: "/careers/careers-collage-3.jpg", className: "col-span-1 row-span-1" },
+ {
+ type: "cta",
+ className: "col-span-2 row-span-1",
+ eyebrow: "Join the team",
+ text: "Practical HR work. Real client exposure. Room to grow.",
+ },
 ];
 
 function isValidDriveLink(value) {
-  try {
-    const url = new URL(String(value).trim());
-    if (url.protocol !== "https:") return false;
-    const host = url.hostname.replace(/^www\./, "").toLowerCase();
-    return host === "drive.google.com" || host === "docs.google.com";
-  } catch {
-    return false;
-  }
+ try {
+ const url = new URL(String(value).trim());
+ if (url.protocol !== "https:") return false;
+ const host = url.hostname.replace(/^www\./, "").toLowerCase();
+ return host === "drive.google.com" || host === "docs.google.com";
+ } catch {
+ return false;
+ }
 }
 
 function CareersHero() {
-  const reduce = useReducedMotion();
-  const { hero, why } = careersContent;
+ const reduce = useReducedMotion();
+ const { hero, why } = careersContent;
 
-  return (
-    <section className="relative overflow-hidden bg-mehr-panel">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_0%_0%,rgba(20,196,173,0.16),transparent_55%),radial-gradient(ellipse_45%_40%_at_100%_100%,rgba(11,95,88,0.1),transparent_50%)]"
-      />
+ return (
+ <section className="relative overflow-hidden bg-mehr-panel">
+ <div
+ aria-hidden
+ className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_0%_0%,rgba(20,196,173,0.16),transparent_55%),radial-gradient(ellipse_45%_40%_at_100%_100%,rgba(11,95,88,0.1),transparent_50%)]"
+ />
 
-      <div className="container-mehr page-gutter relative z-10 py-7 sm:py-12 md:px-4 lg:px-5 lg:py-16">
-        <div className="grid items-center gap-7 sm:gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 xl:gap-14">
-          <div className="text-center lg:text-left">
-            <motion.p
-              initial={reduce ? false : { opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-[10px] font-semibold uppercase tracking-[0.18em] text-mehr-deep sm:text-[11px]"
-            >
-              Careers at me-HR
-            </motion.p>
-            <motion.h1
-              initial={reduce ? false : { opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.06, duration: 0.7, ease }}
-              className="mx-auto mt-3 max-w-[16ch] font-sans text-[clamp(1.75rem,7vw,3.6rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-mehr-ink sm:mt-4 sm:leading-[1.05] lg:mx-0"
-            >
-              {hero.title}
-            </motion.h1>
-            <motion.p
-              initial={reduce ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.12, duration: 0.55, ease }}
-              className="mx-auto mt-3.5 max-w-md text-[13px] leading-relaxed text-mehr-mist sm:mt-5 sm:text-[15px] sm:text-base lg:mx-0"
-            >
-              {hero.body}
-            </motion.p>
+ <div className="container-mehr page-gutter relative z-10 py-7 sm:py-12 md:px-4 lg:px-5 lg:py-16">
+ <div className="grid items-center gap-7 sm:gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 xl:gap-14">
+ <div className="text-center lg:text-left">
+ <motion.p
+ initial={reduce ? false : { opacity: 0, y: 10 }}
+ animate={{ opacity: 1, y: 0 }}
+ className="text-[10px] font-semibold uppercase tracking-[0.18em] text-mehr-deep sm:text-[11px]"
+ >
+ Careers at me-HR
+ </motion.p>
+ <motion.h1
+ initial={reduce ? false : { opacity: 0, y: 18 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ delay: 0.06, duration: 0.7, ease }}
+ className="mx-auto mt-3 max-w-[16ch] font-sans text-[clamp(1.75rem,7vw,3.6rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-mehr-ink sm:mt-4 sm:leading-[1.05] lg:mx-0"
+ >
+ {hero.title}
+ </motion.h1>
+ <motion.p
+ initial={reduce ? false : { opacity: 0, y: 12 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ delay: 0.12, duration: 0.55, ease }}
+ className="mx-auto mt-3.5 max-w-md text-[13px] leading-relaxed text-mehr-mist sm:mt-5 sm:text-[15px] sm:text-base lg:mx-0"
+ >
+ {hero.body}
+ </motion.p>
 
-            <motion.div
-              initial={reduce ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.18, duration: 0.55, ease }}
-              className="mt-5 flex w-full flex-col items-stretch gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3 lg:justify-start"
-            >
-              <a
-                href="#openings"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-6 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal hover:gap-3 active:scale-[0.98] sm:w-auto"
-              >
-                {ctas.viewOpenings}
-                <ArrowRight size={16} />
-              </a>
-              <Link
-                to="/life"
-                className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-white px-5 py-3 text-sm font-semibold text-mehr-deep shadow-soft transition hover:bg-mehr-teal-soft sm:w-auto"
-              >
-                Life at me-HR
-                <ArrowUpRight size={15} />
-              </Link>
-            </motion.div>
+ <motion.div
+ initial={reduce ? false : { opacity: 0, y: 12 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ delay: 0.18, duration: 0.55, ease }}
+ className="mt-5 flex w-full flex-col items-stretch gap-2.5 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-3 lg:justify-start"
+ >
+ <a
+ href="#openings"
+ className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-6 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal hover:gap-3 active:scale-[0.98] sm:w-auto"
+ >
+ {ctas.viewOpenings}
+ <ArrowRight size={16} />
+ </a>
+ <Link
+ to="/life"
+ className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-white px-5 py-3 text-sm font-semibold text-mehr-deep shadow-soft transition hover:bg-mehr-teal-soft sm:w-auto"
+ >
+ Life at me-HR
+ <ArrowUpRight size={15} />
+ </Link>
+ </motion.div>
 
-            <motion.div
-              initial={reduce ? false : { opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.24, duration: 0.5, ease }}
-              className="-mx-4 mt-6 flex justify-start gap-2 overflow-x-auto px-4 pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:mt-8 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0 lg:justify-start [&::-webkit-scrollbar]:hidden"
-            >
-              {why.slice(0, 3).map((item) => (
-                <span
-                  key={item.title}
-                  className="shrink-0 rounded-full border border-mehr-deep/10 bg-white/80 px-3.5 py-1.5 text-[11px] font-semibold text-mehr-ink shadow-soft sm:text-[12px]"
-                >
-                  {item.title}
-                </span>
-              ))}
-            </motion.div>
-          </div>
+ <motion.div
+ initial={reduce ? false : { opacity: 0, y: 10 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ delay: 0.24, duration: 0.5, ease }}
+ className="-mx-4 mt-6 flex justify-start gap-2 overflow-x-auto px-4 pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:mt-8 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0 lg:justify-start [&::-webkit-scrollbar]:hidden"
+ >
+ {why.slice(0, 3).map((item) => (
+ <span
+ key={item.title}
+ className="shrink-0 rounded-full border border-mehr-deep/10 bg-white/80 px-3.5 py-1.5 text-[11px] font-semibold text-mehr-ink shadow-soft sm:text-[12px]"
+ >
+ {item.title}
+ </span>
+ ))}
+ </motion.div>
+ </div>
 
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.14, duration: 0.7, ease }}
-            className="relative"
-          >
-            <div className="grid h-[260px] grid-cols-4 grid-rows-2 gap-1.5 sm:h-[400px] sm:gap-3 lg:h-[440px]">
-              {COLLAGE.map((item, i) => (
-                <motion.div
-                  key={item.type === "cta" ? "join-cta" : `${item.src}-${i}`}
-                  className={`relative overflow-hidden rounded-[0.95rem] shadow-soft sm:rounded-[1.35rem] ${
-                    item.type === "cta"
-                      ? "flex flex-col justify-center bg-mehr-deep px-3.5 py-3 text-white sm:px-5 sm:py-4"
-                      : "bg-mehr-panel"
-                  } ${item.className}`}
-                  animate={
-                    reduce ? undefined : { y: [0, i % 2 === 0 ? -4 : 4, 0] }
-                  }
-                  transition={{
-                    duration: 4.5 + i * 0.35,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 0.15,
-                  }}
-                >
-                  {item.type === "cta" ? (
-                    <>
-                      <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-white/70 sm:text-[10px]">
-                        {item.eyebrow}
-                      </p>
-                      <p className="mt-1 max-w-[28ch] text-[12px] font-semibold leading-snug sm:mt-1.5 sm:text-sm">
-                        {item.text}
-                      </p>
-                    </>
-                  ) : (
-                    <img
-                      src={item.src}
-                      alt=""
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                  )}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
+ <motion.div
+ initial={reduce ? false : { opacity: 0, y: 22 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ delay: 0.14, duration: 0.7, ease }}
+ className="relative"
+ >
+ <div className="grid h-[260px] grid-cols-4 grid-rows-2 gap-1.5 sm:h-[400px] sm:gap-3 lg:h-[440px]">
+ {COLLAGE.map((item, i) => (
+ <motion.div
+ key={item.type === "cta" ? "join-cta" : `${item.src}-${i}`}
+ className={`relative overflow-hidden rounded-[0.95rem] shadow-soft sm:rounded-[1.35rem] ${
+ item.type === "cta"
+ ? "flex flex-col justify-center bg-mehr-deep px-3.5 py-3 text-white sm:px-5 sm:py-4"
+ : "bg-mehr-panel"
+ } ${item.className}`}
+ animate={
+ reduce ? undefined : { y: [0, i % 2 === 0 ? -4 : 4, 0] }
+ }
+ transition={{
+ duration: 4.5 + i * 0.35,
+ repeat: Infinity,
+ ease: "easeInOut",
+ delay: i * 0.15,
+ }}
+ >
+ {item.type === "cta" ? (
+ <>
+ <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-white/70 sm:text-[10px]">
+ {item.eyebrow}
+ </p>
+ <p className="mt-1 max-w-[28ch] text-[12px] font-semibold leading-snug sm:mt-1.5 sm:text-sm">
+ {item.text}
+ </p>
+ </>
+ ) : (
+ <img
+ src={item.src}
+ alt=""
+ className="absolute inset-0 h-full w-full object-cover"
+ />
+ )}
+ </motion.div>
+ ))}
+ </div>
+ </motion.div>
+ </div>
+ </div>
+ </section>
+ );
 }
 
 function WhyCard({ item, Icon, index }) {
-  const reduce = useReducedMotion();
-  const [pulse, setPulse] = useState(0);
+ const reduce = useReducedMotion();
+ const [pulse, setPulse] = useState(0);
 
-  useEffect(() => {
-    if (reduce) return undefined;
-    const id = window.setInterval(() => setPulse((p) => p + 1), 2600 + index * 350);
-    return () => window.clearInterval(id);
-  }, [reduce, index]);
+ useEffect(() => {
+ if (reduce) return undefined;
+ const id = window.setInterval(() => setPulse((p) => p + 1), 2600 + index * 350);
+ return () => window.clearInterval(id);
+ }, [reduce, index]);
 
-  return (
-    <motion.article
-      whileHover={reduce ? undefined : { y: -4 }}
-      className="group flex h-full flex-col rounded-[1.35rem] border border-mehr-deep/8 bg-white p-4 shadow-soft transition hover:border-mehr-deep/18 hover:shadow-float sm:rounded-[1.65rem] sm:p-6"
-    >
-      <div className="flex items-start justify-between">
-        <motion.span
-          className="flex h-10 w-10 items-center justify-center rounded-2xl bg-mehr-panel text-mehr-deep transition group-hover:bg-mehr-deep group-hover:text-white sm:h-11 sm:w-11"
-          animate={reduce ? undefined : { scale: pulse % 2 === 0 ? [1, 1.06, 1] : 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Icon size={18} strokeWidth={1.85} />
-        </motion.span>
-        <span className="font-sans text-[11px] font-semibold tabular-nums text-mehr-muted">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-      </div>
-      <h3 className="mt-4 font-sans text-[15px] font-semibold tracking-[-0.02em] text-mehr-ink sm:mt-5 sm:text-lg">
-        {item.title}
-      </h3>
-      <p className="mt-1.5 text-[13px] leading-relaxed text-mehr-mist sm:mt-2 sm:text-sm">
-        {item.desc}
-      </p>
-    </motion.article>
-  );
+ return (
+ <motion.article
+ whileHover={reduce ? undefined : { y: -4 }}
+ className="group flex h-full flex-col rounded-[1.35rem] border border-mehr-deep/8 bg-white p-4 shadow-soft transition hover:border-mehr-deep/18 hover:shadow-float sm:rounded-[1.65rem] sm:p-6"
+ >
+ <div className="flex items-start justify-between">
+ <motion.span
+ className="flex h-10 w-10 items-center justify-center rounded-2xl bg-mehr-panel text-mehr-deep transition group-hover:bg-mehr-deep group-hover:text-white sm:h-11 sm:w-11"
+ animate={reduce ? undefined : { scale: pulse % 2 === 0 ? [1, 1.06, 1] : 1 }}
+ transition={{ duration: 0.5 }}
+ >
+ <Icon size={18} strokeWidth={1.85} />
+ </motion.span>
+ <span className="font-sans text-[11px] font-semibold tabular-nums text-mehr-muted">
+ {String(index + 1).padStart(2, "0")}
+ </span>
+ </div>
+ <h3 className="mt-4 font-sans text-[15px] font-semibold tracking-[-0.02em] text-mehr-ink sm:mt-5 sm:text-lg">
+ {item.title}
+ </h3>
+ <p className="mt-1.5 text-[13px] leading-relaxed text-mehr-mist sm:mt-2 sm:text-sm">
+ {item.desc}
+ </p>
+ </motion.article>
+ );
 }
 
 function ApplyModal({ job, onClose }) {
-  const titleId = useId();
-  const reduce = useReducedMotion();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    resumeUrl: "",
-    note: "",
-  });
-  const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
+ const titleId = useId();
+ const reduce = useReducedMotion();
+ const [form, setForm] = useState({
+ name: "",
+ email: "",
+ phone: "",
+ resumeUrl: "",
+ note: "",
+ });
+ const [errors, setErrors] = useState({});
+ const [submitted, setSubmitted] = useState(false);
 
-  useEffect(() => {
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const onKey = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [onClose]);
+ useEffect(() => {
+ const prev = document.body.style.overflow;
+ document.body.style.overflow = "hidden";
+ const onKey = (e) => {
+ if (e.key === "Escape") onClose();
+ };
+ window.addEventListener("keydown", onKey);
+ return () => {
+ document.body.style.overflow = prev;
+ window.removeEventListener("keydown", onKey);
+ };
+ }, [onClose]);
 
-  const setField = (key) => (e) => {
-    setForm((f) => ({ ...f, [key]: e.target.value }));
-    setErrors((err) => ({ ...err, [key]: undefined }));
-  };
+ const setField = (key) => (e) => {
+ setForm((f) => ({ ...f, [key]: e.target.value }));
+ setErrors((err) => ({ ...err, [key]: undefined }));
+ };
 
-  const validate = () => {
-    const next = {};
-    if (!form.name.trim()) next.name = "Please enter your full name.";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
-      next.email = "Please enter a valid email address.";
-    }
-    if (!/^[+\d][\d\s()-]{7,}$/.test(form.phone.trim())) {
-      next.phone = "Please enter a valid phone number.";
-    }
-    if (!isValidDriveLink(form.resumeUrl)) {
-      next.resumeUrl =
-        "Please enter a valid Google Drive or Google Docs link (https://drive.google.com/... or https://docs.google.com/...).";
-    }
-    setErrors(next);
-    return Object.keys(next).length === 0;
-  };
+ const validate = () => {
+ const next = {};
+ if (!form.name.trim()) next.name = "Please enter your full name.";
+ if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+ next.email = "Please enter a valid email address.";
+ }
+ if (!/^[+\d][\d\s()-]{7,}$/.test(form.phone.trim())) {
+ next.phone = "Please enter a valid phone number.";
+ }
+ if (!isValidDriveLink(form.resumeUrl)) {
+ next.resumeUrl =
+ "Please enter a valid Google Drive or Google Docs link (https://drive.google.com/... or https://docs.google.com/...).";
+ }
+ setErrors(next);
+ return Object.keys(next).length === 0;
+ };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if (!validate()) return;
-    setSubmitted(true);
-  };
+ const onSubmit = (e) => {
+ e.preventDefault();
+ if (!validate()) return;
+ setSubmitted(true);
+ };
 
-  const fieldClass =
-    "mt-1.5 w-full rounded-xl border border-mehr-deep/12 bg-mehr-panel/50 px-3.5 py-2.5 text-sm text-mehr-ink outline-none transition placeholder:text-mehr-muted focus:border-mehr-deep/35 focus:bg-white";
+ const fieldClass =
+ "mt-1.5 w-full rounded-xl border border-mehr-deep/12 bg-mehr-panel/50 px-3.5 py-2.5 text-sm text-mehr-ink outline-none transition placeholder:text-mehr-muted focus:border-mehr-deep/35 focus:bg-white";
 
-  return (
-    <motion.div
-      className="fixed inset-0 z-[80] flex items-end justify-center p-0 sm:items-center sm:p-4"
-      initial={reduce ? false : { opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={reduce ? undefined : { opacity: 0 }}
-      role="presentation"
-    >
-      <button
-        type="button"
-        className="absolute inset-0 bg-mehr-ink/55 backdrop-blur-[2px]"
-        aria-label="Close apply form"
-        onClick={onClose}
-      />
-      <motion.div
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        initial={reduce ? false : { opacity: 0, y: 24, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={reduce ? undefined : { opacity: 0, y: 16, scale: 0.98 }}
-        transition={{ duration: 0.28, ease }}
-        className="relative z-10 flex max-h-[92svh] w-full max-w-lg flex-col overflow-hidden rounded-t-[1.5rem] bg-white shadow-float sm:rounded-[1.75rem]"
-      >
-        <div className="flex items-start justify-between gap-3 border-b border-mehr-deep/8 px-4 py-4 sm:px-6">
-          <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
-              Apply for this role
-            </p>
-            <h2
-              id={titleId}
-              className="mt-1 font-sans text-[17px] font-semibold leading-snug tracking-[-0.02em] text-mehr-ink sm:text-lg"
-            >
-              {job.title}
-            </h2>
-            <p className="mt-0.5 text-[12px] text-mehr-mist">
-              {job.company}, {job.location}
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={onClose}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-mehr-deep/10 text-mehr-ink transition hover:bg-mehr-panel"
-            aria-label="Close"
-          >
-            <X size={16} />
-          </button>
-        </div>
+ return (
+ <motion.div
+ className="fixed inset-0 z-[80] flex items-end justify-center p-0 sm:items-center sm:p-4"
+ initial={reduce ? false : { opacity: 0 }}
+ animate={{ opacity: 1 }}
+ exit={reduce ? undefined : { opacity: 0 }}
+ role="presentation"
+ >
+ <button
+ type="button"
+ className="absolute inset-0 bg-mehr-ink/55 backdrop-blur-[2px]"
+ aria-label="Close apply form"
+ onClick={onClose}
+ />
+ <motion.div
+ role="dialog"
+ aria-modal="true"
+ aria-labelledby={titleId}
+ initial={reduce ? false : { opacity: 0, y: 24, scale: 0.98 }}
+ animate={{ opacity: 1, y: 0, scale: 1 }}
+ exit={reduce ? undefined : { opacity: 0, y: 16, scale: 0.98 }}
+ transition={{ duration: 0.28, ease }}
+ className="relative z-10 flex max-h-[92svh] w-full max-w-lg flex-col overflow-hidden rounded-t-[1.5rem] bg-white shadow-float sm:rounded-[1.75rem]"
+ >
+ <div className="flex items-start justify-between gap-3 border-b border-mehr-deep/8 px-4 py-4 sm:px-6">
+ <div>
+ <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
+ Apply for this role
+ </p>
+ <h2
+ id={titleId}
+ className="mt-1 font-sans text-[17px] font-semibold leading-snug tracking-[-0.02em] text-mehr-ink sm:text-lg"
+ >
+ {job.title}
+ </h2>
+ <p className="mt-0.5 text-[12px] text-mehr-mist">
+ {job.company}, {job.location}
+ </p>
+ </div>
+ <button
+ type="button"
+ onClick={onClose}
+ className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-mehr-deep/10 text-mehr-ink transition hover:bg-mehr-panel"
+ aria-label="Close"
+ >
+ <X size={16} />
+ </button>
+ </div>
 
-        <div className="overflow-y-auto px-4 py-4 sm:px-6 sm:py-5">
-          {submitted ? (
-            <div className="py-6 text-center sm:py-8">
-              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-mehr-panel text-mehr-deep">
-                <Check size={22} strokeWidth={2.4} />
-              </span>
-              <p className="mt-4 font-sans text-lg font-semibold text-mehr-ink">
-                Application received
-              </p>
-              <p className="mx-auto mt-2 max-w-sm text-[13px] leading-relaxed text-mehr-mist">
-                Thanks, {form.name.trim().split(" ")[0]}. We&apos;ve noted your interest for{" "}
-                {job.title}. Our team will review your resume and get in touch.
-              </p>
-              <button
-                type="button"
-                onClick={onClose}
-                className="mt-6 inline-flex items-center justify-center rounded-full bg-mehr-deep px-5 py-2.5 text-sm font-semibold text-white"
-              >
-                Close
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={onSubmit} className="space-y-3.5" noValidate>
-              <div>
-                <label className="text-[12px] font-semibold text-mehr-ink" htmlFor="apply-name">
-                  Full name
-                </label>
-                <input
-                  id="apply-name"
-                  value={form.name}
-                  onChange={setField("name")}
-                  autoComplete="name"
-                  className={fieldClass}
-                  placeholder="Your full name"
-                />
-                {errors.name && (
-                  <p className="mt-1 text-[12px] text-red-600">{errors.name}</p>
-                )}
-              </div>
-              <div>
-                <label className="text-[12px] font-semibold text-mehr-ink" htmlFor="apply-email">
-                  Email
-                </label>
-                <input
-                  id="apply-email"
-                  type="email"
-                  value={form.email}
-                  onChange={setField("email")}
-                  autoComplete="email"
-                  className={fieldClass}
-                  placeholder="you@example.com"
-                />
-                {errors.email && (
-                  <p className="mt-1 text-[12px] text-red-600">{errors.email}</p>
-                )}
-              </div>
-              <div>
-                <label className="text-[12px] font-semibold text-mehr-ink" htmlFor="apply-phone">
-                  Phone
-                </label>
-                <input
-                  id="apply-phone"
-                  type="tel"
-                  value={form.phone}
-                  onChange={setField("phone")}
-                  autoComplete="tel"
-                  className={fieldClass}
-                  placeholder="+91 98765 43210"
-                />
-                {errors.phone && (
-                  <p className="mt-1 text-[12px] text-red-600">{errors.phone}</p>
-                )}
-              </div>
-              <div>
-                <label
-                  className="text-[12px] font-semibold text-mehr-ink"
-                  htmlFor="apply-resume"
-                >
-                  Resume Google Drive link
-                </label>
-                <input
-                  id="apply-resume"
-                  type="url"
-                  value={form.resumeUrl}
-                  onChange={setField("resumeUrl")}
-                  className={fieldClass}
-                  placeholder="https://drive.google.com/..."
-                />
-                <p className="mt-1 text-[11px] leading-relaxed text-mehr-muted">
-                  Share a public or accessible Google Drive / Docs link to your resume.
-                </p>
-                {errors.resumeUrl && (
-                  <p className="mt-1 text-[12px] text-red-600">{errors.resumeUrl}</p>
-                )}
-              </div>
-              <div>
-                <label className="text-[12px] font-semibold text-mehr-ink" htmlFor="apply-note">
-                  Note <span className="font-normal text-mehr-muted">(optional)</span>
-                </label>
-                <textarea
-                  id="apply-note"
-                  rows={3}
-                  value={form.note}
-                  onChange={setField("note")}
-                  className={`${fieldClass} resize-none`}
-                  placeholder="Anything you'd like us to know"
-                />
-              </div>
-              <button
-                type="submit"
-                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-5 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal active:scale-[0.98]"
-              >
-                Submit application
-                <ArrowUpRight size={15} />
-              </button>
-            </form>
-          )}
-        </div>
-      </motion.div>
-    </motion.div>
-  );
+ <div className="overflow-y-auto px-4 py-4 sm:px-6 sm:py-5">
+ {submitted ? (
+ <div className="py-6 text-center sm:py-8">
+ <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-mehr-panel text-mehr-deep">
+ <Check size={22} strokeWidth={2.4} />
+ </span>
+ <p className="mt-4 font-sans text-lg font-semibold text-mehr-ink">
+ Application received
+ </p>
+ <p className="mx-auto mt-2 max-w-sm text-[13px] leading-relaxed text-mehr-mist">
+ Thanks, {form.name.trim().split(" ")[0]}. We&apos;ve noted your interest for{" "}
+ {job.title}. Our team will review your resume and get in touch.
+ </p>
+ <button
+ type="button"
+ onClick={onClose}
+ className="mt-6 inline-flex items-center justify-center rounded-full bg-mehr-deep px-5 py-2.5 text-sm font-semibold text-white"
+ >
+ Close
+ </button>
+ </div>
+ ) : (
+ <form onSubmit={onSubmit} className="space-y-3.5" noValidate>
+ <div>
+ <label className="text-[12px] font-semibold text-mehr-ink" htmlFor="apply-name">
+ Full name
+ </label>
+ <input
+ id="apply-name"
+ value={form.name}
+ onChange={setField("name")}
+ autoComplete="name"
+ className={fieldClass}
+ placeholder="Your full name"
+ />
+ {errors.name && (
+ <p className="mt-1 text-[12px] text-red-600">{errors.name}</p>
+ )}
+ </div>
+ <div>
+ <label className="text-[12px] font-semibold text-mehr-ink" htmlFor="apply-email">
+ Email
+ </label>
+ <input
+ id="apply-email"
+ type="email"
+ value={form.email}
+ onChange={setField("email")}
+ autoComplete="email"
+ className={fieldClass}
+ placeholder="you@example.com"
+ />
+ {errors.email && (
+ <p className="mt-1 text-[12px] text-red-600">{errors.email}</p>
+ )}
+ </div>
+ <div>
+ <label className="text-[12px] font-semibold text-mehr-ink" htmlFor="apply-phone">
+ Phone
+ </label>
+ <input
+ id="apply-phone"
+ type="tel"
+ value={form.phone}
+ onChange={setField("phone")}
+ autoComplete="tel"
+ className={fieldClass}
+ placeholder="+91 98765 43210"
+ />
+ {errors.phone && (
+ <p className="mt-1 text-[12px] text-red-600">{errors.phone}</p>
+ )}
+ </div>
+ <div>
+ <label
+ className="text-[12px] font-semibold text-mehr-ink"
+ htmlFor="apply-resume"
+ >
+ Resume Google Drive link
+ </label>
+ <input
+ id="apply-resume"
+ type="url"
+ value={form.resumeUrl}
+ onChange={setField("resumeUrl")}
+ className={fieldClass}
+ placeholder="https://drive.google.com/..."
+ />
+ <p className="mt-1 text-[11px] leading-relaxed text-mehr-muted">
+ Share a public or accessible Google Drive / Docs link to your resume.
+ </p>
+ {errors.resumeUrl && (
+ <p className="mt-1 text-[12px] text-red-600">{errors.resumeUrl}</p>
+ )}
+ </div>
+ <div>
+ <label className="text-[12px] font-semibold text-mehr-ink" htmlFor="apply-note">
+ Note <span className="font-normal text-mehr-muted">(optional)</span>
+ </label>
+ <textarea
+ id="apply-note"
+ rows={3}
+ value={form.note}
+ onChange={setField("note")}
+ className={`${fieldClass} resize-none`}
+ placeholder="Anything you'd like us to know"
+ />
+ </div>
+ <button
+ type="submit"
+ className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-5 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal active:scale-[0.98]"
+ >
+ Submit application
+ <ArrowUpRight size={15} />
+ </button>
+ </form>
+ )}
+ </div>
+ </motion.div>
+ </motion.div>
+ );
 }
 
 function JobDetailsBody({ job }) {
-  return (
-    <div className="space-y-5">
-      {job.about && (
-        <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
-            About
-          </p>
-          <p className="mt-2 whitespace-pre-line text-[13px] leading-relaxed text-mehr-mist sm:text-[14px]">
-            {job.about}
-          </p>
-        </div>
-      )}
-      {job.summary && (
-        <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
-            About the role
-          </p>
-          <p className="mt-2 whitespace-pre-line text-[13px] leading-relaxed text-mehr-mist sm:text-[14px]">
-            {job.summary}
-          </p>
-        </div>
-      )}
-      {(job.reportingTo || job.department || job.workMode || job.salary || job.industry) && (
-        <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-[12px] text-mehr-mist sm:text-[13px]">
-          {job.department && (
-            <span>
-              <span className="font-semibold text-mehr-ink">Department: </span>
-              {job.department}
-            </span>
-          )}
-          {job.reportingTo && (
-            <span>
-              <span className="font-semibold text-mehr-ink">Reporting to: </span>
-              {job.reportingTo}
-            </span>
-          )}
-          {job.workMode && (
-            <span>
-              <span className="font-semibold text-mehr-ink">Work location: </span>
-              {job.workMode}
-            </span>
-          )}
-          {job.salary && (
-            <span>
-              <span className="font-semibold text-mehr-ink">Salary: </span>
-              {job.salary}
-            </span>
-          )}
-          {job.industry && (
-            <span>
-              <span className="font-semibold text-mehr-ink">Industry: </span>
-              {job.industry}
-            </span>
-          )}
-        </div>
-      )}
-      {job.sections.map((section) => (
-        <div key={section.title}>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
-            {section.title}
-          </p>
-          <ul className="mt-2 space-y-2">
-            {section.items.map((item) => (
-              <li
-                key={item}
-                className="flex gap-2.5 text-[13px] leading-relaxed text-mehr-mist sm:text-[14px]"
-              >
-                <span
-                  aria-hidden
-                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-mehr-deep"
-                />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  );
+ return (
+ <div className="space-y-5">
+ {job.about && (
+ <div>
+ <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
+ About
+ </p>
+ <p className="mt-2 whitespace-pre-line text-[13px] leading-relaxed text-mehr-mist sm:text-[14px]">
+ {job.about}
+ </p>
+ </div>
+ )}
+ {job.summary && (
+ <div>
+ <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
+ About the role
+ </p>
+ <p className="mt-2 whitespace-pre-line text-[13px] leading-relaxed text-mehr-mist sm:text-[14px]">
+ {job.summary}
+ </p>
+ </div>
+ )}
+ {(job.reportingTo || job.department || job.workMode || job.salary || job.industry) && (
+ <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-[12px] text-mehr-mist sm:text-[13px]">
+ {job.department && (
+ <span>
+ <span className="font-semibold text-mehr-ink">Department: </span>
+ {job.department}
+ </span>
+ )}
+ {job.reportingTo && (
+ <span>
+ <span className="font-semibold text-mehr-ink">Reporting to: </span>
+ {job.reportingTo}
+ </span>
+ )}
+ {job.workMode && (
+ <span>
+ <span className="font-semibold text-mehr-ink">Work location: </span>
+ {job.workMode}
+ </span>
+ )}
+ {job.salary && (
+ <span>
+ <span className="font-semibold text-mehr-ink">Salary: </span>
+ {job.salary}
+ </span>
+ )}
+ {job.industry && (
+ <span>
+ <span className="font-semibold text-mehr-ink">Industry: </span>
+ {job.industry}
+ </span>
+ )}
+ </div>
+ )}
+ {job.sections.map((section) => (
+ <div key={section.title}>
+ <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-mehr-deep">
+ {section.title}
+ </p>
+ <ul className="mt-2 space-y-2">
+ {section.items.map((item) => (
+ <li
+ key={item}
+ className="flex gap-2.5 text-[13px] leading-relaxed text-mehr-mist sm:text-[14px]"
+ >
+ <span
+ aria-hidden
+ className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-mehr-deep"
+ />
+ <span>{item}</span>
+ </li>
+ ))}
+ </ul>
+ </div>
+ ))}
+ </div>
+ );
 }
 
 function DetailsModal({ job, onClose, onApply }) {
-  const titleId = useId();
-  const reduce = useReducedMotion();
+ const titleId = useId();
+ const reduce = useReducedMotion();
 
-  useEffect(() => {
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const onKey = (e) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [onClose]);
+ useEffect(() => {
+ const prev = document.body.style.overflow;
+ document.body.style.overflow = "hidden";
+ const onKey = (e) => {
+ if (e.key === "Escape") onClose();
+ };
+ window.addEventListener("keydown", onKey);
+ return () => {
+ document.body.style.overflow = prev;
+ window.removeEventListener("keydown", onKey);
+ };
+ }, [onClose]);
 
-  return (
-    <motion.div
-      className="fixed inset-0 z-[80] flex items-end justify-center p-0 sm:items-center sm:p-4"
-      initial={reduce ? false : { opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={reduce ? undefined : { opacity: 0 }}
-      role="presentation"
-    >
-      <button
-        type="button"
-        className="absolute inset-0 bg-mehr-ink/55 backdrop-blur-[2px]"
-        aria-label="Close job details"
-        onClick={onClose}
-      />
-      <motion.div
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={titleId}
-        initial={reduce ? false : { opacity: 0, y: 28, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={reduce ? undefined : { opacity: 0, y: 18, scale: 0.98 }}
-        transition={{ duration: 0.28, ease }}
-        className="relative z-10 flex max-h-[92svh] w-full max-w-2xl flex-col overflow-hidden rounded-t-[1.5rem] bg-white shadow-float sm:rounded-[1.75rem]"
-      >
-        <div className="flex items-start justify-between gap-3 border-b border-mehr-deep/8 px-4 py-4 sm:px-6 sm:py-5">
-          <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-full bg-mehr-panel px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-mehr-deep">
-                {job.company}
-              </span>
-              {job.type && (
-                <span className="text-[11px] font-medium text-mehr-muted">{job.type}</span>
-              )}
-            </div>
-            <h2
-              id={titleId}
-              className="mt-2 font-sans text-[clamp(1.15rem,4.5vw,1.45rem)] font-semibold leading-snug tracking-[-0.025em] text-mehr-ink"
-            >
-              {job.title}
-            </h2>
-            {job.subtitle && (
-              <p className="mt-1 text-[12px] font-medium text-mehr-mist sm:text-[13px]">
-                {job.subtitle}
-              </p>
-            )}
-            <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1 text-[12px] text-mehr-mist">
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin size={13} className="text-mehr-deep" />
-                {job.location}
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Briefcase size={13} className="text-mehr-deep" />
-                {job.experience}
-              </span>
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={onClose}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-mehr-deep/10 text-mehr-ink transition hover:bg-mehr-panel"
-            aria-label="Close"
-          >
-            <X size={16} />
-          </button>
-        </div>
+ return (
+ <motion.div
+ className="fixed inset-0 z-[80] flex items-end justify-center p-0 sm:items-center sm:p-4"
+ initial={reduce ? false : { opacity: 0 }}
+ animate={{ opacity: 1 }}
+ exit={reduce ? undefined : { opacity: 0 }}
+ role="presentation"
+ >
+ <button
+ type="button"
+ className="absolute inset-0 bg-mehr-ink/55 backdrop-blur-[2px]"
+ aria-label="Close job details"
+ onClick={onClose}
+ />
+ <motion.div
+ role="dialog"
+ aria-modal="true"
+ aria-labelledby={titleId}
+ initial={reduce ? false : { opacity: 0, y: 28, scale: 0.98 }}
+ animate={{ opacity: 1, y: 0, scale: 1 }}
+ exit={reduce ? undefined : { opacity: 0, y: 18, scale: 0.98 }}
+ transition={{ duration: 0.28, ease }}
+ className="relative z-10 flex max-h-[92svh] w-full max-w-2xl flex-col overflow-hidden rounded-t-[1.5rem] bg-white shadow-float sm:rounded-[1.75rem]"
+ >
+ <div className="flex items-start justify-between gap-3 border-b border-mehr-deep/8 px-4 py-4 sm:px-6 sm:py-5">
+ <div className="min-w-0">
+ <div className="flex flex-wrap items-center gap-2">
+ <span className="rounded-full bg-mehr-panel px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-mehr-deep">
+ {job.company}
+ </span>
+ {job.type && (
+ <span className="text-[11px] font-medium text-mehr-muted">{job.type}</span>
+ )}
+ </div>
+ <h2
+ id={titleId}
+ className="mt-2 font-sans text-[clamp(1.15rem,4.5vw,1.45rem)] font-semibold leading-snug tracking-[-0.025em] text-mehr-ink"
+ >
+ {job.title}
+ </h2>
+ {job.subtitle && (
+ <p className="mt-1 text-[12px] font-medium text-mehr-mist sm:text-[13px]">
+ {job.subtitle}
+ </p>
+ )}
+ <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-1 text-[12px] text-mehr-mist">
+ <span className="inline-flex items-center gap-1.5">
+ <MapPin size={13} className="text-mehr-deep" />
+ {job.location}
+ </span>
+ <span className="inline-flex items-center gap-1.5">
+ <Briefcase size={13} className="text-mehr-deep" />
+ {job.experience}
+ </span>
+ </div>
+ </div>
+ <button
+ type="button"
+ onClick={onClose}
+ className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-mehr-deep/10 text-mehr-ink transition hover:bg-mehr-panel"
+ aria-label="Close"
+ >
+ <X size={16} />
+ </button>
+ </div>
 
-        <div className="overflow-y-auto px-4 py-4 sm:px-6 sm:py-5">
-          <JobDetailsBody job={job} />
-        </div>
+ <div className="overflow-y-auto px-4 py-4 sm:px-6 sm:py-5">
+ <JobDetailsBody job={job} />
+ </div>
 
-        <div className="flex flex-col gap-2 border-t border-mehr-deep/8 bg-white px-4 py-3.5 sm:flex-row sm:justify-end sm:gap-3 sm:px-6 sm:py-4">
-          <button
-            type="button"
-            onClick={onClose}
-            className="inline-flex w-full items-center justify-center rounded-full border border-mehr-deep/12 px-5 py-2.5 text-sm font-semibold text-mehr-deep transition hover:border-mehr-deep/25 sm:w-auto"
-          >
-            Close
-          </button>
-          <button
-            type="button"
-            onClick={() => onApply(job)}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-mehr-charcoal active:scale-[0.98] sm:w-auto"
-          >
-            Apply for this role
-            <ArrowUpRight size={14} />
-          </button>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
+ <div className="flex flex-col gap-2 border-t border-mehr-deep/8 bg-white px-4 py-3.5 sm:flex-row sm:justify-end sm:gap-3 sm:px-6 sm:py-4">
+ <button
+ type="button"
+ onClick={onClose}
+ className="inline-flex w-full items-center justify-center rounded-full border border-mehr-deep/12 px-5 py-2.5 text-sm font-semibold text-mehr-deep transition hover:border-mehr-deep/25 sm:w-auto"
+ >
+ Close
+ </button>
+ <button
+ type="button"
+ onClick={() => onApply(job)}
+ className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-mehr-charcoal active:scale-[0.98] sm:w-auto"
+ >
+ Apply for this role
+ <ArrowUpRight size={14} />
+ </button>
+ </div>
+ </motion.div>
+ </motion.div>
+ );
 }
 
 function JobCard({ job, index, onDetails, onApply, className = "" }) {
-  const reduce = useReducedMotion();
+ const reduce = useReducedMotion();
 
-  return (
-    <motion.article
-      whileHover={reduce ? undefined : { y: -4 }}
-      transition={{ type: "spring", stiffness: 380, damping: 28 }}
-      className={`group flex h-full flex-col overflow-hidden rounded-[1.15rem] border border-mehr-deep/8 bg-white p-3 shadow-soft transition hover:border-mehr-deep/18 hover:shadow-float sm:rounded-[1.35rem] sm:p-4 ${className}`}
-    >
-      <div className="flex items-start justify-between gap-2">
-        <span className="line-clamp-1 rounded-full bg-mehr-panel px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.11em] text-mehr-deep sm:text-[10px]">
-          {job.company}
-        </span>
-        <span className="shrink-0 font-sans text-[10px] font-semibold tabular-nums text-mehr-muted sm:text-[11px]">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-      </div>
+ return (
+ <motion.article
+ whileHover={reduce ? undefined : { y: -4 }}
+ transition={{ type: "spring", stiffness: 380, damping: 28 }}
+ className={`group flex h-full flex-col overflow-hidden rounded-[1.15rem] border border-mehr-deep/8 bg-white p-3 shadow-soft transition hover:border-mehr-deep/18 hover:shadow-float sm:rounded-[1.35rem] sm:p-4 ${className}`}
+ >
+ <div className="flex items-start justify-between gap-2">
+ <span className="line-clamp-1 rounded-full bg-mehr-panel px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.11em] text-mehr-deep sm:text-[10px]">
+ {job.company}
+ </span>
+ <span className="shrink-0 font-sans text-[10px] font-semibold tabular-nums text-mehr-muted sm:text-[11px]">
+ {String(index + 1).padStart(2, "0")}
+ </span>
+ </div>
 
-      <h3 className="mt-2.5 font-sans text-[13px] font-semibold leading-snug tracking-[-0.02em] text-mehr-ink sm:mt-3 sm:text-[15px]">
-        {job.title}
-      </h3>
+ <h3 className="mt-2.5 font-sans text-[13px] font-semibold leading-snug tracking-[-0.02em] text-mehr-ink sm:mt-3 sm:text-[15px]">
+ {job.title}
+ </h3>
 
-      <div className="mt-2 space-y-1 text-[11px] text-mehr-mist sm:text-[12px]">
-        <p className="flex items-start gap-1.5">
-          <MapPin size={12} className="mt-0.5 shrink-0 text-mehr-deep" />
-          <span className="line-clamp-2">{job.location}</span>
-        </p>
-        <p className="flex items-start gap-1.5">
-          <Briefcase size={12} className="mt-0.5 shrink-0 text-mehr-deep" />
-          <span className="line-clamp-1">{job.experience}</span>
-        </p>
-      </div>
+ <div className="mt-2 space-y-1 text-[11px] text-mehr-mist sm:text-[12px]">
+ <p className="flex items-start gap-1.5">
+ <MapPin size={12} className="mt-0.5 shrink-0 text-mehr-deep" />
+ <span className="line-clamp-2">{job.location}</span>
+ </p>
+ <p className="flex items-start gap-1.5">
+ <Briefcase size={12} className="mt-0.5 shrink-0 text-mehr-deep" />
+ <span className="line-clamp-1">{job.experience}</span>
+ </p>
+ </div>
 
-      <p className="mt-2.5 line-clamp-2 flex-1 text-[11px] leading-relaxed text-mehr-mist sm:mt-3 sm:text-[12px]">
-        {job.summary}
-      </p>
+ <p className="mt-2.5 line-clamp-2 flex-1 text-[11px] leading-relaxed text-mehr-mist sm:mt-3 sm:text-[12px]">
+ {job.summary}
+ </p>
 
-      <div className="mt-3 flex flex-col gap-1.5 sm:mt-4 sm:gap-2">
-        <button
-          type="button"
-          onClick={() => onDetails(job)}
-          className="inline-flex w-full items-center justify-center gap-1 rounded-full border border-mehr-deep/12 bg-white px-3 py-2 text-[11px] font-semibold text-mehr-deep transition hover:border-mehr-deep/25 sm:text-[12px] sm:py-2.5"
-        >
-          View details
-          <ArrowUpRight size={12} />
-        </button>
-        <button
-          type="button"
-          onClick={() => onApply(job)}
-          className="inline-flex w-full items-center justify-center gap-1 rounded-full bg-mehr-deep px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-mehr-charcoal active:scale-[0.98] sm:text-[12px] sm:py-2.5"
-        >
-          Apply
-          <ArrowUpRight size={12} />
-        </button>
-      </div>
-    </motion.article>
-  );
+ <div className="mt-3 flex flex-col gap-1.5 sm:mt-4 sm:gap-2">
+ <button
+ type="button"
+ onClick={() => onDetails(job)}
+ className="inline-flex w-full items-center justify-center gap-1 rounded-full border border-mehr-deep/12 bg-white px-3 py-2 text-[11px] font-semibold text-mehr-deep transition hover:border-mehr-deep/25 sm:text-[12px] sm:py-2.5"
+ >
+ View details
+ <ArrowUpRight size={12} />
+ </button>
+ <button
+ type="button"
+ onClick={() => onApply(job)}
+ className="inline-flex w-full items-center justify-center gap-1 rounded-full bg-mehr-deep px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-mehr-charcoal active:scale-[0.98] sm:text-[12px] sm:py-2.5"
+ >
+ Apply
+ <ArrowUpRight size={12} />
+ </button>
+ </div>
+ </motion.article>
+ );
 }
 
 function OpeningsSection() {
-  const [detailJob, setDetailJob] = useState(null);
-  const [applyJob, setApplyJob] = useState(null);
-  const { openingsTitle, openingsNote } = careersContent;
-  const remainder = openings.length % 4;
-  const lastRowStart = remainder === 0 ? openings.length : openings.length - remainder;
+ const [detailJob, setDetailJob] = useState(null);
+ const [applyJob, setApplyJob] = useState(null);
+ const { openingsTitle, openingsNote } = careersContent;
+ const remainder = openings.length % 4;
+ const lastRowStart = remainder === 0 ? openings.length : openings.length - remainder;
 
-  const openApply = (job) => {
-    setDetailJob(null);
-    setApplyJob(job);
-  };
+ const openApply = (job) => {
+ setDetailJob(null);
+ setApplyJob(job);
+ };
 
-  return (
-    <section id="openings" className="scroll-mt-28 bg-mehr-panel/40 py-8 sm:py-14 lg:py-16">
-      <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">Hiring now</p>
-          <h2 className="mt-2.5 font-sans text-[clamp(1.5rem,6.5vw,2.6rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-mehr-ink sm:mt-3">
-            {openingsTitle}
-          </h2>
-          <p className="mt-3 text-[13px] leading-relaxed text-mehr-mist sm:mt-4 sm:text-sm">
-            {openingsNote}
-          </p>
-        </Reveal>
+ return (
+ <section id="openings" className="scroll-mt-28 bg-mehr-panel/40 py-8 sm:py-14 lg:py-16">
+ <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
+ <Reveal className="mx-auto max-w-2xl text-center">
+ <p className="eyebrow">Hiring now</p>
+ <h2 className="mt-2.5 font-sans text-[clamp(1.5rem,6.5vw,2.6rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-mehr-ink sm:mt-3">
+ {openingsTitle}
+ </h2>
+ <p className="mt-3 text-[13px] leading-relaxed text-mehr-mist sm:mt-4 sm:text-sm">
+ {openingsNote}
+ </p>
+ </Reveal>
 
-        {/* Phone: 2-col · lg: 4-col; last incomplete row centered */}
-        <div className="mt-7 grid grid-cols-2 gap-2.5 sm:mt-10 sm:gap-3.5 lg:grid-cols-4 lg:gap-5">
-          {openings.map((job, i) => {
-            const inLastPartialRow = i >= lastRowStart && remainder === 2;
-            const centerClass =
-              inLastPartialRow && i === lastRowStart
-                ? "lg:col-start-2"
-                : "";
+ {/* Phone: 2-col , lg: 4-col; last incomplete row centered */}
+ <div className="mt-7 grid grid-cols-2 gap-2.5 sm:mt-10 sm:gap-3.5 lg:grid-cols-4 lg:gap-5">
+ {openings.map((job, i) => {
+ const inLastPartialRow = i >= lastRowStart && remainder === 2;
+ const centerClass =
+ inLastPartialRow && i === lastRowStart
+ ? "lg:col-start-2"
+ : "";
 
-            return (
-              <Reveal
-                key={job.id}
-                delay={Math.min(i * 0.03, 0.18)}
-                className={`h-full ${centerClass}`}
-              >
-                <JobCard
-                  job={job}
-                  index={i}
-                  onDetails={setDetailJob}
-                  onApply={openApply}
-                />
-              </Reveal>
-            );
-          })}
-        </div>
-      </div>
+ return (
+ <Reveal
+ key={job.id}
+ delay={Math.min(i * 0.03, 0.18)}
+ className={`h-full ${centerClass}`}
+ >
+ <JobCard
+ job={job}
+ index={i}
+ onDetails={setDetailJob}
+ onApply={openApply}
+ />
+ </Reveal>
+ );
+ })}
+ </div>
+ </div>
 
-      <AnimatePresence>
-        {detailJob && (
-          <DetailsModal
-            job={detailJob}
-            onClose={() => setDetailJob(null)}
-            onApply={openApply}
-          />
-        )}
-      </AnimatePresence>
+ <AnimatePresence>
+ {detailJob && (
+ <DetailsModal
+ job={detailJob}
+ onClose={() => setDetailJob(null)}
+ onApply={openApply}
+ />
+ )}
+ </AnimatePresence>
 
-      <AnimatePresence>
-        {applyJob && (
-          <ApplyModal job={applyJob} onClose={() => setApplyJob(null)} />
-        )}
-      </AnimatePresence>
-    </section>
-  );
+ <AnimatePresence>
+ {applyJob && (
+ <ApplyModal job={applyJob} onClose={() => setApplyJob(null)} />
+ )}
+ </AnimatePresence>
+ </section>
+ );
 }
 
 export default function Careers() {
-  const { hero, why, experienceTitle, experienceEyebrow } = careersContent;
+ const { hero, why, experienceTitle, experienceEyebrow } = careersContent;
 
-  return (
-    <>
-      <PageSEO {...seo.careers} path="/careers" />
-      <CareersHero />
+ return (
+ <>
+ <PageSEO {...seo.careers} path="/careers" />
+ <CareersHero />
 
-      <section className="bg-mehr-panel/45 py-8 sm:py-14">
-        <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-          <div className="grid items-stretch gap-2.5 overflow-hidden rounded-[1.35rem] border border-mehr-deep/8 bg-white p-2.5 sm:rounded-[2.25rem] sm:gap-3 sm:p-3.5 lg:grid-cols-[1.05fr_0.95fr] lg:gap-3.5">
-            <Reveal className="flex flex-col justify-center px-3 py-4 text-center sm:px-6 sm:py-8 sm:text-left lg:px-8">
-              <p className="eyebrow">Life at me-HR</p>
-              <h2 className="mx-auto mt-2.5 max-w-[16ch] font-sans text-[clamp(1.4rem,6vw,2.35rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-mehr-ink sm:mx-0 sm:mt-3">
-                Work that builds real HR capability
-              </h2>
-              <p className="mx-auto mt-3 max-w-md text-[13px] leading-relaxed text-mehr-mist sm:mx-0 sm:mt-4 sm:text-sm">
-                {hero.body}
-              </p>
-              <div className="mt-5 rounded-2xl border border-mehr-deep/10 bg-mehr-panel/80 p-3.5 text-left sm:mt-6 sm:p-5">
-                <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-mehr-deep sm:text-[10px]">
-                  {why[2].title}
-                </p>
-                <p className="mt-1.5 text-[13px] font-semibold leading-snug text-mehr-ink sm:text-sm">
-                  {why[2].desc}
-                </p>
-              </div>
-              <div className="mt-5 sm:mt-7">
-                <Link
-                  to="/life"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-5 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal hover:gap-3 active:scale-[0.98] sm:w-auto sm:bg-transparent sm:px-0 sm:py-0 sm:text-mehr-deep sm:shadow-none sm:hover:bg-transparent"
-                >
-                  Explore life at me-HR
-                  <ArrowUpRight size={15} />
-                </Link>
-              </div>
-            </Reveal>
-            <Reveal
-              delay={0.1}
-              className="relative min-h-[200px] overflow-hidden rounded-[1.15rem] sm:min-h-[300px] sm:rounded-[1.6rem] lg:min-h-[360px]"
-            >
-              <img
-                src={CULTURE_IMG}
-                alt="me-HR team collaborating in the office"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </Reveal>
-          </div>
-        </div>
-      </section>
+ <section className="bg-mehr-panel/45 py-8 sm:py-14">
+ <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
+ <div className="grid items-stretch gap-2.5 overflow-hidden rounded-[1.35rem] border border-mehr-deep/8 bg-white p-2.5 sm:rounded-[2.25rem] sm:gap-3 sm:p-3.5 lg:grid-cols-[1.05fr_0.95fr] lg:gap-3.5">
+ <Reveal className="flex flex-col justify-center px-3 py-4 text-center sm:px-6 sm:py-8 sm:text-left lg:px-8">
+ <p className="eyebrow">Life at me-HR</p>
+ <h2 className="mx-auto mt-2.5 max-w-[16ch] font-sans text-[clamp(1.4rem,6vw,2.35rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-mehr-ink sm:mx-0 sm:mt-3">
+ Work that builds real HR capability
+ </h2>
+ <p className="mx-auto mt-3 max-w-md text-[13px] leading-relaxed text-mehr-mist sm:mx-0 sm:mt-4 sm:text-sm">
+ {hero.body}
+ </p>
+ <div className="mt-5 rounded-2xl border border-mehr-deep/10 bg-mehr-panel/80 p-3.5 text-left sm:mt-6 sm:p-5">
+ <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-mehr-deep sm:text-[10px]">
+ {why[2].title}
+ </p>
+ <p className="mt-1.5 text-[13px] font-semibold leading-snug text-mehr-ink sm:text-sm">
+ {why[2].desc}
+ </p>
+ </div>
+ <div className="mt-5 sm:mt-7">
+ <Link
+ to="/life"
+ className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-5 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal hover:gap-3 active:scale-[0.98] sm:w-auto sm:bg-transparent sm:px-0 sm:py-0 sm:text-mehr-deep sm:shadow-none sm:hover:bg-transparent"
+ >
+ Explore life at me-HR
+ <ArrowUpRight size={15} />
+ </Link>
+ </div>
+ </Reveal>
+ <Reveal
+ delay={0.1}
+ className="relative min-h-[200px] overflow-hidden rounded-[1.15rem] sm:min-h-[300px] sm:rounded-[1.6rem] lg:min-h-[360px]"
+ >
+ <img
+ src={CULTURE_IMG}
+ alt="me-HR team collaborating in the office"
+ className="absolute inset-0 h-full w-full object-cover"
+ />
+ </Reveal>
+ </div>
+ </div>
+ </section>
 
-      <section className="bg-white py-8 sm:py-14 lg:py-16">
-        <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">{experienceEyebrow}</p>
-            <h2 className="mt-2.5 font-sans text-[clamp(1.5rem,6.5vw,2.6rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-mehr-ink sm:mt-3">
-              {experienceTitle}
-            </h2>
-          </Reveal>
+ <section className="bg-white py-8 sm:py-14 lg:py-16">
+ <div className="container-mehr page-gutter sm:px-3 md:px-4 lg:px-5">
+ <Reveal className="mx-auto max-w-2xl text-center">
+ <p className="eyebrow">{experienceEyebrow}</p>
+ <h2 className="mt-2.5 font-sans text-[clamp(1.5rem,6.5vw,2.6rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-mehr-ink sm:mt-3">
+ {experienceTitle}
+ </h2>
+ </Reveal>
 
-          <div className="-mx-4 mt-7 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:mt-10 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 lg:gap-5 [&::-webkit-scrollbar]:hidden">
-            {why.map((item, i) => (
-              <div
-                key={item.title}
-                className="w-[78vw] max-w-[280px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink"
-              >
-                <WhyCard item={item} Icon={whyIcons[i]} index={i} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+ <div className="-mx-4 mt-7 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:mt-10 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 lg:gap-5 [&::-webkit-scrollbar]:hidden">
+ {why.map((item, i) => (
+ <div
+ key={item.title}
+ className="w-[78vw] max-w-[280px] shrink-0 snap-center sm:w-auto sm:max-w-none sm:shrink"
+ >
+ <WhyCard item={item} Icon={whyIcons[i]} index={i} />
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
 
-      <OpeningsSection />
+ <OpeningsSection />
 
-      <CTABanner cta={ctas.primary} />
-    </>
-  );
+ <CTABanner cta={ctas.primary} />
+ </>
+ );
 }

@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Instagram, Linkedin, Phone } from "lucide-react";
 import {
-  contactInfo,
-  footerLinks,
-  footerExploreLinks,
-  footerLegalLinks,
-  footerContent,
-  ctas,
+ contactInfo,
+ footerLinks,
+ footerExploreLinks,
+ footerLegalLinks,
+ footerContent,
+ ctas,
 } from "../../data/content";
 import Logo from "../ui/Logo";
 import SpecularButton from "../ui/SpecularButton";
@@ -20,232 +20,232 @@ const ease = [0.22, 1, 0.36, 1];
 const COPYRIGHT = "Copyright \u00A9 2024 me-HR.";
 
 function WhatsAppIcon({ size = 16 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-    </svg>
-  );
+ return (
+ <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+ <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+ </svg>
+ );
 }
 
 function LinkCard({ label, links, className = "" }) {
-  return (
-    <div
-      className={`rounded-[1.2rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur-sm sm:rounded-[1.5rem] sm:p-5 ${className}`}
-    >
-      <p className="text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45 sm:text-left">
-        {label}
-      </p>
-      <ul className="mt-3.5 grid grid-cols-2 gap-x-3 gap-y-2.5 sm:mt-4 sm:grid-cols-1 sm:gap-y-2.5">
-        {links.map((l) => (
-          <li key={l.path + l.label}>
-            <Link
-              to={l.path}
-              className="text-[13px] text-white/75 transition hover:text-white sm:text-sm"
-            >
-              {l.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+ return (
+ <div
+ className={`rounded-[1.2rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur-sm sm:rounded-[1.5rem] sm:p-5 ${className}`}
+ >
+ <p className="text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45 sm:text-left">
+ {label}
+ </p>
+ <ul className="mt-3.5 grid grid-cols-2 gap-x-3 gap-y-2.5 sm:mt-4 sm:grid-cols-1 sm:gap-y-2.5">
+ {links.map((l) => (
+ <li key={l.path + l.label}>
+ <Link
+ to={l.path}
+ className="text-[13px] text-white/75 transition hover:text-white sm:text-sm"
+ >
+ {l.label}
+ </Link>
+ </li>
+ ))}
+ </ul>
+ </div>
+ );
 }
 
 export default function Footer() {
-  const reduce = useReducedMotion();
-  const [email, setEmail] = useState("");
-  const [done, setDone] = useState(false);
+ const reduce = useReducedMotion();
+ const [email, setEmail] = useState("");
+ const [done, setDone] = useState(false);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    setDone(true);
-    setEmail("");
-  };
+ const onSubmit = (e) => {
+ e.preventDefault();
+ if (!email.trim()) return;
+ setDone(true);
+ setEmail("");
+ };
 
-  return (
-    <footer className="relative overflow-hidden bg-mehr-ink text-white">
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <img
-          src={COLLAGE}
-          alt=""
-          className="h-full w-full object-cover object-[center_20%] opacity-[0.28] grayscale contrast-[1.05]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-mehr-ink/80 via-mehr-ink/72 to-mehr-ink/88" />
-        <div className="absolute inset-0 bg-black/25" />
-      </div>
+ return (
+ <footer className="relative overflow-hidden bg-mehr-ink text-white">
+ <div className="pointer-events-none absolute inset-0" aria-hidden>
+ <img
+ src={COLLAGE}
+ alt=""
+ className="h-full w-full object-cover object-[center_20%] opacity-[0.28] grayscale contrast-[1.05]"
+ />
+ <div className="absolute inset-0 bg-gradient-to-b from-mehr-ink/80 via-mehr-ink/72 to-mehr-ink/88" />
+ <div className="absolute inset-0 bg-black/25" />
+ </div>
 
-      <div
-        className="pointer-events-none absolute inset-2.5 z-[3] rounded-[1.1rem] border border-white/[0.08] sm:inset-4 sm:rounded-[1.5rem] lg:inset-5"
-        aria-hidden
-      />
+ <div
+ className="pointer-events-none absolute inset-2.5 z-[3] rounded-[1.1rem] border border-white/[0.08] sm:inset-4 sm:rounded-[1.5rem] lg:inset-5"
+ aria-hidden
+ />
 
-      <div className="relative z-10 px-4 pb-7 pt-8 sm:px-9 sm:pb-10 sm:pt-12 lg:px-12 lg:pb-12 lg:pt-14 xl:px-16">
-        <div className="mb-6 flex flex-col gap-1.5 sm:mb-10 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55 sm:text-[11px]">
-            me-HR, Pune
-          </p>
-          <p className="text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-white/55 sm:max-w-none sm:text-right sm:text-[11px]">
-            {footerContent.tagline}
-          </p>
-        </div>
+ <div className="relative z-10 px-4 pb-7 pt-8 sm:px-9 sm:pb-10 sm:pt-12 lg:px-12 lg:pb-12 lg:pt-14 xl:px-16">
+ <div className="mb-6 flex flex-col gap-1.5 sm:mb-10 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+ <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/55 sm:text-[11px]">
+ me-HR, Pune
+ </p>
+ <p className="text-[10px] font-semibold uppercase leading-relaxed tracking-[0.16em] text-white/55 sm:max-w-none sm:text-right sm:text-[11px]">
+ {footerContent.tagline}
+ </p>
+ </div>
 
-        <div className="grid items-start gap-7 sm:gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 xl:gap-12">
-          <div className="text-center sm:text-left">
-            <div className="flex justify-center sm:justify-start">
-              <Logo size="footer" light className="overflow-visible" />
-            </div>
-            <h2 className="mx-auto mt-5 max-w-[16ch] font-sans text-[clamp(1.45rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-white drop-shadow-sm sm:mx-0 sm:mt-6">
-              {footerContent.ctaLine.replace("| Book Consultation!", "").trim()}
-            </h2>
+ <div className="grid items-start gap-7 sm:gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 xl:gap-12">
+ <div className="text-center sm:text-left">
+ <div className="flex justify-center sm:justify-start">
+ <Logo size="footer" light className="overflow-visible" />
+ </div>
+ <h2 className="mx-auto mt-5 max-w-[16ch] font-sans text-[clamp(1.45rem,6vw,2.55rem)] font-semibold leading-[1.1] tracking-[-0.035em] text-white drop-shadow-sm sm:mx-0 sm:mt-6">
+ {footerContent.ctaLine.replace("| Book Consultation!", "").trim()}
+ </h2>
 
-            <div className="mx-auto mt-3.5 max-w-md space-y-1.5 text-[13px] leading-relaxed text-white/75 sm:mx-0 sm:mt-4 sm:text-sm">
-              <p>{contactInfo.addressShort}</p>
-              <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 tabular-nums sm:justify-start">
-                <a href={contactInfo.emailHref} className="transition hover:text-white">
-                  {contactInfo.email}
-                </a>
-                <span className="text-white/35" aria-hidden>
-                  |
-                </span>
-                <a href={contactInfo.phoneHref} className="transition hover:text-white">
-                  {contactInfo.phone}
-                </a>
-              </p>
-            </div>
+ <div className="mx-auto mt-3.5 max-w-md space-y-1.5 text-[13px] leading-relaxed text-white/75 sm:mx-0 sm:mt-4 sm:text-sm">
+ <p>{contactInfo.addressShort}</p>
+ <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 tabular-nums sm:justify-start">
+ <a href={contactInfo.emailHref} className="transition hover:text-white">
+ {contactInfo.email}
+ </a>
+ <span className="text-white/35" aria-hidden>
+ |
+ </span>
+ <a href={contactInfo.phoneHref} className="transition hover:text-white">
+ {contactInfo.phone}
+ </a>
+ </p>
+ </div>
 
-            <div className="mt-6 flex w-full flex-col items-stretch gap-2.5 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:justify-start sm:gap-3">
-              <SpecularButton
-                to="/contact"
-                variant="light"
-                size="md"
-                className="w-full justify-center sm:w-auto"
-              >
-                {ctas.primary}
-                <ArrowUpRight size={15} />
-              </SpecularButton>
-              <SpecularButton
-                to="/services"
-                variant="dark"
-                size="md"
-                tint="#ffffff"
-                tintOpacity={0.12}
-                blur={8}
-                className="w-full justify-center sm:w-auto"
-              >
-                {ctas.exploreServices}
-              </SpecularButton>
-            </div>
-          </div>
+ <div className="mt-6 flex w-full flex-col items-stretch gap-2.5 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:justify-start sm:gap-3">
+ <SpecularButton
+ to="/contact"
+ variant="light"
+ size="md"
+ className="w-full justify-center sm:w-auto"
+ >
+ {ctas.primary}
+ <ArrowUpRight size={15} />
+ </SpecularButton>
+ <SpecularButton
+ to="/services"
+ variant="dark"
+ size="md"
+ tint="#ffffff"
+ tintOpacity={0.12}
+ blur={8}
+ className="w-full justify-center sm:w-auto"
+ >
+ {ctas.exploreServices}
+ </SpecularButton>
+ </div>
+ </div>
 
-          <div className="grid gap-3 sm:grid-cols-2">
-            <LinkCard label={footerContent.usefulLinksLabel} links={footerLinks} />
-            <LinkCard label={footerContent.exploreLabel} links={footerExploreLinks} />
+ <div className="grid gap-3 sm:grid-cols-2">
+ <LinkCard label={footerContent.usefulLinksLabel} links={footerLinks} />
+ <LinkCard label={footerContent.exploreLabel} links={footerExploreLinks} />
 
-            <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur-sm sm:rounded-[1.5rem] sm:p-5">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
-                {footerContent.subscribeLabel}
-              </p>
-              <form onSubmit={onSubmit} className="mt-3.5 flex min-w-0 gap-2 sm:mt-4">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={footerContent.subscribePlaceholder}
-                  className="min-w-0 flex-1 rounded-full border border-white/15 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/40 backdrop-blur-sm transition focus:border-white/35 sm:px-4 sm:py-3"
-                />
-                <button
-                  type="submit"
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-mehr-ink transition hover:bg-white/90 sm:h-12 sm:w-12"
-                  aria-label={footerContent.subscribeCta}
-                >
-                  <ArrowRight size={16} />
-                </button>
-              </form>
-              {done && (
-                <p className="mt-2 text-xs font-medium text-white/70">
-                  Thanks for subscribing!
-                </p>
-              )}
-            </div>
+ <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur-sm sm:rounded-[1.5rem] sm:p-5">
+ <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
+ {footerContent.subscribeLabel}
+ </p>
+ <form onSubmit={onSubmit} className="mt-3.5 flex min-w-0 gap-2 sm:mt-4">
+ <input
+ type="email"
+ required
+ value={email}
+ onChange={(e) => setEmail(e.target.value)}
+ placeholder={footerContent.subscribePlaceholder}
+ className="min-w-0 flex-1 rounded-full border border-white/15 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/40 backdrop-blur-sm transition focus:border-white/35 sm:px-4 sm:py-3"
+ />
+ <button
+ type="submit"
+ className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-mehr-ink transition hover:bg-white/90 sm:h-12 sm:w-12"
+ aria-label={footerContent.subscribeCta}
+ >
+ <ArrowRight size={16} />
+ </button>
+ </form>
+ {done && (
+ <p className="mt-2 text-xs font-medium text-white/70">
+ Thanks for subscribing!
+ </p>
+ )}
+ </div>
 
-            <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur-sm sm:rounded-[1.5rem] sm:p-5">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
-                Connect
-              </p>
-              <div className="mt-3.5 flex flex-wrap justify-center gap-2 sm:mt-4 sm:justify-start">
-                {[
-                  {
-                    href: "https://www.linkedin.com/company/me-hr",
-                    icon: <Linkedin size={15} />,
-                    label: "LinkedIn",
-                  },
-                  {
-                    href: "https://www.instagram.com/_me_hr/",
-                    icon: <Instagram size={15} />,
-                    label: "Instagram",
-                  },
-                  {
-                    href: contactInfo.whatsapp,
-                    icon: <WhatsAppIcon size={15} />,
-                    label: "WhatsApp",
-                  },
-                  {
-                    href: contactInfo.phoneHref,
-                    icon: <Phone size={15} />,
-                    label: "Call",
-                  },
-                ].map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target={s.href.startsWith("http") ? "_blank" : undefined}
-                    rel={s.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white/85 backdrop-blur-sm transition hover:border-white/30 hover:bg-white/15"
-                  >
-                    {s.icon}
-                    {s.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+ <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur-sm sm:rounded-[1.5rem] sm:p-5">
+ <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
+ Connect
+ </p>
+ <div className="mt-3.5 flex flex-wrap justify-center gap-2 sm:mt-4 sm:justify-start">
+ {[
+ {
+ href: "https://www.linkedin.com/company/me-hr",
+ icon: <Linkedin size={15} />,
+ label: "LinkedIn",
+ },
+ {
+ href: "https://www.instagram.com/_me_hr/",
+ icon: <Instagram size={15} />,
+ label: "Instagram",
+ },
+ {
+ href: contactInfo.whatsapp,
+ icon: <WhatsAppIcon size={15} />,
+ label: "WhatsApp",
+ },
+ {
+ href: contactInfo.phoneHref,
+ icon: <Phone size={15} />,
+ label: "Call",
+ },
+ ].map((s) => (
+ <a
+ key={s.label}
+ href={s.href}
+ target={s.href.startsWith("http") ? "_blank" : undefined}
+ rel={s.href.startsWith("http") ? "noreferrer" : undefined}
+ className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white/85 backdrop-blur-sm transition hover:border-white/30 hover:bg-white/15"
+ >
+ {s.icon}
+ {s.label}
+ </a>
+ ))}
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <motion.div
-          initial={reduce ? false : { opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease }}
-          className="mt-8 flex flex-col items-center gap-3 border-t border-white/10 pt-5 text-center text-[11px] text-white/45 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:pt-6 sm:text-left sm:text-xs"
-        >
-          <div className="flex flex-col items-center gap-2 sm:items-start sm:gap-1.5">
-            <p>{COPYRIGHT}</p>
-            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 sm:justify-start">
-              {footerLegalLinks.map((l, i) => (
-                <span key={l.path} className="inline-flex items-center gap-3">
-                  {i > 0 && (
-                    <span className="text-white/25" aria-hidden>
-                      |
-                    </span>
-                  )}
-                  <Link
-                    to={l.path}
-                    className="transition hover:text-white/80"
-                  >
-                    {l.label}
-                  </Link>
-                </span>
-              ))}
-            </div>
-          </div>
-          <p>
-            Designed &amp; developed by :{" "}
-            <span className="font-medium text-white/70">TheSocialKollab</span>
-          </p>
-        </motion.div>
-      </div>
-    </footer>
-  );
+ <motion.div
+ initial={reduce ? false : { opacity: 0 }}
+ whileInView={{ opacity: 1 }}
+ viewport={{ once: true }}
+ transition={{ duration: 0.5, ease }}
+ className="mt-8 flex flex-col items-center gap-3 border-t border-white/10 pt-5 text-center text-[11px] text-white/45 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:pt-6 sm:text-left sm:text-xs"
+ >
+ <div className="flex flex-col items-center gap-2 sm:items-start sm:gap-1.5">
+ <p>{COPYRIGHT}</p>
+ <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 sm:justify-start">
+ {footerLegalLinks.map((l, i) => (
+ <span key={l.path} className="inline-flex items-center gap-3">
+ {i > 0 && (
+ <span className="text-white/25" aria-hidden>
+ |
+ </span>
+ )}
+ <Link
+ to={l.path}
+ className="transition hover:text-white/80"
+ >
+ {l.label}
+ </Link>
+ </span>
+ ))}
+ </div>
+ </div>
+ <p>
+ Designed &amp; developed by :{" "}
+ <span className="font-medium text-white/70">TheSocialKollab</span>
+ </p>
+ </motion.div>
+ </div>
+ </footer>
+ );
 }

@@ -12,7 +12,7 @@ function truncate(text, max = 96) {
  if (text.length <= max) return text;
  const cut = text.slice(0, max);
  const lastSpace = cut.lastIndexOf(" ");
- return `${cut.slice(0, lastSpace > 40 ? lastSpace : max).trim()}…`;
+ return `${cut.slice(0, lastSpace > 40 ? lastSpace : max).trim()}...`;
 }
 
 const studiesWithOutcomes = caseStudies.filter((cs) => cs.impact || cs.outcome);

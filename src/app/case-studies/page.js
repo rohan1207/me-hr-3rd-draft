@@ -5,5 +5,5 @@ import { seo } from "@/data/content";
 export const metadata = buildMetadata({ ...seo.caseStudies, path: "/case-studies" });
 
 export default function Page() {
-  return <CaseStudies />;
+ return <CaseStudies />;
 }

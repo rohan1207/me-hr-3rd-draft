@@ -5,5 +5,5 @@ import { seo } from "@/data/content";
 export const metadata = buildMetadata({ ...seo.privacy, path: "/privacy-policy" });
 
 export default function Page() {
-  return <PrivacyPolicy />;
+ return <PrivacyPolicy />;
 }

@@ -5,5 +5,5 @@ import { seo } from "@/data/content";
 export const metadata = buildMetadata({ ...seo.services, path: "/services" });
 
 export default function Page() {
-  return <Services />;
+ return <Services />;
 }

@@ -53,123 +53,123 @@ export const ctas = {
 };
 
 export const seo = {
-  home: {
-    title: "HR outsourcing services in Pune | On-Demand HR, resident HR & more | me-HR",
-    description:
-      "Flexible HR outsourcing for growing businesses. Explore On-Demand HR, Resident HR, Strategic HR Consulting, Payroll Outsourcing and HRMS implementation (KEKA, HROne, greytHR) from me-HR.",
-    keywords:
-      "HR outsourcing services, HR outsourcing Pune, on-demand HR, Resident HR, fractional HR, strategic HR consulting, Payroll Outsourcing, KEKA HRMS, KEKA implementation, HROne, greytHR, HRMS implementation Pune",
-  },
-  about: {
-    title: "About me-HR | HR outsourcing & Resident HR company in Pune",
-    description:
-      "Learn how me-HR supports growing businesses with HR outsourcing, On-Demand HR, Resident HR, Strategic HR Consulting, practical people solutions and KEKA HRMS implementation.",
-    keywords:
-      "HR outsourcing company Pune, Resident HR, fractional HR services, HR consulting Pune, outsourced HR partner, KEKA HRMS, KEKA implementation Pune, HROne, greytHR",
-  },
-  services: {
-    title: "HR services | On-Demand HR, resident HR, strategic HR Consulting | me-HR",
-    description:
-      "Explore me-HR services including On-Demand HR, Resident HR, Strategic HR Consulting, recruitment, HR operations, Payroll Outsourcing and HRMS platforms like KEKA, HROne and greytHR.",
-    keywords:
-      "HR services Pune, on-demand HR services, Resident HR, fractional HR services, strategic HR consulting, HR outsourcing, KEKA HRMS, KEKA implementation, HROne HRMS, greytHR",
-  },
-  onDemand: {
-    title: "On-Demand HR services | Flexible & temporary HR support | me-HR",
-    description:
-      "Get on-demand HR support for recruitment, documentation, payroll inputs, HR coordination and temporary workload. Flexible HR support for 3-7 days | 1-4 weeks | 1-3 months.",
-    keywords:
-      "on-demand HR services, HR on demand, temporary HR support, project-based HR, flexible HR services, HR support for SMEs, KEKA HRMS support",
-  },
-  retainership: {
-    title: "Resident HR services | Fractional HR & outsourced HR | me-HR",
-    description:
-      "Get dedicated Resident HR support for recruitment, HR operations, performance management, policies, engagement, employee lifecycle management and KEKA HRMS-enabled processes. Fractional HR for growing businesses.",
-    keywords:
-      "Resident HR, fractional HR services, outsourced HR services, HR outsourcing services, dedicated HR support, virtual HR, KEKA HRMS, KEKA implementation, HROne, greytHR",
-  },
-  strategic: {
-    title: "Strategic HR Consulting services | HR advisory & audits | me-HR",
-    description:
-      "Strategic HR consulting for HR audits, organisation structure, performance management, HR strategy, policies, organisation development and change management.",
-    keywords:
-      "strategic HR consulting, HR advisory services, HR audit services, organization development consulting, performance management consulting, KEKA HRMS consulting",
-  },
-  pagar: {
-    title: "Payroll outsourcing & statutory compliance services | me-HR",
-    description:
-      "Outsource payroll processing and statutory compliance including PF, ESIC, PT, LWF, labour compliance, contractor compliance and payroll MIS. HRMS support for KEKA, HROne and greytHR.",
-    keywords:
-      "payroll outsourcing services, payroll processing services, statutory compliance services, PF ESIC compliance, labour compliance, payroll services Pune, KEKA payroll, KEKA HRMS, HROne, greytHR",
-  },
-  pricing: {
-    title: "HR services pricing | On-Demand HR, resident HR & payroll | me-HR",
-    description:
-      "Explore flexible me-HR engagement models for On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing. Get pricing based on the support your business needs.",
-    keywords:
-      "HR outsourcing pricing, on-demand HR pricing, Resident HR pricing, fractional HR pricing, payroll outsourcing pricing, KEKA HRMS pricing",
-  },
-  caseStudies: {
-    title: "HR outsourcing & HR consulting case studies | me-HR",
-    description:
-      "See how me-HR solves real HR challenges through HR outsourcing, strategic consulting, performance management, employee engagement and organisational interventions.",
-    keywords:
-      "HR case studies, HR outsourcing case studies, HR consulting case studies, employee engagement case study, performance management case study, KEKA HRMS case study",
-  },
-  careers: {
-    title: "HR careers in Pune | Join me-HR",
-    description:
-      "Explore HR career opportunities at me-HR and gain practical experience across HR outsourcing, recruitment, HR operations, consulting and people management.",
-    keywords: "HR jobs Pune, HR careers Pune, HR outsourcing jobs, HR recruitment jobs, KEKA HRMS jobs",
-  },
-  media: {
-    title: "HR insights & thought leadership | me-HR media centre",
-    description:
-      "Practical HR perspectives, workplace thinking and updates from me-HR for leaders building structured organisations.",
-    keywords:
-      "HR insights, HR thought leadership, workplace insights, HR trends India, HR events Pune, KEKA HRMS insights",
-  },
-  faqs: {
-    title: "HR outsourcing FAQs | On-Demand HR, resident HR & payroll | me-HR",
-    description:
-      "Answers to common questions about HR outsourcing, On-Demand HR, Resident HR, fractional HR, payroll outsourcing, statutory compliance and HRMS platforms like KEKA.",
-    keywords:
-      "HR outsourcing FAQs, on-demand HR FAQ, Resident HR FAQ, fractional HR FAQ, payroll outsourcing FAQ, statutory compliance FAQ, KEKA HRMS FAQ, KEKA implementation",
-  },
-  contact: {
-    title: "Contact me-HR | HR outsourcing & consulting in Pune",
-    description:
-      "Book a consultation with me-HR for On-Demand HR, Resident HR, Strategic HR Consulting, Payroll Outsourcing, compliance support and KEKA HRMS implementation in Pune.",
-    keywords:
-      "HR consultant Pune, HR outsourcing Pune, HR services Pune, payroll outsourcing Pune, Resident HR, fractional HR, KEKA HRMS Pune, KEKA implementation, HROne, greytHR",
-  },
-  life: {
-    title: "Life at me-HR | HR careers culture in Pune",
-    description:
-      "At me-HR, our people are at the heart of the work we do. Explore growth, collaboration and career opportunities with our HR outsourcing and consulting team in Pune.",
-    keywords: "life at me-HR, HR culture Pune, HR team Pune, me-HR workplace",
-  },
-  privacy: {
-    title: "Privacy policy | me-HR",
-    description:
-      "Read how me-HR collects, uses and protects personal information when you use our website or engage our HR services.",
-    keywords: "me-HR privacy policy, HR outsourcing privacy, data protection Pune",
-  },
-  terms: {
-    title: "Terms and conditions | me-HR",
-    description:
-      "Terms and conditions for using the me-HR website and engaging with our HR outsourcing and consulting services.",
-    keywords: "me-HR terms and conditions, HR services terms, website terms",
-  },
+ home: {
+ title: "HR outsourcing services in Pune | On-Demand HR, resident HR & more | me-HR",
+ description:
+ "Flexible HR outsourcing for growing businesses. Explore On-Demand HR, Resident HR, Strategic HR Consulting, Payroll Outsourcing and HRMS implementation (KEKA, HROne, greytHR) from me-HR.",
+ keywords:
+ "HR outsourcing services, HR outsourcing Pune, on-demand HR, Resident HR, fractional HR, strategic HR consulting, Payroll Outsourcing, KEKA HRMS, KEKA implementation, HROne, greytHR, HRMS implementation Pune",
+ },
+ about: {
+ title: "About me-HR | HR outsourcing & Resident HR company in Pune",
+ description:
+ "Learn how me-HR supports growing businesses with HR outsourcing, On-Demand HR, Resident HR, Strategic HR Consulting, practical people solutions and KEKA HRMS implementation.",
+ keywords:
+ "HR outsourcing company Pune, Resident HR, fractional HR services, HR consulting Pune, outsourced HR partner, KEKA HRMS, KEKA implementation Pune, HROne, greytHR",
+ },
+ services: {
+ title: "HR services | On-Demand HR, resident HR, strategic HR Consulting | me-HR",
+ description:
+ "Explore me-HR services including On-Demand HR, Resident HR, Strategic HR Consulting, recruitment, HR operations, Payroll Outsourcing and HRMS platforms like KEKA, HROne and greytHR.",
+ keywords:
+ "HR services Pune, on-demand HR services, Resident HR, fractional HR services, strategic HR consulting, HR outsourcing, KEKA HRMS, KEKA implementation, HROne HRMS, greytHR",
+ },
+ onDemand: {
+ title: "On-Demand HR services | Flexible & temporary HR support | me-HR",
+ description:
+ "Get on-demand HR support for recruitment, documentation, payroll inputs, HR coordination and temporary workload. Flexible HR support for 3-7 days | 1-4 weeks | 1-3 months.",
+ keywords:
+ "on-demand HR services, HR on demand, temporary HR support, project-based HR, flexible HR services, HR support for SMEs, KEKA HRMS support",
+ },
+ retainership: {
+ title: "Resident HR services | Fractional HR & outsourced HR | me-HR",
+ description:
+ "Get dedicated Resident HR support for recruitment, HR operations, performance management, policies, engagement, employee lifecycle management and KEKA HRMS-enabled processes. Fractional HR for growing businesses.",
+ keywords:
+ "Resident HR, fractional HR services, outsourced HR services, HR outsourcing services, dedicated HR support, virtual HR, KEKA HRMS, KEKA implementation, HROne, greytHR",
+ },
+ strategic: {
+ title: "Strategic HR Consulting services | HR advisory & audits | me-HR",
+ description:
+ "Strategic HR consulting for HR audits, organisation structure, performance management, HR strategy, policies, organisation development and change management.",
+ keywords:
+ "strategic HR consulting, HR advisory services, HR audit services, organization development consulting, performance management consulting, KEKA HRMS consulting",
+ },
+ pagar: {
+ title: "Payroll outsourcing & statutory compliance services | me-HR",
+ description:
+ "Outsource payroll processing and statutory compliance including PF, ESIC, PT, LWF, labour compliance, contractor compliance and payroll MIS. HRMS support for KEKA, HROne and greytHR.",
+ keywords:
+ "payroll outsourcing services, payroll processing services, statutory compliance services, PF ESIC compliance, labour compliance, payroll services Pune, KEKA payroll, KEKA HRMS, HROne, greytHR",
+ },
+ pricing: {
+ title: "HR services pricing | On-Demand HR, resident HR & payroll | me-HR",
+ description:
+ "Explore flexible me-HR engagement models for On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing. Get pricing based on the support your business needs.",
+ keywords:
+ "HR outsourcing pricing, on-demand HR pricing, Resident HR pricing, fractional HR pricing, payroll outsourcing pricing, KEKA HRMS pricing",
+ },
+ caseStudies: {
+ title: "HR outsourcing & HR consulting case studies | me-HR",
+ description:
+ "See how me-HR solves real HR challenges through HR outsourcing, strategic consulting, performance management, employee engagement and organisational interventions.",
+ keywords:
+ "HR case studies, HR outsourcing case studies, HR consulting case studies, employee engagement case study, performance management case study, KEKA HRMS case study",
+ },
+ careers: {
+ title: "HR careers in Pune | Join me-HR",
+ description:
+ "Explore HR career opportunities at me-HR and gain practical experience across HR outsourcing, recruitment, HR operations, consulting and people management.",
+ keywords: "HR jobs Pune, HR careers Pune, HR outsourcing jobs, HR recruitment jobs, KEKA HRMS jobs",
+ },
+ media: {
+ title: "HR insights & thought leadership | me-HR media centre",
+ description:
+ "Practical HR perspectives, workplace thinking and updates from me-HR for leaders building structured organisations.",
+ keywords:
+ "HR insights, HR thought leadership, workplace insights, HR trends India, HR events Pune, KEKA HRMS insights",
+ },
+ faqs: {
+ title: "HR outsourcing FAQs | On-Demand HR, resident HR & payroll | me-HR",
+ description:
+ "Answers to common questions about HR outsourcing, On-Demand HR, Resident HR, fractional HR, payroll outsourcing, statutory compliance and HRMS platforms like KEKA.",
+ keywords:
+ "HR outsourcing FAQs, on-demand HR FAQ, Resident HR FAQ, fractional HR FAQ, payroll outsourcing FAQ, statutory compliance FAQ, KEKA HRMS FAQ, KEKA implementation",
+ },
+ contact: {
+ title: "Contact me-HR | HR outsourcing & consulting in Pune",
+ description:
+ "Book a consultation with me-HR for On-Demand HR, Resident HR, Strategic HR Consulting, Payroll Outsourcing, compliance support and KEKA HRMS implementation in Pune.",
+ keywords:
+ "HR consultant Pune, HR outsourcing Pune, HR services Pune, payroll outsourcing Pune, Resident HR, fractional HR, KEKA HRMS Pune, KEKA implementation, HROne, greytHR",
+ },
+ life: {
+ title: "Life at me-HR | HR careers culture in Pune",
+ description:
+ "At me-HR, our people are at the heart of the work we do. Explore growth, collaboration and career opportunities with our HR outsourcing and consulting team in Pune.",
+ keywords: "life at me-HR, HR culture Pune, HR team Pune, me-HR workplace",
+ },
+ privacy: {
+ title: "Privacy policy | me-HR",
+ description:
+ "Read how me-HR collects, uses and protects personal information when you use our website or engage our HR services.",
+ keywords: "me-HR privacy policy, HR outsourcing privacy, data protection Pune",
+ },
+ terms: {
+ title: "Terms and conditions | me-HR",
+ description:
+ "Terms and conditions for using the me-HR website and engaging with our HR outsourcing and consulting services.",
+ keywords: "me-HR terms and conditions, HR services terms, website terms",
+ },
 };
 
 export const homeContent = {
  hero: {
- eyebrow: "me-HR, pune",
+ eyebrow: "me-HR, Pune",
  tagline: "Flexible HR support for growing businesses",
  headline: "HR that works the way your business needs it",
-    subheadline:
-      "On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing, built around your people, priorities and growth.",
+ subheadline:
+ "On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing, built around your people, priorities and growth.",
  primaryCta: ctas.primary,
  secondaryCta: ctas.exploreServices,
  },
@@ -206,7 +206,7 @@ export const homeContent = {
  {
  id: "hr-retainership",
  title: "Resident HR",
-      desc: "Ongoing, embedded HR support, often called fractional HR, for continuous day-to-day HR operations, execution and people process ownership.",
+ desc: "Ongoing, embedded HR support, often called fractional HR, for continuous day-to-day HR operations, execution and people process ownership.",
  cta: ctas.exploreRetainership,
  path: "/services/hr-retainership",
  image: "/how-we-help/how-we-help-resident.png",
@@ -236,7 +236,7 @@ export const homeContent = {
  eyebrow: "About me-HR",
  title: "HR that works with your business, not around it",
  body: [
-      "At me-HR, we help growing businesses build structured, high-performing workplaces through practical HR outsourcing, On-Demand HR, Resident HR and Strategic HR Consulting solutions designed around their people, processes and business needs.",
+ "At me-HR, we help growing businesses build structured, high-performing workplaces through practical HR outsourcing, On-Demand HR, Resident HR and Strategic HR Consulting solutions designed around their people, processes and business needs.",
  "Based in Pune, we work alongside business leaders and internal HR teams to strengthen HR processes, improve people management and create scalable workplace practices through flexible HR support and outsourced HR services.",
  ],
  cta: ctas.aboutMeHr,
@@ -302,7 +302,7 @@ export const homeContent = {
  servicesPreview: {
  eyebrow: "Our services",
  title: "Choose how you want to work with us",
-    body: "Whether you need immediate HR help, ongoing Resident HR or strategic expertise, me-HR gives you a flexible way to access the right HR support for your business.",
+ body: "Whether you need immediate HR help, ongoing Resident HR or strategic expertise, me-HR gives you a flexible way to access the right HR support for your business.",
  cta: ctas.exploreServices,
  },
  finalCta: {
@@ -314,7 +314,7 @@ export const homeContent = {
  philosophy: {
  eyebrow: "Our approach",
  title: "Understand first, recommend second",
-    body: "Every engagement begins with understanding your organisation, workforce, current HR environment and business priorities. We identify gaps, assess the requirement and recommend the right HR service model, from On-Demand HR and project-based support to Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
+ body: "Every engagement begins with understanding your organisation, workforce, current HR environment and business priorities. We identify gaps, assess the requirement and recommend the right HR service model, from On-Demand HR and project-based support to Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
  principles: [
  {
  title: "Understand",
@@ -346,7 +346,7 @@ export const serviceModels = [
  {
  id: "hr-retainership",
  title: "Resident HR",
-    desc: "Ongoing embedded or fractional HR support for continuous HR operations and day-to-day execution.",
+ desc: "Ongoing embedded or fractional HR support for continuous HR operations and day-to-day execution.",
  cta: ctas.exploreRetainership,
  path: "/services/hr-retainership",
  },
@@ -425,7 +425,7 @@ export const servicesContent = {
 export const pricingContent = {
  hero: {
  title: "Flexible HR support, clear engagement models",
-    body: "Choose the level of HR support your business needs, from short-term On-Demand HR to ongoing Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
+ body: "Choose the level of HR support your business needs, from short-term On-Demand HR to ongoing Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
  },
  subtitle: "Pay for the level of support you need",
  finalCta: {
@@ -451,7 +451,7 @@ export const contactContent = {
  hero: {
  title: "Book a consultation",
  subtitle: "Tell us what you need, we'll help you find the right HR solution",
-    body: "Share your current HR requirement and we'll help you identify the right support, On-Demand HR, Resident HR, Strategic HR Consulting or Payroll Outsourcing.",
+ body: "Share your current HR requirement and we'll help you identify the right support, On-Demand HR, Resident HR, Strategic HR Consulting or Payroll Outsourcing.",
  topicsLabel: "What do you need help with?",
  },
  success: {
@@ -516,7 +516,7 @@ export const aboutContent = {
  approach: {
  eyebrow: "Our approach",
  title: "Understand first, recommend second",
-    body: "Every engagement begins with understanding your organisation, workforce, current HR environment and business priorities. We identify gaps, assess the requirement and recommend the right HR service model, from On-Demand HR and project-based support to Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
+ body: "Every engagement begins with understanding your organisation, workforce, current HR environment and business priorities. We identify gaps, assess the requirement and recommend the right HR service model, from On-Demand HR and project-based support to Resident HR, Strategic HR Consulting and Payroll Outsourcing.",
  steps: [
  {
  title: "Understand",
@@ -639,7 +639,7 @@ export const aboutContent = {
  },
  {
  title: "Flexible engagement models",
-      desc: "On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing, matched to what you actually need.",
+ desc: "On-Demand HR, Resident HR, Strategic HR Consulting and Payroll Outsourcing, matched to what you actually need.",
  },
  {
  title: "Everything your HR function needs",
@@ -662,7 +662,7 @@ export const aboutContent = {
  items: [
  {
  id: "t1",
- tag: "Resident HR, manufacturing",
+ tag: "Resident HR, Manufacturing",
  headline: "Finally, HR that sits with the business",
  quote:
  "me-HR embedded with our plant leadership and cleaned up policies, attendance and reviews without turning it into a paperwork factory. Practical, steady and commercially aware.",
@@ -672,10 +672,10 @@ export const aboutContent = {
  },
  {
  id: "t2",
- tag: "On-Demand HR, saaS",
+ tag: "On-Demand HR, SaaS",
  headline: "Bandwidth when we needed it most",
  quote:
- "During a hiring surge we booked On-Demand HR for interviews and joining formalities. No long retainership â€” just skilled support for the window we had. Exactly what a growing team needed.",
+ "During a hiring surge we booked On-Demand HR for interviews and joining formalities. No long retainership - just skilled support for the window we had. Exactly what a growing team needed.",
  name: "Rohan Mehta",
  role: "Co-founder",
  place: "Bengaluru",
@@ -692,7 +692,7 @@ export const aboutContent = {
  },
  {
  id: "t4",
- tag: "Payroll Outsourcing, mid-market",
+ tag: "Payroll Outsourcing, Mid-market",
  headline: "Payroll stopped being a monthly fire drill",
  quote:
  "PF, ESIC and payslips used to eat our weekends. Payroll Outsourcing brought structure, checks and clear ownership. Finance and HR finally speak the same language.",
@@ -702,7 +702,7 @@ export const aboutContent = {
  },
  {
  id: "t5",
- tag: "Resident HR, multi-site OEM",
+ tag: "Resident HR, Multi-site OEM",
  headline: "Seven plants, one operating rhythm",
  quote:
  "We were running HR differently at every location. me-HR helped us standardise processes and communication without killing local ownership. Engagement and clarity both improved.",
@@ -712,7 +712,7 @@ export const aboutContent = {
  },
  {
  id: "t6",
- tag: "On-Demand HR, family business",
+ tag: "On-Demand HR, Family business",
  headline: "Structure without losing our culture",
  quote:
  "As a family-run firm we needed HR discipline, not a corporate transplant. They understood first, then recommended the right model. Policies stuck because people understood why.",
@@ -722,7 +722,7 @@ export const aboutContent = {
  },
  {
  id: "t7",
- tag: "Strategic Consulting, design",
+ tag: "Strategic Consulting, Design",
  headline: "Remote teams, clearer connection",
  quote:
  "Dispersed designers were drifting. me-HR mapped culture gaps, set communication rhythms and brought managers into the loop. Retention and collaboration both moved.",
@@ -732,10 +732,10 @@ export const aboutContent = {
  },
  {
  id: "t8",
- tag: "Resident HR, automation",
+ tag: "Resident HR, Automation",
  headline: "Punctuality and brand, together",
  quote:
- "Attendance was hurting delivery and our employer brand. Their campaigns, manager coaching and monitoring changed the floor culture â€” and candidates notice the difference.",
+ "Attendance was hurting delivery and our employer brand. Their campaigns, manager coaching and monitoring changed the floor culture - and candidates notice the difference.",
  name: "Karthik Iyer",
  role: "Operations director",
  place: "Pune",
@@ -754,7 +754,7 @@ export const caseStudiesContent = {
  viewAllCta: "View all case studies",
  exploreMore: "Explore more case studies",
  exploreMoreBody:
- "Each case study covers the client challenge, what me-HR did and the impact — with a clear path to discuss a similar people priority for your organisation.",
+ "Each case study covers the client challenge, what me-HR did and the impact - with a clear path to discuss a similar people priority for your organisation.",
  peopleAlsoRead: "People also read",
  challengeLabel: "The challenge",
  didLabel: "What me-HR did",
@@ -910,7 +910,7 @@ export const careersContent = {
 
 export const mediaContent = {
  hero: {
- eyebrow: "Insights, thought leadership",
+ eyebrow: "Insights, Thought leadership",
  title: "Perspectives for leaders building structured workplaces",
  body: "Practical HR thinking, workplace perspectives and updates from me-HR, written to help growing organisations make clearer people decisions.",
  searchPlaceholder: "Search insights, events and updates",
@@ -1117,18 +1117,18 @@ export const consultationTopics = [
  "On-Demand HR",
  "Resident HR",
  "Strategic HR Consulting",
-  "Payroll Outsourcing",
+ "Payroll Outsourcing",
  "Recruitment",
  "HR audit",
  "Other HR requirement",
 ];
 
 export const employeeStrengthOptions = [
- "1â€“25",
- "26â€“50",
- "51â€“100",
- "101â€“250",
- "251â€“500",
+ "1-25",
+ "26-50",
+ "51-100",
+ "101-250",
+ "251-500",
  "500+",
 ];
 
@@ -1205,13 +1205,13 @@ export const faqSections = [
  },
  {
  q: "How is On-Demand HR different from Resident HR?",
-    a: "On-Demand HR is designed for specific requirements and short-duration support. Resident HR (often called fractional HR) is better suited to organisations that need continuous HR execution, broader ownership, structured reviews and ongoing experienced oversight.",
+ a: "On-Demand HR is designed for specific requirements and short-duration support. Resident HR (often called fractional HR) is better suited to organisations that need continuous HR execution, broader ownership, structured reviews and ongoing experienced oversight.",
  },
  ],
  },
  {
  id: "pagar",
-    title: "Payroll Outsourcing",
+ title: "Payroll Outsourcing",
  items: [
  {
  q: "What is Payroll Outsourcing?",

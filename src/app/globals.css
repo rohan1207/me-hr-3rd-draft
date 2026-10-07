@@ -117,8 +117,8 @@ video {
  inset: 0;
  z-index: 0;
  background:
-  radial-gradient(ellipse 70% 55% at 12% 18%, rgba(20, 196, 173, 0.12), transparent 55%),
-  radial-gradient(ellipse 55% 45% at 92% 78%, rgba(11, 95, 88, 0.08), transparent 50%);
+ radial-gradient(ellipse 70% 55% at 12% 18%, rgba(20, 196, 173, 0.12), transparent 55%),
+ radial-gradient(ellipse 55% 45% at 92% 78%, rgba(11, 95, 88, 0.08), transparent 50%);
 }
 
 .container-mehr {
@@ -140,72 +140,72 @@ video {
  display: none;
 }
 
-/* Trusted-by ribbon — seamless continuous cycle */
+/* Trusted-by ribbon - seamless continuous cycle */
 .trusted-ribbon {
-  overflow: hidden;
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 8%,
-    #000 92%,
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 8%,
-    #000 92%,
-    transparent
-  );
+ overflow: hidden;
+ mask-image: linear-gradient(
+ to right,
+ transparent,
+ #000 8%,
+ #000 92%,
+ transparent
+ );
+ -webkit-mask-image: linear-gradient(
+ to right,
+ transparent,
+ #000 8%,
+ #000 92%,
+ transparent
+ );
 }
 
 .trusted-marquee {
-  animation: trusted-marquee-ltr 70s linear infinite;
-  will-change: transform;
-  backface-visibility: hidden;
+ animation: trusted-marquee-ltr 70s linear infinite;
+ will-change: transform;
+ backface-visibility: hidden;
 }
 
 @media (min-width: 640px) {
-  .trusted-marquee {
-    animation-duration: 85s;
-  }
+ .trusted-marquee {
+ animation-duration: 85s;
+ }
 }
 
 @media (min-width: 1024px) {
-  .trusted-marquee {
-    animation-duration: 95s;
-  }
+ .trusted-marquee {
+ animation-duration: 95s;
+ }
 
-  .trusted-ribbon {
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      #000 6%,
-      #000 94%,
-      transparent
-    );
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      #000 6%,
-      #000 94%,
-      transparent
-    );
-  }
+ .trusted-ribbon {
+ mask-image: linear-gradient(
+ to right,
+ transparent,
+ #000 6%,
+ #000 94%,
+ transparent
+ );
+ -webkit-mask-image: linear-gradient(
+ to right,
+ transparent,
+ #000 6%,
+ #000 94%,
+ transparent
+ );
+ }
 }
 
 .trusted-ribbon:hover .trusted-marquee {
-  animation-play-state: paused;
+ animation-play-state: paused;
 }
 
 /* Exactly -50%: one full logo sequence. No inter-track gap. */
 @keyframes trusted-marquee-ltr {
-  from {
-    transform: translate3d(-50%, 0, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
+ from {
+ transform: translate3d(-50%, 0, 0);
+ }
+ to {
+ transform: translate3d(0, 0, 0);
+ }
 }
 
 @keyframes process-globe-float {

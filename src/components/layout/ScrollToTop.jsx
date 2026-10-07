@@ -6,19 +6,19 @@ import { scrollToTop } from "./SmoothScroll";
 
 /** Mirrors the ScrollToTop behaviour of the react-router app. */
 export default function ScrollToTop() {
-  const pathname = usePathname();
+ const pathname = usePathname();
 
-  useEffect(() => {
-    if (window.location.hash) return;
+ useEffect(() => {
+ if (window.location.hash) return;
 
-    const frame = window.requestAnimationFrame(() => scrollToTop(false));
-    const timer = window.setTimeout(() => scrollToTop(false), 50);
+ const frame = window.requestAnimationFrame(() => scrollToTop(false));
+ const timer = window.setTimeout(() => scrollToTop(false), 50);
 
-    return () => {
-      window.cancelAnimationFrame(frame);
-      window.clearTimeout(timer);
-    };
-  }, [pathname]);
+ return () => {
+ window.cancelAnimationFrame(frame);
+ window.clearTimeout(timer);
+ };
+ }, [pathname]);
 
-  return null;
+ return null;
 }

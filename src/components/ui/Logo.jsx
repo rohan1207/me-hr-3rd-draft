@@ -8,14 +8,14 @@ const sizeMap = {
  md: { full: "h-12 max-w-[16rem] sm:h-14 sm:max-w-[18rem]", mark: "h-12 max-w-[3.25rem] sm:h-14 sm:max-w-[3.5rem]" },
  // Slightly larger than the header band; Navbar allows overflow-visible
  nav: {
-  full: "h-[calc(var(--header-height)-0.15rem)] w-auto max-w-[17rem] origin-left scale-[1.28] sm:max-w-[20rem] sm:scale-[1.32] lg:max-w-[23rem] lg:scale-[1.35]",
-  mark: "h-[calc(var(--header-height)-0.15rem)] w-auto max-w-[3.75rem] origin-left scale-[1.28] sm:max-w-[4.25rem] sm:scale-[1.32]",
+ full: "h-[calc(var(--header-height)-0.15rem)] w-auto max-w-[17rem] origin-left scale-[1.28] sm:max-w-[20rem] sm:scale-[1.32] lg:max-w-[23rem] lg:scale-[1.35]",
+ mark: "h-[calc(var(--header-height)-0.15rem)] w-auto max-w-[3.75rem] origin-left scale-[1.28] sm:max-w-[4.25rem] sm:scale-[1.32]",
  },
  lg: { full: "h-16 max-w-[20rem] sm:h-[4.5rem] sm:max-w-[24rem]", mark: "h-16 max-w-[4rem] sm:h-[4.5rem] sm:max-w-[4.5rem]" },
  // Footer: large brand mark
  footer: {
-  full: "h-[4.75rem] w-auto max-w-[23rem] origin-left scale-[1.32] sm:h-[5.5rem] sm:max-w-[28rem] sm:scale-[1.38] lg:h-24 lg:max-w-[32rem] lg:scale-[1.45]",
-  mark: "h-[4.75rem] w-auto max-w-[5rem] origin-left scale-[1.32] sm:h-[5.5rem] sm:max-w-[5.75rem] sm:scale-[1.38]",
+ full: "h-[4.75rem] w-auto max-w-[23rem] origin-left scale-[1.32] sm:h-[5.5rem] sm:max-w-[28rem] sm:scale-[1.38] lg:h-24 lg:max-w-[32rem] lg:scale-[1.45]",
+ mark: "h-[4.75rem] w-auto max-w-[5rem] origin-left scale-[1.32] sm:h-[5.5rem] sm:max-w-[5.75rem] sm:scale-[1.38]",
  },
  xl: { full: "h-[4.5rem] max-w-[22rem] sm:h-20 sm:max-w-[26rem]", mark: "h-[4.5rem] max-w-[4.5rem] sm:h-20 sm:max-w-[5rem]" },
 };

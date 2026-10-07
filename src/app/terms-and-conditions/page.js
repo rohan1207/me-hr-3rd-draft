@@ -5,5 +5,5 @@ import { seo } from "@/data/content";
 export const metadata = buildMetadata({ ...seo.terms, path: "/terms-and-conditions" });
 
 export default function Page() {
-  return <TermsAndConditions />;
+ return <TermsAndConditions />;
 }

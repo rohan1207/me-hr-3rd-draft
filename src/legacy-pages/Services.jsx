@@ -32,7 +32,7 @@ export default function Services() {
 
  <PagarPreview />
 
- {/* Repeated with ServicesPreview model cards — keep on service detail pages only */}
+ {/* Repeated with ServicesPreview model cards - keep on service detail pages only */}
  {/* <ExploreOtherServices /> */}
 
  <CTABanner cta={ctas.primary} />

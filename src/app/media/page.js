@@ -5,5 +5,5 @@ import { seo } from "@/data/content";
 export const metadata = buildMetadata({ ...seo.media, path: "/media" });
 
 export default function Page() {
-  return <Media />;
+ return <Media />;
 }

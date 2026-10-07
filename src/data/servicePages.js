@@ -47,7 +47,7 @@ export const onDemandHrPage = {
  ],
  },
  duration: {
-    title: "3-7 days | 1-4 weeks | 1-3 months, you decide",
+ title: "3-7 days | 1-4 weeks | 1-3 months, you decide",
  items: [
  { label: "3-7 DAYS", desc: "Focused HR support for a defined requirement across a short three-to-seven-day window." },
  { label: "1-4 WEEKS", desc: "Short-term HR support for temporary workload, project requirements or resource gaps over one to four weeks." },
