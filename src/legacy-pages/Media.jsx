@@ -11,6 +11,7 @@ import {
  seo,
  footerContent,
 } from "../data/content";
+import { submitForm } from "../lib/submitForm";
 import PageSEO from "../components/ui/PageSEO";
 import Reveal, { RevealItem, RevealStagger } from "../components/ui/Reveal";
 
@@ -129,6 +130,29 @@ export default function Media() {
  const [query, setQuery] = useState("");
  const [activeCategory, setActiveCategory] = useState("All");
  const [expanded, setExpanded] = useState(false);
+ const [subscribeEmail, setSubscribeEmail] = useState("");
+ const [subscribeDone, setSubscribeDone] = useState(false);
+ const [subscribeSubmitting, setSubscribeSubmitting] = useState(false);
+ const [subscribeError, setSubscribeError] = useState("");
+
+ const onSubscribe = async (e) => {
+ e.preventDefault();
+ if (!subscribeEmail.trim() || subscribeSubmitting) return;
+ setSubscribeSubmitting(true);
+ setSubscribeError("");
+ try {
+ await submitForm("newsletter", {
+ email: subscribeEmail.trim(),
+ source: "media",
+ });
+ setSubscribeDone(true);
+ setSubscribeEmail("");
+ } catch (err) {
+ setSubscribeError(err?.message || "Could not subscribe. Please try again.");
+ } finally {
+ setSubscribeSubmitting(false);
+ }
+ };
 
  const filtered = useMemo(() => {
  const q = query.trim().toLowerCase();
@@ -379,21 +403,41 @@ export default function Media() {
  </p>
  <form
  className="mx-auto mt-5 flex max-w-md flex-col overflow-hidden rounded-[1.15rem] border border-mehr-deep/10 bg-white shadow-soft sm:mt-7 sm:flex-row sm:rounded-full"
- onSubmit={(e) => e.preventDefault()}
+ onSubmit={onSubscribe}
  >
  <input
  type="email"
+ required
+ value={subscribeEmail}
+ onChange={(e) => {
+ setSubscribeEmail(e.target.value);
+ setSubscribeError("");
+ }}
+ disabled={subscribeSubmitting || subscribeDone}
  placeholder={sections.subscribePlaceholder}
- className="w-full border-0 bg-transparent px-4 py-3 text-sm text-mehr-ink outline-none placeholder:text-mehr-muted sm:px-5 sm:py-3.5"
+ className="w-full border-0 bg-transparent px-4 py-3 text-sm text-mehr-ink outline-none placeholder:text-mehr-muted disabled:opacity-60 sm:px-5 sm:py-3.5"
  aria-label="Email"
  />
  <button
  type="submit"
- className="shrink-0 bg-mehr-deep px-5 py-3 text-sm font-semibold text-white transition hover:bg-mehr-charcoal sm:py-0"
+ disabled={subscribeSubmitting || subscribeDone}
+ className="shrink-0 bg-mehr-deep px-5 py-3 text-sm font-semibold text-white transition hover:bg-mehr-charcoal disabled:opacity-70 sm:py-0"
  >
- {sections.subscribeCta}
+ {subscribeSubmitting
+ ? "Sending..."
+ : subscribeDone
+ ? "Subscribed"
+ : sections.subscribeCta}
  </button>
  </form>
+ {subscribeError && (
+ <p className="mt-2 text-[12px] text-red-600">{subscribeError}</p>
+ )}
+ {subscribeDone && !subscribeError && (
+ <p className="mt-2 text-[12px] font-medium text-mehr-deep">
+ Thanks for subscribing!
+ </p>
+ )}
  <p className="mt-3 text-[11px] text-mehr-muted sm:text-[12px]">
  {footerContent.subscribeLabel}
  </p>

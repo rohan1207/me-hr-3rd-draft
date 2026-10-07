@@ -12,6 +12,7 @@ import {
  footerContent,
  ctas,
 } from "../../data/content";
+import { submitForm } from "../../lib/submitForm";
 import Logo from "../ui/Logo";
 import SpecularButton from "../ui/SpecularButton";
 
@@ -55,12 +56,26 @@ export default function Footer() {
  const reduce = useReducedMotion();
  const [email, setEmail] = useState("");
  const [done, setDone] = useState(false);
+ const [submitting, setSubmitting] = useState(false);
+ const [error, setError] = useState("");
 
- const onSubmit = (e) => {
+ const onSubmit = async (e) => {
  e.preventDefault();
- if (!email.trim()) return;
+ if (!email.trim() || submitting) return;
+ setSubmitting(true);
+ setError("");
+ try {
+ await submitForm("newsletter", {
+ email: email.trim(),
+ source: "footer",
+ });
  setDone(true);
  setEmail("");
+ } catch (err) {
+ setError(err?.message || "Could not subscribe. Please try again.");
+ } finally {
+ setSubmitting(false);
+ }
  };
 
  return (
@@ -151,18 +166,26 @@ export default function Footer() {
  type="email"
  required
  value={email}
- onChange={(e) => setEmail(e.target.value)}
+ onChange={(e) => {
+ setEmail(e.target.value);
+ setError("");
+ }}
+ disabled={submitting || done}
  placeholder={footerContent.subscribePlaceholder}
- className="min-w-0 flex-1 rounded-full border border-white/15 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/40 backdrop-blur-sm transition focus:border-white/35 sm:px-4 sm:py-3"
+ className="min-w-0 flex-1 rounded-full border border-white/15 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-white/40 backdrop-blur-sm transition focus:border-white/35 disabled:opacity-60 sm:px-4 sm:py-3"
  />
  <button
  type="submit"
- className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-mehr-ink transition hover:bg-white/90 sm:h-12 sm:w-12"
+ disabled={submitting || done}
+ className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-mehr-ink transition hover:bg-white/90 disabled:opacity-60 sm:h-12 sm:w-12"
  aria-label={footerContent.subscribeCta}
  >
  <ArrowRight size={16} />
  </button>
  </form>
+ {error && (
+ <p className="mt-2 text-xs font-medium text-red-300">{error}</p>
+ )}
  {done && (
  <p className="mt-2 text-xs font-medium text-white/70">
  Thanks for subscribing!

@@ -11,6 +11,7 @@ import {
  seo,
  ctas,
 } from "../data/content";
+import { submitForm } from "../lib/submitForm";
 import PageSEO from "../components/ui/PageSEO";
 import PageHero from "../components/ui/PageHero";
 import SpecularButton from "../components/ui/SpecularButton";
@@ -44,17 +45,37 @@ const fieldClass =
 export default function Contact() {
  const [form, setForm] = useState(initial);
  const [submitted, setSubmitted] = useState(false);
+ const [submitting, setSubmitting] = useState(false);
+ const [error, setError] = useState("");
  const { hero, success } = contactContent;
 
  const onChange = (e) => {
  const { name, value } = e.target;
  setForm((f) => ({ ...f, [name]: value }));
+ setError("");
  };
 
- const onSubmit = (e) => {
+ const onSubmit = async (e) => {
  e.preventDefault();
+ setSubmitting(true);
+ setError("");
+ try {
+ await submitForm("contact", {
+ name: form.name.trim(),
+ company: form.company.trim(),
+ email: form.email.trim(),
+ phone: form.phone.trim(),
+ strength: form.strength,
+ topic: form.topic.trim(),
+ requirement: form.requirement.trim(),
+ });
  setSubmitted(true);
  setForm(initial);
+ } catch (err) {
+ setError(err?.message || "Something went wrong. Please try again.");
+ } finally {
+ setSubmitting(false);
+ }
  };
 
  return (
@@ -334,15 +355,22 @@ export default function Contact() {
  </div>
  </div>
 
+ {error && (
+ <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-[13px] text-red-700">
+ {error}
+ </p>
+ )}
+
  <div className="mt-5 flex w-full min-w-0 max-w-full flex-col items-stretch gap-2.5 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
  <SpecularButton
  type="submit"
  variant="brand"
  size="md"
  fullWidth
+ disabled={submitting}
  className="max-w-full justify-center !text-[13px] sm:!w-auto sm:!text-sm"
  >
- {ctas.primary}
+ {submitting ? "Sending..." : ctas.primary}
  <Send size={15} />
  </SpecularButton>
  <Link

@@ -16,6 +16,7 @@ import {
  X,
 } from "lucide-react";
 import { careersContent, seo, ctas, openings } from "../data/content";
+import { submitForm } from "../lib/submitForm";
 import PageSEO from "../components/ui/PageSEO";
 import CTABanner from "../components/ui/CTABanner";
 import Reveal from "../components/ui/Reveal";
@@ -226,6 +227,8 @@ function ApplyModal({ job, onClose }) {
  });
  const [errors, setErrors] = useState({});
  const [submitted, setSubmitted] = useState(false);
+ const [submitting, setSubmitting] = useState(false);
+ const [submitError, setSubmitError] = useState("");
 
  useEffect(() => {
  const prev = document.body.style.overflow;
@@ -243,6 +246,7 @@ function ApplyModal({ job, onClose }) {
  const setField = (key) => (e) => {
  setForm((f) => ({ ...f, [key]: e.target.value }));
  setErrors((err) => ({ ...err, [key]: undefined }));
+ setSubmitError("");
  };
 
  const validate = () => {
@@ -262,10 +266,29 @@ function ApplyModal({ job, onClose }) {
  return Object.keys(next).length === 0;
  };
 
- const onSubmit = (e) => {
+ const onSubmit = async (e) => {
  e.preventDefault();
  if (!validate()) return;
+ setSubmitting(true);
+ setSubmitError("");
+ try {
+ await submitForm("careers", {
+ name: form.name.trim(),
+ email: form.email.trim(),
+ phone: form.phone.trim(),
+ resumeUrl: form.resumeUrl.trim(),
+ note: form.note.trim(),
+ jobTitle: job?.title || "",
+ jobCompany: job?.company || "",
+ jobLocation: job?.location || "",
+ jobId: job?.id || "",
+ });
  setSubmitted(true);
+ } catch (err) {
+ setSubmitError(err?.message || "Something went wrong. Please try again.");
+ } finally {
+ setSubmitting(false);
+ }
  };
 
  const fieldClass =
@@ -428,11 +451,17 @@ function ApplyModal({ job, onClose }) {
  placeholder="Anything you'd like us to know"
  />
  </div>
+ {submitError && (
+ <p className="rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-[12px] text-red-700">
+ {submitError}
+ </p>
+ )}
  <button
  type="submit"
- className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-5 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal active:scale-[0.98]"
+ disabled={submitting}
+ className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-mehr-deep px-5 py-3 text-sm font-semibold text-white shadow-float transition hover:bg-mehr-charcoal active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
  >
- Submit application
+ {submitting ? "Submitting..." : "Submit application"}
  <ArrowUpRight size={15} />
  </button>
  </form>
