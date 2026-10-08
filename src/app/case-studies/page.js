@@ -1,9 +1,8 @@
 import CaseStudies from "@/legacy-pages/CaseStudies";
-import { buildMetadata } from "@/lib/seo";
-import { seo } from "@/data/content";
+import { pageMetadata, PAGE_SEO } from "@/lib/seo";
 
-export const metadata = buildMetadata({ ...seo.caseStudies, path: "/case-studies" });
+export const metadata = pageMetadata(PAGE_SEO.caseStudies);
 
 export default function Page() {
- return <CaseStudies />;
+  return <CaseStudies />;
 }

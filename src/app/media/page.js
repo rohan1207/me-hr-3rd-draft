@@ -1,9 +1,8 @@
 import Media from "@/legacy-pages/Media";
-import { buildMetadata } from "@/lib/seo";
-import { seo } from "@/data/content";
+import { pageMetadata, PAGE_SEO } from "@/lib/seo";
 
-export const metadata = buildMetadata({ ...seo.media, path: "/media" });
+export const metadata = pageMetadata(PAGE_SEO.media);
 
 export default function Page() {
- return <Media />;
+  return <Media />;
 }

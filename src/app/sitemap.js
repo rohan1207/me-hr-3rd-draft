@@ -1,46 +1,49 @@
 import { mediaContent, caseStudies } from "@/data/content";
-import { SITE_URL } from "@/lib/seo";
+import { abs, SITE } from "@/lib/seo";
 
-const STATIC_PATHS = [
- { path: "/", priority: 1 },
- { path: "/about", priority: 0.9 },
- { path: "/services", priority: 0.9 },
- { path: "/services/on-demand-hr", priority: 0.8 },
- { path: "/services/hr-retainership", priority: 0.8 },
- { path: "/services/strategic-consulting", priority: 0.8 },
- { path: "/pagar", priority: 0.8 },
- { path: "/pricing", priority: 0.7 },
- { path: "/case-studies", priority: 0.7 },
- { path: "/life", priority: 0.6 },
- { path: "/careers", priority: 0.6 },
- { path: "/media", priority: 0.6 },
- { path: "/faqs", priority: 0.6 },
- { path: "/contact", priority: 0.8 },
- { path: "/privacy-policy", priority: 0.3 },
- { path: "/terms-and-conditions", priority: 0.3 },
+const STATIC_ROUTES = [
+  ["/", 1.0, "weekly"],
+  ["/about", 0.8, "monthly"],
+  ["/services", 0.9, "monthly"],
+  ["/services/on-demand-hr", 0.9, "monthly"],
+  ["/services/hr-retainership", 0.9, "monthly"],
+  ["/services/strategic-consulting", 0.9, "monthly"],
+  ["/pagar", 0.9, "monthly"],
+  ["/pricing", 0.8, "monthly"],
+  ["/case-studies", 0.7, "monthly"],
+  ["/media", 0.8, "weekly"],
+  ["/life", 0.5, "monthly"],
+  ["/careers", 0.7, "weekly"],
+  ["/contact", 0.8, "yearly"],
+  ["/faqs", 0.6, "monthly"],
+  ["/privacy-policy", 0.2, "yearly"],
+  ["/terms-and-conditions", 0.2, "yearly"],
 ];
 
 export default function sitemap() {
- const lastModified = new Date();
+  const lastModified = new Date();
 
- return [
- ...STATIC_PATHS.map(({ path, priority }) => ({
- url: path === "/" ? SITE_URL : `${SITE_URL}${path}`,
- lastModified,
- changeFrequency: "monthly",
- priority,
- })),
- ...mediaContent.posts.map((post) => ({
- url: `${SITE_URL}/media/${post.id}`,
- lastModified,
- changeFrequency: "monthly",
- priority: 0.5,
- })),
- ...caseStudies.map((study) => ({
- url: `${SITE_URL}/case-studies/${study.id}`,
- lastModified,
- changeFrequency: "monthly",
- priority: 0.55,
- })),
- ];
+  return [
+    ...STATIC_ROUTES.map(([path, priority, changeFrequency]) => ({
+      url: abs(path),
+      lastModified,
+      changeFrequency,
+      priority,
+    })),
+    ...mediaContent.posts.map((post) => ({
+      url: abs(`/media/${post.id}`),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    })),
+    ...caseStudies.map((study) => ({
+      url: abs(`/case-studies/${study.id}`),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.55,
+    })),
+  ];
 }
+
+// Ensure SITE.url stays the sitemap host (Phase 2 will rename routes)
+void SITE;

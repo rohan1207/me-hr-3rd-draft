@@ -1,9 +1,8 @@
 import About from "@/legacy-pages/About";
-import { buildMetadata } from "@/lib/seo";
-import { seo } from "@/data/content";
+import { pageMetadata, PAGE_SEO } from "@/lib/seo";
 
-export const metadata = buildMetadata({ ...seo.about, path: "/about" });
+export const metadata = pageMetadata(PAGE_SEO.about);
 
 export default function Page() {
- return <About />;
+  return <About />;
 }

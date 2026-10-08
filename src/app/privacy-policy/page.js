@@ -1,9 +1,8 @@
 import PrivacyPolicy from "@/legacy-pages/PrivacyPolicy";
-import { buildMetadata } from "@/lib/seo";
-import { seo } from "@/data/content";
+import { pageMetadata, PAGE_SEO } from "@/lib/seo";
 
-export const metadata = buildMetadata({ ...seo.privacy, path: "/privacy-policy" });
+export const metadata = pageMetadata(PAGE_SEO.privacy);
 
 export default function Page() {
- return <PrivacyPolicy />;
+  return <PrivacyPolicy />;
 }

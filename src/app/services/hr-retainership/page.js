@@ -1,9 +1,8 @@
 import HRRetainership from "@/legacy-pages/HRRetainership";
-import { buildMetadata } from "@/lib/seo";
-import { seo } from "@/data/content";
+import { pageMetadata, PAGE_SEO } from "@/lib/seo";
 
-export const metadata = buildMetadata({ ...seo.retainership, path: "/services/hr-retainership" });
+export const metadata = pageMetadata(PAGE_SEO.retainership);
 
 export default function Page() {
- return <HRRetainership />;
+  return <HRRetainership />;
 }

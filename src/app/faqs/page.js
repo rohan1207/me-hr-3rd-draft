@@ -1,9 +1,8 @@
 import FAQs from "@/legacy-pages/FAQs";
-import { buildMetadata } from "@/lib/seo";
-import { seo } from "@/data/content";
+import { pageMetadata, PAGE_SEO } from "@/lib/seo";
 
-export const metadata = buildMetadata({ ...seo.faqs, path: "/faqs" });
+export const metadata = pageMetadata(PAGE_SEO.faqs);
 
 export default function Page() {
- return <FAQs />;
+  return <FAQs />;
 }

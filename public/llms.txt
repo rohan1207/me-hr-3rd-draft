@@ -1,0 +1,27 @@
+# me-HR
+
+> Pune-based HR outsourcing firm offering On-Demand HR, Resident (fractional) HR, Strategic HR Consulting, and Payroll Outsourcing for growing businesses across India.
+
+## Site
+- Homepage: https://www.me-hr.com/
+- About: https://www.me-hr.com/about
+- Services: https://www.me-hr.com/services
+- Contact: https://www.me-hr.com/contact
+- Insights: https://www.me-hr.com/media
+- Careers: https://www.me-hr.com/careers
+
+## Services
+- On-Demand HR: https://www.me-hr.com/services/on-demand-hr
+- Resident HR (fractional / retainership): https://www.me-hr.com/services/hr-retainership
+- Strategic HR Consulting: https://www.me-hr.com/services/strategic-consulting
+- Payroll Outsourcing: https://www.me-hr.com/pagar
+
+## Contact
+- Email: ask@me-hr.com
+- Phone: +91 8600898604
+- Address: 1 Floor, Thread Works, 1156 Saifee Lane, MG Road, near 1000 Oaks Restaurant, Pune, Maharashtra 411001, India
+- Founded: 2018 | Founder & Director: Sonia Patra
+
+## Optional
+- Sitemap: https://www.me-hr.com/sitemap.xml
+- Robots: https://www.me-hr.com/robots.txt

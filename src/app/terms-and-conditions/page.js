@@ -1,9 +1,8 @@
 import TermsAndConditions from "@/legacy-pages/TermsAndConditions";
-import { buildMetadata } from "@/lib/seo";
-import { seo } from "@/data/content";
+import { pageMetadata, PAGE_SEO } from "@/lib/seo";
 
-export const metadata = buildMetadata({ ...seo.terms, path: "/terms-and-conditions" });
+export const metadata = pageMetadata(PAGE_SEO.terms);
 
 export default function Page() {
- return <TermsAndConditions />;
+  return <TermsAndConditions />;
 }
