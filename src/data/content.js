@@ -469,7 +469,7 @@ export const footerContent = {
  subscribeLabel: "Get latest update",
  subscribePlaceholder: "Enter your email",
  subscribeCta: "Subscribe",
- copyright: "Copyright \u00A9 2024 me-HR.",
+ copyright: `Copyright \u00A9 ${new Date().getFullYear()} me-HR.`,
 };
 
 export const footerExploreLinks = [

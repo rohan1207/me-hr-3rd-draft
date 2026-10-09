@@ -18,7 +18,7 @@ import SpecularButton from "../ui/SpecularButton";
 
 const COLLAGE = "/hero-people-collage-bw.png";
 const ease = [0.22, 1, 0.36, 1];
-const COPYRIGHT = "Copyright \u00A9 2024 me-HR.";
+const COPYRIGHT = `Copyright \u00A9 ${new Date().getFullYear()} me-HR.`;
 
 function WhatsAppIcon({ size = 16 }) {
  return (
