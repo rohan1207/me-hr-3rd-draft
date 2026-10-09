@@ -1,6 +1,9 @@
 import "./globals.css";
+import Script from "next/script";
 import Layout from "@/components/layout/Layout";
 import { organizationJsonLd, SITE, PAGE_SEO } from "@/lib/seo";
+
+const GA_ID = "G-VQYS9NB7V8";
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
@@ -88,6 +91,18 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
         <Layout>{children}</Layout>
       </body>
     </html>
