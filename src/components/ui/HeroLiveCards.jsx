@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { homeContent, serviceModels } from "../../data/content";
 
@@ -44,13 +44,29 @@ function linePath(boost = 0) {
  }).join(" ");
 }
 
-function shortSubtitle(desc, max = 72) {
- if (!desc) return "";
- if (desc.length <= max) return desc;
- const cut = desc.slice(0, max);
- const lastSpace = cut.lastIndexOf(" ");
- return `${cut.slice(0, lastSpace > 40 ? lastSpace : max).trim()}...`;
-}
+/** Complete copy per card — never ellipsis-truncated mid-sentence */
+const CARD_COPY = {
+ "on-demand": {
+ mobile: "HR support for a set stretch — days, weeks or months.",
+ desktop:
+ "Flexible HR for a specific need, project or temporary bandwidth — from a few days to a few months.",
+ },
+ retainership: {
+ mobile: "Embedded HR for day-to-day people operations.",
+ desktop:
+ "Ongoing fractional HR for continuous day-to-day operations and people process ownership.",
+ },
+ strategic: {
+ mobile: "Senior advisory for defined people and org projects.",
+ desktop:
+ "Senior HR advisory for organisational, leadership, framework and transformation work.",
+ },
+ pagar: {
+ mobile: "Payroll with PF, ESIC and statutory compliance.",
+ desktop:
+ "Accurate payroll processing with PF, ESIC, PT, LWF and statutory compliance support.",
+ },
+};
 
 function GlassCard({
  children,
@@ -83,7 +99,7 @@ function GlassCard({
  }}
  aria-hidden
  />
- <div className="relative z-[1] flex h-full flex-col p-3.5 sm:p-4">{children}</div>
+ <div className="relative z-[1] flex h-full flex-col p-3 sm:p-4 lg:p-5">{children}</div>
  </>
  );
 
@@ -130,17 +146,17 @@ function GlassCard({
 function CardLabel({ eyebrow, title, value, suffix = "", theme = "dark" }) {
  const light = theme === "light";
  return (
- <div className="mb-3 flex items-start justify-between gap-2">
- <div>
+ <div className="mb-2 flex items-start justify-between gap-2 sm:mb-3">
+ <div className="min-w-0">
  <p
- className={`text-[9px] font-semibold uppercase tracking-[0.16em] sm:text-[10px] ${
+ className={`text-[9px] font-semibold uppercase tracking-[0.14em] sm:text-[10px] lg:text-[11px] ${
  light ? "text-mehr-deep/55" : "text-white/45"
  }`}
  >
  {eyebrow}
  </p>
  <p
- className={`mt-1 font-sans text-[13px] font-semibold sm:text-sm ${
+ className={`mt-0.5 font-sans text-[12px] font-semibold leading-snug sm:mt-1 sm:text-[14px] lg:text-[15px] ${
  light ? "text-mehr-ink" : "text-white"
  }`}
  >
@@ -148,12 +164,14 @@ function CardLabel({ eyebrow, title, value, suffix = "", theme = "dark" }) {
  </p>
  </div>
  <p
- className={`font-sans text-lg font-semibold tabular-nums tracking-tight sm:text-xl ${
+ className={`shrink-0 whitespace-nowrap font-sans text-base font-semibold tabular-nums tracking-tight sm:text-xl lg:text-2xl ${
  light ? "text-mehr-deep" : "text-white"
  }`}
  >
  {value}
- <span className={`text-sm ${light ? "text-mehr-mist" : "text-white/55"}`}>{suffix}</span>
+ <span className={`text-xs sm:text-sm ${light ? "text-mehr-mist" : "text-white/55"}`}>
+ {suffix}
+ </span>
  </p>
  </div>
  );
@@ -204,23 +222,23 @@ function HiringBars({ active, reduce, theme = "dark" }) {
 }
 
 function RetentionRing({ active, reduce, centerValue, centerLabel, theme = "dark" }) {
- const r = 42;
+ const r = 40;
  const c = 2 * Math.PI * r;
  const pct = active ? 0.94 : 0.86;
  const offset = c * (1 - pct);
  const light = theme === "light";
 
  return (
- <div className="relative mx-auto mt-auto flex aspect-square w-[58%] max-w-[6.5rem] items-center justify-center sm:max-w-[7.25rem]">
+ <div className="relative mx-auto mt-auto flex aspect-square w-[62%] max-w-[7rem] items-center justify-center sm:max-w-[7.5rem]">
  <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
- <circle cx="50" cy="50" r={r} fill="none" stroke={light ? "rgba(11,95,88,0.12)" : "rgba(255,255,255,0.1)"} strokeWidth="7" />
+ <circle cx="50" cy="50" r={r} fill="none" stroke={light ? "rgba(11,95,88,0.12)" : "rgba(255,255,255,0.1)"} strokeWidth="6.5" />
  <motion.circle
  cx="50"
  cy="50"
  r={r}
  fill="none"
  stroke={TEAL}
- strokeWidth="7"
+ strokeWidth="6.5"
  strokeLinecap="round"
  strokeDasharray={c}
  animate={
@@ -237,15 +255,19 @@ function RetentionRing({ active, reduce, centerValue, centerLabel, theme = "dark
  }
  />
  </svg>
- <div className="absolute inset-0 flex flex-col items-center justify-center px-2 text-center">
+ <div className="absolute inset-[18%] flex flex-col items-center justify-center text-center">
  <motion.span
- className={`font-sans text-xl font-semibold tabular-nums sm:text-2xl ${light ? "text-mehr-ink" : "text-white"}`}
+ className={`font-sans text-lg font-semibold leading-none tabular-nums sm:text-2xl ${light ? "text-mehr-ink" : "text-white"}`}
  animate={reduce ? undefined : { scale: active ? [1, 1.04, 1] : [1, 1.02, 1] }}
  transition={{ duration: active ? 1.6 : 3.2, repeat: Infinity, ease: "easeInOut" }}
  >
  {centerValue}
  </motion.span>
- <span className={`mt-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] ${light ? "text-mehr-mist" : "text-white/40"}`}>
+ <span
+ className={`mt-1 max-w-full text-[8px] font-semibold uppercase leading-tight tracking-[0.04em] sm:mt-1.5 sm:text-[9px] sm:tracking-[0.1em] ${
+ light ? "text-mehr-mist" : "text-white/40"
+ }`}
+ >
  {centerLabel}
  </span>
  </div>
@@ -257,7 +279,7 @@ function RetentionRing({ active, reduce, centerValue, centerLabel, theme = "dark
  aria-hidden
  >
  <span
- className="absolute left-1/2 top-[8%] h-2 w-2 -translate-x-1/2 rounded-full"
+ className="absolute left-1/2 top-[7%] h-1.5 w-1.5 -translate-x-1/2 rounded-full sm:h-2 sm:w-2"
  style={{ background: TEAL, boxShadow: `0 0 12px ${TEAL}` }}
  />
  </motion.div>
@@ -320,11 +342,13 @@ function EngagementLine({ active, reduce, stepLabels, theme = "dark" }) {
  ))}
  </svg>
  <div
- className={`absolute bottom-1 left-0 right-0 flex justify-between px-0.5 text-[8px] font-semibold uppercase tracking-wider ${light ? "text-mehr-mist" : "text-white/35"}`}
+ className={`absolute bottom-0 left-0 right-0 flex justify-between gap-0.5 px-0 text-[6.5px] font-semibold uppercase leading-tight tracking-[0.02em] sm:bottom-1 sm:px-0.5 sm:text-[8px] sm:tracking-wider ${light ? "text-mehr-mist" : "text-white/35"}`}
  aria-hidden
  >
- {labels.slice(0, 4).map((label) => (
- <span key={label}>{label}</span>
+ {labels.slice(0, 3).map((label) => (
+ <span key={label} className="whitespace-nowrap">
+ {label}
+ </span>
  ))}
  </div>
  </div>
@@ -334,7 +358,7 @@ function EngagementLine({ active, reduce, stepLabels, theme = "dark" }) {
 const PAGAR_STATS = ["PF", "ESIC", "PT", "LWF"];
 const PAGAR_ROWS = ["Attendance", "Payroll", "Compliance"];
 const CARD_H =
- "h-full min-h-[9.75rem] sm:min-h-[12rem] md:min-h-[13.5rem] lg:min-h-[15.5rem]";
+ "h-full min-h-[10.25rem] sm:min-h-[12.5rem] md:min-h-[14rem] lg:min-h-[16.25rem]";
 
 function PayrollPulse({ active, reduce, stepLabel, theme = "dark" }) {
  const light = theme === "light";
@@ -454,7 +478,7 @@ export default function HeroLiveCards({ theme = "dark" }) {
  model: onDemand,
  path: onDemand.path || "/services/on-demand-hr",
  value: reduce ? ON_DEMAND_VALUES[0] : durationValue,
- body: `${ON_DEMAND_VALUES.join(" | ")}. ${shortSubtitle(onDemand.desc, 42)}`,
+ copy: CARD_COPY["on-demand"],
  visual: <HiringBars active={hover === 0} reduce={reduce} theme={theme} />,
  },
  {
@@ -464,7 +488,7 @@ export default function HeroLiveCards({ theme = "dark" }) {
  model: retainership,
  path: retainership.path || "/services/hr-retainership",
  value: "HR",
- body: shortSubtitle(retainership.desc, 52),
+ copy: CARD_COPY.retainership,
  visual: (
  <RetentionRing
  active={hover === 1}
@@ -482,7 +506,7 @@ export default function HeroLiveCards({ theme = "dark" }) {
  model: strategic,
  path: strategic.path || "/services/strategic-consulting",
  value: reduce ? APPROACH_STEPS[0] : approachStep,
- body: shortSubtitle(strategic.desc, 52),
+ copy: CARD_COPY.strategic,
  visual: (
  <EngagementLine
  active={hover === 2}
@@ -499,7 +523,7 @@ export default function HeroLiveCards({ theme = "dark" }) {
  model: pagar,
  path: pagar.path || "/pagar",
  value: reduce ? PAGAR_STATS[0] : PAGAR_STATS[pagarStat],
- body: shortSubtitle(pagar.desc, 52),
+ copy: CARD_COPY.pagar,
  visual: <PayrollPulse active={hover === 3} reduce={reduce} stepLabel={pagarStat} theme={theme} />,
  },
  ];
@@ -538,11 +562,18 @@ export default function HeroLiveCards({ theme = "dark" }) {
  theme={theme}
  />
  <p
- className={`mb-2 line-clamp-2 text-[10px] leading-snug ${
- light ? "text-mehr-mist" : "text-white/45"
+ className={`mb-1.5 text-[10px] leading-snug sm:mb-2 sm:hidden ${
+ light ? "text-mehr-mist" : "text-white/50"
  }`}
  >
- {card.body}
+ {card.copy.mobile}
+ </p>
+ <p
+ className={`mb-2 hidden text-[12px] leading-snug sm:block lg:text-[13px] lg:leading-relaxed ${
+ light ? "text-mehr-mist" : "text-white/50"
+ }`}
+ >
+ {card.copy.desktop}
  </p>
  {card.visual}
  </GlassCard>
