@@ -32,14 +32,10 @@ const CYCLE_MS = 1800;
 const ease = [0.22, 1, 0.36, 1];
 
 const HERO_IMAGES = {
- "/services/on-demand-hr":
- "/me-hr_team.jpg",
- "/services/hr-retainership":
- "/resident-hr-hero.png",
- "/services/strategic-consulting":
- "/team_meet.jpeg",
- "/pagar":
- "/payroll-outsourcing-hero.png",
+ "/services/on-demand-hr": "/me-hr_team.jpg",
+ "/services/hr-retainership": "/resident-hr-hero.png",
+ "/services/strategic-consulting": "/team_meet.jpeg",
+ "/pagar": "/payroll-outsourcing-hero.png",
 };
 
 const GRID_ICONS = [

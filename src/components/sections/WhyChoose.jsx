@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
  ArrowUpRight,
@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { whyChoose, homeContent, ctas, contactInfo } from "../../data/content";
 import Reveal, { RevealItem, RevealStagger } from "../ui/Reveal";
+import OptImg from "../ui/OptImg";
 
 const whyIcons = [Puzzle, BadgeCheck, Layers, TrendingUp, Zap, HeartHandshake];
 
@@ -80,9 +81,13 @@ export default function WhyChoose() {
  to="/services"
  className="group relative flex h-full min-h-[240px] overflow-hidden rounded-[1.35rem] sm:min-h-[280px] sm:rounded-[1.75rem] lg:min-h-full"
  >
- <img
+ <OptImg
  src="/me-hr_team.jpg"
  alt={whyChoose[0].title}
+ width={800}
+ height={1000}
+ loading="lazy"
+ decoding="async"
  className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
  />
  <div className="absolute inset-0 bg-gradient-to-t from-mehr-ink/80 via-mehr-ink/25 to-transparent" />
@@ -143,9 +148,13 @@ export default function WhyChoose() {
 
  <RevealItem className="order-last min-h-[220px] lg:order-none lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1 lg:min-h-[420px]">
  <div className="relative h-full min-h-[220px] overflow-hidden rounded-[1.35rem] sm:rounded-[1.75rem] lg:min-h-full">
- <img
+ <OptImg
  src="/me-hr_meeting.jpeg"
  alt={whyChoose[5].title}
+ width={800}
+ height={1000}
+ loading="lazy"
+ decoding="async"
  className="absolute inset-0 h-full w-full object-cover"
  />
  <div className="absolute inset-0 bg-gradient-to-t from-mehr-ink/75 via-mehr-ink/15 to-transparent" />

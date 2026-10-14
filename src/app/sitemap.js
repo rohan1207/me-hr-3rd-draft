@@ -1,6 +1,8 @@
 import { mediaContent, caseStudies } from "@/data/content";
 import { abs, SITE } from "@/lib/seo";
 
+export const dynamic = "force-static";
+
 const STATIC_ROUTES = [
   ["/", 1.0, "weekly"],
   ["/about", 0.8, "monthly"],

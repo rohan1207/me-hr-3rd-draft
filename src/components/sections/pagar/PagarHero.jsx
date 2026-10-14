@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
  ArrowUpRight,
@@ -32,13 +32,23 @@ function LivePayrollPanel({ reduce }) {
  <div className="grid h-full min-h-[320px] grid-cols-2 gap-2.5 sm:min-h-[480px] sm:gap-3 lg:grid-cols-5 lg:grid-rows-[minmax(0,1.2fr)_minmax(0,1fr)_auto]">
  {/* Image tile - never covered by cards */}
  <div className="relative col-span-2 min-h-[180px] overflow-hidden rounded-[1.35rem] sm:min-h-[260px] sm:rounded-[1.6rem] lg:col-span-3 lg:row-span-2 lg:min-h-0">
+ <picture style={{ display: "contents" }}>
+ <source
+ srcSet={SCENE.replace(/\.(png|jpe?g)$/i, ".webp")}
+ type="image/webp"
+ />
  <motion.img
  src={SCENE}
  alt="Payroll and compliance discussion between Indian HR professionals"
  className="absolute inset-0 h-full w-full object-cover"
+ width={1152}
+ height={768}
+ fetchPriority="high"
+ decoding="async"
  animate={reduce ? undefined : { scale: [1, 1.04, 1] }}
  transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
  />
+ </picture>
  </div>
 
  {/* Payroll run */}

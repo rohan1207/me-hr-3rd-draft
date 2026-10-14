@@ -10,6 +10,7 @@ import {
 import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import SpecularButton from "../../ui/SpecularButton";
+import OptImg from "../../ui/OptImg";
 import { aboutContent } from "../../../data/content";
 
 const ease = [0.22, 1, 0.36, 1];
@@ -86,12 +87,17 @@ export default function AboutHero() {
  <div className="grid items-stretch gap-4 sm:gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
  {/* Phone: image first for visual punch */}
  <div className="relative order-1 min-h-[220px] overflow-hidden rounded-[1.25rem] sm:min-h-[320px] sm:rounded-[1.6rem] lg:order-2 lg:min-h-[380px] lg:rounded-[1.6rem]">
- <motion.img
- style={{ y: parallax }}
+ <motion.div style={{ y: parallax }} className="absolute inset-0 scale-105">
+ <OptImg
  src={HERO_IMG}
- alt="me-HR team"
- className="absolute inset-0 h-full w-full scale-105 object-cover object-[center_28%]"
+ alt="me-HR team in Pune — HR outsourcing consultants"
+ width={1152}
+ height={864}
+ fetchPriority="high"
+ decoding="async"
+ className="h-full w-full object-cover object-[center_28%]"
  />
+ </motion.div>
  </div>
 
  <div className="order-2 flex flex-col justify-center text-center lg:order-1 lg:pr-6 lg:text-left">

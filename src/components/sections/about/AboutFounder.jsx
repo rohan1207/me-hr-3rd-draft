@@ -14,6 +14,7 @@ import {
  Target,
 } from "lucide-react";
 import { aboutContent } from "../../../data/content";
+import OptImg from "../../ui/OptImg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,9 +111,13 @@ function FounderPortrait({ founder }) {
  return (
  <div className="relative mx-auto flex h-full w-full max-w-md flex-col overflow-hidden rounded-[1.5rem] border border-mehr-deep/10 bg-white shadow-soft sm:rounded-[1.75rem]">
  <div className="relative min-h-[260px] flex-1 sm:min-h-[380px]">
- <img
+ <OptImg
  src={FOCUS_IMG}
  alt={founder.name}
+ width={640}
+ height={800}
+ loading="lazy"
+ decoding="async"
  className="absolute inset-0 h-full w-full object-cover object-top"
  />
  </div>
@@ -133,9 +138,13 @@ function FounderPortraitPhone({ founder }) {
  return (
  <div className="mx-auto w-full max-w-[240px] sm:max-w-[260px]">
  <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] shadow-soft">
- <img
+ <OptImg
  src={FOCUS_IMG}
  alt={founder.name}
+ width={480}
+ height={600}
+ loading="lazy"
+ decoding="async"
  className="absolute inset-0 h-full w-full object-cover object-top"
  />
  </div>

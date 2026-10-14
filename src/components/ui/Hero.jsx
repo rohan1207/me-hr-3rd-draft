@@ -5,6 +5,7 @@ import { homeContent } from "../../data/content";
 import RevealHeadline from "./RevealHeadline";
 import HeroLiveCards from "./HeroLiveCards";
 import SpecularButton from "./SpecularButton";
+import OptImg from "./OptImg";
 
 const ease = [0.22, 1, 0.36, 1];
 const COLLAGE = "/hero-people-collage-bw.png";
@@ -17,9 +18,13 @@ export default function Hero() {
  <section className="relative overflow-x-clip bg-white lg:min-h-[min(100svh,920px)] lg:overflow-hidden">
  {/* Collage: full width on phone, left half on desktop */}
  <div className="absolute inset-0 lg:right-1/2 lg:left-0">
- <img
+ <OptImg
  src={COLLAGE}
- alt=""
+ alt="Professionals at work — me-HR HR outsourcing for growing businesses"
+ width={864}
+ height={1152}
+ fetchPriority="high"
+ decoding="async"
  className="h-full w-full object-cover object-[center_18%] grayscale contrast-[1.05] sm:object-[center_20%]"
  />
  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/45 lg:to-black/50" />

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
  ArrowUpRight,
@@ -22,6 +22,7 @@ import SpecularButton from "../components/ui/SpecularButton";
 import CTABanner from "../components/ui/CTABanner";
 import PageSEO from "../components/ui/PageSEO";
 import SectionHeading from "../components/ui/SectionHeading";
+import OptImg from "../components/ui/OptImg";
 
 const galleryImages = [
  "/me-hr_team.jpg",
@@ -100,9 +101,12 @@ function GalleryLightbox({ items, index, onClose, onPrev, onNext }) {
  onClick={(e) => e.stopPropagation()}
  >
  <div className="overflow-hidden rounded-[1.1rem] bg-mehr-ink shadow-float sm:rounded-[1.5rem]">
- <img
+ <OptImg
  src={item.img}
  alt={item.label}
+ width={1200}
+ height={900}
+ decoding="async"
  className="mx-auto max-h-[min(72vh,820px)] w-full object-contain sm:max-h-[min(78vh,820px)]"
  />
  </div>
@@ -249,9 +253,13 @@ export default function Life() {
  : "aspect-[4/5] translate-y-3 sm:translate-y-6"
  }`}
  >
- <img
+ <OptImg
  src={src}
  alt=""
+ width={480}
+ height={600}
+ loading="lazy"
+ decoding="async"
  className="h-full w-full object-cover transition duration-500 hover:scale-105"
  />
  </button>
@@ -347,9 +355,13 @@ export default function Life() {
  className="group relative block w-full overflow-hidden rounded-[1.15rem] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mehr-deep focus-visible:ring-offset-2 sm:rounded-[1.5rem] lg:rounded-[1.75rem]"
  >
  <span className="relative block aspect-[16/11] sm:aspect-[21/9]">
- <img
+ <OptImg
  src={shot.img}
  alt={shot.label}
+ width={1200}
+ height={675}
+ loading="lazy"
+ decoding="async"
  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
  />
  <span className="absolute inset-0 bg-gradient-to-t from-mehr-ink/70 via-transparent to-transparent" />
@@ -390,9 +402,13 @@ export default function Life() {
  : "hover:opacity-95"
  }`}
  >
- <img
+ <OptImg
  src={item.img}
  alt={item.label}
+ width={480}
+ height={360}
+ loading="lazy"
+ decoding="async"
  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
  />
  <div
@@ -447,9 +463,13 @@ export default function Life() {
  </div>
  </div>
  <div className="relative min-h-[180px] sm:min-h-[240px] lg:min-h-0">
- <img
+ <OptImg
  src={bandImage}
  alt=""
+ width={800}
+ height={600}
+ loading="lazy"
+ decoding="async"
  className="absolute inset-0 h-full w-full object-cover"
  />
  <div className="absolute inset-0 bg-mehr-deep/15" />

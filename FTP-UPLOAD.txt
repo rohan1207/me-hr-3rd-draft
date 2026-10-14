@@ -1,0 +1,29 @@
+me-HR Next.js → PODC FTP (static export)
+========================================
+
+UPLOAD THIS FOLDER'S CONTENTS:
+  C:\Projects\ME-HR\Nextjs_website\out\
+
+Into remote:
+  /me-hr.com/wwwroot
+
+HOW (FileZilla)
+1. Connect with PODC FTP (ftp.me-hr.com)
+2. Open wwwroot
+3. Optional: download existing web.config as backup
+4. Select ALL files/folders INSIDE "out" (not the "out" folder itself)
+5. Upload into wwwroot
+6. Confirm wwwroot/index.html exists (not wwwroot/out/index.html)
+
+DO NOT UPLOAD
+- src, node_modules, .next, package.json, whole Nextjs_website project
+
+AFTER UPLOAD
+- Ask PODC to enable IIS URL Rewrite if /about/ 404s
+- DNS must point to PODC for this host to be live
+- Keep Outlook MX correct on GoDaddy (separate from FTP)
+
+Rebuild anytime:
+  cd Nextjs_website
+  npm run build
+  (re-upload out/ contents)

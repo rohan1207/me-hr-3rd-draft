@@ -20,6 +20,7 @@ import { submitForm } from "../lib/submitForm";
 import PageSEO from "../components/ui/PageSEO";
 import CTABanner from "../components/ui/CTABanner";
 import Reveal from "../components/ui/Reveal";
+import OptImg from "../components/ui/OptImg";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -162,9 +163,14 @@ function CareersHero() {
  </p>
  </>
  ) : (
- <img
+ <OptImg
  src={item.src}
  alt=""
+ width={640}
+ height={480}
+ loading={i === 0 ? undefined : "lazy"}
+ fetchPriority={i === 0 ? "high" : undefined}
+ decoding="async"
  className="absolute inset-0 h-full w-full object-cover"
  />
  )}
@@ -834,9 +840,13 @@ export default function Careers() {
  delay={0.1}
  className="relative min-h-[200px] overflow-hidden rounded-[1.15rem] sm:min-h-[300px] sm:rounded-[1.6rem] lg:min-h-[360px]"
  >
- <img
+ <OptImg
  src={CULTURE_IMG}
  alt="me-HR team collaborating in the office"
+ width={1200}
+ height={800}
+ loading="lazy"
+ decoding="async"
  className="absolute inset-0 h-full w-full object-cover"
  />
  </Reveal>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import {
  ArrowUpRight,
@@ -10,6 +10,7 @@ import {
  Wallet,
 } from "lucide-react";
 import SpecularButton from "../../ui/SpecularButton";
+import OptImg from "../../ui/OptImg";
 import {
  ctas,
  homeContent,
@@ -111,9 +112,13 @@ export default function ServicesHero() {
  />
  <div className="relative overflow-hidden rounded-[1.25rem] border border-mehr-deep/10 bg-mehr-panel shadow-soft">
  <div className="aspect-[16/10] w-full">
- <img
+ <OptImg
  src={HERO_IMAGE}
  alt="me-HR consultant discussing HR engagement options with business leaders"
+ width={1152}
+ height={864}
+ fetchPriority="high"
+ decoding="async"
  className="h-full w-full object-cover object-center"
  />
  </div>
@@ -175,9 +180,13 @@ export default function ServicesHero() {
  />
  <div className="relative overflow-hidden rounded-[1.5rem] border border-mehr-deep/10 bg-mehr-panel shadow-soft sm:rounded-[1.85rem]">
  <div className="aspect-[4/3] w-full sm:aspect-[5/4]">
- <img
+ <OptImg
  src={HERO_IMAGE}
  alt="me-HR consultant discussing HR engagement options with business leaders"
+ width={1152}
+ height={864}
+ fetchPriority="high"
+ decoding="async"
  className="h-full w-full object-cover object-center"
  />
  </div>

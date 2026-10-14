@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { motion as Motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, MessageSquareText } from "lucide-react";
 import FloatingShapes from "./FloatingShapes";
@@ -53,13 +53,25 @@ function HeroPhoto({ image, alt }) {
  />
  <div className="relative overflow-hidden rounded-[1.5rem] border border-mehr-deep/10 bg-mehr-panel shadow-soft sm:rounded-[1.75rem]">
  <div className="aspect-[16/10] w-full max-h-[240px] sm:aspect-[5/4] sm:max-h-[320px] lg:max-h-[340px]">
+ <picture style={{ display: "contents" }}>
+ {/\.(png|jpe?g)$/i.test(image) && (
+ <source
+ srcSet={image.replace(/\.(png|jpe?g)$/i, ".webp")}
+ type="image/webp"
+ />
+ )}
  <Motion.img
  src={image}
  alt={alt || ""}
+ width={960}
+ height={720}
+ fetchPriority="high"
+ decoding="async"
  className="h-full w-full object-cover"
  animate={reduce ? undefined : { scale: [1, 1.035, 1] }}
  transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
  />
+ </picture>
  </div>
  </div>
  <div

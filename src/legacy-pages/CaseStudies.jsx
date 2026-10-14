@@ -9,6 +9,7 @@ import PageSEO from "../components/ui/PageSEO";
 import CTABanner from "../components/ui/CTABanner";
 import SpecularButton from "../components/ui/SpecularButton";
 import Reveal, { RevealItem, RevealStagger } from "../components/ui/Reveal";
+import OptImg from "../components/ui/OptImg";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -79,17 +80,25 @@ function Hero() {
  className="grid grid-cols-2 gap-2.5 sm:gap-3"
  >
  <div className="overflow-hidden rounded-[1.15rem] shadow-soft sm:rounded-[1.5rem]">
- <img
+ <OptImg
  src="/case-studies/hero.jpg"
  alt="HR consulting case study discussion"
+ width={640}
+ height={800}
+ fetchPriority="high"
+ decoding="async"
  className="aspect-[4/5] h-full w-full object-cover"
  />
  </div>
  <div className="flex flex-col gap-2.5 sm:gap-3">
  <div className="overflow-hidden rounded-[1.15rem] shadow-soft sm:rounded-[1.5rem]">
- <img
+ <OptImg
  src="/case-studies/hero-secondary.jpg"
  alt=""
+ width={640}
+ height={512}
+ loading="lazy"
+ decoding="async"
  className="aspect-[5/4] w-full object-cover"
  />
  </div>
@@ -121,9 +130,13 @@ function FeaturedCase({ cs, image }) {
  >
  <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
  <div className="relative min-h-[180px] sm:min-h-[220px] lg:min-h-full">
- <img
+ <OptImg
  src={image}
  alt=""
+ width={800}
+ height={600}
+ loading="lazy"
+ decoding="async"
  className="absolute inset-0 h-full w-full object-cover"
  />
  <div className="absolute inset-0 bg-gradient-to-t from-mehr-ink/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-mehr-ink/10" />
@@ -207,9 +220,13 @@ function StoryCard({ cs, image, index, compact = false }) {
  compact ? "aspect-[5/4]" : "h-36 sm:h-44"
  }`}
  >
- <img
+ <OptImg
  src={image}
  alt=""
+ width={640}
+ height={400}
+ loading="lazy"
+ decoding="async"
  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
  />
  <div className="absolute inset-0 bg-gradient-to-t from-mehr-ink/45 via-transparent to-transparent" />

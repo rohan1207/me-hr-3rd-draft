@@ -21,12 +21,9 @@ const iconMap = {
 
 /** Distinct image per approach step */
 const stepImages = {
- Understand:
- "/me-hr_team.jpg",
- Recommend:
- "/me-hr_meeting.jpeg",
- Strengthen:
- "/team_meet.jpeg",
+ Understand: "/me-hr_team.webp",
+ Recommend: "/me-hr_meeting.webp",
+ Strengthen: "/team_meet.webp",
 };
 
 export default function AdvantageBand() {
@@ -157,6 +154,10 @@ export default function AdvantageBand() {
  key={item.title}
  src={src}
  alt=""
+ width={1200}
+ height={800}
+ loading="lazy"
+ decoding="async"
  className="absolute inset-0 h-full w-full object-cover"
  initial={false}
  animate={

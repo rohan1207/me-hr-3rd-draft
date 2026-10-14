@@ -29,8 +29,8 @@ export const SITE = {
     jobTitle: "Founder & Director",
     email: "sonia@me-hr.com",
   },
-  // Served by app/opengraph-image.js (Next Metadata file convention)
-  ogImage: "/opengraph-image",
+  // Static OG image for FTP/static export (no dynamic opengraph-image route)
+  ogImage: "/logo1.png",
   // TODO(client): Twitter / X handle if brand account exists
   twitterHandle: undefined,
 };

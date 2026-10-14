@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -11,6 +11,7 @@ import {
  Wrench,
 } from "lucide-react";
 import Reveal from "../../ui/Reveal";
+import OptImg from "../../ui/OptImg";
 import { aboutContent } from "../../../data/content";
 
 const icons = [Briefcase, ShieldCheck, Wrench, Layers, CheckCircle2, RefreshCw];
@@ -28,7 +29,15 @@ export default function AboutWhy() {
  <div className="grid items-stretch gap-5 lg:grid-cols-[0.95fr_1.05fr] lg:gap-6">
  <Reveal>
  <div className="relative h-full min-h-[240px] overflow-hidden rounded-[1.75rem] sm:min-h-[340px] sm:rounded-[2rem]">
- <img src={WHY_IMAGE} alt="" className="absolute inset-0 h-full w-full object-cover" />
+ <OptImg
+ src={WHY_IMAGE}
+ alt="Collaborative HR workshop — why businesses choose me-HR"
+ width={875}
+ height={492}
+ loading="lazy"
+ decoding="async"
+ className="absolute inset-0 h-full w-full object-cover"
+ />
  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
  <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-mehr-teal">

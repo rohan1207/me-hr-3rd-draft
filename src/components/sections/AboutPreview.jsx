@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Ear, Handshake, PenLine } from "lucide-react";
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { homeContent, ctas } from "../../data/content";
 import SpecularButton from "../ui/SpecularButton";
 import Reveal from "../ui/Reveal";
+import OptImg from "../ui/OptImg";
 
 const ease = [0.22, 1, 0.36, 1];
 const CYCLE_MS = 3200;
@@ -73,13 +74,21 @@ export default function AboutPreview() {
  }}
  >
  <div className="aspect-[16/11] w-full max-h-[300px] sm:max-h-[320px] lg:max-h-[340px]">
- <motion.img
- src={IMAGE}
- alt=""
- className="h-full w-full object-cover"
+ <motion.div
+ className="h-full w-full"
  animate={reduce ? undefined : { scale: [1, 1.04, 1] }}
  transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+ >
+ <OptImg
+ src={IMAGE}
+ alt="me-HR consultants supporting structured HR for growing businesses"
+ width={1200}
+ height={825}
+ loading="lazy"
+ decoding="async"
+ className="h-full w-full object-cover"
  />
+ </motion.div>
  </div>
  </div>
 

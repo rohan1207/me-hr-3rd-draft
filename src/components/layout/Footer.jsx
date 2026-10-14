@@ -15,6 +15,7 @@ import {
 import { submitForm } from "../../lib/submitForm";
 import Logo from "../ui/Logo";
 import SpecularButton from "../ui/SpecularButton";
+import OptImg from "../ui/OptImg";
 
 const COLLAGE = "/hero-people-collage-bw.png";
 const ease = [0.22, 1, 0.36, 1];
@@ -81,9 +82,14 @@ export default function Footer() {
  return (
  <footer className="relative overflow-hidden bg-mehr-ink text-white">
  <div className="pointer-events-none absolute inset-0" aria-hidden>
- <img
+ <OptImg
  src={COLLAGE}
  alt=""
+ width={864}
+ height={1152}
+ loading="lazy"
+ fetchPriority="low"
+ decoding="async"
  className="h-full w-full object-cover object-[center_20%] opacity-[0.28] grayscale contrast-[1.05]"
  />
  <div className="absolute inset-0 bg-gradient-to-b from-mehr-ink/80 via-mehr-ink/72 to-mehr-ink/88" />

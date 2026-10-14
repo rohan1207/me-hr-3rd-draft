@@ -36,13 +36,18 @@ export default function TrustedBy() {
  >
  <img
  src={logo.src}
- alt={i >= logos.length ? "" : logo.name}
+ alt={
+ i >= logos.length
+ ? ""
+ : `${logo.name} logo — me-HR client`
+ }
  className={`max-h-[82%] max-w-[96%] object-contain opacity-80 transition duration-500 ease-out sm:max-h-[78%] sm:max-w-[94%] sm:opacity-85 hover:opacity-100 ${
  LOGO_SCALE[logo.name] ||
  "scale-[1.08] hover:scale-[1.12]"
  }`}
- loading="eager"
+ loading="lazy"
  decoding="async"
+ fetchPriority="low"
  draggable={false}
  />
  </div>

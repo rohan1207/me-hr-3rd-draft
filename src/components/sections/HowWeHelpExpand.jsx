@@ -24,6 +24,7 @@ import { homeContent } from "../../data/content";
 import SectionHeading from "../ui/SectionHeading";
 import SpecularButton from "../ui/SpecularButton";
 import Reveal from "../ui/Reveal";
+import OptImg from "../ui/OptImg";
 
 const ease = [0.22, 1, 0.36, 1];
 const expandTransition = { duration: 0.45, ease };
@@ -234,10 +235,13 @@ function CardBackdrop({ item, meta, dim = false }) {
  <>
  <div className={`absolute inset-0 bg-gradient-to-br ${meta.accent}`} />
  {item.image && (
- <img
+ <OptImg
  src={item.image}
- alt=""
- aria-hidden
+ alt={`${item.title || "me-HR"} — HR engagement model`}
+ width={800}
+ height={600}
+ loading="lazy"
+ decoding="async"
  className={`absolute inset-0 h-full w-full object-cover ${
  dim ? "opacity-[0.18]" : "opacity-[0.32]"
  }`}

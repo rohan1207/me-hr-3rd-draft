@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal, { RevealItem, RevealStagger } from "../../ui/Reveal";
+import OptImg from "../../ui/OptImg";
 import { aboutContent } from "../../../data/content";
 
 const ease = [0.22, 1, 0.36, 1];
@@ -15,15 +16,23 @@ export default function AboutStory() {
  <div className="grid items-stretch gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12 xl:gap-16">
  {/* Visual - real workplace context */}
  <Reveal className="relative min-h-[220px] overflow-hidden rounded-[1.5rem] sm:min-h-[340px] sm:rounded-[1.75rem] lg:min-h-full">
- <motion.img
- src={PHOTO}
- alt="me-HR team"
- className="absolute inset-0 h-full w-full object-cover"
+ <motion.div
+ className="absolute inset-0"
  initial={reduce ? false : { scale: 1.06 }}
  whileInView={{ scale: 1 }}
  viewport={{ once: true }}
  transition={{ duration: 1.1, ease }}
+ >
+ <OptImg
+ src={PHOTO}
+ alt="me-HR team collaborating on HR delivery for client organisations"
+ width={571}
+ height={492}
+ loading="lazy"
+ decoding="async"
+ className="h-full w-full object-cover"
  />
+ </motion.div>
  <div className="absolute inset-0 bg-gradient-to-t from-mehr-ink/55 via-mehr-ink/10 to-transparent" />
  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-mehr-teal">

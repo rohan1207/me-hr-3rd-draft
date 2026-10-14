@@ -10,6 +10,7 @@ import {
 import { homeContent, whyChoose, ctas } from "../../data/content";
 import SpecularButton from "../ui/SpecularButton";
 import Reveal, { RevealItem, RevealStagger } from "../ui/Reveal";
+import OptImg from "../ui/OptImg";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -41,9 +42,13 @@ export default function HomeValueBand() {
  transition={{ duration: 0.65, ease }}
  className="relative mx-auto mb-5 aspect-[16/10] w-full max-w-md overflow-hidden rounded-[1.15rem] sm:mb-6 sm:aspect-[16/9] sm:rounded-[1.35rem] md:hidden"
  >
- <img
+ <OptImg
  src="/about/about-preview-circle.png"
  alt=""
+ width={800}
+ height={500}
+ loading="lazy"
+ decoding="async"
  className="h-full w-full object-cover object-[42%_48%]"
  />
  <div className="absolute inset-0 bg-gradient-to-t from-mehr-panel/50 via-transparent to-transparent" />
@@ -59,9 +64,13 @@ export default function HomeValueBand() {
  className="pointer-events-none absolute -right-24 -top-28 hidden h-[26rem] w-[26rem] md:block lg:-right-20 lg:-top-32 lg:h-[32rem] lg:w-[32rem] xl:-right-16 xl:h-[34rem] xl:w-[34rem]"
  >
  <div className="absolute inset-0 overflow-hidden rounded-full">
- <img
+ <OptImg
  src="/about/about-preview-circle.png"
  alt=""
+ width={800}
+ height={800}
+ loading="lazy"
+ decoding="async"
  className="h-full w-full object-cover object-[42%_58%]"
  />
  <div className="absolute inset-0 bg-gradient-to-bl from-mehr-deep/10 via-transparent to-mehr-panel/45" />

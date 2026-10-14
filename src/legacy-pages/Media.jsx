@@ -18,17 +18,17 @@ import Reveal, { RevealItem, RevealStagger } from "../components/ui/Reveal";
 const ease = [0.22, 1, 0.36, 1];
 
 const POST_IMAGES = {
- "structured-hr": "/insights/structured-hr.png",
- "fractional-hr": "/insights/resident-hr.png",
- "engagement-culture": "/insights/engagement.png",
- "payroll-compliance": "/insights/payroll.png",
- "performance-systems": "/insights/performance.png",
- "on-demand-hr": "/insights/on-demand.png",
- "workplace-moments": "/insights/workplace-moments.png",
- "hr-lifecycle": "/insights/lifecycle.png",
+ "structured-hr": "/insights/structured-hr.webp",
+ "fractional-hr": "/insights/resident-hr.webp",
+ "engagement-culture": "/insights/engagement.webp",
+ "payroll-compliance": "/insights/payroll.webp",
+ "performance-systems": "/insights/performance.webp",
+ "on-demand-hr": "/insights/on-demand.webp",
+ "workplace-moments": "/insights/workplace-moments.webp",
+ "hr-lifecycle": "/insights/lifecycle.webp",
 };
 
-const CASE_IMAGES = ["/insights/on-demand.png", "/insights/lifecycle.png"];
+const CASE_IMAGES = ["/insights/on-demand.webp", "/insights/lifecycle.webp"];
 
 function postImage(idOrIndex) {
  if (typeof idOrIndex === "number") {
@@ -60,6 +60,10 @@ function InsightCard({ post, large = false, reduce, compact = false }) {
  <motion.img
  src={postImage(post.id)}
  alt=""
+ width={800}
+ height={500}
+ loading="lazy"
+ decoding="async"
  whileHover={reduce ? undefined : { scale: 1.04 }}
  transition={{ duration: 0.5 }}
  className="h-full w-full object-cover"

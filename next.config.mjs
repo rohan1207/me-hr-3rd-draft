@@ -2,6 +2,9 @@ import path from "node:path";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Static HTML export for PODC / IIS FTP (wwwroot) — no Node server required
+  output: "export",
+  trailingSlash: true,
   reactStrictMode: true,
   images: { unoptimized: true },
   // The parent Vite project has its own lockfile; pin tracing to this app.

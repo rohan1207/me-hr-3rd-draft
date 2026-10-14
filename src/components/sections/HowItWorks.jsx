@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { Link } from "@/components/compat/router";
+import { Link } from "react-router-dom";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import {
  ArrowUpRight,
@@ -22,6 +22,7 @@ import {
 import { howItWorks, homeContent } from "../../data/content";
 import SpecularButton from "../ui/SpecularButton";
 import Reveal from "../ui/Reveal";
+import OptImg from "../ui/OptImg";
 import ScrollStack, { ScrollStackItem } from "../ui/ScrollStack";
 import ProcessGlobe from "./ProcessGlobe";
 
@@ -162,9 +163,11 @@ export default function HowItWorks() {
  {section.processTitle}
  </h3>
  <div className="mt-7 overflow-hidden rounded-[1.5rem] border border-mehr-deep/8 bg-mehr-panel shadow-soft">
- <img
+ <OptImg
  src="/about/engagement-path.jpg"
  alt="A calm planning conversation - aligning on the path ahead together"
+ width={800}
+ height={600}
  className="aspect-[4/3] h-auto max-h-[min(36vh,18rem)] w-full object-cover object-center"
  loading="lazy"
  decoding="async"
@@ -185,9 +188,11 @@ export default function HowItWorks() {
  {section.processTitle}
  </h3>
  <div className="mx-auto mt-3 max-w-md overflow-hidden rounded-[1.1rem] border border-mehr-deep/8 bg-mehr-panel shadow-soft">
- <img
+ <OptImg
  src="/about/engagement-path.jpg"
  alt="A calm planning conversation - aligning on the path ahead together"
+ width={800}
+ height={450}
  className="aspect-[16/9] h-auto max-h-[7.25rem] w-full object-cover object-center sm:max-h-[9rem]"
  loading="lazy"
  decoding="async"

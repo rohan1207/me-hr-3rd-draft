@@ -6,6 +6,7 @@ import { caseStudies, caseStudiesContent, ctas } from "../data/content";
 import PageSEO from "../components/ui/PageSEO";
 import Reveal from "../components/ui/Reveal";
 import CTABanner from "../components/ui/CTABanner";
+import OptImg from "../components/ui/OptImg";
 
 function imageForStudy(study) {
  return study?.image || "/case-studies/hero.jpg";
@@ -49,9 +50,13 @@ export default function CaseStudyArticle() {
 
  <Reveal delay={0.08}>
  <div className="mt-6 overflow-hidden rounded-[1.25rem] sm:mt-10 sm:rounded-[1.75rem]">
- <img
+ <OptImg
  src={image}
  alt=""
+ width={1200}
+ height={600}
+ fetchPriority="high"
+ decoding="async"
  className="aspect-[16/10] min-h-[160px] w-full object-cover sm:aspect-[21/9] sm:min-h-[260px]"
  />
  </div>
@@ -128,9 +133,13 @@ export default function CaseStudyArticle() {
  className="group w-[min(78vw,18.5rem)] shrink-0 snap-center overflow-hidden rounded-[1.25rem] border border-mehr-deep/8 bg-white shadow-soft transition hover:-translate-y-1 hover:border-mehr-deep/18 hover:shadow-float sm:w-auto sm:rounded-[1.5rem]"
  >
  <div className="aspect-[16/10] overflow-hidden">
- <img
+ <OptImg
  src={imageForStudy(item)}
  alt=""
+ width={640}
+ height={400}
+ loading="lazy"
+ decoding="async"
  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
  />
  </div>

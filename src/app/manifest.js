@@ -1,5 +1,7 @@
 import { SITE } from "@/lib/seo";
 
+export const dynamic = "force-static";
+
 /** @returns {import('next').MetadataRoute.Manifest} */
 export default function manifest() {
   return {
